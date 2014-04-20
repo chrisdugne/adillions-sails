@@ -1,3 +1,37 @@
 {
-  "Welcome": "Welcome"
+  "Welcome": "Bienvenue",
+  "adillions_meta_title": "Adillions : Loterie gratuite avec des gains d'argent réel",
+  "adillions_meta_desc": ">Adillions is a simple and free lottery game with real cash prizes funded by video advertising",
+  "ui" : {
+    "closeBtn": "Close",
+    "prev": "Previous",
+    "next": "Next",
+    "back": "Back",
+    "cancel": "Cancel",
+    "submit": "Reply",
+    "comment": "Comment",
+    "remove": "Delete",
+    "private": "Private",
+    "close": "Close",
+    "retry": "Retry",
+    "language":"Language",
+    "help": "Help",
+    "continue": "Continue",
+    "like": "Like",
+    "unlike": "Unlike",
+    "invite": "Invite",
+    "email": "Email",
+    "name": "First name",
+    "password": "Password",
+    "search": "Search",
+    "advancedSearch": "Advanced search",
+    "notifications": "Alerts",
+    "publish": "Post",
+    "refresh": "Refresh",
+    "loading": "Loading",
+    "logout": "Log out",
+    "login": "Log in",
+    "register": "Sign up",
+    "error" : "An error occurred"
+  }
 }
