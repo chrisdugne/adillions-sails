@@ -27,14 +27,8 @@ var jsFilesToInject = [
 	'bower_components/jquery/jquery.js',
 	'bower_components/i18next/i18next.js',
 	'bower_components/underscore/underscore.js',
-
-	// Specific Dependencies like sails.io.js
-	// are brought in here
-	'js/dependencies/**/*.js',
-
-	// All of the rest of your client-side js files
-	// will be injected here in no particular order.
-	'js/**/*.js'
+  // Bring Bootstrap's components to life with over a dozen custom jQuery plugins (http://getbootstrap.com/javascript/)
+  // 'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js',
 ];
 
 
