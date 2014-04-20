@@ -51,9 +51,9 @@ module.exports = function(grunt) {
 				appRoot: '.tmp/public'
 			},
 			files: {
-				'.tmp/public/**/*.html': ['.tmp/public/min/production.js'],
-				'views/**/*.html': ['.tmp/public/min/production.js'],
-				'views/**/*.handlebars': ['.tmp/public/min/production.js']
+				'.tmp/public/**/*.html': ['.tmp/public/scripts/main.js'],
+				'views/**/*.html': ['.tmp/public/scripts/main.js'],
+				'views/**/*.handlebars': ['.tmp/public/scripts/main.js']
 			}
 		},
 
@@ -66,9 +66,9 @@ module.exports = function(grunt) {
 				relative: true
 			},
 			files: {
-				'.tmp/public/**/*.html': ['.tmp/public/min/production.js'],
-				'views/**/*.html': ['.tmp/public/min/production.js'],
-				'views/**/*.handlebars': ['.tmp/public/min/production.js']
+				'.tmp/public/**/*.html': ['.tmp/public/scripts/main.js'],
+				'views/**/*.html': ['.tmp/public/scripts/main.js'],
+				'views/**/*.handlebars': ['.tmp/public/scripts/main.js']
 			}
 		},
 
@@ -111,9 +111,9 @@ module.exports = function(grunt) {
 				appRoot: '.tmp/public'
 			},
 			files: {
-				'.tmp/public/index.html': ['.tmp/public/min/production.css'],
-				'views/**/*.html': ['.tmp/public/min/production.css'],
-				'views/**/*.handlebars': ['.tmp/public/min/production.css']
+        '.tmp/public/**/*.html': require('../pipeline').cssFilesToInject,
+        'views/**/*.html': require('../pipeline').cssFilesToInject,
+        'views/**/*.handlebars': require('../pipeline').cssFilesToInject
 			}
 		},
 
@@ -126,9 +126,9 @@ module.exports = function(grunt) {
 				relative: true
 			},
 			files: {
-				'.tmp/public/index.html': ['.tmp/public/min/production.css'],
-				'views/**/*.html': ['.tmp/public/min/production.css'],
-				'views/**/*.handlebars': ['.tmp/public/min/production.css']
+        '.tmp/public/**/*.html': require('../pipeline').cssFilesToInject,
+        'views/**/*.html': require('../pipeline').cssFilesToInject,
+        'views/**/*.handlebars': require('../pipeline').cssFilesToInject
 			}
 		},
 
