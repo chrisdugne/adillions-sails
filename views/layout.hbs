@@ -10,20 +10,33 @@
     <meta content="{{language.code}}" http-equiv="Content-Language">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     {{#unless robots}}
     <meta name="robots" content="follow,index">
     {{else}}
     <meta name="robots" content="{{robots}}">
     {{/unless}}
+
+    {{#if usePopTitle}}
+     {{#pop "title"}}{{/pop}}
+    {{else}}
     <title>{{#if title}}{{title}}{{else}}{{i18n 'adillions_meta_title'}}{{/if}}</title>
+    {{/if}}
+
+    {{#pop "meta"}}{{/pop}}
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/main.css">
     <!--STYLES END-->
+    {{#pop "styles"}}{{/pop}}
+
+    {{> 'analytics'}}
   </head>
   <body>
+    {{> 'header_private'}}
     <main id="content" class="page-content fluid-container">
-     {{{body}}}
+    {{{body}}}
     </main>
+    {{> 'footer_private'}}
     <!--TEMPLATES-->
     <!--TEMPLATES END-->
     <!--SCRIPTS-->
@@ -31,5 +44,6 @@
     <script src="/bower_components/i18next/i18next.js"></script>
     <script src="/bower_components/underscore/underscore.js"></script>
     <!--SCRIPTS END-->
+    {{#pop "scripts"}}{{/pop}}
   </body>
 </html>
