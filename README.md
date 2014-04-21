@@ -13,7 +13,7 @@ First make sure that you have correctly installed the __latest__ versions of the
 
 ## Installation
 
-1. Clone the repository somewhere inside you Home directory: `git clone https://github.com/**/*.git`
+1. Clone the repository somewhere inside you Home directory: `git clone https://github.com/LukeParis/adillions-next.git`
 2. `cd` to the created directory.
 2. Get all Node dependencies through [npm](https://npmjs.org/): `npm install`
 3. Get all client dependencies through [bower](http://bower.io/): `bower install`
