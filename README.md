@@ -20,7 +20,6 @@ First make sure that you have correctly installed the __latest__ versions of the
 
 ## Start the server:
 
-* Install or update dependencies : `bower install` ||  `bower update`.
 * Run app : `sails lift`.
 * Run app as production: `sails lift --prod`.
 
