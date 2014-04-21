@@ -10,13 +10,15 @@
  * For usage docs see:
  * 		https://github.com/gruntjs/grunt-contrib-concat
  */
+
+var files = require('../build/profile');
+
 module.exports = function(grunt) {
 
 	grunt.config.set('concat', {
-		js: {
-			src: require('../pipeline').jsFilesToInject,
-			dest: '.tmp/public/concat/main.js'
-		}
+    dev: {
+      files: files
+    }
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-concat');

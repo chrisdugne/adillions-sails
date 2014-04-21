@@ -25,6 +25,11 @@ module.exports.bootstrap = function (cb) {
   // register all helpers located in '/helpers' folder
   hbshelpers.templating.register(hbs);
   hbshelpers.misc.register(hbs)
+  hbshelpers.pagination.register(hbs);
+  hbshelpers.statics.register(hbs, {
+    mapping: require('./assets.json'),
+    hostname: sails.config.static_resources_proxies
+  })
 
   // It's very important to trigger this callack method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)

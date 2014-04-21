@@ -8,30 +8,6 @@
  * for matching multiple files.)
  */
 
-
-
-// CSS files to inject in order
-//
-// (if you're using LESS with the built-in default config, you'll want
-//  to change `assets/styles/importer.less` instead.)
-var cssFilesToInject = [
-	'styles/main.css'
-];
-
-
-// Client-side javascript files to inject in order
-// (uses Grunt-style wildcard/glob/splat expressions)
-var jsFilesToInject = [
-	// libraries Dependencies like Jquery, Underscore, Ember
-	// are brought in here
-	'bower_components/jquery/jquery.js',
-	'bower_components/i18next/i18next.js',
-	'bower_components/underscore/underscore.js',
-  // Bring Bootstrap's components to life with over a dozen custom jQuery plugins (http://getbootstrap.com/javascript/)
-  // 'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js',
-];
-
-
 // Client-side HTML templates are injected using the sources below
 // The ordering of these templates shouldn't matter.
 // (uses Grunt-style wildcard/glob/splat expressions)
@@ -45,22 +21,6 @@ var templateFilesToInject = [
 	'templates/**/*.html'
 ];
 
-
-
-
-
-
-
-
-// Prefix relative paths to source files so they point to the proper locations
-// (i.e. where the other Grunt tasks spit them out, or in some cases, where
-// they reside in the first place)
-module.exports.cssFilesToInject = cssFilesToInject.map(function(path) {
-	return '.tmp/public/' + path;
-});
-module.exports.jsFilesToInject = jsFilesToInject.map(function(path) {
-	return '.tmp/public/' + path;
-});
 module.exports.templateFilesToInject = templateFilesToInject.map(function(path) {
 	return 'assets/' + path;
 });

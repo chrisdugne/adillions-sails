@@ -14,124 +14,6 @@
 module.exports = function(grunt) {
 
 	grunt.config.set('sails-linker', {
-		devJs: {
-			options: {
-				startTag: '<!--SCRIPTS-->',
-				endTag: '<!--SCRIPTS END-->',
-				fileTmpl: '<script src="%s"></script>',
-				appRoot: '.tmp/public'
-			},
-			files: {
-				'.tmp/public/**/*.html': require('../pipeline').jsFilesToInject,
-				'views/**/*.html': require('../pipeline').jsFilesToInject,
-				'views/**/*.handlebars': require('../pipeline').jsFilesToInject
-			}
-		},
-
-		devJsRelative: {
-			options: {
-				startTag: '<!--SCRIPTS-->',
-				endTag: '<!--SCRIPTS END-->',
-				fileTmpl: '<script src="%s"></script>',
-				appRoot: '.tmp/public',
-				relative: true
-			},
-			files: {
-				'.tmp/public/**/*.html': require('../pipeline').jsFilesToInject,
-				'views/**/*.html': require('../pipeline').jsFilesToInject,
-				'views/**/*.handlebars': require('../pipeline').jsFilesToInject
-			}
-		},
-
-		prodJs: {
-			options: {
-				startTag: '<!--SCRIPTS-->',
-				endTag: '<!--SCRIPTS END-->',
-				fileTmpl: '<script src="%s"></script>',
-				appRoot: '.tmp/public'
-			},
-			files: {
-				'.tmp/public/**/*.html': ['.tmp/public/scripts/main.js'],
-				'views/**/*.html': ['.tmp/public/scripts/main.js'],
-				'views/**/*.handlebars': ['.tmp/public/scripts/main.js']
-			}
-		},
-
-		prodJsRelative: {
-			options: {
-				startTag: '<!--SCRIPTS-->',
-				endTag: '<!--SCRIPTS END-->',
-				fileTmpl: '<script src="%s"></script>',
-				appRoot: '.tmp/public',
-				relative: true
-			},
-			files: {
-				'.tmp/public/**/*.html': ['.tmp/public/scripts/main.js'],
-				'views/**/*.html': ['.tmp/public/scripts/main.js'],
-				'views/**/*.handlebars': ['.tmp/public/scripts/main.js']
-			}
-		},
-
-		devStyles: {
-			options: {
-				startTag: '<!--STYLES-->',
-				endTag: '<!--STYLES END-->',
-				fileTmpl: '<link rel="stylesheet" href="%s">',
-				appRoot: '.tmp/public'
-			},
-
-			files: {
-				'.tmp/public/**/*.html': require('../pipeline').cssFilesToInject,
-				'views/**/*.html': require('../pipeline').cssFilesToInject,
-				'views/**/*.handlebars': require('../pipeline').cssFilesToInject
-			}
-		},
-
-		devStylesRelative: {
-			options: {
-				startTag: '<!--STYLES-->',
-				endTag: '<!--STYLES END-->',
-				fileTmpl: '<link rel="stylesheet" href="%s">',
-				appRoot: '.tmp/public',
-				relative: true
-			},
-
-			files: {
-				'.tmp/public/**/*.html': require('../pipeline').cssFilesToInject,
-				'views/**/*.html': require('../pipeline').cssFilesToInject,
-				'views/**/*.handlebars': require('../pipeline').cssFilesToInject
-			}
-		},
-
-		prodStyles: {
-			options: {
-				startTag: '<!--STYLES-->',
-				endTag: '<!--STYLES END-->',
-				fileTmpl: '<link rel="stylesheet" href="%s">',
-				appRoot: '.tmp/public'
-			},
-			files: {
-        '.tmp/public/**/*.html': require('../pipeline').cssFilesToInject,
-        'views/**/*.html': require('../pipeline').cssFilesToInject,
-        'views/**/*.handlebars': require('../pipeline').cssFilesToInject
-			}
-		},
-
-		prodStylesRelative: {
-			options: {
-				startTag: '<!--STYLES-->',
-				endTag: '<!--STYLES END-->',
-				fileTmpl: '<link rel="stylesheet" href="%s">',
-				appRoot: '.tmp/public',
-				relative: true
-			},
-			files: {
-        '.tmp/public/**/*.html': require('../pipeline').cssFilesToInject,
-        'views/**/*.html': require('../pipeline').cssFilesToInject,
-        'views/**/*.handlebars': require('../pipeline').cssFilesToInject
-			}
-		},
-
 		// Bring in JST template object
 		devTpl: {
 			options: {
@@ -143,7 +25,7 @@ module.exports = function(grunt) {
 			files: {
 				'.tmp/public/index.html': ['.tmp/public/jst.js'],
 				'views/**/*.html': ['.tmp/public/jst.js'],
-				'views/**/*.handlebars': ['.tmp/public/jst.js']
+				'views/**/*.hbs': ['.tmp/public/jst.js']
 			}
 		}
 	});

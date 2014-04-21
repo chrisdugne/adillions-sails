@@ -12,9 +12,20 @@
 module.exports = function(grunt) {
 
 	grunt.config.set('uglify', {
+    options: {
+      preserveComments: false,
+      compress: {
+        dead_code: true
+      }
+    },
 		dist: {
-			src: ['.tmp/public/concat/main.js'],
-			dest: '.tmp/public/scripts/main.js'
+    files: [{
+      expand: true,
+      cwd: '.tmp/public/scripts/',
+      src: ['*.js'],
+      dest: '.tmp/public/scripts/',
+      ext: '.js'
+    }]
 		}
 	});
 
