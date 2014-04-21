@@ -33,5 +33,9 @@
     "login": "Se connecter",
     "register": "S'inscrire",
     "error" : "Une erreur est survenue"
+  },
+  "about" : {
+    "meta_title" : "A propos du jeu de loterie Adillions",
+    "meta_desc" : "Adillions est un jeu de loterie simple et gratuit avec des gains d'argent réel financés par la publicité vidéo"
   }
 }
