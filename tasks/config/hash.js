@@ -13,8 +13,8 @@ module.exports = function(grunt) {
   grunt.config.set('hash', {
     options: {
       mapping: 'config/assets.json',
-      srcBasePath: '.tmp/public/',
-      destBasePath: '.tmp/public/',
+      srcBasePath: '.tmp/public',
+      destBasePath: '.tmp/public',
       flatten: false
     },
     scripts: {
