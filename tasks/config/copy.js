@@ -31,7 +31,15 @@ module.exports = function(grunt) {
 				src: ['**/*.!(coffee|less|scss|sass)'],
 				dest: 'www'
 			}]
-		}
+		},
+    /*
+     sprites : copy  from 'static css' to 'scss partials', to import it into main.scss
+     */
+    sprites: {
+      files: {
+        'assets/styles/_partials/_sprites.scss': '.tmp/compass/package.css'
+      }
+    }
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-copy');
