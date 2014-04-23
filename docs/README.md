@@ -4,9 +4,12 @@ This document explains conventions and tactics to be used when developing on Adi
 
 You have to read it and contribute to it !
 
-- Grunt tasks
 - [General code conventions](conventions.md)
 - [Css conventions](css.md)
 - [Git practices](git.md)
 
+TODO:
 
+- Grunt tasks
+- heroku preprod
+- local configurations
