@@ -5,7 +5,6 @@
 - [Don't use IDs in selectors](#dont-use-ids-in-selectors)
 - [Use `em`](#use-em-for-css-lengths)
 - [Use different HTML classes for CSS and JS](#use-different-html-classes-for-your-css-and-your-javascript)
-- [RTL Styling](#rtl-styling)
 - [Creating sprite](#creating-spritesheets)
 
 ## Don't use units for CSS length at 0
