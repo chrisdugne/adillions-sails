@@ -19,13 +19,13 @@ module.exports = function(grunt) {
       }
     },
 		dist: {
-    files: [{
-      expand: true,
-      cwd: '.tmp/public/scripts/',
-      src: ['*.js'],
-      dest: '.tmp/public/scripts/',
-      ext: '.js'
-    }]
+      files: [{
+        expand: true,
+        cwd: '.tmp/public/scripts/',
+        src: ['*.js'],
+        dest: '.tmp/public/scripts/',
+        ext: '.js'
+      }]
 		}
 	});
 

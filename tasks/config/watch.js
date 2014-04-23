@@ -12,6 +12,9 @@
  * 		https://github.com/gruntjs/grunt-contrib-watch
  *
  */
+
+var styleExtensions = '{css,scss,sass}';
+
 module.exports = function(grunt) {
 
 	grunt.config.set('watch', {
@@ -20,13 +23,14 @@ module.exports = function(grunt) {
 			// API files to watch:
 			files: ['api/**/*']
 		},
+
 		assets: {
 
 			// Assets to watch:
 			files: ['assets/**/*', 'tasks/pipeline.js'],
 
 			// When assets are changed:
-			tasks: ['syncAssets' , 'linkAssets']
+			tasks: ['syncAssets']
 		}
 	});
 
