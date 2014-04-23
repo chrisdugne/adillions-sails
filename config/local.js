@@ -67,6 +67,8 @@ module.exports = {
 
   environment: process.env.NODE_ENV || 'development',
 
-  static_resources_proxies : process.env.CDN_SUMO_URL ? [process.env.CDN_SUMO_URL] : ['']
+  // Wait a CDN like CDN SUMO
+  // static_resources_proxies : process.env.CDN_SUMO_URL ? [process.env.CDN_SUMO_URL] : ['']
+  static_resources_proxies : ['']
 
 };

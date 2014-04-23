@@ -28,7 +28,7 @@ module.exports.bootstrap = function (cb) {
   hbshelpers.pagination.register(hbs);
   hbshelpers.statics.register(hbs, {
     mapping: require('./assets.json'),
-    hostname: sails.config.static_resources_proxies
+    hostname: sails.config.static_resources_proxies //provide in config/local.js
   })
 
   // It's very important to trigger this callack method when you are finished
