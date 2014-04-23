@@ -9,7 +9,7 @@ Sections above are specific guidelines you have to follow and rules we want to p
 We are currently following simple editor configuration rules.
 
 - Always use **UTF-8** for text files
-- Indent with **2 spaces** (like the tetra.io codebase)
+- Indent with **2 spaces**
 - Always insert a blankline at end of files ([explanations](http://stackoverflow.com/questions/729692/why-should-files-end-with-a-newline))
 - Don't leave blank characters at end of lines
 
