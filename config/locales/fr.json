@@ -1,8 +1,7 @@
 {
   "Welcome": "Bienvenue",
   "adillions_meta_title": "Adillions : Loterie gratuite avec des gains d'argent réel",
-  "adillions_meta_desc": "Adillions est un jeu de loterie gratuit avec des gains réels et redistribué à des organismes de bienfaisance. Disponible sur mobile ios et android.
-",
+  "adillions_meta_desc": "Adillions est un jeu de loterie gratuit avec des gains. Disponible sur mobile ios et android. réels et redistribué à des organismes de bienfaisance",
   "ui" : {
     "closeBtn": "Fermer",
     "prev": "Précedent",
@@ -34,8 +33,8 @@
     "register": "S'inscrire",
     "error" : "Une erreur est survenue"
   },
-  "about" : {
-    "meta_title" : "A propos du jeu de loterie Adillions",
-    "meta_desc" : "Adillions est un jeu de loterie simple et gratuit avec des gains d'argent réel financés par la publicité vidéo"
-  }
+"about" : {
+  "meta_title" : "A propos du jeu de loterie Adillions",
+  "meta_desc" : "Adillions est un jeu de loterie simple et gratuit avec des gains d'argent réel financés par la publicité vidéo"
+}
 }

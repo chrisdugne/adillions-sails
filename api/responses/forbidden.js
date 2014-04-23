@@ -3,7 +3,7 @@
  *
  * Usage:
  * return res.forbidden('Access denied.');
- * 
+ *
  * @param {String|Object|Array} message
  *      optional message to inject into view locals or JSON response
  *
@@ -14,7 +14,7 @@ module.exports = function forbidden(message) {
   // Get access to `req`, `res`, `sails`
   var req = this.req;
   var res = this.res;
-  var sails = req._sails;
+  //var sails = req._sails;
 
   var viewFilePath = '403';
   var statusCode = 403;

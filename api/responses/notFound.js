@@ -14,7 +14,7 @@ module.exports = function notFound() {
   // Get access to `req`, `res`, `sails`
   var req = this.req;
   var res = this.res;
-  var sails = req._sails;
+  //var sails = req._sails;
 
   var viewFilePath = '404';
   var statusCode = 404;

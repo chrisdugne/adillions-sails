@@ -1,6 +1,6 @@
 /**
  * Default 200 (OK) Handler
- * 
+ *
  * @param  {Object} data
  * @param  {Boolean|String} viewOrRedirect
  *         [optional]
@@ -10,7 +10,7 @@
  */
 
 module.exports = function sendOK (data, viewOrRedirect) {
-	
+
 	var req = this.req;
 	var res = this.res;
 
@@ -18,16 +18,19 @@ module.exports = function sendOK (data, viewOrRedirect) {
 	if (req.wantsJSON || !viewOrRedirect) {
 		if ( req.options.jsonp && !req.isSocket ) {
 			return res.jsonp(data);
-		}
-		else return res.json(data);
+		} else {
+		  return res.json(data);
+    }
 	}
 
 	// Serve HTML view or redirect to specified URL
 	if (typeof viewOrRedirect === 'string') {
 		if (viewOrRedirect.match(/^(\/|http:\/\/|https:\/\/)/)) {
 			return res.redirect(viewOrRedirect);
-		}
-		else return res.view(viewOrRedirect, data);
-	}
-	else return res.view(data);
+		} else {
+      return res.view(viewOrRedirect, data);
+    }
+	} else {
+	 return res.view(data);
+  }
 };
