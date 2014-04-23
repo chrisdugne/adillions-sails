@@ -25,33 +25,9 @@ First make sure that you have correctly installed the __latest__ versions of the
 
 Visit [http://localhost:1337/](http://localhost:1337/) in your browser.
 
-## Setup Postgresql server:
+## Docs:
 
-### Heroku
-
-Get connection informations at [https://postgres.heroku.com/databases/](https://postgres.heroku.com/databases/)
-
-1. `heroku config:set PG_DATABASE=*`
-2. `heroku config:set PG_HOSTNAME=*`
-3. `heroku config:set PG_PASSWORD=*`
-4. `heroku config:set PG_PORT=*`
-5. `heroku config:set PG_USER=*`
-
-### Local
-
-  Add local adaptaters config at : `/config/local.js`
-
-    adapters: {
-      'default': 'postgresql',
-      postgresql: {
-        module: 'sails-postgresql',
-        host: 'localhost',
-        user: *,
-        password: *,
-        database: *,
-        port: *,
-        ssl: false
-      }
+Get informations : [Code and development doctrine](https://github.com/LukeParis/adillions-next/tree/master/docs)
 
 ## Tutorials:
 
