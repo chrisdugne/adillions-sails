@@ -84,8 +84,6 @@ Refactoring CSS or JavaScript becomes a very dangerous work when styles and scri
 
 If you update a code you don't know and change the classname, you might break the design or the client interactions. That's why we need to use on an element with styles and scripts, two differents HTML classes, one for each job.
 
-[Check JS client-side documentation to know how to name your JavaScript HTML classes](https://github.com/viadeo/viadeo-webapp/blob/develop/docs/client-side-js.md#how-to-name-html-classes-used-for-javascript)
-
 ## Creating spritesheets
 
 Grunt task for converting a set of images into a spritesheet and corresponding CSS variables.
