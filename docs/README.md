@@ -7,7 +7,5 @@ You have to read it and contribute to it !
 - Grunt tasks
 - [General code conventions](conventions.md)
 - [Git practices](git.md)
-- [SEO Policy](seo.md)
-- 
 
 
