@@ -5,8 +5,9 @@ This document explains conventions and tactics to be used when developing on Adi
 You have to read it and contribute to it !
 
 - Grunt tasks
-- [General code conventions](code-conventions.md)
+- [General code conventions](conventions.md)
 - [Git practices](git.md)
 - [SEO Policy](seo.md)
+- 
 
 
