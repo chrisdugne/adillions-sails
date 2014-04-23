@@ -6,6 +6,7 @@ You have to read it and contribute to it !
 
 - Grunt tasks
 - [General code conventions](conventions.md)
+- [Css conventions](css.md)
 - [Git practices](git.md)
 
 
