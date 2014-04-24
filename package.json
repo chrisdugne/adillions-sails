@@ -39,7 +39,7 @@
   "scripts": {
     "start": "node app.js",
     "debug": "node debug app.js",
-    "postinstall": "bower update && grunt buildProd"
+    "postinstall": "bower update"
   },
   "main": "app.js",
   "repository": {
