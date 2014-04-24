@@ -9,11 +9,16 @@
 module.exports = function(grunt) {
 
   grunt.config.set('imagemin', {
+    options : {
+      optimizationLevel: 2, // default:7 (very slow)
+      pngquant: false,
+      progressive: false,
+    },
     prod: {
       files: [{
         expand: true,
-        cwd: './assets/images',
-        src: ['**/*.{png,jpg,gif}'],
+        cwd: 'assets/images/',
+        src: ['**/*.{png,jpg}', '!sprites/**', 'sprites/*.{png,jpg}'], // all files expect sprites src
         dest: '.tmp/public/images/'
       }]
     }

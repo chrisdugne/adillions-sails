@@ -14,6 +14,9 @@
 
 module.exports = function(grunt) {
 
+  // Displays the execution time of grunt tasks
+  // https://github.com/sindresorhus/time-grunt
+  require('time-grunt')(grunt);
 
 	// Load the include-all library in order to require all of our grunt
 	// configurations and task registrations dynamically.
@@ -62,16 +65,15 @@ module.exports = function(grunt) {
 		}
 	}
 
-
-
-
 	// Load task functions
 	var taskConfigurations = loadTasks('./tasks/config'),
 		registerDefinitions = loadTasks('./tasks/register');
 
 	// (ensure that a default task exists)
 	if (!registerDefinitions.default) {
-		registerDefinitions.default = function (grunt) { grunt.registerTask('default', []); };
+		registerDefinitions.default = function (grunt) {
+      grunt.registerTask('default', []);
+    };
 	}
 
 	// Run task functions to configure Grunt.
