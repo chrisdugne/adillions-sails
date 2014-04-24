@@ -8,7 +8,7 @@
     "html5shiv": "~3.7.0",
     "json2": "latest",
     "bourbon": "~3.1.8",
-    "bootstrap-sass-official": "~3.1.1+1",
+    "bootstrap-sass-official": "~3.1.1",
     "colors": "~0.2.0"
   }
 }
