@@ -5,6 +5,7 @@
   "description": "Adillions node.js webapp",
   "keywords": [],
   "dependencies": {
+    "bower": "latest",
     "sails": "~0.10.0-rc5",
     "sails-disk": "~0.10.0",
     "rc": "~0.3.3",
@@ -38,7 +39,7 @@
   "scripts": {
     "start": "node app.js",
     "debug": "node debug app.js",
-    "postinstall": "bower install"
+    "postinstall": "bower update && grunt buildProd"
   },
   "main": "app.js",
   "repository": {
