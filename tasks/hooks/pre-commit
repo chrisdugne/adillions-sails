@@ -1,25 +1,20 @@
 #!/bin/sh
 
-##
-Retrieve file changes related to commit#
-files = $(git diff--cached--name - only--diff - filter = ACM)
-if ["$files" = ""];
-then
-printf "No files to check!\n"
-exit 0
+#
+# Retrieve file changes related to commit
+#
+files=$(git diff --cached --name-only --diff-filter=ACM)
+if [ "$files" = "" ]; then
+  printf "No files to check!\n"
+  exit 0
 fi
 
-# Pass through JSHint validator
-for * .js files in the commit
-pass = true
+# Pass through JSHint validator for *.js files in the commit
+pass=true
 printf "\e[4mRunning JShint validation...\e[0m\n"
-for file in $ {
-  files
-};
-do
-  if [["$file" == * .js]]; then
-if [["$file" == * /assets/scripts
-    /* ]]; then
+for file in ${files}; do
+  if [[ "$file" == *.js ]]; then
+    if [[ "$file" == */assets/scripts/* ]]; then
       result=$(jshint --config .jshintrc ${file})
     else
      result=$(jshint --config .node.jshintrc ${file})
@@ -35,7 +30,7 @@ done
 
 if ! $pass; then
   printf "\e[31mCOMMIT CANCELLED:\e[0m some files in your commit failed JSHint validation!\n"
-  printf "Run 'grunt jshint' and fix the errors.\n"
+  printf "Run 'grunt validate' and fix the errors.\n"
   exit 1
 fi
 
@@ -52,4 +47,3 @@ if ! $pass; then
   printf "Run 'grunt tidy && git add .' before committing.\n"
   exit 1
 fi
-*/

@@ -16,6 +16,7 @@ module.exports = function (grunt) {
         'tasks/**/*.js',
         'api/**/*.js',
         'config/**/*.js',
+        'assets/**/*.js',
         '!assets/bower_components/**'
       ],
       options: {
@@ -33,6 +34,7 @@ module.exports = function (grunt) {
         'tasks/**/*.js',
         'api/**/*.js',
         'config/**/*.js',
+        'assets/**/*.js',
         '!assets/bower_components/**'
       ],
       options: {
