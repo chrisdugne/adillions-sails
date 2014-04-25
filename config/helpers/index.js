@@ -5,24 +5,29 @@
  *
  */
 var fs = require('fs'),
-    path = require('path');
+  path = require('path');
 
 var helpers = {};
 var Helpers;
-exports = module.exports = function() { return Helpers; };
+exports = module.exports = function () {
+  return Helpers;
+};
 
 // load all helpers located in '/helpers' folder
-fs.readdirSync(__dirname).forEach(function(filename) {
-  if (!/\.js$/.test(filename)) { return; }
+fs.readdirSync(__dirname).forEach(function (filename) {
+  if (!/\.js$/.test(filename)) {
+    return;
+  }
 
   var name = path.basename(filename, '.js');
 
-  function loadHelper() { return require('./' + name); }
+  function loadHelper() {
+    return require('./' + name);
+  }
 
   helpers[name] = loadHelper();
   exports.__defineGetter__(name, loadHelper);
 });
-
 
 // allow global registration and consultation of existing helpers
 Helpers = {
@@ -31,7 +36,7 @@ Helpers = {
    *
    * @return {Array} Array of string containing names of each helpers
    */
-  listAll: function() {
+  listAll: function () {
     var names = [];
     for (var name in helpers) {
       names.push(name);
@@ -48,7 +53,7 @@ Helpers = {
    *
    * @return {Array} same as listAll() method
    */
-  registerAll : function(hbs, config) {
+  registerAll: function (hbs, config) {
     // sanity check
     if (typeof hbs !== 'object') {
       throw new Error('Expecting first parameter to be an instance of Handlebars');

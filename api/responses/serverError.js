@@ -11,7 +11,7 @@
  * error is encountered, Sails will call `res.serverError()`.
  */
 
-module.exports = function serverError (errors) {
+module.exports = function serverError(errors) {
 
   // Get access to `req`, `res`, `sails`
   var req = this.req;
@@ -60,7 +60,6 @@ module.exports = function serverError (errors) {
     return res.json(result);
   }
 
-
   // Make data more readable for view locals
   var locals = _.mapValues(result, function readabilify(value) {
     if (sails.util.isArray(value)) {
@@ -72,9 +71,8 @@ module.exports = function serverError (errors) {
     }
   });
 
-
   // And try to render view
-  res.render(viewFilePath, locals, function(err) {
+  res.render(viewFilePath, locals, function (err) {
     // But if the view doesn't exist, or a rendering error occured, just send JSON
     if (err) {
       return res.json(result);

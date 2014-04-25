@@ -14,19 +14,17 @@ module.exports.sockets = {
   // (To control whether a socket is allowed to connect, check out `authorization` config.)
   // Keep in mind that Sails' RESTful simulation for sockets 
   // mixes in socket.io events for your routes and blueprints automatically.
-  onConnect: function(session, socket) {
+  onConnect: function (session, socket) {
 
     // By default, do nothing.
-    
+
   },
 
   // This custom onDisconnect function will be run each time a socket disconnects
-  onDisconnect: function(session, socket) {
+  onDisconnect: function (session, socket) {
 
     // By default: do nothing.
   },
-
-
 
   // `transports`
   //
@@ -34,20 +32,16 @@ module.exports.sockets = {
   // The flashsocket transport is disabled by default
   // You can enable flashsockets by adding 'flashsocket' to this list:
   transports: [
-  'websocket',
-  'htmlfile',
-  'xhr-polling',
-  'jsonp-polling'
+    'websocket',
+    'htmlfile',
+    'xhr-polling',
+    'jsonp-polling'
   ],
-
-
-
 
   // Use this option to set the datastore socket.io will use to manage rooms/sockets/subscriptions:
   // default: memory
   adapter: 'memory',
 
-  
   // Node.js (and consequently Sails.js) apps scale horizontally.
   // It's a powerful, efficient approach, but it involves a tiny bit of planning.
   // At scale, you'll want to be able to copy your app onto multiple Sails.js servers
@@ -70,8 +64,6 @@ module.exports.sockets = {
   // Worth mentioning is that, if `adapter` config is `redis`, 
   // but host/port is left unset, Sails will try to connect to redis 
   // running on localhost via port 6379 
-
-
 
   // `authorization`
   //

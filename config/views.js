@@ -33,11 +33,9 @@ module.exports.views = {
   // },
 
   engine: {
-    ext:'hbs',
+    ext: 'hbs',
     fn: require('hbs').__express
   },
-
-
 
   // Layouts are simply top-level HTML templates you can use as wrappers
   // for your server-side views.  If you're using ejs or jade, you can take advantage of
@@ -61,8 +59,6 @@ module.exports.views = {
 
   layout: 'layout'
 
-
-
   // Using Multiple Layouts with EJS
   //
   // If you're using the default engine, `ejs`, Sails supports the use of multiple
@@ -75,6 +71,5 @@ module.exports.views = {
   //
   // But you might override that in some of your controllers with:
   // layout: 'layouts/internal'
-
 
 };

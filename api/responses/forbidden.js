@@ -39,7 +39,7 @@ module.exports = function forbidden(message) {
     res.locals[key] = result[key];
   }
   // And render view
-  res.render(viewFilePath, result, function(err) {
+  res.render(viewFilePath, result, function (err) {
     // If the view doesn't exist, or an error occured, send json
     if (err) {
       return res.json(result, result.status);

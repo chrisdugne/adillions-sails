@@ -6,7 +6,7 @@
  * For usage docs see:
  *    https://github.com/sindresorhus/grunt-sass
  */
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   grunt.config.set('sass', {
     dev: {

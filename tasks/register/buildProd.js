@@ -1,13 +1,13 @@
 module.exports = function (grunt) {
-	grunt.registerTask('buildProd', [
+  grunt.registerTask('buildProd', [
     'validate',
-		'compileAssets',
+    'compileAssets',
     'cssmin',
     'imagemin',
     'strip',
     'uglify',
     'hash',
-		'clean:build',
-		'copy:build'
-	]);
+    'clean:build',
+    'copy:build'
+  ]);
 };

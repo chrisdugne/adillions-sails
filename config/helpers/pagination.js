@@ -1,9 +1,9 @@
 /**
  * Handlebars Pagination helpers
  */
-var _ = require('lodash')
-  , util = require('util')
-  , hbs = require('hbs');
+var _ = require('lodash'),
+  util = require('util'),
+  hbs = require('hbs');
 
 /**
  * Options (default options and validation method)
@@ -89,12 +89,12 @@ var helpers = {
    */
   pagination: function (params) {
 
-    var total = params.hash.total
-      , currentPage = params.hash.currentPage || options.defaultPageNumber
-      , pageSize = params.hash.nbPerPage || options.defaultPageSize
-      , htmlClass = params.hash.htmlClass || options.defaultHtmlClass
-      , displayLimit = params.hash.displayLimit || options.defaultDisplayLimit
-      , baseUrl = params.hash.baseUrl;
+    var total = params.hash.total,
+      currentPage = params.hash.currentPage || options.defaultPageNumber,
+      pageSize = params.hash.nbPerPage || options.defaultPageSize,
+      htmlClass = params.hash.htmlClass || options.defaultHtmlClass,
+      displayLimit = params.hash.displayLimit || options.defaultDisplayLimit,
+      baseUrl = params.hash.baseUrl;
 
     // sanity check
     if (typeof total !== 'number') {
@@ -146,8 +146,7 @@ var helpers = {
 
       if (pageNumber === totalPage || pageNumber === 1 || (pageNumber <= displayLimitMax && pageNumber >= displayLimitMin)) {
         html += util.format(
-          '<li%s><a href="%s"%s>%s</a></li>\n',
-          (currentPage === pageNumber) ? ' class="active"' : '',
+          '<li%s><a href="%s"%s>%s</a></li>\n', (currentPage === pageNumber) ? ' class="active"' : '',
           createPageUrl(baseUrl, pageNumber),
           relAttribute,
           pageNumber);
@@ -155,7 +154,7 @@ var helpers = {
         // We get ready to create an ellipsis if needed.
         ellipsis = true;
 
-      // If we didn't returned a link we might need to show an ellipsis
+        // If we didn't returned a link we might need to show an ellipsis
       } else if (ellipsis) {
         html += '<li class="ellipsis"><span>…</span></li>\n';
 
@@ -194,12 +193,12 @@ var helpers = {
    */
   paginationBtn: function (params) {
 
-    var total = params.hash.total
-      , pageSize = params.hash.nbPerPage || options.defaultPageSize
-      , htmlClass = params.hash.htmlClass || options.defaultBtnHtmlClass
-      , currentPage = params.hash.currentPage || options.defaultPageNumber
-      , type = params.hash.type || options.defaultBtnType
-      , baseUrl = params.hash.baseUrl;
+    var total = params.hash.total,
+      pageSize = params.hash.nbPerPage || options.defaultPageSize,
+      htmlClass = params.hash.htmlClass || options.defaultBtnHtmlClass,
+      currentPage = params.hash.currentPage || options.defaultPageNumber,
+      type = params.hash.type || options.defaultBtnType,
+      baseUrl = params.hash.baseUrl;
 
     // sanity check
     if (typeof total !== 'number') {

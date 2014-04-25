@@ -8,7 +8,7 @@
  * For usage docs see:
  *    https://github.com/jgallen23/grunt-hash
  */
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   grunt.config.set('hash', {
     options: {

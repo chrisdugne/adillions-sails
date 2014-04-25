@@ -1,11 +1,11 @@
 module.exports = function (grunt) {
-	grunt.registerTask('prod', [
+  grunt.registerTask('prod', [
     'validate',
-		'compileAssets',
+    'compileAssets',
     'cssmin',
     'imagemin',
     'strip',
-		'uglify',
+    'uglify',
     'hash'
-	]);
+  ]);
 };

@@ -9,14 +9,14 @@ var _ = require('lodash');
 var options;
 var defaultOptions = {};
 
-var validateOptions = function(opts) {
+var validateOptions = function (opts) {
   options = _.merge({}, defaultOptions, opts);
 
   // Checks
-  if ( !_.isArray( options.hostname ) ) {
+  if (!_.isArray(options.hostname)) {
     throw new Error('The hostname option must be passed to init the helper and it must be an array.');
   }
-  if ( !_.isPlainObject( options.mapping ) ) {
+  if (!_.isPlainObject(options.mapping)) {
     throw new Error('The mapping option must be passed to init the helper and it must be a plain object.');
   }
 };
@@ -61,16 +61,16 @@ var helpers = {
    * @param {String::url} path to static resource
    * @return {String::url} CDN-ized url ready for cache-busting yay
    */
-  statics : function(resource) {
+  statics: function (resource) {
 
     // Check if resource is a string
-    if ( typeof resource !== 'string' ) {
+    if (typeof resource !== 'string') {
       throw new Error('The resource path must be a string');
     }
 
     var hostname;
 
-    if ( this.staticHttpsHostname ) {
+    if (this.staticHttpsHostname) {
       hostname = options.hostnameHttps[0] && options.hostnameHttps[0].trim();
     } else {
       hostname = options.hostname[0] && options.hostname[0].trim();
@@ -89,7 +89,7 @@ var helpers = {
     }
 
     // substitute specific assets urls?
-    _.forIn(mapping, function(finalUrl, alias) {
+    _.forIn(mapping, function (finalUrl, alias) {
       if (alias === url) {
         url = finalUrl;
         return;
@@ -113,13 +113,13 @@ var helpers = {
  *   hostname => hostname depending on envrionment
  * }
  */
-module.exports.register = function(hbs, options) {
+module.exports.register = function (hbs, options) {
 
   // sanity check on options
   validateOptions(options);
 
   // register helpers in handlebars
-  _.forEach(helpers, function(helper, name) {
+  _.forEach(helpers, function (helper, name) {
     hbs.registerHelper(name, helper);
   });
 };

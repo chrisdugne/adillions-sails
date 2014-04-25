@@ -37,7 +37,6 @@ module.exports = {
   //   cert: require('fs').readFileSync(__dirname + './ssl/my_apps_ssl.crt')
   // },
 
-
   // The `port` setting determines which TCP port your app will be deployed on
   // Ports are a transport-layer concept designed to allow many different
   // networking applications run at the same time on a single computer.
@@ -50,8 +49,6 @@ module.exports = {
   // to 80 (http://) or 443 (https://) if you have an SSL certificate
 
   port: process.env.PORT || 1337,
-
-
 
   // The runtime "environment" of your Sails app is either 'development' or 'production'.
   //
@@ -69,6 +66,6 @@ module.exports = {
 
   // Wait a CDN like CDN SUMO
   // static_resources_proxies : process.env.CDN_SUMO_URL ? [process.env.CDN_SUMO_URL] : ['']
-  static_resources_proxies : ['']
+  static_resources_proxies: ['']
 
 };

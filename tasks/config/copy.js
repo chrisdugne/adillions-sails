@@ -13,25 +13,25 @@
  * For usage docs see:
  * 		https://github.com/gruntjs/grunt-contrib-copy
  */
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
-	grunt.config.set('copy', {
-		dev: {
-			files: [{
-				expand: true,
-				cwd: './assets',
-				src: ['**/*.!(coffee|less|scss|sass)', '!bower_components/**', '!images/sprites/**', 'images/sprites/*.{png,jpg}'],
-				dest: '.tmp/public'
-			}]
-		},
-		build: {
-			files: [{
-				expand: true,
-				cwd: '.tmp/public',
-				src: ['**/*.!(coffee|less|scss|sass)'],
-				dest: 'www'
-			}]
-		},
+  grunt.config.set('copy', {
+    dev: {
+      files: [{
+        expand: true,
+        cwd: './assets',
+        src: ['**/*.!(coffee|less|scss|sass)', '!bower_components/**', '!images/sprites/**', 'images/sprites/*.{png,jpg}'],
+        dest: '.tmp/public'
+      }]
+    },
+    build: {
+      files: [{
+        expand: true,
+        cwd: '.tmp/public',
+        src: ['**/*.!(coffee|less|scss|sass)'],
+        dest: 'www'
+      }]
+    },
     /*
      sprites : copy  from 'static css' to 'scss partials', to import it into main.scss
      */
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
         'assets/styles/_partials/_sprites.scss': '.tmp/compass/package.css'
       }
     }
-	});
+  });
 
-	grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 };

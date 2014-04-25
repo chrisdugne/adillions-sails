@@ -40,7 +40,7 @@ var helpers = {
    *  Also works with an {{else}} statement
    *
    */
-  nthItem : function(index, position, options) {
+  nthItem: function (index, position, options) {
 
     if (typeof index !== 'number' || typeof position !== 'number') {
       throw new Error(
@@ -81,7 +81,7 @@ var helpers = {
    *  {{/each}}
    *
    */
-  mergeContexts : function(options) {
+  mergeContexts: function (options) {
     return options.fn(_.merge({}, this, options.hash.parent));
   }
 
@@ -92,10 +92,10 @@ var helpers = {
  *
  * @param {hbs} Instance from require('hbs')
  */
-module.exports.register = function(hbs) {
+module.exports.register = function (hbs) {
 
   // register helpers in handlebars
-  _.forEach(helpers, function(helper, name) {
+  _.forEach(helpers, function (helper, name) {
     hbs.registerHelper(name, helper);
   });
 };

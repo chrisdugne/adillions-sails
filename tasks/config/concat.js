@@ -13,13 +13,13 @@
 
 var files = require('../build/profile');
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
-	grunt.config.set('concat', {
+  grunt.config.set('concat', {
     dev: {
       files: files
     }
-	});
+  });
 
-	grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 };

@@ -6,7 +6,7 @@
  * For usage docs see:
  *    https://github.com/jsoverson/grunt-strip
  */
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   grunt.config.set('strip', {
     prod: {

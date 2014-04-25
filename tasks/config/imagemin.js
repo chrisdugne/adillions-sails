@@ -6,10 +6,10 @@
  * For usage docs see:
  *    https://github.com/gruntjs/grunt-contrib-imagemin
  */
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   grunt.config.set('imagemin', {
-    options : {
+    options: {
       optimizationLevel: 2, // default:7 (very slow)
       pngquant: false,
       progressive: false,

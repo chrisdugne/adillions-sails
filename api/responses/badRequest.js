@@ -6,7 +6,7 @@
  *   'Please choose a valid `password` (6-12 characters)',
  *   '/trial/signup'
  * );
- * 
+ *
  * @param {Array|Object|String} errors
  *      optional errors
  *      usually an array of validation errors from the ORM
