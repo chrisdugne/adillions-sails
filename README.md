@@ -18,17 +18,24 @@ First make sure that you have correctly installed the __latest__ versions of the
 2. Get all Node dependencies through [npm](https://npmjs.org/): `npm install`
 3. Get all client dependencies through [bower](http://bower.io/): `bower install`
 
-## Start the server:
+## Start the server
 
 * Run app : `sails lift`.
 * Run app as production: `sails lift --prod`.
 
 Visit [http://localhost:1337/](http://localhost:1337/) in your browser.
 
-## Docs:
+## Docs
 
 Get informations : [Code and development doctrine](https://github.com/LukeParis/adillions-next/tree/master/docs)
 
-## Tutorials:
+## Tutorials
 
 **[Sails screencasts](https://www.youtube.com/playlist?list=PLf8i4fc0zJBzLhOe6FwHpGhBDgqwInJWZ)**
+
+## TODO:
+
+Handlebars helpers:
+* routeUrl: provide url from route app)
+* extUrl: provide external url)
+* setLangUrl: Generates an url containing the setLng (i18n) parameter without affecting other query string parameters
