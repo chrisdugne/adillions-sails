@@ -19,6 +19,9 @@ var validateOptions = function (opts) {
   if (!_.isPlainObject(options.mapping)) {
     throw new Error('The mapping option must be passed to init the helper and it must be a plain object.');
   }
+  if (!_.isString(options.environment)) {
+    throw new Error('The environment option must be passed to init the helper and it must be a string.');
+  }
 };
 
 /**
@@ -83,8 +86,8 @@ var helpers = {
       url = url.substr(1);
     }
 
-    // no hostname? (aka. development mode)
-    if (!hostname) {
+    var environment = options.environment;
+    if (environment === 'development') {
       return '/' + url;
     }
 
@@ -96,7 +99,11 @@ var helpers = {
       }
     });
 
-    // return FQDN
+    // hostname is empty?
+    if (_.isEmpty(hostname)) {
+      return '/' + url;
+    }
+
     return '//' + hostname + '/' + url;
   }
 };

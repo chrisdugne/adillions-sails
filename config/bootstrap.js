@@ -26,9 +26,11 @@ module.exports.bootstrap = function (cb) {
   hbshelpers.templating.register(hbs);
   hbshelpers.misc.register(hbs);
   hbshelpers.pagination.register(hbs);
+  // Sails.config object depend from all files in config/*.js
   hbshelpers.statics.register(hbs, {
     mapping: require('./assets.json'),
-    hostname: sails.config.static_resources_proxies //provide in config/local.js
+    environment: sails.config.environment,
+    hostname: sails.config.static.resources_proxies
   });
 
   // It's very important to trigger this callack method when you are finished

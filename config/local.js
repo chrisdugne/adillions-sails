@@ -62,10 +62,6 @@ module.exports = {
   // By default, Sails sets its environment using the `NODE_ENV` environment variable.
   // If NODE_ENV is not set, Sails will run in the 'development' environment.
 
-  environment: process.env.NODE_ENV || 'development',
-
-  // Wait a CDN like CDN SUMO
-  // static_resources_proxies : process.env.CDN_SUMO_URL ? [process.env.CDN_SUMO_URL] : ['']
-  static_resources_proxies: ['']
+  environment: process.env.NODE_ENV || 'development'
 
 };
