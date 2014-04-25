@@ -10,6 +10,8 @@
     "save": "Save",
     "cancel": "Cancel",
     "submit": "Reply",
+    "create": "Create",
+    "edit": "Edit",
     "comment": "Comment",
     "remove": "Delete",
     "private": "Private",
