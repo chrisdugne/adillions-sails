@@ -29,9 +29,43 @@ module.exports.routes = {
   },
 
   '/about': {
-    view: 'about',
     controller: 'about',
     action: 'index'
+  },
+
+  '/reward': {
+    controller: 'about',
+    action: 'reward'
+  },
+
+  '/press': {
+    controller: 'about',
+    action: 'press'
+  },
+
+  '/faq': {
+    controller: 'about',
+    action: 'faq'
+  },
+
+  '/jobs': {
+    controller: 'about',
+    action: 'jobs'
+  },
+
+  '/privacy': {
+    controller: 'about',
+    action: 'privacy'
+  },
+
+  '/terms': {
+    controller: 'about',
+    action: 'terms'
+  },
+
+  '/advertisers': {
+    controller: 'about',
+    action: 'advertisers'
   },
 
   // If a request to a URL doesn't match any of the custom routes above, it is matched
