@@ -1,9 +1,6 @@
 /**
  * Handlebars Misc helpers
  *
- * DISCLAIMER: This file contains helpers that haven't been yet categorized
- * Please avoid extending this file too much, prefer semantically categorized files
- * such as 'ads-helpers', 'thumbor-helpers', 'url-helpers', ...
  */
 var _ = require('lodash');
 

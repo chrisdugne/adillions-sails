@@ -11,7 +11,7 @@
 var path = require('path'),
   hbs = require('hbs'),
   hbsutils = require('hbs-utils')(hbs),
-  hbshelpers = require(path.resolve(__dirname + '/helpers'));
+  helpers = require(path.resolve(__dirname + '/helpers'));
 
 module.exports.bootstrap = function (cb) {
   // These convenience methods will register all partials (that have a *.html or *.hbs extension) in the given directory. registerPartials will perform a one-time registration.
@@ -23,14 +23,25 @@ module.exports.bootstrap = function (cb) {
   hbsutils.registerPartials(path.resolve('views/_partials'));
 
   // register all helpers located in '/helpers' folder
-  hbshelpers.templating.register(hbs);
-  hbshelpers.misc.register(hbs);
-  hbshelpers.pagination.register(hbs);
-  // Sails.config object depend from all files in config/*.js
-  hbshelpers.statics.register(hbs, {
+  helpers.templating.register(hbs);
+  helpers.misc.register(hbs);
+  helpers.pagination.register(hbs);
+
+  helpers.statics.register(hbs, {
     mapping: require('./assets.json'),
     environment: sails.config.environment,
     hostname: sails.config.static.resources_proxies
+  });
+
+  helpers.route.register(hbs, {
+    routes: sails.config.routes
+  });
+
+  helpers.extUrl.register(hbs, {
+    aliases: require('./urlAliases.json')
+  });
+  sails.config.extUrl = helpers.extUrl.getExtURLHelper({
+    aliases: require('./urlAliases.json')
   });
 
   // It's very important to trigger this callack method when you are finished

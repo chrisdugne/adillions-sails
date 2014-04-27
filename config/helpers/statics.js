@@ -57,9 +57,17 @@ var helpers = {
    *
    *  In a hbs template : {{statics '/scripts/main.js'}}
    *
-   *  This may output (for production):
+   *  This may output (for production) with hostname 'cdn.adillions.com':
    *
    *  => //cdn.adillions.com/scripts/main.c83b3e48.js
+   *
+   *  This may output (for production) without hostname:
+   *
+   *  => /scripts/main.c83b3e48.js
+   *
+   *  This may output (for development):
+   *
+   *  => /scripts/main.js
    *
    * @param {String::url} path to static resource
    * @return {String::url} CDN-ized url ready for cache-busting yay
@@ -68,7 +76,7 @@ var helpers = {
 
     // Check if resource is a string
     if (typeof resource !== 'string') {
-      throw new Error('The resource path must be a string');
+      throw new Error('The statics resource path must be a string');
     }
 
     var hostname;
