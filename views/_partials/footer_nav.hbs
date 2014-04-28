@@ -1,7 +1,31 @@
 <nav>
   <ul id="nav-footer" class="footer-main-nav">
-    {{!-- Home --}}
-    <li class="{{#if currentNavSection.home}} active{{/if}}">
+    <li>
+      <a href="{{route 'about.index' lang=locale}}">{{i18n 'about'}}</a>
+    </li>
+    <li>
+      <a href="{{route 'about.reward' lang=locale}}">{{i18n 'reward'}}</a>
+    </li>
+    <li>
+      <a href="{{route 'about.press' lang=locale}}">{{i18n 'press'}}</a>
+    </li>
+    <li>
+      <a href="{{route 'about.faq' lang=locale}}">{{i18n 'faq'}}</a>
+    </li>
+    <li>
+      <a href="{{route 'about.jobs' lang=locale}}">{{i18n 'jobs'}}</a>
+    </li>
+    <li>
+      <a href="{{route 'about.privacy' lang=locale}}">{{i18n 'privacy'}}</a>
     </li>
   </ul>
 </nav>
+
+<ul>
+  <li>
+    <a href="?setLng=en" class="phm">english</a>
+  </li>
+  <li>
+    <a href="?setLng=fr" class="phm">français</a>
+  </li>
+</ul>

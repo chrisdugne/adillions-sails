@@ -7,6 +7,7 @@
     "bower": "latest",
     "sails": "~0.10.0-rc5",
     "sails-disk": "~0.10.0",
+    "express": "3.4.3",
     "rc": "~0.3.3",
     "include-all": "~0.1.3",
     "lodash": "~2.4.1",
