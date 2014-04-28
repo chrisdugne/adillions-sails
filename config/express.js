@@ -4,6 +4,9 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#documentation
  */
+
+var express = require('express');
+
 module.exports.express = {
 
   // Completely override Express middleware loading.
@@ -27,7 +30,8 @@ module.exports.express = {
     },
     500: function (req, res, next) {
       res.serverError();
-    }
+    },
+    favicon: express.favicon('assets/images/favicon.ico')
   }
 
   // The middleware function used for parsing the HTTP request body.
