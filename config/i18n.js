@@ -12,6 +12,7 @@
 module.exports.i18n = {
 
   // Which locales are supported?
-  locales: ['en', 'fr']
+  locales: ['en', 'fr'],
+  fallback: 'en'
 
 };
