@@ -21,49 +21,49 @@
 
 module.exports.routes = {
 
-  // Make the view located at `views/homepage.ejs` (or `views/homepage.hbs`, etc. depending on your
+  // Make the view located at `views/home.hbs` (or `views/homepage.hbs`, etc. depending on your
   // default view engine) your home page.
   //
-  '/': {
+  '/:lang([a-z]{2})?': {
     view: 'home'
   },
 
-  '/about': {
+  '/:lang/about': {
     controller: 'about',
     action: 'index'
   },
 
-  '/reward': {
+  '/:lang/reward': {
     controller: 'about',
     action: 'reward'
   },
 
-  '/press': {
+  '/:lang/press': {
     controller: 'about',
     action: 'press'
   },
 
-  '/faq': {
+  '/:lang/faq': {
     controller: 'about',
     action: 'faq'
   },
 
-  '/jobs': {
+  '/:lang/jobs': {
     controller: 'about',
     action: 'jobs'
   },
 
-  '/privacy': {
+  '/:lang/privacy': {
     controller: 'about',
     action: 'privacy'
   },
 
-  '/terms': {
+  '/:lang/terms': {
     controller: 'about',
     action: 'terms'
   },
 
-  '/advertisers': {
+  '/:lang/advertisers': {
     controller: 'about',
     action: 'advertisers'
   }
