@@ -28,29 +28,43 @@ module.exports = function (req, res, next) {
   }
 
   var language = req.path.match(/\/([a-z]{2})\//),
-    languagesList = config.i18n.locales;
+    languagesList = config.i18n.locales,
+    setLng = req.query.setLng,
+    user = res.locals.user;
 
   // Public pages must have language in URL
-  if (!res.locals.user && !language) {
+  if (!user && !language) {
+    sails.log.info('Public page try to access to an url without a SEO friendly URL', {
+      path: req.path
+    });
     return res.notFound();
   }
 
   language = language[1];
 
-  // Private pages with a SEO friendly URL, trying to change the language through the footer menu
+  // Private pages with a SEO friendly URL, trying to change the language through the setLgn param
   // We redirect to URL with the lang param updated
-  if (res.locals.user && req.query.setLng && language) {
+  if (user && setLng && language) {
 
-    if (isExists(languagesList, req.query.setLng)) {
-
+    if (isExists(languagesList, setLng)) {
+      sails.log.info('Private page with a SEO friendly URL, trying to change the language through the setLgn param', {
+        path: req.path,
+        lang: language,
+        setLng: setLng
+      });
       return res.redirect(url.format({
         protocol: req.protocol,
         host: req.headers.host,
-        pathname: req.path.replace('/' + language + '/', '/' + req.query.setLng + '/'),
+        pathname: req.path.replace('/' + language + '/', '/' + setLng + '/'),
         query: _.omit(req.query, 'setLng')
       }));
     }
 
+    sails.log.info('Private page with a SEO friendly URL, trying to change the language through a bad setLgn param', {
+      path: req.path,
+      lang: language,
+      setLng: setLng
+    });
     return next();
   }
 
@@ -58,6 +72,10 @@ module.exports = function (req, res, next) {
   if (isExists(languagesList, language)) {
 
     // Update UI language
+    sails.log.info('Page with a SEO friendly URL, set the language', {
+      path: req.path,
+      lang: language
+    });
     res.setLocale(language);
     res.locals.locale = language;
     // If we don't support the language in the URL, redirect to page with supported language
@@ -77,6 +95,11 @@ module.exports = function (req, res, next) {
       });
     }
 
+    sails.log.info('Page with a SEO friendly URL, redirecting to page with supported language', {
+      path: req.path,
+      lang: language,
+      fallbackLanguage: fallbackLanguage
+    });
     return res.redirect(301, url.format({
       protocol: req.protocol,
       host: req.headers.host,
