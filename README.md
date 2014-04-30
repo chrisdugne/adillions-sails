@@ -15,8 +15,10 @@ First make sure that you have correctly installed the __latest__ versions of the
 
 1. Clone the repository somewhere inside you Home directory: `git clone https://github.com/LukeParis/adillions-next.git`
 2. `cd` to the created directory.
-2. Get all Node dependencies through [npm](https://npmjs.org/): `npm install`
-3. Get all client dependencies through [bower](http://bower.io/): `bower install`
+3. Get all Node dependencies through [npm](https://npmjs.org/): `npm install`
+4. Get all client dependencies through [bower](http://bower.io/): `bower install`
+
+Lastly, you will need to install the [bcrypt](https://github.com/TooTallNate/node-gyp/#installation) package from NPM for everything related to the authentification to work correctly.
 
 ## Start the server
 
