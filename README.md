@@ -18,8 +18,6 @@ First make sure that you have correctly installed the __latest__ versions of the
 3. Get all Node dependencies through [npm](https://npmjs.org/): `npm install`
 4. Get all client dependencies through [bower](http://bower.io/): `bower install`
 
-Lastly, you will need to install the [bcrypt](https://github.com/ncb000gt/node.bcrypt.js) package from NPM for everything related to the authentification to work correctly.
-
 During the bcrypt installation, if an error occured relating to node-gyp, please refers to [node-gyp#installation](https://github.com/TooTallNate/node-gyp/#installation)
 
 ## Start the server
