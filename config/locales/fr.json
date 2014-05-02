@@ -3,6 +3,11 @@
   "adillions_meta_title": "Adillions : Loterie gratuite avec des gains d'argent réel",
   "adillions_meta_desc": "Adillions est un jeu de loterie gratuit avec des gains. Disponible sur mobile ios et android. réels et redistribué à des organismes de bienfaisance",
 
+  "Error.Passport.Password.Wrong": "Whoa, that password wasn't quite right!",
+  "Error.Passport.Password.NotSet": "Oh no, you haven't set a password yet!",
+  "Error.Passport.Username.NotFound": "Uhm, what's your name again?",
+  "Error.Passport.Email.NotFound": "That email doesn't seem right",
+
   "ui_closeBtn": "Fermer",
   "ui_prev": "Précedent",
   "ui_next": "Suivant",

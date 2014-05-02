@@ -37,7 +37,8 @@ module.exports = function (req, res, next) {
     sails.log.info('Public page try to access to an url without a SEO friendly URL', {
       path: req.path
     });
-    return res.notFound();
+    return next();
+    //return res.notFound();
   }
 
   language = language[1];

@@ -3,6 +3,11 @@
   "adillions_meta_title": "Adillions : free lottery game with real cash prizes",
   "adillions_meta_desc": "Adillions is a simple and free lottery game (sweepstake) with real cash prizes funded by video advertising. Available on mobile ios and android.",
 
+  "Error.Passport.Password.Wrong": "Whoa, that password wasn't quite right!",
+  "Error.Passport.Password.NotSet": "Oh no, you haven't set a password yet!",
+  "Error.Passport.Username.NotFound": "Uhm, what's your name again?",
+  "Error.Passport.Email.NotFound": "That email doesn't seem right",
+
   "ui_closeBtn": "Close",
   "ui_prev": "Previous",
   "ui_next": "Next",

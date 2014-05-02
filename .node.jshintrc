@@ -27,6 +27,8 @@
     "async": true,
     "sails": true,
     "services": true,
-    "models": true
+    "models": true,
+    "Passport": true,
+    "User": true
   }
 }

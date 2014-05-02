@@ -6,8 +6,36 @@
  */
 
 module.exports = {
+  // Define a custom table name
+  tableName: 'user',
+
+  // Define an adapter to use
+  // adapter: 'postgresql',
+
+  // Enforce model schema in the case of schemaless databases
+  schema: true,
 
   attributes: {
-
+    username: {
+      type: 'string',
+      unique: true
+    },
+    email: {
+      type: 'email',
+      unique: true
+    },
+    firstname: {
+      type: 'string'
+    },
+    lastname: {
+      type: 'string'
+    },
+    passports: {
+      collection: 'Passport',
+      via: 'user'
+    },
+    fullname: function () {
+      return this.firstname + ' ' + this.lastname;
+    }
   }
 };
