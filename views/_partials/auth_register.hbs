@@ -1,0 +1,10 @@
+<form role="form" action="/auth/local/register" method="post" class='auth-register-form'>
+  <input type="text" name="username" placeholder="{{i18n 'auth_field_username'}}">
+  <input type="text" name="email" placeholder="{{i18n 'auth_field_email'}}">
+  <input type="password" name="password" placeholder="{{i18n 'auth_field_password'}}">
+  <button type="submit">{{i18n 'auth_register'}}</button>
+</form>
+
+{{#each providers}}
+  <a href="/auth/{{slug}}" role="button">{{name}}</a>
+{{/each}}

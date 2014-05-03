@@ -1,7 +1,13 @@
-<nav>
-  <ul id="nav-header" class="header-main-nav">
-    {{!-- Home --}}
-    <li class="{{#if currentNavSection.home}} active{{/if}}">
+<nav class='header-nav'>
+  <ul>
+    <li class='game'>
+      {{i18n 'header_nav_game'}}
+    </li>
+    <li class='results'>
+      {{i18n 'header_nav_results'}}
+    </li>
+    <li class='charity'>
+      {{i18n 'header_nav_charity'}}
     </li>
   </ul>
 </nav>

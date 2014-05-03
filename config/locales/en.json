@@ -42,6 +42,18 @@
   "ui_register": "Sign up",
   "ui_error": "An error occurred",
 
+  "header_nav_home": "Home",
+  "header_nav_game": "Game",
+  "header_nav_results": "Results",
+  "header_nav_charity": "Charity",
+
+  "auth_signin": "Sign in",
+  "auth_register": "Register",
+  "auth_field_username": "Username",
+  "auth_field_email": "Email",
+  "auth_field_password": "Password",
+  "auth_field_username_or_email": "Username or email",
+
   "about_meta_title": "About the Adillions lottery game",
   "about_meta_desc": ""
 }

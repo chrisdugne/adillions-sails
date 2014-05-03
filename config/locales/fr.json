@@ -3,10 +3,10 @@
   "adillions_meta_title": "Adillions : Loterie gratuite avec des gains d'argent réel",
   "adillions_meta_desc": "Adillions est un jeu de loterie gratuit avec des gains. Disponible sur mobile ios et android. réels et redistribué à des organismes de bienfaisance",
 
-  "Error.Passport.Password.Wrong": "Whoa, that password wasn't quite right!",
-  "Error.Passport.Password.NotSet": "Oh no, you haven't set a password yet!",
-  "Error.Passport.Username.NotFound": "Uhm, what's your name again?",
-  "Error.Passport.Email.NotFound": "That email doesn't seem right",
+  "Error.Passport.Password.Wrong": "Le champ mot de passe est incorrect",
+  "Error.Passport.Password.NotSet": "Le champ mot de passe est vide",
+  "Error.Passport.Username.NotFound": "Utilisateur introuvable",
+  "Error.Passport.Email.NotFound": "Email introuvable",
 
   "ui_closeBtn": "Fermer",
   "ui_prev": "Précedent",
@@ -41,6 +41,18 @@
   "ui_login": "Se connecter",
   "ui_register": "S'inscrire",
   "ui_error" : "Une erreur est survenue",
+
+  "header_nav_home": "Accueil",
+  "header_nav_game": "Jeux",
+  "header_nav_results": "Résultats",
+  "header_nav_charity": "Charité",
+
+  "auth_signin": "Se connecter",
+  "auth_register": "S'Enregistrer",
+  "auth_field_username": "Pseudo",
+  "auth_field_email": "Email",
+  "auth_field_password": "Mot de passe",
+  "auth_field_username_or_email": "Pseudo ou email",
 
   "about_meta_title": "A propos du jeu de loterie Adillions",
   "about_meta_desc": ""
