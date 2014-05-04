@@ -11,10 +11,8 @@ module.exports = function (req, res, next) {
 
   // User is allowed, proceed to the next policy,
   // or if this is the last policy, the controller
-  console.log('user', req.user);
-  console.log('session', req.session);
-  console.log('locals', req.locals);
-  if (req) {
+  // temp allow *
+  if (true) {
     return next();
   }
 
