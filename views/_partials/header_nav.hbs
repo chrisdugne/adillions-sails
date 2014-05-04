@@ -1,13 +1,19 @@
 <nav class='header-nav'>
   <ul>
     <li class='game'>
-      {{i18n 'header_nav_game'}}
+      <a href="{{route 'game.index' lang=locale}}">
+        {{i18n 'header_nav_game'}}
+      </a>
     </li>
     <li class='results'>
-      {{i18n 'header_nav_results'}}
+      <a href="{{route 'game.results' lang=locale}}">
+        {{i18n 'header_nav_results'}}
+      </a>
     </li>
     <li class='charity'>
-      {{i18n 'header_nav_charity'}}
+      <a href="{{route 'game.charity' lang=locale}}">
+        {{i18n 'header_nav_charity'}}
+      </a>
     </li>
   </ul>
 </nav>

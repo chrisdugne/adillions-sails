@@ -21,62 +21,32 @@
 
 module.exports.routes = {
 
-  'get /login': 'AuthController.login',
-  'get /logout': 'AuthController.logout',
-  'get /register': 'AuthController.register',
+  '/login': 'AuthController.login',
+  '/logout': 'AuthController.logout',
+  '/register': 'AuthController.register',
 
   'post /auth/local': 'AuthController.callback',
   'post /auth/local/:action': 'AuthController.callback',
 
-  'get /auth/:provider': 'AuthController.provider',
-  'get /auth/:provider/callback': 'AuthController.callback',
+  '/auth/:provider': 'AuthController.provider',
+  '/auth/:provider/callback': 'AuthController.callback',
 
-  // Make the view located at `views/home.hbs` (or `views/homepage.hbs`, etc. depending on your
-  // default view engine) your home page.
-  //
-  '/:lang([a-z]{2})?': {
+  '/': {
     view: 'home'
   },
 
-  '/:lang/about': {
-    controller: 'about',
-    action: 'index'
-  },
+  '/:lang/game': 'GameController.index',
+  '/:lang/results': 'GameController.results',
+  '/:lang/charity': 'GameController.charity',
 
-  '/:lang/reward': {
-    controller: 'about',
-    action: 'reward'
-  },
-
-  '/:lang/press': {
-    controller: 'about',
-    action: 'press'
-  },
-
-  '/:lang/faq': {
-    controller: 'about',
-    action: 'faq'
-  },
-
-  '/:lang/jobs': {
-    controller: 'about',
-    action: 'jobs'
-  },
-
-  '/:lang/privacy': {
-    controller: 'about',
-    action: 'privacy'
-  },
-
-  '/:lang/terms': {
-    controller: 'about',
-    action: 'terms'
-  },
-
-  '/:lang/advertisers': {
-    controller: 'about',
-    action: 'advertisers'
-  }
+  '/:lang/about': 'AboutController.index',
+  '/:lang/reward': 'AboutController.reward',
+  '/:lang/press': 'AboutController.press',
+  '/:lang/faq': 'AboutController.faq',
+  '/:lang/jobs': 'AboutController.jobs',
+  '/:lang/privacy': 'AboutController.privacy',
+  '/:lang/terms': 'AboutController.terms',
+  '/:lang/advertisers': 'AboutController.advertisers'
 
   // If a request to a URL doesn't match any of the custom routes above, it is matched
   // against Sails route blueprints.  See `config/blueprints.js` for configuration options

@@ -52,11 +52,27 @@ module.exports = {
 
     var routes = options.routes,
       params = {
-        controller: resource.split('.')[0],
-        action: resource.split('.')[1]
-      };
+        controller: resource.split('.')[0] || '',
+        action: resource.split('.')[1] || ''
+      },
+      targetRoute = this.capitalize(params.controller) + 'Controller.' + params.action;
 
-    var uri = _.findKey(routes, params);
+    var uri = _.findKey(routes, function (target) {
+      // catch uri with string target
+      // 'get /login': 'AuthController.login'
+      if (_.isString(target) && _.isEqual(target, targetRoute)) {
+        return true;
+      }
+      // catch uri with object target
+      // '/:lang/game': {
+      //   controller: 'game',
+      //   action: 'index'
+      // }
+      if (_.isEqual(target.controller, params.controller) && _.isEqual(target.action, params.action)) {
+        return true;
+      }
+      return undefined;
+    });
 
     if (!_.isString(uri)) {
       throw new Error('The "route" helper ' + resource + ' could not be found; \n' +
@@ -65,12 +81,19 @@ module.exports = {
       );
     }
 
+    // catch uri with method
+    // 'get /login': 'AuthController.login'
+    var uriAfterMethod = uri.split(' ')[1];
+    if (_.isString(uriAfterMethod)) {
+      uri = uriAfterMethod;
+    }
+
     // If has been passed a simple String as a parameter.
     if (args.length > 1 && _.isString(args[1])) {
       throw new Error('The "route" helper must receive an optional sequence of key-value pairs');
     }
 
-    // If empty parameters
+    // If empty parameters in helper
     if (_.isEmpty(obj.hash)) {
       return uri;
     }
@@ -85,6 +108,10 @@ module.exports = {
       c = c.replace(/[/:?]/g, '');
       return obj[c] ? '/' + obj[c] : '';
     });
+  },
+
+  capitalize: function (s) {
+    return s[0].toUpperCase() + s.slice(1);
   },
 
   register: function (hbs, options) {
