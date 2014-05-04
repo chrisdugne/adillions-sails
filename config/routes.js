@@ -31,9 +31,7 @@ module.exports.routes = {
   '/auth/:provider': 'AuthController.provider',
   '/auth/:provider/callback': 'AuthController.callback',
 
-  '/': {
-    view: 'home'
-  },
+  '/:lang?': 'HomeController.index',
 
   '/:lang/game': 'GameController.index',
   '/:lang/results': 'GameController.results',

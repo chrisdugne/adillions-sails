@@ -21,16 +21,26 @@ var isExists = function (array, key) {
 
 module.exports = function (req, res, next) {
 
-  var config = req._sails.config;
-
-  if (req.path === '/') {
-    return next();
-  }
-
-  var language = req.path.match(/\/([a-z]{2})\//),
+  var config = req._sails.config,
+    language = req.path.match(/\/([a-z]{2})\//),
     languagesList = config.i18n.locales,
     setLng = req.query.setLng,
     user = res.locals.user;
+
+  if (req.path === '/') {
+    if (setLng) {
+      sails.log.info('Home page with, trying to change the language through the setLgn param', {
+        setLng: setLng
+      });
+      return res.redirect(url.format({
+        protocol: req.protocol,
+        host: req.headers.host,
+        pathname: req.path + setLng + '/',
+        query: _.omit(req.query, 'setLng')
+      }));
+    }
+    return next();
+  }
 
   // Public pages must have language in URL
   if (!user && !language) {
@@ -45,7 +55,8 @@ module.exports = function (req, res, next) {
 
   // Private pages with a SEO friendly URL, trying to change the language through the setLgn param
   // We redirect to URL with the lang param updated
-  if (user && setLng && language) {
+  // wait user; if (user && setLng && language) {
+  if (setLng && language) {
 
     if (isExists(languagesList, setLng)) {
       sails.log.info('Private page with a SEO friendly URL, trying to change the language through the setLgn param', {
