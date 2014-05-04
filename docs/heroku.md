@@ -1,14 +1,37 @@
 ## Show Postgresql credentials:
 ``` bash
 $ heroku pg:credentials DATABASE
+Connection info string:
+   "dbname=dee932clc3mg8h host=ec2-123-73-145-214.compute-1.amazonaws.com port=6212 user=user3121 password=98kd8a9 sslmode=require"
 ```
 
 ## Setup Postgresql server:
 
 Get connection informations at [https://postgres.heroku.com/databases/](https://postgres.heroku.com/databases/)
 
+### Setting up config vars for a deployed application
+
+Use the Heroku CLI’s config, config:set, config:get and config:unset to manage your config vars:
+
 ``` bash
-$ heroku config:set POSTGRESQL_DATABASE_URL=*
+$ heroku config:set POSTGRESQL_DATABASE_URL=joesmith
+Adding config var POSTGRESQL_DATABASE_URL
+```
+
+``` bash
+$ heroku config
+POSTGRESQL_DATABASE_URL: joesmith
+OTHER_VAR:    production
+```
+
+``` bash
+$ heroku config:get POSTGRESQL_DATABASE_URL
+joesmith
+```
+
+``` bash
+$ heroku config:unset POSTGRESQL_DATABASE_URL
+Unsetting POSTGRESQL_DATABASE_URL
 ```
 
 ## Monitoring & logging
