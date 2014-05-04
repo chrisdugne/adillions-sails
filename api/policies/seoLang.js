@@ -24,8 +24,13 @@ module.exports = function (req, res, next) {
   var config = req._sails.config,
     language = req.path.match(/\/([a-z]{2})\//),
     languagesList = config.i18n.locales,
+    fallbackLanguage = config.i18n.fallback,
     setLng = req.query.setLng,
     user = res.locals.user;
+
+  sails.log.info('USER INFO', {
+    user: user
+  });
 
   if (req.path === '/') {
     if (setLng) {
@@ -51,7 +56,7 @@ module.exports = function (req, res, next) {
     //return res.notFound();
   }
 
-  language = language[1];
+  language = language ? language[1] : fallbackLanguage;
 
   // Private pages with a SEO friendly URL, trying to change the language through the setLgn param
   // We redirect to URL with the lang param updated
@@ -94,7 +99,6 @@ module.exports = function (req, res, next) {
     // It tries to use one of the accepted languages from the browser request
     // If it still can't find a supported language, it uses the fallback language
   } else {
-    var fallbackLanguage = config.i18n.fallback;
 
     if (req.acceptedLanguages.length) {
       req.acceptedLanguages.some(function (lang) {
