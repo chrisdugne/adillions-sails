@@ -28,10 +28,6 @@ module.exports = function (req, res, next) {
     setLng = req.query.setLng,
     user = res.locals.user;
 
-  sails.log.info('USER INFO', {
-    user: user
-  });
-
   if (req.path === '/') {
     if (setLng) {
       sails.log.info('Home page with, trying to change the language through the setLgn param', {
