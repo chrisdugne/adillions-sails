@@ -9,7 +9,7 @@ First make sure that you have correctly installed the __latest__ versions of the
 * **[Git](https://help.github.com/articles/set-up-git)**
 * **[Grunt](http://gruntjs.com/)** (run the command `npm install -g grunt-cli`)
 * **[Bower](http://bower.io)** (run the command `npm install -g bower`)
-* **[Sails](https://github.com/balderdashy/sails)** (run the command `npm install -g sails@0.10.0-rc5`)
+* **[Sails](https://github.com/balderdashy/sails)** (run the command `npm install -g sails@0.10.0-rc7`)
 
 ## Installation
 
@@ -23,11 +23,11 @@ First make sure that you have correctly installed the __latest__ versions of the
 ## Start the server
 
 Run app :
-```shell 
+```shell
 grunt
 ```
-Run app as production: 
-```shell 
+Run app as production:
+```shell
 grunt prod && grunt concurrent:prod
 ```
 
