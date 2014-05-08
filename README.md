@@ -22,8 +22,16 @@ During the bcrypt installation, if an error occured relating to node-gyp, please
 
 ## Start the server
 
-* Run app : `sails lift`.
-* Run app as production: `sails lift --prod`.
+Run app :
+```shell 
+grunt
+```
+Run app as production: 
+```shell 
+grunt prod && grunt concurrent:prod
+```
+
+`grunt prod`: build prod packages; `grunt concurrent:prod`: launch server as production environment
 
 Visit [http://localhost:1337/](http://localhost:1337/) in your browser.
 
@@ -40,7 +48,7 @@ Get informations : [Code and development doctrine](https://github.com/LukeParis/
 Handlebars helpers:
 - [x] __routeUrl__: route app url (about, press...)
 - [x] __extUrl__: external url (facebook, twhitter, blog...)
-- [ ] __setLangUrl__: Generates an url containing the setLng (i18n) parameter without affecting other query string parameters
+- [x] __setLangUrl__: Generates an url containing the setLng (i18n) parameter without affecting other query string parameters
 
 Database:
 - [ ] __postgresql__ : set heroku postgresql (env variables, aka `heroku config:set PG_URL=*`)
