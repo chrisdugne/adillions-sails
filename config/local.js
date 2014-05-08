@@ -64,6 +64,10 @@ module.exports = {
 
   environment: process.env.NODE_ENV || 'development',
 
+  log: {
+    level: 'info'
+  },
+
   models: {
     connection: 'localDiskDb'
   }
