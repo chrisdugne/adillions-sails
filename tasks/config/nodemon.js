@@ -9,14 +9,27 @@
 module.exports = function (grunt) {
 
   grunt.config.set('nodemon', {
-    debug: {
+    dev: {
       script: 'app.js',
       options: {
-        args: ['--env=development'],
         nodeArgs: ['--debug'],
         ignore: ['assets/**', '.tmp'],
         ext: 'js,json,hbs',
-        delay: 0,
+        delay: 10,
+        watch: [
+          'config/**/*',
+          'views/_partials/*'
+        ]
+      }
+    },
+    prod: {
+      script: 'app.js',
+      options: {
+        args: ['--prod'],
+        nodeArgs: ['--debug'],
+        ignore: ['assets/**', '.tmp'],
+        ext: 'js,json,hbs',
+        delay: 10,
         watch: [
           'config/**/*',
           'views/_partials/*'

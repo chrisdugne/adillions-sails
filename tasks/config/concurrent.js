@@ -9,9 +9,17 @@
 module.exports = function (grunt) {
 
   grunt.config.set('concurrent', {
-    server: {
+    dev: {
       tasks: [
-        'nodemon', 'watch'
+        'nodemon:dev', 'watch'
+      ],
+      options: {
+        logConcurrentOutput: true
+      }
+    },
+    prod: {
+      tasks: [
+        'nodemon:prod', 'watch'
       ],
       options: {
         logConcurrentOutput: true
