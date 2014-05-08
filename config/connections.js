@@ -36,7 +36,7 @@ module.exports.connections = {
   //
   Postgresql: {
     adapter: 'sails-postgresql',
-    url: process.env.POSTGRESQL_DATABASE_URL
+    url: process.env.DATABASE_URL
   },
 
   // MySQL is the world's most popular relational database.
