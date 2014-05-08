@@ -18,7 +18,7 @@ First make sure that you have correctly installed the __latest__ versions of the
 3. Get all Node dependencies through [npm](https://npmjs.org/): `npm install`
 4. Get all client dependencies through [bower](http://bower.io/): `bower install`
 
-During the bcrypt installation, if an error occured relating to node-gyp, please refers to [node-gyp#installation](https://github.com/TooTallNate/node-gyp/#installation)
+> During the bcrypt installation, if an error occured relating to node-gyp, please refers to [node-gyp#installation](https://github.com/TooTallNate/node-gyp/#installation)
 
 ## Start the server
 
@@ -32,6 +32,8 @@ grunt prod && grunt concurrent:prod
 ```
 
 `grunt prod`: build prod packages; `grunt concurrent:prod`: launch server as production environment
+
+---
 
 Visit [http://localhost:1337/](http://localhost:1337/) in your browser.
 
