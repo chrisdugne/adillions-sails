@@ -45,6 +45,10 @@
     "grunt-jsbeautifier": "~0.2.7",
     "time-grunt": "~0.3.1"
   },
+  "devDependencies": {
+    "grunt-nodemon": "~0.2.1",
+    "grunt-concurrent": "~0.5.0"
+  },
   "scripts": {
     "start": "node app.js",
     "debug": "node debug app.js",
