@@ -16,7 +16,7 @@ module.exports = function (req, res, next) {
     return next();
   }
 
-  sails.log.info('User not authenticated try to reach page a forbidden page', {
+  sails.log.info('User not authenticated try to reach a forbidden page', {
     path: req.path
   });
 
