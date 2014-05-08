@@ -6,8 +6,9 @@
  */
 
 module.exports = {
+  // user is a reserved keyword in Postgres at heroku.
   // Define a custom table name
-  tableName: 'user',
+  tableName: 'member',
 
   // Define an adapter to use
   // adapter: 'postgresql',
