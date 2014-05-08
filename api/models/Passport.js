@@ -35,7 +35,7 @@ var Passport = {
     // means of authentication along with either a username or an email.
     password: {
       type: 'string',
-      minLength: 8
+      minLength: 6
     },
 
     // Provider fields: Provider, identifer and tokens

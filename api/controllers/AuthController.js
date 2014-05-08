@@ -89,6 +89,21 @@ var AuthController = {
    * @param {Object} res
    */
   register: function (req, res) {
+    var strategies = sails.config.passport,
+      providers = {};
+
+    // Get a list of available providers for use in your templates.
+    Object.keys(strategies).forEach(function (key) {
+      if (key === 'local') {
+        return;
+      }
+
+      providers[key] = {
+        name: strategies[key].name,
+        slug: key
+      };
+    });
+
     res.view({
       errors: req.flash('error')
     });
@@ -126,6 +141,7 @@ var AuthController = {
         // If an error was thrown, redirect the user to the login which should
         // take care of rendering the error messages.
         if (err) {
+          console.log('err callback', req.param('action'), err);
           res.redirect(req.param('action') === 'register' ? '/register' : '/login');
         }
         // Upon successful login, send the user to the homepage were req.user
