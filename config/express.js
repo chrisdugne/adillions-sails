@@ -32,7 +32,7 @@ module.exports.express = {
       res.serverError();
     },
     favicon: express.favicon('assets/images/favicon.ico')
-  }
+  },
 
   // The middleware function used for parsing the HTTP request body.
   // (this most commonly comes up in the context of file uploads)
@@ -68,7 +68,7 @@ module.exports.express = {
   //
   // If you understand the risks of using the multipart bodyParser,
   // and would like to disable the warning log messages, uncomment:
-  // silenceMultipartWarning: true,
+  silenceMultipartWarning: true
   // ======================================================================
 
   // Cookie parser middleware to use
