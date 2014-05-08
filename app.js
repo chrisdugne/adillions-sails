@@ -50,15 +50,5 @@ try {
   }
 }
 
-var conf = rc('sails');
-
-// Disable the sails grunt hook in production,
-// As Bower and Grunt run AFTER all packages are installed and before sails has lifted the server
-if (process.env.NODE_ENV === 'production') {
-  conf.hooks = {
-    grunt: false
-  };
-}
-
 // Start server
-sails.lift(conf);
+sails.lift(rc('sails'));
