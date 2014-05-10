@@ -93,9 +93,9 @@ module.exports = {
 
 ```
 
-## Ignore any changes:
+## Ignore config/local.js
  
-Any local changes to the config/local.js, must not to be pushed to the repo.
+Any local changes to the config/local.js, **must not to be pushed to the repo**.
 To do not tracking it anymore, do :
  
 ``` shell
