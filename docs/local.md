@@ -6,7 +6,7 @@ The `config/local.js` file include any settings like **level of logs**, **db con
 
 ## Log
  
-> Development-only persistent adapter for Sails.js / Waterline 
+> Logger configuration
  
 ``` js
 
