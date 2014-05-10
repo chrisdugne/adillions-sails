@@ -2,7 +2,7 @@
 
 Sails allow to set local development configurations.
 
-The config/local.js file include any settings like ,db connection, passwords ...
+The config/local.js file include any settings like 'db connection', 'passwords' ...
 
 ## Local Disk db
  
@@ -70,5 +70,5 @@ Any local changes to the config/local.js, must not to be pushed to the repo.
 To do not tracking it anymore, do :
  
 ``` shell
-git update-index --assume-unchanged
+git update-index --assume-unchanged config/local.js
 ```
