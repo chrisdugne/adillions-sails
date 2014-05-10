@@ -2,7 +2,7 @@
 
 Sails allow to set local development configurations.
 
-The config/local.js file include any settings like 'db connection', 'passwords' ...
+The `config/local.js` file include any settings like **level of logs**, **db connection**, **passwords** ...
 
 ## Log
  
