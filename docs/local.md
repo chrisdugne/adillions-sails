@@ -42,6 +42,9 @@ module.exports = {
 
   environment: process.env.NODE_ENV || 'development',
 
+  // Your app's default connection.
+  // i.e. the name of one of your app's connections (see `config/connections.js`)
+
   models: {
     connection: 'localDiskDb'
   }
@@ -63,7 +66,12 @@ module.exports = {
 
   environment: process.env.NODE_ENV || 'development',
 
+  // Each model must have a `connection` property (a string) which is references the name of one
+  // of these connections.  If it doesn't, the default `connection` configured in `config/models.js`
+  // will be applied.  Of course, a connection can (and usually is) shared by multiple models.
+    
   connections: {
+  
     Postgresql: {
       adapter: 'sails-postgresql',
       host: 'localhost',
@@ -73,6 +81,9 @@ module.exports = {
       database: '***'
     }
   },
+
+  // Your app's default connection.
+  // i.e. the name of one of your app's connections (see `config/connections.js`)
 
   models: {
     connection: 'Postgresql'
