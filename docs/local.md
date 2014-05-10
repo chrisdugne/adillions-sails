@@ -4,7 +4,7 @@ Sails allow to set local development configurations.
 
 The config/local.js file include any settings like 'db connection', 'passwords' ...
 
-## Local Disk db
+## Log
  
 > Development-only persistent adapter for Sails.js / Waterline 
  
@@ -16,9 +16,31 @@ module.exports = {
 
   environment: process.env.NODE_ENV || 'development',
 
+  // 'error'	: Display calls to `.error()`
+  // 'warn'	: Display calls from `.error()` to `.warn()`
+  // 'debug'	: Display calls from `.error()`, `.warn()` to `.debug()`
+  // 'info'	: Display calls from `.error()`, `.warn()`, `.debug()` to `.info()`
+  // 'verbose': Display calls from `.error()`, `.warn()`, `.debug()`, `.info()` to `.verbose()`
+
   log: {
     level: 'info'
-  },
+  }
+
+};
+
+```
+
+## Local Disk db
+ 
+> Development-only persistent adapter for Sails.js / Waterline 
+ 
+``` js
+
+module.exports = {
+
+  port: process.env.PORT || 1337,
+
+  environment: process.env.NODE_ENV || 'development',
 
   models: {
     connection: 'localDiskDb'
@@ -40,10 +62,6 @@ module.exports = {
   port: process.env.PORT || 1337,
 
   environment: process.env.NODE_ENV || 'development',
-
-  log: {
-    level: 'info'
-  },
 
   connections: {
     Postgresql: {
