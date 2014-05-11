@@ -1,18 +1,2 @@
 // Import Bourbon mixins (http://bourbon.io/)
 @import '../../bower_components/bourbon/dist/_bourbon.scss';
-
-// em function from Bourbon 3.2
-// TODO: Remove this block once our Bourbon package has been updated
-@function strip-units($val) {
-  @return ($val / ($val * 0 + 1));
-}
-@function em($pxval, $base: $em-base) {
-  @if not unitless($pxval) {
-    $pxval: strip-units($pxval);
-  }
-  @if not unitless($base) {
-    $base: strip-units($base);
-  }
-  @return ($pxval / $base) * 1em;
-}
-// End of em function
