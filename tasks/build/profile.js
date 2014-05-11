@@ -4,8 +4,11 @@ var modules = {
   // Main package
   '.tmp/public/scripts/main.js': [
     'assets/bower_components/jquery/jquery.js',
-    'assets/bower_components/i18next/i18next.js',
-    'assets/bower_components/underscore/underscore.js'
+    //'assets/bower_components/i18next/i18next.js',
+    //'assets/bower_components/underscore/underscore.js',
+    'assets/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js',
+    'assets/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js',
+    'assets/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js'
   ],
 
   // HTML 5 Shiv
