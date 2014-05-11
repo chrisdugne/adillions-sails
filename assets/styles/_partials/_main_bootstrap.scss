@@ -1,9 +1,3 @@
-// Variables
-// --------------------------------------------------
-
-// Import Colors variables
-@import '../../bower_components/colors/sass/_variables.scss';
-
 /* Prettier Links */
 
 .site-content a {
@@ -15,3 +9,5 @@
 .site-content a:hover   { color: $aqua; }
 .site-content a:active  { color: $orange; }
 
+@import '_header.scss';
+@import '_footer.scss';

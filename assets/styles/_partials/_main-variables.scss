@@ -1,3 +1,9 @@
+// Variables
+// --------------------------------------------------
+
+// Import Colors variables
+@import '../../bower_components/colors/sass/_variables.scss';
+
 // set fonts location
 $icon-font-path : '/fonts/';
 
@@ -6,3 +12,5 @@ $spacingS: 10px;
 $spacingM: 15px;
 $spacingL: 20px;
 $spacingXl: 30px;
+
+$navbar-height: 60px;
