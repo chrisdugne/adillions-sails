@@ -40,6 +40,7 @@
   "ui_loading": "Chargement",
   "ui_logout": "Déconnexion",
   "ui_login": "Se connecter",
+  "ui_signin": "Se connecter",
   "ui_register": "S'inscrire",
   "ui_error" : "Une erreur est survenue",
 

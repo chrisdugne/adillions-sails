@@ -40,7 +40,8 @@
   "ui_loading": "Loading",
   "ui_logout": "Log out",
   "ui_login": "Log in",
-  "ui_register": "Sign up",
+  "ui_signin": "Sign in",
+  "ui_register": "Register",
   "ui_error": "An error occurred",
 
   "header_nav_home": "Home",
