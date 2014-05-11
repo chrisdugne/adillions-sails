@@ -1,6 +1,6 @@
 module.exports = function (grunt) {
   grunt.registerTask('syncAssets', [
-    'newer:sass:dev',
+    'sass:dev',
     'sync:dev',
     'newer:concat:dev'
   ]);
