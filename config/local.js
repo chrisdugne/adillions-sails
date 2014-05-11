@@ -63,5 +63,5 @@ module.exports = {
   // If NODE_ENV is not set, Sails will run in the 'development' environment.
 
   environment: process.env.NODE_ENV || 'development'
-  
+
 };
