@@ -1,0 +1,19 @@
+<ul class="nav navbar-nav navbar-right">
+  <li class="dropdown">
+    <a href="/profile/{{user.id}}" class="dropdown-toggle" data-toggle="dropdown">
+      {{user.username}} <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Account Settings</a></li>
+      <li class="divider"></li>
+      <li><a href="#">Results</a></li>
+      <li><a href="#">Winings</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="/logout">
+      {{i18n 'ui_logout'}}
+    </a>
+  </li>
+</ul>
