@@ -4,13 +4,20 @@
 // Import Colors variables
 @import '../../bower_components/colors/sass/_variables.scss';
 
+$body-bg: rgb(241, 242, 246);
+
 // set fonts location
 $icon-font-path : '/fonts/';
 
+// spacing
 $spacingXs: 5px;
 $spacingS: 10px;
 $spacingM: 15px;
 $spacingL: 20px;
 $spacingXl: 30px;
 
+// navbar
 $navbar-height: 60px;
+
+$navbar-default-color:             #777 !default;
+$navbar-default-bg:                #fff !default;

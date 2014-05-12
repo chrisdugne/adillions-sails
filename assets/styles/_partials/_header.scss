@@ -1,3 +1,16 @@
+.site-header {
+  .navbar-brand {
+    padding-top:0;
+    padding-bottom:0;
+    line-height:$navbar-height;
+    img {
+      vertical-align: middle;
+      height:floor(($navbar-height / 2));
+    }
+  }
+}
+
+
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
 // $grid-float-breakpoint:     $screen-sm-min !default;
@@ -13,7 +26,7 @@
       width: 100%;
       padding-left: 0;
       padding-right: 0;
-      margin-bottom:$navbar-padding-vertical;
+      margin-bottom: floor(($navbar-padding-vertical / 2));
     }
   }
 }
