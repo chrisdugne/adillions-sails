@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 
     front: {
       src: [
-        'assets/**/*.js'
+        'assets/scripts/**/*.js'
       ],
       options: {
         jshintrc: '.jshintrc',
