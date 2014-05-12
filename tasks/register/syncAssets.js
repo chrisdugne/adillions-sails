@@ -2,6 +2,7 @@ module.exports = function (grunt) {
   grunt.registerTask('syncAssets', [
     'sass:dev',
     'sync:dev',
+    'es6',
     'newer:concat:dev'
   ]);
   grunt.loadNpmTasks('grunt-newer');
