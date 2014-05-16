@@ -9,6 +9,12 @@ $body-bg: rgb(241, 242, 246);
 // set fonts location
 $icon-font-path : '/fonts/';
 
+$brand-lead: #F14015;
+
+$btn-lead-color: #fff !default;
+$btn-lead-bg: $brand-lead !default;
+$btn-lead-border: darken($btn-lead-bg, 5%) !default;
+
 // spacing
 $spacingXs: 5px;
 $spacingS: 10px;
@@ -17,7 +23,4 @@ $spacingL: 20px;
 $spacingXl: 30px;
 
 // navbar
-$navbar-height: 60px;
-
-$navbar-default-color:             #777 !default;
-$navbar-default-bg:                #fff !default;
+$navbar-height: 80px;

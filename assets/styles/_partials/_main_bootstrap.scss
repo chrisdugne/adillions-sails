@@ -1,3 +1,10 @@
+/* Lead button */
+
+.btn-lead {
+    @include button-variant($btn-lead-color, $btn-lead-bg, $btn-lead-border);
+}
+
+
 /* Prettier Links */
 
 .site-content a {
