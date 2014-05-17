@@ -4,11 +4,16 @@
 
 <h1>{{i18n 'privacy'}}</h1>
 
+{{#if languages.en.current}}
+<p>{{i18n 'privacy_IntroPost'}}</p>
+<p>{{i18n 'privacy_IntroLanguage'}}</p>
+{{/if}}
+
 <section class="section">
   <h2>{{i18n 'privacy_Overview'}}</h2>
   <p>{{i18n 'privacy_OverObjective'}}</p>
   <p>{{i18n 'privacy_OverLegal'}}</p>
-  {{#if isFR}}
+  {{#if languages.fr.current}}
   <p>{{i18n 'privacy_OverArticle'}}</p>
   <p>{{i18n 'privacy_OverCNIL'}}</p>
   {{/if}}

@@ -91,8 +91,6 @@ module.exports = function (req, res, next) {
     });
     res.setLocale(language);
     res.locals.locale = language;
-    res.locals.isFR = language === 'fr';
-    res.locals.isEN = language === 'en';
     // If we don't support the language in the URL, redirect to page with supported language
     // It tries to use one of the accepted languages from the browser request
     // If it still can't find a supported language, it uses the fallback language
