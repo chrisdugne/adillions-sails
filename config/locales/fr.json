@@ -56,26 +56,30 @@
   "auth_field_password": "Mot de passe",
   "auth_field_username_or_email": "Pseudo ou email",
 
-  "about_meta_title": "A propos du jeu de loterie Adillions",
+  "_comment": "##### ABOUT #####",
+
+  "about_meta_title": "À propos du jeu de loterie Adillions",
   "about_meta_desc": "",
+  "about": "À propos",
 
   "about_WhatIs": "Adillions en quelques mots",
   "about_AdillionsDesc": "Adillions est un jeu de loterie simple et gratuit avec des gains d'argent réel financés par la publicité vidéo",
 
   "about_AdillionsWords": "C'est aussi un jeu :",
-  "about_EasyTitle": "Facile",
-  "about_FunTitle": "Fun",
-  "about_ViralTitle": "Viral",
-  "about_GlobalTitle": "Global",
-  "about_ResponsibleTitle": "Responsable",
+  "about_Easy_title": "Facile",
+  "about_Fun_title": "Fun",
+  "about_Viral_title": "Viral",
+  "about_Global_title": "Global",
+  "about_Responsible_title": "Responsable",
 
-  "about_EasyText": " : Visionnez une publicité pour obtenir votre ticket gratuit de loterie ",
-  "about_FunText": " : Choisissez 5 numéros et votre Boule Chance",
-  "about_ViralText": " : Invitez vos amis pour faire augmenter la cagnotte",
-  "about_GlobalText": " : Rejoignez une communauté internationale de joueurs",
-  "about_ResponsibleText": " : Qu'il y ait des gagnants ou non, une part de chaque spot publicitaire alimente le Fonds de Solidarité et de Développement Durable d'Adillions",
+  "about_Easy_text": "Visionnez une publicité pour obtenir votre ticket gratuit de loterie ",
+  "about_Fun_text": "Choisissez 5 numéros et votre Boule Chance",
+  "about_Viral_text": "Invitez vos amis pour faire augmenter la cagnotte",
+  "about_Global_text": "Rejoignez une communauté internationale de joueurs",
+  "about_Responsible_text": "Qu'il y ait des gagnants ou non, une part de chaque spot publicitaire alimente le Fonds de Solidarité et de Développement Durable d'Adillions",
 
-  "about_DrawAmount": "Les tirages ont lieu chaque samedi à 20h00 (GMT) et ils sont diffusés en direct en ligne sur Youtube. Comme toutes les loteries traditionnelles, si personne ne gagne alors la cagnotte s'ajoute à celle du prochain tirage (n'hésitez pas à consulter notre Règlement)",
+  "about_DrawAmount": "Les tirages ont lieu chaque samedi à 20h00 (GMT) et ils sont diffusés en direct en ligne sur Youtube. Comme toutes les loteries traditionnelles, si personne ne gagne alors la cagnotte s'ajoute à celle du prochain tirage.",
+  "about_consult_terms": "Consulter notre Règlement",
 
   "about_EachPlay": "Chaque fois que vous jouez sur Adillions, vous avez une chance de gagner le jackpot et vous consacrez quelques secondes de votre journée à des œuvres caritatives",
 
@@ -109,13 +113,18 @@
 
   "about_Team": "L'équipe",
   "about_TeamIntro": "L'équipe d'Adillions est basée à Paris (France) et elle est dirigée par:",
-  "about_CEOName": "Timothée de COURLON",
-  "about_Cofounder": "Co-fondateur",
-  "about_CEOStatus": "Président-Directeur Général",
-  "about_CEODesc": "Timothée a initié le projet Adillions. Il a travaillé dans le secteur bancaire puis dans le conseil en stratégie pendant plusieurs années. Aujourd'hui, il supervise les aspects business et opérationnels du projet tels que le business développement, le marketing et la communication. Timothée est diplômé de l'ESSEC avec une spécialisation en Finance et Private Equity",
-  "about_CTOName": "Christophe DUGNE-ESQUEVIN",
-  "about_CTOStatus": "Directeur Technique",
-  "about_CTODesc1": "Christophe a commencé sa carrière en tant que développeur au sein d'une start-up dans le domaine du marketing web. Il a participé à la création de plusieurs start-ups dans l'univers du gaming et du mobile ainsi qu'un outil cartographique sur le cloud, ",
-  "about_CTODesc2": ". Christophe est en charge du développement technique des produits d'Adillions. Christophe est diplômé de l'ENSEIRB à Bordeaux où il a étudié l'informatique"
+  "about_cofounder": "Co-fondateur",
 
+  "about_ceo": "Président-Directeur Général",
+  "about_cto": "Directeur Technique",
+  "about_fel": "Front-end Leader",
+
+  "about_ceo_name": "Timothée de COURLON",
+  "about_cto_name": "Christophe DUGNE-ESQUEVIN",
+  "about_fel_name": "Antoine DUVILLIER",
+
+  "about_ceo_desc": "Timothée a initié le projet Adillions. Il a travaillé dans le secteur bancaire puis dans le conseil en stratégie pendant plusieurs années. Aujourd'hui, il supervise les aspects business et opérationnels du projet tels que le business développement, le marketing et la communication. Timothée est diplômé de l'ESSEC avec une spécialisation en Finance et Private Equity",
+  "about_cto_desc_1": "Christophe a commencé sa carrière en tant que développeur au sein d'une start-up dans le domaine du marketing web. Il a participé à la création de plusieurs start-ups dans l'univers du gaming et du mobile ainsi qu'un outil cartographique sur le cloud, ",
+  "about_cto_desc_2": ". Christophe est en charge du développement technique des produits d'Adillions. Christophe est diplômé de l'ENSEIRB à Bordeaux où il a étudié l'informatique",
+  "about_fel_desc": "Antoine a 5 années d'expérience dans l'univers du développement front-end. Antoine est un autodidacte passionné.<br /> Antoine est actuellement le Team Leader du framework UI open-source <a href='https://github.com/viadeo/tetra-ui'>Tetra-ui</a>."
 }

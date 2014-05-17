@@ -56,6 +56,74 @@
   "auth_field_password": "Password",
   "auth_field_username_or_email": "Username or email",
 
+  "_comment": "##### ABOUT/index #####",
+
   "about_meta_title": "About the Adillions lottery game",
-  "about_meta_desc": ""
+  "about_meta_desc": "",
+  "about": "About",
+
+  "about_WhatIs": "What is Adillions?",
+  "about_AdillionsDesc": "Adillions is a simple and free sweepstake with real cash prizes funded by video advertising",
+
+  "about_AdillionsWords": "In a few words, Adillions is:",
+  "about_Easy_title": "Easy",
+  "about_Fun_title": "Fun",
+  "about_Viral_title": "Viral",
+  "about_Global_title": "Global",
+  "about_Responsible_title": "Responsible",
+
+  "about_Easy_text": "Watch an ad to get your free sweepstake ticket",
+  "about_Fun_text": "Pick 5 numbers and choose your Lucky Ball",
+  "about_Viral_text": "Invite your friends to increase the jackpot",
+  "about_Global_text": "Join an international community of players",
+  "about_Responsible_text": "Whether there are winners or not, a part of each video ad finances the Adillions Solidarity & Sustainable Development Fund",
+
+  "about_DrawAmount": "The sweepstake is drawn every Saturday at 8:00 p.m. (PST) and it is broadcast live online on Youtube. Like any traditional sweepstake, if nobody wins, the amount accumulates and is added to the next draw.",
+  "about_consult_terms": "Read our Terms of Use",
+
+  "about_EachPlay": "Each time you play on Adillions, you have a chance to win the jackpot and you dedicate few seconds of your day to charitable organizations",
+
+  "about_Adillions": "Adillions",
+  "about_AdillionsCatch": "Much more than a game",
+
+  "about_VisionValues": "Our Vision and Values",
+
+  "about_Innovation": "Innovation",
+  "about_InnovDisrupt": "We believe that it is possible to innovate in the gambling market and to disrupt traditional domestic lotteries with a global, social and free game",
+  "about_InnovOriginal": "Lotteries can be fun and original. With Adillions, you play your favorite lotto numbers and a new item each week depending on the draw theme",
+  "about_InnovSimple": "We are eager to develop a simple and user-friendly product used by millions of users across the globe",
+
+  "about_Responsibility": "Social responsibility",
+  "about_RespoBefore": "Since long before Christ, lotteries have helped to finance major public projects (build the Great Wall of China, help the poor, finance public school systems, etc.)",
+  "about_RespoPublic": "Public interests were part of the game as much as the gambling itself. Today, Adillions brings back sweepstake to its true origins",
+  "about_RespoProud": "Adillions and the internet make it possible to gamble and to contribute to a global charitable project at the same time. We want our users to be proud members of Adillions community",
+  "about_RespoPeport": "The Adillions team is committed to publish each year a report about Adillions Solidarity & Sustainable Development Fund. Moreover, our final objective is to let our users choose the charitable projects they want to fund",
+
+  "about_Fairness": "Fairness",
+  "about_FairTransparent": "The Adillions team pays a special attention to treat all Adillions players with fairness and equity and to be as transparent as possible with our users and public regulatory agencies",
+  "about_FairRules": "Adillions defined clear and fair rules:",
+  "about_FairRules1": "One account per individual",
+  "about_FairRules2": "No prize payment for winners with inaccurate personal information",
+  "about_FairRules3": "A limited number of tickets per draw per player",
+  "about_FairRules4": "A series of technical procedures to prevent fraud",
+  "about_FairRules5": "...",
+
+  "about_Conclusion": "Conclusion",
+  "about_ConclTime": "Our ambition is to develop a game of chance thriving to gather in one place the unique common currency worldwide - Time - and to maximize its value for our players and our charity partners",
+
+  "about_Team": "Team",
+  "about_TeamIntro": "Adillions is based in Paris, France and the team is lead by:",
+  "about_cofounder": "Co-founder",
+  "about_ceo": "CEO",
+  "about_cto": "CTO",
+  "about_fel": "Front-end Leader",
+
+  "about_ceo_name": "Timothée de COURLON",
+  "about_cto_name": "Christophe DUGNE-ESQUEVIN",
+  "about_fel_name": "Antoine DUVILLIER",
+
+  "about_ceo_desc": "Timothée brainstormed the original idea for Adillions. He worked in the banking and strategy consulting industries for several years. Today, in his role as CEO, he manages all the business aspects of the project from legal and finance to marketing and communication. Timothée holds a MBA in Finance and Private Equity from ESSEC Business School",
+  "about_cto_desc_1": "Christophe started to work as a software developer for a start-up, a provider of search and contextual advertising. He already co-founded several start-ups in the mobile and gaming markets as well as an innovative GIS in the cloud, ",
+  "about_cto_desc_2": ". Christophe is dedicated to design and develop the best products for Adillions players. Christophe graduated from ENSEIRB where he studied Computer Science and Software Engineering",
+  "about_fel_desc": "Antoine has 5 years experience in front-end development with an eye for detail and a passion for creating unique and interesting website. Antoine is currently the team leader of the open-sourced UI framework <a href='https://github.com/viadeo/tetra-ui'>Tetra-ui</a>"
 }
