@@ -125,5 +125,48 @@
   "about_ceo_desc": "Timothée brainstormed the original idea for Adillions. He worked in the banking and strategy consulting industries for several years. Today, in his role as CEO, he manages all the business aspects of the project from legal and finance to marketing and communication. Timothée holds a MBA in Finance and Private Equity from ESSEC Business School",
   "about_cto_desc_1": "Christophe started to work as a software developer for a start-up, a provider of search and contextual advertising. He already co-founded several start-ups in the mobile and gaming markets as well as an innovative GIS in the cloud, ",
   "about_cto_desc_2": ". Christophe is dedicated to design and develop the best products for Adillions players. Christophe graduated from ENSEIRB where he studied Computer Science and Software Engineering",
-  "about_fel_desc": "Antoine has 5 years experience in front-end development with an eye for detail and a passion for creating unique and interesting website. Antoine is currently the team leader of the open-sourced UI framework <a href='https://github.com/viadeo/tetra-ui'>Tetra-ui</a>"
+  "about_fel_desc": "Antoine has 5 years experience in front-end development with an eye for detail and a passion for creating unique and interesting website. Antoine is currently the team leader of the open-sourced UI framework <a href='https://github.com/viadeo/tetra-ui'>Tetra-ui</a>",
+
+  "_comment": "##### ABOUT/PRIVACY #####",
+
+  "privacy_meta_title": "Adillions Privacy",
+  "privacy_meta_desc": "",
+  "privacy": "Privacy",
+
+  "privacy_IntroPost": "://www.adillions.com and our mobile applications.",
+  "privacy_IntroLanguage": "Our Privacy Policy was written in French. To the extent any translated version of this Privacy Policy conflicts with the French version, the French version controls.",
+
+  "privacy_Overview": "Overview",
+  "privacy_OverObjective": "This Privacy Policy covers how we collect, use, disclose, transfer, and store your personal information. Adillions takes the processing of your personal information very seriously and will use your information only in accordance with the terms of this Privacy Policy.",
+  "privacy_OverLegal": "Adillions (hereinafter referred to as the \"Company\") collects personal user data, such as name, email address, date of birth and potentially other information such as their home address, place of birth (city and country) or their bank account information (the latter information will solely be gathered for winners in order to transfer their prize).",
+  "privacy_OverModify": "The Company reserves the right to modify its Privacy Policy at any time without prior notice. Users should review this Privacy Policy frequently. If the Company makes material changes to this policy, it may notify users on its website, by email, or by any method it determines at its sole discretion. The Company will also change the \"Last Updated\" date at the beginning of this Privacy Policy. Any changes it makes to its Privacy Policy are effective as of this Last Updated date and replace any prior Privacy Policies.",
+
+  "privacy_Purpose": "Purpose and usage of user information",
+  "privacy_PurpIntro": "Personal information is used exclusively by Adillions for the following purposes :",
+  "privacy_Manage_P": "manage the website and mobile applications;",
+  "privacy_Administer": "manage and administer the contractual relationship between Adillions and its users;",
+  "privacy_TargetedAds": "provide targeted ads to users based on data collected through their prior consent for commercial offers by the Company and its business partners;",
+  "privacy_ProvideProducts": "provide the products and services and constantly improve their quality;",
+  "privacy_ConductInternal": "conduct internal studies, including statistics from anonymized data studies;",
+  "privacy_IdentifyPotential": "identify potential fraud or misuse of our products and services;",
+  "privacy_ContactUsers": "contact users for the payment of their prizes and inform them about the next draws or any other type of information about the game;",
+  "privacy_CreateStudies": "create studies and reports based on the anonymization of users' personal information and communicate them to internal and external business partners.",
+  "privacy_AdillionsEnsures": "Adillions ensures the total confidentiality of bank account information of winners which are provided to Adillions in order to make payments.",
+  "privacy_UsersAgree": "competent governmental, intergovernmental or supranational bodies or any other competent authorities that we in good faith believe it is appropriate for us to cooperate with in investigations of fraud or other illegal activity or potential illegal activity, violations of our Terms of Use and any other situation contrary to law.",
+  "privacy_Subcontractors": "Personal information can be transmitted to subcontractors of Adillions for internal processing only and exclusively for and on behalf of Adillions.",
+
+  "privacy_Permission": "Permission to use winner's name",
+  "privacy_WinnerPermission": "Each winner allows Adillions to use his first name and the initial of his last name as well as their country or city without limitation or qualification, and without any remuneration, right or any other benefit other than the allocation of the gain, for a period of three (3) years from the date of use of the information.",
+  "privacy_PhotoWinner": "A photo may be requested for each user who obtained a gain of some kind. The user allows Adillions to use this photo for any promotional purposes and he can obviously oppose the use of his photo.",
+
+  "privacy_Cookies": "Use of cookies",
+  "privacy_LikePlatforms": "Like most web platforms, the Company uses cookies and other similar technologies to make our platform easier to use, to ensure its proper functioning, to better understand our users and their potential centers of interest and improve the quality of service of our products.",
+  "privacy_UsersInformed": "Users will be informed by a notice on the website of the installation of cookies on their digital device. Your use of our website does imply acceptance of the use of these cookies.",
+  "privacy_UsersConfigure": "Users can configure their browser so that they can remove the cookies.",
+
+  "privacy_Questions_other": "Autres",
+  "privacy_Questions_P": "If you have any questions or complaints regarding our Privacy Policy, please contact us by email at the following address contact[at]adillions.com",
+  "privacy_ReadAndAccept": "By using the website and mobile applications of Adillions, you acknowledge that you have read and accepted the terms of this Privacy Policy and you consent to the use of your personal information as set out in this Privacy Policy.",
+
+  "privacy_createAt": "Fait à Paris, le 05 janvier 2014"
 }
