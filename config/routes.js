@@ -38,13 +38,13 @@ module.exports.routes = {
   '/:lang/charity': 'GameController.charity',
 
   '/:lang/about': 'AboutController.index',
-  '/:lang/reward': 'AboutController.reward',
-  '/:lang/press': 'AboutController.press',
-  '/:lang/faq': 'AboutController.faq',
-  '/:lang/jobs': 'AboutController.jobs',
-  '/:lang/privacy': 'AboutController.privacy',
-  '/:lang/terms': 'AboutController.terms',
-  '/:lang/advertisers': 'AboutController.advertisers'
+  '/:lang/about/reward': 'AboutController.reward',
+  '/:lang/about/press': 'AboutController.press',
+  '/:lang/about/faq': 'AboutController.faq',
+  '/:lang/about/jobs': 'AboutController.jobs',
+  '/:lang/about/privacy': 'AboutController.privacy',
+  '/:lang/about/terms': 'AboutController.terms',
+  '/:lang/about/advertisers': 'AboutController.advertisers'
 
   // If a request to a URL doesn't match any of the custom routes above, it is matched
   // against Sails route blueprints.  See `config/blueprints.js` for configuration options
