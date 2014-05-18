@@ -171,5 +171,17 @@
   "privacy_Questions_P": "Si vous avez des questions ou des remarques concernant notre politique de confidentialité, contactez-nous par courrier à Adillions - Service Contact - 57 rue du Faubourg Montmartre 75009 Paris - France ou à contact [at] adillions.com",
   "privacy_ReadAndAccept": "Par l'utilisation du site internet et des applications mobiles d'Adillions, vous reconnaissez avoir pris connaissance de notre politique de protection et d'utilisation des données personnelles et vous y consentez tel qu'il vient d'être décrit et aux fins susmentionnées.",
 
-  "privacy_createAt": "Fait à Paris, le 05 janvier 2014"
+  "privacy_createAt": "Fait à Paris, le 05 janvier 2014",
+
+  "_comment": "##### ABOUT/PRESS #####",
+
+  "press_meta_title": "Presse Adillions",
+  "press_meta_desc": "",
+  "press": "Presse",
+
+  "press_intro": "Si vous souhaitez tout savoir sur la création d'Adillions, l'équipe et plus encore, vous trouverez toutes les informations nécessaires dans notre dossier de presse.",
+  "press_kit": "Dossier de presse",
+  "press_releases": "Communiqués de presse",
+  "press_contactUs": "Nous contacter",
+  "press_contactAddress": "press@adillions.com"
 }
