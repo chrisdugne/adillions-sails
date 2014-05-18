@@ -1,7 +1,7 @@
 {
   "Welcome": "Bienvenue",
   "brand": "Adillions",
-  "adillions_meta_title": "Adillions : free lottery game with real cash prizes",
+  "adillions_meta_title": "Adillions : a free lottery game with real cash prizes",
   "adillions_meta_desc": "Adillions is a simple and free lottery game (sweepstake) with real cash prizes funded by video advertising. Available on mobile ios and android.",
 
   "Error.Passport.Password.Wrong": "Whoa, that password wasn't quite right!",
@@ -58,7 +58,7 @@
 
   "_comment": "##### ABOUT/index #####",
 
-  "about_meta_title": "About the Adillions lottery game",
+  "about_meta_title": "About the lottery game",
   "about_meta_desc": "",
   "about": "About",
 
@@ -129,7 +129,7 @@
 
   "_comment": "##### ABOUT/PRIVACY #####",
 
-  "privacy_meta_title": "Adillions Privacy",
+  "privacy_meta_title": "Privacy",
   "privacy_meta_desc": "",
   "privacy": "Privacy",
 
@@ -172,7 +172,7 @@
 
   "_comment": "##### ABOUT/PRESS #####",
 
-  "press_meta_title": "Adillions Press",
+  "press_meta_title": "Press",
   "press_meta_desc": "",
   "press": "Press",
 
@@ -180,5 +180,14 @@
   "press_kit": "Press kit",
   "press_releases": "Press releases",
   "press_contactUs": "Contact us",
-  "press_contactAddress": "press@adillions.com"
+  "press_contactAddress": "press@adillions.com",
+
+  "_comment": "##### ABOUT/JOBS #####",
+
+  "jobs_meta_title": "Offres d'emploi",
+  "jobs_meta_desc": "",
+  "jobs": "Jobs",
+
+  "jobs_intro": "We are always looking for talented and motivated people to join the Adillions team",
+  "jobs_desc": "If you share our vision and if you want to be part of a global adventure, do not hesitate to send an email to"
 }
