@@ -28,9 +28,6 @@ module.exports.express = {
     404: function (req, res, next) {
       res.notFound();
     },
-    500: function (req, res, next) {
-      res.serverError();
-    },
     favicon: express.favicon('assets/images/favicon.ico')
   },
 
