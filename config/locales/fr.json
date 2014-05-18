@@ -192,6 +192,55 @@
   "jobs": "Offres d'emploi",
 
   "jobs_intro": "Nous sommes toujours à la recherche de personnes brillantes et motivées.",
-  "jobs_desc": "Si vous partagez notre vision et si vous souhaitez faire partie d'une aventure internationale, n'hésitez pas à nous envoyer un email à"
+  "jobs_desc": "Si vous partagez notre vision et si vous souhaitez faire partie d'une aventure internationale, n'hésitez pas à nous envoyer un email à",
+
+  "_comment": "##### ABOUT/FAQ #####",
+
+  "faq_meta_title": "Foire aux questions",
+  "faq_meta_desc": "",
+  "faq": "Foire aux questions",
+
+  "faq_q1": "Vous avez oublié votre mot de passe",
+  "faq_a1": "Si vous avez perdu ou oublié votre mot de passe, allez sur la page d'identification puis cliquez sur le bouton \"Mot de passe oublié\". Vous serez redirigé vers un mail automatique à envoyer à support@adillions.com, vous devrez alors spécifiez votre prénom, nom et date de naissance. L'équipe d'Adillions s'engage à vous répondre dans les meilleurs délais.",
+
+  "faq_q2": "Vous souhaitez modifier votre mot de passe ou vos informations personnelles",
+  "faq_a2": "Envoyez nous un email à support@adillions.com en spécifiant votre prénom, nom et date de naissance.",
+
+  "faq_q3": "Vous souhaitez créer un autre compte utilisateur",
+  "faq_a3": "Dans un souci de garantir l'égalité des chances et d'éviter tout usage frauduleux de la plateforme, Adillions autorise uniquement un seul compte Adillions par personne.",
+
+  "faq_q4": "Vous souhaitez fermer votre compte définitivement",
+  "faq_a4": "Pour procéder à la fermeture définitive de votre compte, veuillez nous envoyer un mail à l'adresse suivante support@adillions.com en précisant en objet \"Fermeture de compte\" et en spécifiant votre prénom, nom et date de naissance.",
+
+  "faq_q5": "Vous rencontrez des problèmes de connexion",
+  "faq_a5": "Vérifiez tout d'abord qu'il ne s'agit pas d'un problème d'identification (email et / ou mot de passe erronés ou encore connexion avec un mauvais compte Facebook) puis ensuite d'un problème de connexion internet. Si le problème persiste, contactez nous en adressant un mail à support@adillions.com, en précisant votre identifiant, le type de plateforme que vous utilisez (app, web, etc.) et une description du problème. Nous serons heureux de vous aider à le résoudre.",
+
+  "faq_q6": "Le nombre de tickets par utilisateur est-il limité par tirage ?",
+  "faq_a6": "Oui. Un nombre maximum de tickets est fixé pour chaque joueur par tirage afin de préserver l'égalité des chances entre les participants. Vous pouvez gagner des Tickets Bonus en likant notre page Facebook, en nous suivant sur Twitter, etc. (cf. Récompenses).",
+
+  "faq_q7": "Est-ce que je suis averti quand j'ai remporté un gain ?",
+  "faq_a7": "Oui. A l'issue du tirage, si vous êtes parmi les gagnants, un mail vous est adressé pour vous informer du montant de votre gain.",
+
+  "faq_q8": "Est-ce que je dois renseigner mes coordonnées bancaires à l'inscription ?",
+  "faq_a8": "Non. L'inscription sur Adillions ne requiert, à aucun moment, l'obligation de communiquer vos coordonnées bancaires.",
+
+  "faq_q9": "Quand et comment est-ce que je reçois mes gains ?",
+  "faq_a9": "Les gains des joueurs sont versés au minimum 4 semaines après qu'ils aient atteint un solde global minimum de 10 euros et au maximum huit 8 semaines après. Le versement des gains s'effectue par virement bancaire pour les gagnants de la zone SEPA / Euro et via PayPal pour les autres gagnants (consultez le Règlement pour plus de détails).",
+
+  "faq_q10": "A quel moment dois-je transmettre mes coordonnées bancaires / PayPal ?",
+  "faq_a10": "Adillions vous demande de fournir vos coordonnées bancaires / PayPal uniquement lors du versement de vos gains.",
+
+  "faq_q11": "Est-ce que l'identité du / des vainqueur(s) est publiée sur la plateforme ?",
+  "faq_a11": "Non. Adillions s'engage à respecter la confidentialité de vos données personnelles. En accord avec notre Règlement et notre Politique de Confidentialité, seuls votre prénom, la première lettre de votre nom de famille ainsi que votre lieu de résidence (ville / pays) seront potentiellement affichés sur la plateforme.",
+
+  "faq_q12": "Où consulter les résultats des précédents tirages ?",
+  "faq_a12": "Vous pouvez consulter les résultats de tous les précédents tirages sur le site www.adillions.com/results.",
+
+  "faq_q13": "Comment la plateforme se prémunit-elle contre de potentielles fraudes / triches ?",
+  "faq_a13": "Adillions s'engage à limiter les risques de triche et de fraude et à protéger l'intégrité des tirages grâce à plusieurs mesures et notamment :",
+  "faq_a13a": "1. Adillions vérifie l'unicité des comptes;",
+  "faq_a13b": "2. Pour les gains supérieurs à 2000 euros, il est demandé de fournir un document attestant de l'identité exacte du gagnant;",
+  "faq_a13c": "3. Avant chaque tirage, la base de données des tickets est sécurisée;",
+  "faq_a13d": "4. Des logiciels anti-fraude ont été développés afin de préserver l'intégrité du jeu."
 
 }
