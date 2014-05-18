@@ -1,26 +1,14 @@
   {{#push "styles"}}
-    <link rel="stylesheet" href="/styles/404.css">
+    <link rel="stylesheet" href="{{statics '/styles/404.css'}}">
   {{/push}}
-  <div class="fourohfour">
-    <div class="ocean">
-      <img class="fishy" src="http://sailsjs.org/images/fishy4.png">
-    </div>
 
-    <div class="main">
-      <h1>
-        Something's fishy here.
-      </h1>
-      <h2>
-        The page you were trying to reach doesn't exist.
-      </h2>
-      <p class="help">
-        <a href="http://en.wikipedia.org/wiki/HTTP_404">Why</a> might this be happening?
-      </p>
-    </div>
-
-    <div class="logo">
-      <a href="http://sailsjs.org">
-        <img src="http://sailsjs.org/images/logo.png">
-      </a>
-    </div>
+  <div class="jumbotron">
+    <h1>
+      404 error page
+    </h1>
+    <p>
+      It looks like you're lost...<br />
+      The page you are looking for no longer exists.
+    </p>
+    <p><a href="/" class="btn btn-primary btn-lg">Go to homepage</a></p>
   </div>
