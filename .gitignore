@@ -39,7 +39,7 @@
 #
 ################################################
 
-config/local.js
+config/environments/development.js
 config/assets.json
 
 

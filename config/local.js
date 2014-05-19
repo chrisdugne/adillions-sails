@@ -23,8 +23,11 @@
  * http://sailsjs.org/#documentation
  */
 
-module.exports = {
+var fs = require('fs'),
+  sails = require('sails'),
+  _ = require('lodash');
 
+var defaults = {
   // Your SSL certificate and key, if you want to be able to serve HTTP responses
   // over https:// and/or use websockets over the wss:// protocol
   // (recommended for HTTP, strongly encouraged for WebSockets)
@@ -62,10 +65,12 @@ module.exports = {
   // By default, Sails sets its environment using the `NODE_ENV` environment variable.
   // If NODE_ENV is not set, Sails will run in the 'development' environment.
 
-  environment: process.env.NODE_ENV || 'development',
-
-  models: {
-    connection: 'localDiskDb'
-  }
-
+  environment: process.env.NODE_ENV || 'development'
 };
+
+var developmentConfig = __dirname + '/environments/development.js';
+if (defaults.environment === 'development' && fs.existsSync(developmentConfig)) {
+  var environment = require(developmentConfig);
+}
+
+module.exports = _.merge(defaults, environment || {});
