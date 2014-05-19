@@ -1,8 +1,8 @@
 {
   "Welcome": "Bienvenue",
   "brand": "Adillions",
-  "adillions_meta_title": "Adillions: Loterie gratuite avec des gains d'argent réel",
-  "adillions_meta_desc": "Adillions est un jeu de loterie gratuit avec des gains. Disponible sur mobile ios et android. réels et redistribué à des organismes de bienfaisance",
+  "adillions_meta_title": "Adillions: Une loterie innovante",
+  "adillions_meta_desc": "Loterie gratuite et responsable avec des gains d'argent réel financés par la publicité - Jeu web et mobile disponible sur l'App Store et le Google Play",
 
   "Error.Passport.Password.Wrong": "Le champ mot de passe est incorrect",
   "Error.Passport.Password.NotSet": "Le champ mot de passe est vide",
@@ -58,8 +58,8 @@
 
   "_comment": "##### ABOUT/INDEX #####",
 
-  "about_meta_title": "À propos du jeu de loterie Adillions",
-  "about_meta_desc": "",
+  "about_meta_title": "À propos du jeu de loterie",
+  "about_meta_desc": "Le Concept - Notre Vision & nos Valeurs - L'Équipe",
   "about": "À propos",
 
   "about_WhatIs": "Adillions en quelques mots",
@@ -130,7 +130,7 @@
 
   "_comment": "##### ABOUT/PRIVACY #####",
 
-  "privacy_meta_title": "Confidentialité Adillions",
+  "privacy_meta_title": "Confidentialité",
   "privacy_meta_desc": "",
   "privacy": "Confidentialité",
 

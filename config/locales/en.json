@@ -1,8 +1,8 @@
 {
   "Welcome": "Bienvenue",
   "brand": "Adillions",
-  "adillions_meta_title": "Adillions : a free lottery game with real cash prizes",
-  "adillions_meta_desc": "Adillions is a simple and free lottery game (sweepstake) with real cash prizes funded by video advertising. Available on mobile ios and android.",
+  "adillions_meta_title": "Adillions : Innovative sweepstake",
+  "adillions_meta_desc": "Funded by ads, a global, free and responsible sweepstake with real cash prizes ! -Web & mobile game of chance available on the App Store & Google Play",
 
   "Error.Passport.Password.Wrong": "Whoa, that password wasn't quite right!",
   "Error.Passport.Password.NotSet": "Oh no, you haven't set a password yet!",
@@ -59,7 +59,7 @@
   "_comment": "##### ABOUT/index #####",
 
   "about_meta_title": "About the lottery game",
-  "about_meta_desc": "",
+  "about_meta_desc": "Concept - Our Vision & Values - Meet our Team",
   "about": "About",
 
   "about_WhatIs": "What is Adillions?",
