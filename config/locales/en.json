@@ -189,5 +189,57 @@
   "jobs": "Jobs",
 
   "jobs_intro": "We are always looking for talented and motivated people to join the Adillions team",
-  "jobs_desc": "If you share our vision and if you want to be part of a global adventure, do not hesitate to send an email to"
+  "jobs_desc": "If you share our vision and if you want to be part of a global adventure, do not hesitate to send an email to",
+
+  "_comment": "##### ABOUT/FAQ #####",
+
+  "faq_meta_title": "Frequently asked questions",
+  "faq_meta_desc": "Find here the answers to all your questions!",
+  "faq": "Faq",
+
+  "faq_intro": "Find here the answers to all your questions!",
+
+  "faq_q1": "I forgot my password",
+  "faq_a1": "If you lost/forgot your password, go to the login page and click on \"Lost password\", send us an email to support@adillions.com and specify your full name and date of birth. The Adillions team will get back to you within the best delays.",
+
+  "faq_q2": "How do I change my password and personal details?",
+  "faq_a2": "Please send an email to support@adillions.com and specify your full name and date of birth.",
+
+  "faq_q3": "Can I create several Adillions accounts?",
+  "faq_a3": "In order to prevent potential frauds and to guarantee equality of opportunities and treatment of players, Adillions only allows one account per individual. All gains obtained in a unfair manner will be lost (see the Terms).",
+
+  "faq_q4": "How do I permanently delete my account?",
+  "faq_a4": "Please send an email to support@adillions.com and specify \"Delete my account\" in the subject line and include your full name and date of birth in the mail.",
+
+  "faq_q5": "I am having a connection problem",
+  "faq_a5": "First, make sure you fill out your correct email address/password or that you log in with the appropriate Facebook account. Second, make sure that you have a good access to the internet. If it is still not working, send an email to support@adillions.com with the details about your setup (which browser, internet connection, device you have, etc.) and a description of what's exactly happening. We are here to help you connect to the platform.",
+
+  "faq_q6": "Is there a maximum number of tickets I am allowed to fill out for each draw?",
+  "faq_a6": "Yes. Adillions allows a maximum number of tickets per user per draw to preserve equality of opportunities for all participants. You can gain Bonus Tickets by liking our Facebook Page, following us on Twitter, etc. (see Rewards).",
+
+  "faq_q7": "Do I receive an alert/email if I win a prize?",
+  "faq_a7": "At the end of each draw, if you are a winner, you will receive an email informing you of your win.",
+
+  "faq_q8": "During the registration, do I need to provide my bank account details?",
+  "faq_a8": "No. Adillions does not require any bank account details to submit your registration.",
+
+  "faq_q9": "When will I receive my payment? And how?",
+  "faq_a9": "You will receive payment within 4-8 weeks having won a minimum total balance of 10 euros. They will be paid by bank transfer for winners inside the SEPA/EU zone and via PayPal for other countries (for more details please read our Terms).",
+
+  "faq_q10": "When do I need to give my bank account details?",
+  "faq_a10": "Adillions only asks for your bank account details once it will proceed with your prize payment.",
+
+  "faq_q11": "Does Adillions publish the real names / identities of the winners?",
+  "faq_a11": "In accordance with our Privacy Policy, Adillions does not release the real full name of winning players on its platform but only publishes their first name and the first letter of their last name as well as their country and city.",
+
+  "faq_q12": "Where can I find the results of previous draws?",
+  "faq_a12": "All previous results are available at www.adillions.com.",
+
+  "faq_q13": "How does Adillions prevent game cheating and fraud?",
+  "faq_a13": "Adillions is committed to guarantying equality of opportunities to all users and to prevent potential frauds through a series of measures, for example:",
+  "faq_a13a": "Adillions checks that each user has only one account;",
+  "faq_a13b": "Adillions asks for a probing ID document for winning players with gains above €2000;",
+  "faq_a13c": "Before each draw, Adillions secures the whole database of tickets; and",
+  "faq_a13d": "Adillions uses multiple anti-fraud softwares to protect the gaming experience"
+
 }

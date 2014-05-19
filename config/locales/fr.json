@@ -197,8 +197,10 @@
   "_comment": "##### ABOUT/FAQ #####",
 
   "faq_meta_title": "Foire aux questions",
-  "faq_meta_desc": "",
-  "faq": "Foire aux questions",
+  "faq_meta_desc": "Trouver ici les réponses à toutes vos questions!",
+  "faq": "Faq",
+
+  "faq_intro": "Trouver ici les réponses à toutes vos questions!",
 
   "faq_q1": "Vous avez oublié votre mot de passe",
   "faq_a1": "Si vous avez perdu ou oublié votre mot de passe, allez sur la page d'identification puis cliquez sur le bouton \"Mot de passe oublié\". Vous serez redirigé vers un mail automatique à envoyer à support@adillions.com, vous devrez alors spécifiez votre prénom, nom et date de naissance. L'équipe d'Adillions s'engage à vous répondre dans les meilleurs délais.",
@@ -238,9 +240,9 @@
 
   "faq_q13": "Comment la plateforme se prémunit-elle contre de potentielles fraudes / triches ?",
   "faq_a13": "Adillions s'engage à limiter les risques de triche et de fraude et à protéger l'intégrité des tirages grâce à plusieurs mesures et notamment :",
-  "faq_a13a": "1. Adillions vérifie l'unicité des comptes;",
-  "faq_a13b": "2. Pour les gains supérieurs à 2000 euros, il est demandé de fournir un document attestant de l'identité exacte du gagnant;",
-  "faq_a13c": "3. Avant chaque tirage, la base de données des tickets est sécurisée;",
-  "faq_a13d": "4. Des logiciels anti-fraude ont été développés afin de préserver l'intégrité du jeu."
+  "faq_a13a": "Adillions vérifie l'unicité des comptes;",
+  "faq_a13b": "Pour les gains supérieurs à 2000 euros, il est demandé de fournir un document attestant de l'identité exacte du gagnant;",
+  "faq_a13c": "Avant chaque tirage, la base de données des tickets est sécurisée;",
+  "faq_a13d": "Des logiciels anti-fraude ont été développés afin de préserver l'intégrité du jeu."
 
 }
