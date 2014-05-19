@@ -9,7 +9,7 @@ It aims to set a specific local configuration without commited it to a remote re
 
 See below examples of local configurations.
 
-## Log
+## Local: Log
  
 > Logger configuration
  
@@ -31,7 +31,7 @@ module.exports = {
 
 ```
 
-## Local Disk db
+## Local: Disk db
  
 > Development-only persistent adapter for Sails.js / Waterline 
  
@@ -51,7 +51,7 @@ module.exports = {
 ```
 
 
-## Local Postgresql
+## Local: Postgresql db
 
 > PostgreSQL adapter for Sails.js
  
