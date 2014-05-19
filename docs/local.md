@@ -2,7 +2,12 @@
 
 Sails allow to set local development configurations.
 
-The `config/local.js` file include any settings like **level of logs**, **db connection**, **passwords** ...
+The `config/environments/development.js` file include any settings like **level of logs**, **db connection**, **passwords** ...
+
+As the file above is situated inside the .gitignore file, you have to create it by yourself.<br />
+It aims to set a specific local configuration without commited it to a remote repository.
+
+See below examples of local configurations.
 
 ## Log
  
@@ -11,10 +16,6 @@ The `config/local.js` file include any settings like **level of logs**, **db con
 ``` js
 
 module.exports = {
-
-  port: process.env.PORT || 1337,
-
-  environment: process.env.NODE_ENV || 'development',
 
   // 'error'	: Display calls to `.error()`
   // 'warn'	: Display calls from `.error()` to `.warn()`
@@ -38,10 +39,6 @@ module.exports = {
 
 module.exports = {
 
-  port: process.env.PORT || 1337,
-
-  environment: process.env.NODE_ENV || 'development',
-
   // Your app's default connection.
   // i.e. the name of one of your app's connections (see `config/connections.js`)
 
@@ -61,10 +58,6 @@ module.exports = {
 ``` js
 
 module.exports = {
-
-  port: process.env.PORT || 1337,
-
-  environment: process.env.NODE_ENV || 'development',
 
   // Each model must have a `connection` property (a string) which is references the name of one
   // of these connections.  If it doesn't, the default `connection` configured in `config/models.js`
