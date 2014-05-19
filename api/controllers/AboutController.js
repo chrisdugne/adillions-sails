@@ -19,6 +19,12 @@ module.exports = {
     });
   },
 
+  prizes: function (req, res) {
+    return res.view({
+      usePopTitle: true
+    });
+  },
+
   press: function (req, res) {
     return res.view({
       usePopTitle: true
@@ -26,6 +32,12 @@ module.exports = {
   },
 
   faq: function (req, res) {
+    return res.view({
+      usePopTitle: true
+    });
+  },
+
+  rules: function (req, res) {
     return res.view({
       usePopTitle: true
     });

@@ -39,8 +39,10 @@ module.exports.routes = {
 
   '/:lang/about': 'AboutController.index',
   '/:lang/about/reward': 'AboutController.reward',
+  '/:lang/about/prizes': 'AboutController.prizes',
   '/:lang/about/press': 'AboutController.press',
   '/:lang/about/faq': 'AboutController.faq',
+  '/:lang/about/rules': 'AboutController.rules',
   '/:lang/about/jobs': 'AboutController.jobs',
   '/:lang/about/privacy': 'AboutController.privacy',
   '/:lang/about/terms': 'AboutController.terms',

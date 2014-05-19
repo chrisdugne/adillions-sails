@@ -243,6 +243,38 @@
   "faq_a13a": "Adillions vérifie l'unicité des comptes;",
   "faq_a13b": "Pour les gains supérieurs à 2000 euros, il est demandé de fournir un document attestant de l'identité exacte du gagnant;",
   "faq_a13c": "Avant chaque tirage, la base de données des tickets est sécurisée;",
-  "faq_a13d": "Des logiciels anti-fraude ont été développés afin de préserver l'intégrité du jeu."
+  "faq_a13d": "Des logiciels anti-fraude ont été développés afin de préserver l'intégrité du jeu.",
+
+  "_comment": "##### ABOUT/KEYRULES #####",
+
+  "keyrules_meta_title": "Règles de base",
+  "keyrules_meta_desc": "Lire les Règles de Base et plus de détails dans le Règlement",
+  "keyrules": "Règles de base",
+
+  "keyrules_intro": "Voilà les principales règles d'Adillions",
+  "keyrules_intro-1": "consultez le Règlement",
+  "keyrules_intro-2": "Pour plus de détails",
+
+  "keyrules_1": "Adillions est interdit à toute personne ayant moins de 18 ans",
+  "keyrules_2": "Il est interdit de jouer avec plusieurs comptes Adillions",
+  "keyrules_3": "Les joueurs doivent sélectionner 5 numéros dans la grille de numéros (1 à 49) et une Boule Chance dans la grille des 6 Boules Chances associée",
+
+  "keyrules_4": "Chaque joueur dispose d'un nombre maximum de Tickets disponibles par tirage (cf. stock de Tickets dans le Profil). Le stock initial de Tickets pour tous les joueurs est de 8 Tickets",
+
+  "keyrules_5-1": "Les joueurs peuvent gagner des Tickets additionnels au delà du stock initial",
+  "keyrules_5-2": "Récompenses",
+
+  "keyrules_6": "Les tirages sont effectués chaque dimanche à 11:00 (heure française)",
+  "keyrules_7": "Les joueurs ne peuvent pas enregistrer de combinaison pendant les deux heures précédant le tirage",
+
+  "keyrules_8-1": "La somme globale de la cagnotte est répartie entre les différents rangs de gain",
+  "keyrules_8-2": "Cagnotte",
+
+  "keyrules_9": "La somme affectée à un rang est répartie par parts égales entre les combinaisons gagnantes de ce rang",
+  "keyrules_10": "Les gains ne seront pas versés aux joueurs qui ne respecteront pas les conditions visées dans le Règlement d'Adillions",
+  "keyrules_11": "Les gains des joueurs sont versés au minimum 4 semaines après leur demande de paiement de gains (le solde global minimum de gains doit être supérieur à 15 euros) et au maximum 8 semaines après",
+  "keyrules_12": "Les gains sont versés par virement bancaire SEPA (zone Euro) et par chèque bancaire pour les gagnants français",
+  "keyrules_13": "Tout gagnant d’une somme supérieure ou égale à 1 000 euros doit justifier de son identité par la présentation d’un document écrit probant auprès d'Adillions",
+  "keyrules_14": "Les coordonnées d’un même compte bancaire peuvent servir, au maximum, à deux comptes Adillions appartenant à deux personnes physiques distinctes"
 
 }

@@ -240,6 +240,37 @@
   "faq_a13a": "Adillions checks that each user has only one account;",
   "faq_a13b": "Adillions asks for a probing ID document for winning players with gains above €2000;",
   "faq_a13c": "Before each draw, Adillions secures the whole database of tickets; and",
-  "faq_a13d": "Adillions uses multiple anti-fraud softwares to protect the gaming experience"
+  "faq_a13d": "Adillions uses multiple anti-fraud softwares to protect the gaming experience",
+
+  "_comment": "##### ABOUT/KEYRULES #####",
+
+  "keyrules_meta_title": "Key Rules",
+  "keyrules_meta_desc": "Read Adillions Key Rules and further details in the Terms",
+  "keyrules": "Key Rules",
+
+  "keyrules_intro": "Adillions key rules are the following",
+  "keyrules_intro-1": "please see the Terms",
+  "keyrules_intro-2": "For more details",
+
+  "keyrules_1": "Players must be 18 or over",
+  "keyrules_2": "Players must have only one Adillions account",
+  "keyrules_3": "Players must pick 5 different numbers from a pool of 49 numbers (from 1 to 49) and one Lucky Ball from a pool of 6 different Lucky Balls",
+  "keyrules_4": "Each player has a maximum number of available Tickets per draw (see stock of Tickets in the Profile section). The initial stock for all Players is 8 Tickets",
+
+  "keyrules_5-1": "Players can gain additional Tickets above the initial stock",
+  "keyrules_5-2": "Rewards",
+
+  "keyrules_6": "Draws take place every Sunday at 9:00 a.m. (GMT)",
+  "keyrules_7": "Players cannot record any selection during the two hours preceding the draw",
+
+  "keyrules_8-1": "The total amount of the Prize Fund is distributed over the different prize categories",
+  "keyrules_8-2": "Prize",
+
+  "keyrules_9": "The money allocated to a prize category is divided equally among the winning Tickets in that category",
+  "keyrules_10" : "There is no prize payment for winning Players who violated Adillions Terms",
+  "keyrules_11" : "The winning players are paid at least 4 weeks after their cash-out request (winnings must have reached a minimum total balance of 15 euros / 20 US dollars) and maximum 8 weeks after",
+  "keyrules_12" : "Winnings are paid by bank transfer to the winning Players inside the Single Euro Payments Area (SEPA) and by Paypal transfer",
+  "keyrules_13" : "Any winning player of a sum greater than or equal to 1,000 euros / 1,500 US dollars will have to prove his identity by sending Adillions a supporting document (national identity card, driving license, passport, etc.)",
+  "keyrules_14" : "One bank account for a maximum of two Adillions Accounts belonging to two distinct persons"
 
 }
