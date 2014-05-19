@@ -85,12 +85,3 @@ module.exports = {
 };
 
 ```
-
-## Ignore config/local.js
- 
-Any local changes to the config/local.js, **must not to be pushed to the repo**.
-To do not tracking it anymore, do :
- 
-``` shell
-git update-index --assume-unchanged config/local.js
-```
