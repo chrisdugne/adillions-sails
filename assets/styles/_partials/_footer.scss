@@ -1,5 +1,5 @@
   $footer-top: shade($body-bg, 3%);
-  $footer-bottom: shade($footer-top, 3%);
+  $footer-bottom: lighten($footer-top, 5%);
 
 .site-footer {
   ul {
@@ -15,5 +15,6 @@
 .site-footer-bottom {
   padding:15px 0;
   background: $footer-bottom;
-  border-top:1px solid shade($footer-bottom, 2%);
+  border-top:1px solid shade($footer-top, 2%);
+  border-bottom:1px solid shade($footer-top, 2%);
 }
