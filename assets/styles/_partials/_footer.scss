@@ -1,3 +1,19 @@
-.site-footer {
+  $footer-top: shade($body-bg, 3%);
+  $footer-bottom: shade($footer-top, 3%);
 
+.site-footer {
+  ul {
+    margin:0;
+  }
+}
+.site-footer-top {
+  padding:15px 0;
+  background: $footer-top;
+  border-top:1px solid shade($footer-top, 2%);
+}
+
+.site-footer-bottom {
+  padding:15px 0;
+  background: $footer-bottom;
+  border-top:1px solid shade($footer-bottom, 2%);
 }

@@ -1,9 +1,30 @@
 <footer class='site-footer'>
-  <nav class="navbar navbar-inverse mbn">
+
+  <div class="site-footer-top">
     <div class='container'>
-    {{> 'footer_nav'}}
-    {{> 'footer_social'}}
-    {{> 'footer_locales'}}
+      <div class="row">
+        <div class="col-xs-3 col-sm-2 mbm">
+          {{> 'footer_logo'}}
+        </div>
+        <div class="col-xs-12 col-sm-9 col-sm-offset-1">
+          {{> 'footer_nav'}}
+        </div>
+      </div>
     </div>
-  </nav>
+  </div>
+
+  <div class="site-footer-bottom">
+    <div class='container'>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          {{> 'footer_social'}}
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          {{> 'footer_locales'}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
 </footer>
