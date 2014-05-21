@@ -1,0 +1,43 @@
+{{#push "title"}}
+    <title>{{i18n 'brand'}}: {{i18n 'terms_meta_title'}}</title>
+{{/push}}
+{{#push "meta"}}
+    <meta name="description" content="{{i18n 'terms_meta_desc'}}">
+{{/push}}
+
+<div class="page-header">
+  <h1>{{i18n 'terms'}}
+  <small>{{i18n 'terms_createdAt'}}</small>
+  </h1>
+</div>
+
+<p class="lead">
+  {{i18n 'terms_intro-1'}}<br />
+  {{i18n 'terms_intro-2'}}
+</p>
+
+<p>{{i18n 'terms_intro-3'}}</p>
+
+{{#each articles}}
+  {{set name='articlekey' value=@key}}
+  {{@key}}
+  <h2>{{@key}} {{name}}</h2>
+
+  {{#each articles}}
+    {{set name='sectionkey' value=@key}}
+
+    {{#if name}}
+      <h3>
+        {{../../articlekey}}.{{@key}}
+        {{name}}
+      </h3>
+    {{/if}}
+    <ul class="list-unstyled">
+      {{#each articles}}
+        <li>{{../../articlekey}}.{{../sectionkey}}.{{@key}} {{name}}</li>
+      {{/each}}
+    </ul>
+
+  {{/each}}
+
+{{/each}}

@@ -80,6 +80,38 @@ var helpers = {
    */
   mergeContexts: function (options) {
     return options.fn(_.merge({}, this, options.hash.parent));
+  },
+
+  /**
+   *  'set'
+   *  ===============
+   *
+   *  Description
+   *  -----------
+   *
+   *  Set a value in the current context
+   *
+   *  Usage
+   *  -----
+   *
+   *  {{set name='test' value=@test}}
+   *
+   */
+  set: function (options) {
+    var args = [].slice.call(arguments),
+      name = options.hash.name,
+      value = options.hash.value;
+
+    if (_.isEmpty(args)) {
+      throw new Error('The "set" helper was called with no arguments');
+    }
+
+    if (typeof name !== 'string' || typeof value === 'undefined') {
+      throw new Error(
+        'The "set" helper must have a string key "name" and a define key "value"'
+      );
+    }
+    this[name] = value;
   }
 
 };

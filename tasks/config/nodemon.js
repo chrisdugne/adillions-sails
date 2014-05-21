@@ -17,6 +17,7 @@ module.exports = function (grunt) {
         ext: 'js,json,hbs',
         delay: 10,
         watch: [
+          'api/**/*',
           'config/**/*',
           'views/_partials/*'
         ]
@@ -31,6 +32,7 @@ module.exports = function (grunt) {
         ext: 'js,json,hbs',
         delay: 10,
         watch: [
+          'api/**/*',
           'config/**/*',
           'views/_partials/*'
         ]

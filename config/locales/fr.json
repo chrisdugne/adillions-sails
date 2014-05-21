@@ -275,6 +275,22 @@
   "keyrules_11": "Les gains des joueurs sont versés au minimum 4 semaines après leur demande de paiement de gains (le solde global minimum de gains doit être supérieur à 15 euros) et au maximum 8 semaines après",
   "keyrules_12": "Les gains sont versés par virement bancaire SEPA (zone Euro) et par chèque bancaire pour les gagnants français",
   "keyrules_13": "Tout gagnant d’une somme supérieure ou égale à 1 000 euros doit justifier de son identité par la présentation d’un document écrit probant auprès d'Adillions",
-  "keyrules_14": "Les coordonnées d’un même compte bancaire peuvent servir, au maximum, à deux comptes Adillions appartenant à deux personnes physiques distinctes"
+  "keyrules_14": "Les coordonnées d’un même compte bancaire peuvent servir, au maximum, à deux comptes Adillions appartenant à deux personnes physiques distinctes",
+
+  "_comment": "##### ABOUT/TERMS #####",
+
+  "terms_meta_title": "Règlement",
+  "terms_meta_desc": "Lire le Règlement avec les différentes règles du jeu",
+  "terms": "Règlement",
+
+  "terms_createdAt": "a été fait à Paris, le 4 avril 2014",
+  "terms_intro-1": "Adillions vise à créer un jeu global avec des normes uniformes pour tout le monde, mais nous nous efforçons également de respecter les lois locales.",
+  "terms_intro-2": "Le présent Règlement et ses modifications successives s’appliquent aux utilisateurs d'Adillions domiciliés en France (ci-après dénommé les \" Joueurs \").",
+  "terms_intro-3": "Apple Inc., Google Inc., Microsoft Corporation, Facebook Inc., Amazon.com Inc. et Twitter Inc. ne sont pas des organisateurs, co-organisateurs ou partenaires d'Adillions. Ces sociétés ne sont pas impliquées dans l'organisation de la loterie Adillions et ne sont pas sponsors de celle-ci.",
+
+  "terms_1": "Éditeur / Organisateur",
+  "terms_1-1": "La société Adillions (ci-après \" l'Organisateur \") - Société par actions simplifiée au capital de 10.000 Euros, immatriculée au RCS de Paris B 797 736 261 dont le siège social est situé au 57 rue du Faubourg Montmartre, 75009 Paris - France, organise des jeux gratuits sans obligation d'achat pour une durée indéterminée.",
+  "terms_1-1-1": "Les jeux édités par Adillions sont disponibles sur le site www.adillions.com, sur les applications mobiles Adillions et sur Facebook.",
+  "terms_1-1-2": "Dans le respect des dispositions légales, l'Organisateur se réserve le droit de modifier, d'interrompre momentanément et/ou de supprimer le jeu disponible sur Internet et les applications mobiles sans que sa responsabilité ne puisse être engagée de ce fait."
 
 }

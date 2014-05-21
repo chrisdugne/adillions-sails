@@ -271,6 +271,17 @@
   "keyrules_11" : "The winning players are paid at least 4 weeks after their cash-out request (winnings must have reached a minimum total balance of 15 euros / 20 US dollars) and maximum 8 weeks after",
   "keyrules_12" : "Winnings are paid by bank transfer to the winning Players inside the Single Euro Payments Area (SEPA) and by Paypal transfer",
   "keyrules_13" : "Any winning player of a sum greater than or equal to 1,000 euros / 1,500 US dollars will have to prove his identity by sending Adillions a supporting document (national identity card, driving license, passport, etc.)",
-  "keyrules_14" : "One bank account for a maximum of two Adillions Accounts belonging to two distinct persons"
+  "keyrules_14" : "One bank account for a maximum of two Adillions Accounts belonging to two distinct persons",
+
+  "_comment": "##### ABOUT/TERMS #####",
+
+  "terms_meta_title": "Terms",
+  "terms_meta_desc": "Read the Adillions Terms with our responsible rules",
+  "terms": "Terms",
+
+  "terms_createdAt": "updated and posted on April 06th, 2014",
+  "terms_intro-1": "Adillions aims to create a global game with consistent standards for everyone, but it also strives to respect local laws.",
+  "terms_intro-2": "The following Terms and their subsequent amendments apply to all users playing Adillions game outside of France (hereinafter referred to as the \"Players\").",
+  "terms_intro-3": "Apple Inc., Google Inc., Microsoft Corporation, Facebook Inc., Amazon.com Inc. and Twitter Inc. are not organizers, co-organizers or partners of Adillions. These companies are not involved in any way in the organization of the Adillions sweepstake and do not sponsor it."
 
 }
