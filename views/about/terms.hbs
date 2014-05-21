@@ -20,25 +20,25 @@
 
 {{#each articles}}
   {{set name='articlekey' value=@key}}
-  <h2>{{@key}} {{name}}</h2>
+  <h2><small>{{@key}}</small> {{name}}</h2>
 
   {{#each articles}}
     {{set name='sectionkey' value=@key}}
     {{#if articles}}
       {{#if name}}
         <h3>
-          <strong>{{../../../articlekey}}.{{@key}}</strong>
+          <small>{{../../../articlekey}}.{{@key}}</small>
           {{name}}
         </h3>
       {{/if}}
       <ul class="list-unstyled">
         {{#each articles}}
-          <li><strong>{{../../../articlekey}}.{{../sectionkey}}.{{@key}}</strong> {{name}}</li>
+          <li><small class="text-muted">{{../../../articlekey}}.{{../sectionkey}}.{{@key}}</small> {{name}}</li>
         {{/each}}
       </ul>
     {{else}}
       <p>
-        <strong>{{../../articlekey}}.{{@key}}</strong>
+        <small class="text-muted">{{../../articlekey}}.{{@key}}</small>
         {{name}}
       </p>
     {{/if}}
