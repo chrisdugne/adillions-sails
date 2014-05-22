@@ -483,6 +483,28 @@
   "terms_20": " Législation en vigueur - Droit Applicable - Compétence Juridictionnelle",
   "terms_20-1": "La société Adillions déclare se conformer à la législation française en vigueur. Les Tirages réalisés par Adillions fonctionnent dans le strict respect de la réglementation applicable, à partir de fonctions informatiques courantes et reconnues pour leur caractère véritablement aléatoire, garantissant une égalité de chance et de traitement entre tous les Joueurs de la Plateforme.",
   "terms_20-2": "Les présentes et leurs suites, ainsi que toutes relations entre les Parties pouvant résulter de l'inscription et/ou la participation du Joueur sur la Plateforme sont expressément soumises au droit français.",
-  "terms_20-3": "Tous litiges portant sur la formation, l'interprétation, les conditions d'exécution ou l'inexécution, la terminaison ou la résiliation des présentes, ainsi que tous litiges qui surviendraient entre Adillions et le Joueur du fait de l'inscription et/ou la participation sur la Plateforme de ce dernier et de leurs suites, seront de la compétence territoriale exclusive des tribunaux tels que désignés par les règles du Code de procédure civile."
+  "terms_20-3": "Tous litiges portant sur la formation, l'interprétation, les conditions d'exécution ou l'inexécution, la terminaison ou la résiliation des présentes, ainsi que tous litiges qui surviendraient entre Adillions et le Joueur du fait de l'inscription et/ou la participation sur la Plateforme de ce dernier et de leurs suites, seront de la compétence territoriale exclusive des tribunaux tels que désignés par les règles du Code de procédure civile.",
 
+
+  "_comment": "##### ABOUT/PRIZES #####",
+
+  "prizes_meta_title": "Gains loterie",
+  "prizes_meta_desc": "Combinaison de la loterie et répartition de la cagnotte",
+  "prizes": "Gains",
+
+  "prizes_intro": "",
+
+  "_comment": "##### ABOUT/REWARD #####",
+
+  "reward_meta_title": "Récompenses",
+  "reward_meta_desc": "Recever des tickets de loterie en gagnant des points ou via les réseaux sociaux.",
+  "reward": "Récompenses",
+
+  "reward_intro": "Améliorer votre chance! Gagner des tickets.",
+
+  "reward_ticket_instant": "Tickets instantanés",
+  "reward_ticket_instant_desc": "Obtener des tickets en gagnant des points.",
+
+  "reward_ticket_bonus": "Tickets Bonus",
+  "reward_ticket_bonus_desc": "Augmentez votre nombre de billets disponibles pour le prochain tirage en gagnant Tickets Bonus."
 }

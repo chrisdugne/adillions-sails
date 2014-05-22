@@ -467,6 +467,28 @@
   "terms_19": "Applicable law",
   "terms_19-1": "Adillions complies with French laws and regulations. The Draws performed by Adillions on the Platform are in strict compliance with the applicable regulations. For the Draws, Adillions uses common computer functions, recognized for their true randomness and ensuring equality of opportunities and treatment for all Players of the Platform",
   "terms_19-2": "These Terms and their subsequent amendments, as well as any relationship between the Parties arising out of the registration and/or the participation of the Player on the Platform are expressly subject to French law.",
-  "terms_19-3": "All disputes concerning the formation, the interpretation, the conditions of fulfillment or non-fulfillment, the termination or the cancellation of the Terms, as well as any disputes arising between Adillions and the Players with respect to the registration and/or the participation on the Platform of the Players and their consequences, shall be subject to the exclusive jurisdiction of the courts as designated by the rules of the Code of Civil Procedure."
+  "terms_19-3": "All disputes concerning the formation, the interpretation, the conditions of fulfillment or non-fulfillment, the termination or the cancellation of the Terms, as well as any disputes arising between Adillions and the Players with respect to the registration and/or the participation on the Platform of the Players and their consequences, shall be subject to the exclusive jurisdiction of the courts as designated by the rules of the Code of Civil Procedure.",
+
+  "_comment": "##### ABOUT/PRIZES #####",
+
+  "prizes_meta_title": "Sweepstake prizes",
+  "prizes_meta_desc": "Matching ball of the sweepstake and prize breakdown",
+  "prizes": "Prizes",
+
+  "prizes_intro": "",
+
+  "_comment": "##### ABOUT/REWARD #####",
+
+  "reward_meta_title": "Reward",
+  "reward_meta_desc": "Get bonus and instant sweepstake ticket",
+  "reward": "Reward",
+
+  "reward_intro": "Improve your luck! Get more tickets.",
+
+  "reward_ticket_instant": "Instant Tickets",
+  "reward_ticket_instant_desc": "Get instant tickets (add free) by earning points.",
+
+  "reward_ticket_bonus": "Tickets Bonus",
+  "reward_ticket_bonus_desc": "Increase your number of available tickets for the next draws by gaining Bonus Tickets."
 
 }
