@@ -43,7 +43,11 @@ var AuthController = {
 
       providers[key] = {
         name: strategies[key].name,
-        slug: key
+        slug: key,
+        isFacebook: key === 'facebook',
+        isGoogle: key === 'google',
+        isTwitter: key === 'twitter',
+        isGithub: key === 'github'
       };
     });
 
@@ -100,7 +104,11 @@ var AuthController = {
 
       providers[key] = {
         name: strategies[key].name,
-        slug: key
+        slug: key,
+        isFacebook: key === 'facebook',
+        isGoogle: key === 'google',
+        isTwitter: key === 'twitter',
+        isGithub: key === 'github'
       };
     });
 

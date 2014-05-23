@@ -10,10 +10,10 @@ var url = require('url'),
 
 var getUrl = function (req, code) {
   return url.format({
-      protocol: req.protocol,
-      host: req.headers.host,
-      pathname: code
-    });
+    protocol: req.protocol,
+    host: req.headers.host,
+    pathname: code
+  });
 };
 
 module.exports = {
@@ -21,19 +21,19 @@ module.exports = {
     var languages = res.locals.languages,
       currentLanguage = res.getLocale();
 
-    if(_.isEmpty(languages)){
+    if (_.isEmpty(languages)) {
       sails.log.error('home#index: languages cannot be found');
       return res.view();
     }
 
     /*
-    * Alternate Urls
-    */
+     * Alternate Urls
+     */
 
     var alternateUrls = [];
 
-    _.forEach(languages , function (lang){
-      if(!lang.code) {
+    _.forEach(languages, function (lang) {
+      if (!lang.code) {
         sails.log.warn('home#index: the property "code" of language is falsy', {
           languages: languages,
           lang: lang
@@ -41,16 +41,16 @@ module.exports = {
         return;
       }
       alternateUrls.push({
-        url : getUrl(req, lang.code),
+        url: getUrl(req, lang.code),
         code: lang.code
       });
     });
 
     /*
-    * Canonical Url
-    */
+     * Canonical Url
+     */
 
-    if(_.isEmpty(currentLanguage)){
+    if (_.isEmpty(currentLanguage)) {
       sails.log.warn('home#index: currentLanguage cannot be found');
       return res.view({
         alternateUrls: alternateUrls
