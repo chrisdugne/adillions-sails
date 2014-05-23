@@ -30,15 +30,15 @@ module.exports.passport = {
     }
   },
 
-  github: {
-    name: 'GitHub',
-    protocol: 'oauth2',
-    strategy: require('passport-github').Strategy,
-    options: {
-      clientID: 'your-client-id',
-      clientSecret: 'your-client-secret'
-    }
-  },
+  // github: {
+  //   name: 'GitHub',
+  //   protocol: 'oauth2',
+  //   strategy: require('passport-github').Strategy,
+  //   options: {
+  //     clientID: 'your-client-id',
+  //     clientSecret: 'your-client-secret'
+  //   }
+  // },
 
   facebook: {
     name: 'Facebook',
