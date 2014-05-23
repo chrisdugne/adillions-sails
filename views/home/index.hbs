@@ -1,7 +1,14 @@
   {{#push "meta"}}
-  <meta name="description" content="{{i18n 'adillions_meta_desc'}}">
+    <meta name="description" content="{{i18n 'adillions_meta_desc'}}">
+    {{#if canonicalUrl}}<link rel="canonical" href="{{canonicalUrl}}" />{{/if}}
+    {{#each alternateUrls}}
+      <link rel="alternate" href="{{url}}" hreflang="{{code}}" />
+    {{/each}}
   {{/push}}
+
   {{#push "styles"}}
   {{/push}}
+
   {{#push "scripts"}}
   {{/push}}
+
