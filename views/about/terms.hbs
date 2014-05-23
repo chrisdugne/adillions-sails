@@ -19,11 +19,17 @@
 <p>{{i18n 'terms_intro-3'}}</p>
 
 {{#each articles}}
-  {{set name='articlekey' value=@key}}
+  {{#set 'articlekey'}}
+    {{@key}}
+  {{/set}}
+
   <h2><small>{{@key}}</small> {{name}}</h2>
 
   {{#each articles}}
-    {{set name='sectionkey' value=@key}}
+    {{#set 'sectionkey'}}
+      {{@key}}
+    {{/set}}
+
     {{#if articles}}
       {{#if name}}
         <h3>
