@@ -89,29 +89,23 @@ var helpers = {
    *  Description
    *  -----------
    *
-   *  Set a value in the current context
+   *  Set a variable in the current context
    *
    *  Usage
    *  -----
    *
-   *  {{set name='test' value=@test}}
+   *  {{#set 'termsroute'}}
+   *     {{route 'about.terms' lang=locale}}
+   *  {{/set}}
    *
    */
-  set: function (options) {
-    var args = [].slice.call(arguments),
-      name = options.hash.name,
-      value = options.hash.value;
 
-    if (_.isEmpty(args)) {
-      throw new Error('The "set" helper was called with no arguments');
+  set: function (ressource, options) {
+    if (!_.isString(ressource) || _.isEmpty(ressource)) {
+      throw new Error('The ressource agurments must be passed to the "set" helper and it must be a string');
     }
 
-    if (typeof name !== 'string' || typeof value === 'undefined') {
-      throw new Error(
-        'The "set" helper must have a string key "name" and a define key "value"'
-      );
-    }
-    this[name] = value;
+    this[ressource] = options.fn(this);
   }
 
 };
