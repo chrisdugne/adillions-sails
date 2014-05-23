@@ -2,18 +2,15 @@
   "name": "Adillions-next",
   "private": true,
   "dependencies": {
-
     "jquery": "1.10.2",
     "underscore": "~1.6.0",
     "i18next": "~1.7.2",
     "amd-loadr": "~0.0.2",
-
     "html5shiv": "~3.7.0",
     "json2": "latest",
-
     "bourbon": "~3.2.1",
     "bootstrap-sass-official": "~3.1.1",
-    "colors": "~0.2.0"
-
+    "colors": "~0.2.0",
+    "RRSSB": "~1.6.0"
   }
 }
