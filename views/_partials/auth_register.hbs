@@ -28,13 +28,14 @@
 
     <div class="checkbox">
       <label>
-        <input type="checkbox">
-        I agree to the <a href="{{route 'about.terms'}}">Terms of Use</a> and <a href="{{route 'about.privacy'}}">Privacy Policy</a>
+        {{#set2 'termsroute'}}{{route 'about.terms' lang=locale}}{{/set2}}
+        {{#set2 'privacyroute'}}{{route 'about.privacy' lang=locale}}{{/set2}}
+        {{{i18n 'auth_register_terms' termsroute privacyroute}}}
       </label>
     </div>
 
-    <div class="text-right">
-      <button type="submit" class="btn btn-primary">{{i18n 'auth_register'}}</button>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary btn-block">{{i18n 'auth_register'}}</button>
     </div>
 
   </div>

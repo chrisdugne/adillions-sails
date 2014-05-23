@@ -50,7 +50,9 @@
   "header_nav_charity": "Charité",
 
   "auth_signin": "Se connecter",
+  "auth_signin_rememberme": "Se souvenir de moi",
   "auth_register": "S'enregistrer",
+  "auth_register_terms": "J'accepte <a href=\"%s\">les Conditions d'utilisation</a> et la <a href=\"%s\">Politique de confidentialité</a>",
   "auth_field_username": "Pseudo",
   "auth_field_email": "Email",
   "auth_field_password": "Mot de passe",

@@ -50,7 +50,9 @@
   "header_nav_charity": "Charity",
 
   "auth_signin": "Sign in",
+  "auth_signin_rememberme": "Remember me",
   "auth_register": "Register",
+  "auth_register_terms": "I agree to the <a href=\"%s\">Terms of Use</a> and <a href=\"%s\">Privacy Policy</a>",
   "auth_field_username": "Username",
   "auth_field_email": "Email",
   "auth_field_password": "Password",
