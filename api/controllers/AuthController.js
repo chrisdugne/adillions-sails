@@ -105,6 +105,7 @@ var AuthController = {
     });
 
     res.view({
+      providers: providers,
       errors: req.flash('error')
     });
   },

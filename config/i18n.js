@@ -10,9 +10,11 @@
  */
 
 module.exports.i18n = {
-
-  // Which locales are supported?
+  // setup some locales - other locales default to en silently
   locales: ['en', 'fr'],
-  fallback: 'en'
-
+  // you may alter a site wide default locale
+  defaultLocale: 'en',
+  // sets a custom cookie name to parse locale settings from  - defaults to NULL
+  // refers to api/policies/seoLang.js
+  cookie: 'locales'
 };

@@ -24,7 +24,7 @@ module.exports = function (req, res, next) {
   var config = req._sails.config,
     language = req.path.match(/\/([a-z]{2})\//),
     languagesList = config.i18n.locales,
-    fallbackLanguage = config.i18n.fallback,
+    fallbackLanguage = config.i18n.defaultLocale,
     setLng = req.query.setLng,
     user = res.locals.user;
 
@@ -91,6 +91,10 @@ module.exports = function (req, res, next) {
     });
     res.setLocale(language);
     res.locals.locale = language;
+    res.cookie('locales', language, {
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+      httpOnly: true
+    });
     // If we don't support the language in the URL, redirect to page with supported language
     // It tries to use one of the accepted languages from the browser request
     // If it still can't find a supported language, it uses the fallback language
