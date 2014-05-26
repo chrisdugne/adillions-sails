@@ -4,14 +4,8 @@
 @import '_partials/_main-variables';
 @import '_partials/_main-mixins';
 
-// Import Bootstrap
-@import '../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss';
-@import '_partials/_main-helpers';
-@import '_partials/_main-icons';
 @import '_partials/_main_bootstrap';
 
-// Import Ridiculously Responsive Social Sharing Buttons : http://kurtnoble.com/labs/rrssb
-@import '../bower_components/RRSSB/scss/rrssb.scss';
-
-// Import spritesheet
-@import '_partials/_sprites';
+@import 'main/header.scss';
+@import 'main/footer.scss';
+@import 'main/auth.scss';

@@ -1,21 +1,25 @@
+// Import spritesheet
+@import '_sprites';
+// Import Ridiculously Responsive Social Sharing Buttons : http://kurtnoble.com/labs/rrssb
+@import '../../bower_components/RRSSB/scss/rrssb.scss';
+// Import Bootstrap
+@import '../../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss';
+
+@import '_main-helpers';
+@import '_main-icons';
+// Import spritesheet
+
 /* Lead button */
 
 .btn-lead {
     @include button-variant($btn-lead-color, $btn-lead-bg, $btn-lead-border);
 }
 
-
 /* Prettier Links */
 
-.site-content a {
-  transition:         color .3s ease-in-out;
+.site-content a:not(.btn) {
+  transition: color .3s ease-in-out;
+  &:link    { color: $blue; }
+  &:hover   { color: $aqua; }
+  &:active  { color: $orange; }
 }
-
-.site-content a:link    { color: $blue; }
-.site-content a:visited { color: $purple; }
-.site-content a:hover   { color: $aqua; }
-.site-content a:active  { color: $orange; }
-
-@import '_header.scss';
-@import '_footer.scss';
-@import '_auth.scss';
