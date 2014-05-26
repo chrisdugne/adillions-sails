@@ -31,7 +31,7 @@ module.exports = function (req, res, next) {
       }
     };
 
-  if (!_.isString(navLang) && _.isEmpty(navLang)) {
+  if (!_.isString(navLang) || _.isEmpty(navLang)) {
     sails.log.warn('No current language found', {
       navLang: navLang,
       languages: languages,
