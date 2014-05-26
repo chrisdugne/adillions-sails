@@ -4,5 +4,16 @@
   "facebook": "https://www.facebook.com/pages/Adillions/379432705492888",
   "google": "https://plus.google.com/112607508051344203881/posts",
   "linkedin": "http://www.linkedin.com/company/adillions",
-  "pinterest": "http://pinterest.com/adillions/"
+  "pinterest": "http://pinterest.com/adillions/",
+
+  "ceo_twitter" : "",
+  "ceo_googlePlus" : "",
+
+  "cto_twitter" : "",
+  "cto_googlePlus" : "",
+  "cto_github" : "",
+
+  "fel_twitter" : "http://www.twitter.com/duvillierA",
+  "fel_googlePlus" : "https://plus.google.com/108796620313394653168/posts",
+  "fel_github" : "https://github.com/duvillierA"
 }

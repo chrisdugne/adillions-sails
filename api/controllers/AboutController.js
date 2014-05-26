@@ -15,6 +15,11 @@ module.exports = {
     });
   },
 
+  team: function (req, res) {
+    return res.view({
+      usePopTitle: true
+    });
+  },
   reward: function (req, res) {
     return res.view({
       usePopTitle: true

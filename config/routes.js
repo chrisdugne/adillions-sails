@@ -38,6 +38,7 @@ module.exports.routes = {
   '/:lang/charity': 'GameController.charity',
 
   '/:lang/about': 'AboutController.index',
+  '/:lang/about/team': 'AboutController.team',
   '/:lang/about/reward': 'AboutController.reward',
   '/:lang/about/prizes': 'AboutController.prizes',
   '/:lang/about/press': 'AboutController.press',
