@@ -1,4 +1,4 @@
 <div class="navbar-right">
-  <a href="/register" class="btn btn-primary">{{i18n 'ui_register'}}</a>
-  <a href="/login" class="btn btn-default">{{i18n 'ui_signin'}}</a>
+  <a href="/register" onclick="ga('send', 'event', 'button.register', 'click', 'navbar-buttons');" class="btn btn-primary">{{i18n 'ui_register'}}</a>
+  <a href="/login" onclick="ga('send', 'event', 'button.signin', 'click', 'navbar-buttons');" class="btn btn-default">{{i18n 'ui_signin'}}</a>
 </div>
