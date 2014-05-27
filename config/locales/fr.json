@@ -491,15 +491,15 @@
   "_comment": "##### ABOUT/PRIZES #####",
 
   "prizes_meta_title": "Gains loterie",
-  "prizes_meta_desc": "Combinaison de la loterie et répartition de la cagnotte",
+  "prizes_meta_desc": "Répartition de la cagnotte par rang de gains",
   "prizes": "Gains",
 
-  "prizes_intro": "",
+  "prizes_intro": "Répartition de la cagnotte par rang de gains",
 
   "_comment": "##### ABOUT/REWARD #####",
 
   "reward_meta_title": "Récompenses",
-  "reward_meta_desc": "Recever des tickets de loterie en gagnant des points ou via les réseaux sociaux.",
+  "reward_meta_desc": "Des récompenses et des statuts pour les meilleurs joueurs",
   "reward": "Récompenses",
 
   "reward_intro": "Améliorer votre chance! Gagner des tickets.",
@@ -508,5 +508,28 @@
   "reward_ticket_instant_desc": "Obtener des tickets en gagnant des points.",
 
   "reward_ticket_bonus": "Tickets Bonus",
-  "reward_ticket_bonus_desc": "Augmentez votre nombre de billets disponibles pour le prochain tirage en gagnant Tickets Bonus."
+  "reward_ticket_bonus_desc": "Augmentez votre nombre de billets disponibles pour le prochain tirage en gagnant Tickets Bonus.",
+
+  "_comment": "##### ABOUT/TEAM #####",
+
+  "team_meta_title": "L'équipe",
+  "team_meta_desc": "Découvrez l'équipe d'Adillions",
+  "team": "L'équipe",
+
+  "team_intro": "L'équipe d'Adillions est basée à Paris (France) et elle est dirigée par:",
+  "team_cofounder": "Co-fondateur",
+
+  "team_ceo": "Président-Directeur Général",
+  "team_cto": "Directeur Technique",
+  "team_fel": "Front-end Leader",
+
+  "team_ceo_name": "Timothée de COURLON",
+  "team_cto_name": "Christophe DUGNE-ESQUEVIN",
+  "team_fel_name": "Antoine DUVILLIER",
+
+  "team_ceo_desc": "Timothée a initié le projet Adillions. Il a travaillé dans le secteur bancaire puis dans le conseil en stratégie pendant plusieurs années. Aujourd'hui, il supervise les aspects business et opérationnels du projet tels que le business développement, le marketing et la communication. Timothée est diplômé de l'ESSEC avec une spécialisation en Finance et Private Equity",
+  "team_cto_desc_1": "Christophe a commencé sa carrière en tant que développeur au sein d'une start-up dans le domaine du marketing web. Il a participé à la création de plusieurs start-ups dans l'univers du gaming et du mobile ainsi qu'un outil cartographique sur le cloud, ",
+  "team_cto_desc_2": ". Christophe est en charge du développement technique des produits d'Adillions. Christophe est diplômé de l'ENSEIRB à Bordeaux où il a étudié l'informatique",
+  "team_fel_desc": "Antoine a 5 années d'expérience dans l'univers du développement front-end. Antoine est un autodidacte passionné.<br /> Antoine est actuellement le Team Leader du framework UI open-source <a href='https://github.com/viadeo/tetra-ui'>Tetra-ui</a>."
+
 }

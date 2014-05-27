@@ -474,15 +474,15 @@
   "_comment": "##### ABOUT/PRIZES #####",
 
   "prizes_meta_title": "Sweepstake prizes",
-  "prizes_meta_desc": "Matching ball of the sweepstake and prize breakdown",
+  "prizes_meta_desc": "Distribution of the Prize Fund over the different Prize Categories",
   "prizes": "Prizes",
 
-  "prizes_intro": "",
+  "prizes_intro": "Distribution of the Prize Fund over the different Prize Categories",
 
   "_comment": "##### ABOUT/REWARD #####",
 
   "reward_meta_title": "Reward",
-  "reward_meta_desc": "Get bonus and instant sweepstake ticket",
+  "reward_meta_desc": "Achievements and status for the ultimate players",
   "reward": "Reward",
 
   "reward_intro": "Improve your luck! Get more tickets.",
@@ -491,6 +491,28 @@
   "reward_ticket_instant_desc": "Get instant tickets (add free) by earning points.",
 
   "reward_ticket_bonus": "Tickets Bonus",
-  "reward_ticket_bonus_desc": "Increase your number of available tickets for the next draws by gaining Bonus Tickets."
+  "reward_ticket_bonus_desc": "Increase your number of available tickets for the next draws by gaining Bonus Tickets.",
+
+  "_comment": "##### ABOUT/TEAM #####",
+
+  "team_meta_title": "Team",
+  "team_meta_desc": "Meet the Adillions Team",
+  "team": "Team",
+
+  "team_intro": "Adillions is based in Paris, France and the team is lead by:",
+  "team_cofounder": "Co-founder",
+
+  "team_ceo": "CEO",
+  "team_cto": "CTO",
+  "team_fel": "Front-end Leader",
+
+  "team_ceo_name": "Timothée de COURLON",
+  "team_cto_name": "Christophe DUGNE-ESQUEVIN",
+  "team_fel_name": "Antoine DUVILLIER",
+
+  "team_ceo_desc": "Timothée brainstormed the original idea for Adillions. He worked in the banking and strategy consulting industries for several years. Today, in his role as CEO, he manages all the business aspects of the project from legal and finance to marketing and communication. Timothée holds a MBA in Finance and Private Equity from ESSEC Business School",
+  "team_cto_desc_1": "Christophe started to work as a software developer for a start-up, a provider of search and contextual advertising. He already co-founded several start-ups in the mobile and gaming markets as well as an innovative GIS in the cloud, ",
+  "team_cto_desc_2": ". Christophe is dedicated to design and develop the best products for Adillions players. Christophe graduated from ENSEIRB where he studied Computer Science and Software Engineering",
+  "team_fel_desc": "Antoine has 5 years experience in front-end development with an eye for detail and a passion for creating unique and interesting website. Antoine is currently the team leader of the open-sourced UI framework <a href='https://github.com/viadeo/tetra-ui'>Tetra-ui</a>"
 
 }
