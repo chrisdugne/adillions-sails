@@ -14,7 +14,8 @@ module.exports = function (grunt) {
         'nodemon:dev', 'watch'
       ],
       options: {
-        logConcurrentOutput: true
+        logConcurrentOutput: true,
+        limit: 10
       }
     },
     prod: {
@@ -22,7 +23,8 @@ module.exports = function (grunt) {
         'nodemon:prod', 'watch'
       ],
       options: {
-        logConcurrentOutput: true
+        logConcurrentOutput: true,
+        limit: 10
       }
     }
   });

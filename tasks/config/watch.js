@@ -13,11 +13,11 @@
  *
  */
 
- /*
+/*
  * Whether to spawn task runs in a child process.
  * Setting this option to false speeds up the reaction time of the watch (usually 500ms faster for most) and allows subsequent task runs to share the same context.
  * Not spawning task runs can make the watch more prone to failing so please use as needed.
-*/
+ */
 
 module.exports = function (grunt) {
 
