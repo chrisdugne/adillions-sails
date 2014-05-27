@@ -2,6 +2,7 @@
 @import '_sprites';
 // Import Ridiculously Responsive Social Sharing Buttons : http://kurtnoble.com/labs/rrssb
 @import '../../bower_components/RRSSB/scss/rrssb.scss';
+
 // Import Bootstrap
 @import '../../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss';
 
@@ -9,17 +10,12 @@
 @import '_main-icons';
 // Import spritesheet
 
+body {
+  font-size: em(14px, 10px);
+}
+
 /* Lead button */
 
 .btn-lead {
     @include button-variant($btn-lead-color, $btn-lead-bg, $btn-lead-border);
-}
-
-/* Prettier Links */
-
-.site-content a:not(.btn) {
-  transition: color .3s ease-in-out;
-  &:link    { color: $blue; }
-  &:hover   { color: $aqua; }
-  &:active  { color: $orange; }
 }

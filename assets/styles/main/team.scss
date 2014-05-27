@@ -1,0 +1,41 @@
+.team {
+
+  .media {
+    margin-top: em(20px);
+    h2 {
+      display:inline-block;
+      margin:0 em(14px) 0 0;
+    }
+    h3 {
+      margin-top:0;
+    }
+    ul {
+      margin:em(14px) 0;
+      display:inline-block;
+    }
+  }
+
+  .social {
+    font-size: em($font-size-base*2);
+    text-decoration: none;
+    color:$gray;
+    &:hover {
+      color:$gray-dark;
+      &.social-twitter {
+        color:$twitter;
+      }
+      &.social-google_plus {
+        color:$googleplus;
+      }
+      &.social-github {
+        color:$github;
+      }
+    }
+  }
+
+  .well {
+    background: #fff;
+    padding:0;
+  }
+
+}
