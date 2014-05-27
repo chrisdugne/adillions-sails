@@ -17,7 +17,7 @@ module.exports = function (grunt) {
   // Displays the execution time of grunt tasks
   // https://github.com/sindresorhus/time-grunt
   require('time-grunt')(grunt);
-
+  require('load-grunt-tasks')(grunt);
   // Load the include-all library in order to require all of our grunt
   // configurations and task registrations dynamically.
   var includeAll;

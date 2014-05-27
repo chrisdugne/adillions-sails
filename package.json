@@ -41,7 +41,8 @@
     "grunt-strip": "~0.2.1",
     "grunt-newer": "~0.7.0",
     "grunt-jsbeautifier": "~0.2.7",
-    "time-grunt": "~0.3.1"
+    "time-grunt": "~0.3.1",
+    "load-grunt-tasks": "~0.4.0"
   },
   "devDependencies": {
     "sails-disk": "~0.10.0",
