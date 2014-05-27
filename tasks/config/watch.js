@@ -13,8 +13,6 @@
  *
  */
 
-var styleExtensions = '{css,scss,sass}';
-
 module.exports = function (grunt) {
 
   grunt.config.set('watch', {
@@ -22,11 +20,34 @@ module.exports = function (grunt) {
       // API files to watch:
       files: ['api/**/*']
     },
-    assets: {
-      // Assets to watch:
-      files: ['assets/**/*'],
-      // When assets are changed:
-      tasks: ['syncAssets']
+    // This task cannot use 'newer' as updates to imported dependencies are not picked up
+    styles: {
+      files: [
+        'assets/styles/**/*.scss'
+      ],
+      tasks: [
+        'sass:dev'
+      ]
+    },
+    // Transpile all ES6 modules and components. This task could use 'newer' but, as transpile is very
+    // fast, it ends up being *slower* that just rebuilding everything
+    modules: {
+      files: [
+        'assets/scripts/modules/**/*.js',
+      ],
+      tasks: [
+        'transpile:modules',
+        'newer:concat:dev'
+      ]
+    },
+
+    apps: {
+      files: [
+        'assets/scripts/*.js',
+      ],
+      tasks: [
+        'newer:concat:dev'
+      ]
     }
   });
 
