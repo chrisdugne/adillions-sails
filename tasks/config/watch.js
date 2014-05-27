@@ -30,6 +30,7 @@ module.exports = function (grunt) {
     styles: {
       options: {
         spawn: false,
+        interrupt: true
       },
       files: [
         'assets/styles/**/*.scss'
@@ -42,7 +43,7 @@ module.exports = function (grunt) {
     // fast, it ends up being *slower* that just rebuilding everything
     modules: {
       options: {
-        spawn: false,
+        spawn: false
       },
       files: [
         'assets/scripts/modules/**/*.js',
@@ -55,7 +56,7 @@ module.exports = function (grunt) {
 
     apps: {
       options: {
-        spawn: false,
+        spawn: false
       },
       files: [
         'assets/scripts/*.js',
