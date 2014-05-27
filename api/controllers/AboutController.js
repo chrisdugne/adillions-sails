@@ -17,7 +17,8 @@ module.exports = {
 
   team: function (req, res) {
     return res.view({
-      usePopTitle: true
+      usePopTitle: true,
+      bodyClass: 'team'
     });
   },
   reward: function (req, res) {

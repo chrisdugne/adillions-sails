@@ -40,7 +40,7 @@
 
     {{> 'analytics'}}
   </head>
-  <body>
+  <body class="{{bodyClass}}{{#unless user}} public-view{{/unless}}">
     {{> 'header'}}
     <main class="site-content pbxl">
       <div class='container'>
