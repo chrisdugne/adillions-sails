@@ -13,6 +13,12 @@
  *
  */
 
+ /*
+ * Whether to spawn task runs in a child process.
+ * Setting this option to false speeds up the reaction time of the watch (usually 500ms faster for most) and allows subsequent task runs to share the same context.
+ * Not spawning task runs can make the watch more prone to failing so please use as needed.
+*/
+
 module.exports = function (grunt) {
 
   grunt.config.set('watch', {
@@ -22,6 +28,9 @@ module.exports = function (grunt) {
     },
     // This task cannot use 'newer' as updates to imported dependencies are not picked up
     styles: {
+      options: {
+        spawn: false,
+      },
       files: [
         'assets/styles/**/*.scss'
       ],
@@ -32,6 +41,9 @@ module.exports = function (grunt) {
     // Transpile all ES6 modules and components. This task could use 'newer' but, as transpile is very
     // fast, it ends up being *slower* that just rebuilding everything
     modules: {
+      options: {
+        spawn: false,
+      },
       files: [
         'assets/scripts/modules/**/*.js',
       ],
@@ -42,6 +54,9 @@ module.exports = function (grunt) {
     },
 
     apps: {
+      options: {
+        spawn: false,
+      },
       files: [
         'assets/scripts/*.js',
       ],
