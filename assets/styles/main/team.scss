@@ -1,5 +1,9 @@
 .team {
 
+  .media, .media-body {
+    overflow:visible;
+  }
+
   .media {
     margin-top: em(20px);
     h2 {
