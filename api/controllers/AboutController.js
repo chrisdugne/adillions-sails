@@ -21,6 +21,14 @@ module.exports = {
       bodyClass: 'team'
     });
   },
+
+  advertisers: function (req, res) {
+    return res.view({
+      usePopTitle: true,
+      bodyClass: 'advertisers'
+    });
+  },
+
   reward: function (req, res) {
     return res.view({
       usePopTitle: true
@@ -90,11 +98,5 @@ module.exports = {
       });
     });
 
-  },
-
-  advertisers: function (req, res) {
-    return res.view({
-      usePopTitle: true
-    });
   }
 };
