@@ -43,6 +43,7 @@
   "ui_signin": "Sign in",
   "ui_register": "Register",
   "ui_error": "An error occurred",
+  "ui_ContactUs": "Contact us",
 
   "header_nav_home": "Home",
   "header_nav_game": "Game",
@@ -513,6 +514,23 @@
   "team_ceo_desc": "Timothée brainstormed the original idea for Adillions. He worked in the banking and strategy consulting industries for several years. Today, in his role as CEO, he manages all the business aspects of the project from legal and finance to marketing and communication. Timothée holds a MBA in Finance and Private Equity from ESSEC Business School",
   "team_cto_desc_1": "Christophe started to work as a software developer for a start-up, a provider of search and contextual advertising. He already co-founded several start-ups in the mobile and gaming markets as well as an innovative GIS in the cloud, ",
   "team_cto_desc_2": ". Christophe is dedicated to design and develop the best products for Adillions players. Christophe graduated from ENSEIRB where he studied Computer Science and Software Engineering",
-  "team_fel_desc": "Antoine has 5 years experience in front-end development with an eye for detail and a passion for creating unique and interesting website. Antoine is currently the team leader of the open-sourced UI framework <a href='https://github.com/viadeo/tetra-ui'>Tetra-ui</a>"
+  "team_fel_desc": "Antoine has 5 years experience in front-end development with an eye for detail and a passion for creating unique and interesting website. Antoine is currently the team leader of the open-sourced UI framework <a href='https://github.com/viadeo/tetra-ui'>Tetra-ui</a>",
+
+  "_comment": "##### ABOUT/ADVERTISERS #####",
+
+  "advertisers_meta_title": "Advertisers",
+  "advertisers_meta_desc": "Boost your brand awareness with a multi-screen digital strategy",
+  "advertisers_title": "Reasons to advertise on Adillions",
+  "advertisers": "Advertisers",
+
+  "advertisers_intro": "The sweepstake, The world’s most popular game of chance.",
+
+  "advertisers_boost_title": "Boost your brand awareness",
+  "advertisers_boost_desc": "Adillions offers you the opportunity to broadcast quality video ads and to organize your own sweepstake on our platform with a customized theme and prizes",
+  "advertisers_multiplatform_title": "Implement a multi-screen digital strategy",
+  "advertisers_multiplatform_desc": "You can benefit from Adillions presence on social networks (Facebook, Twitter, etc.) and on a wide range of platforms - smartphones and tablets (iOS and Androïd) and desktop",
+  "advertisers_audience_title": "Reach a global engaged audience",
+  "advertisers_audience_desc": "Thanks to Adillions international community of players, you get access to thousands of engaged users across the globe",
+  "advertisers_annotation": "If you're interested in finding out what Adillions can do for your brand, or your client's brand, please contact us."
 
 }

@@ -43,6 +43,7 @@
   "ui_signin": "Se connecter",
   "ui_register": "S'inscrire",
   "ui_error" : "Une erreur est survenue",
+  "ui_ContactUs": "Contactez-nous",
 
   "header_nav_home": "Accueil",
   "header_nav_game": "Jeux",
@@ -530,6 +531,23 @@
   "team_ceo_desc": "Timothée a initié le projet Adillions. Il a travaillé dans le secteur bancaire puis dans le conseil en stratégie pendant plusieurs années. Aujourd'hui, il supervise les aspects business et opérationnels du projet tels que le business développement, le marketing et la communication. Timothée est diplômé de l'ESSEC avec une spécialisation en Finance et Private Equity",
   "team_cto_desc_1": "Christophe a commencé sa carrière en tant que développeur au sein d'une start-up dans le domaine du marketing web. Il a participé à la création de plusieurs start-ups dans l'univers du gaming et du mobile ainsi qu'un outil cartographique sur le cloud, ",
   "team_cto_desc_2": ". Christophe est en charge du développement technique des produits d'Adillions. Christophe est diplômé de l'ENSEIRB à Bordeaux où il a étudié l'informatique",
-  "team_fel_desc": "Antoine a 5 années d'expérience dans l'univers du développement front-end. Antoine est un autodidacte passionné.<br /> Antoine est actuellement le Team Leader du framework UI open-source <a href='https://github.com/viadeo/tetra-ui'>Tetra-ui</a>."
+  "team_fel_desc": "Antoine a 5 années d'expérience dans l'univers du développement front-end. Antoine est un autodidacte passionné.<br /> Antoine est actuellement le Team Leader du framework UI open-source <a href='https://github.com/viadeo/tetra-ui'>Tetra-ui</a>.",
+
+  "_comment": "##### ABOUT/ADVERTISERS #####",
+
+  "advertisers_meta_title": "Annonceurs",
+  "advertisers_meta_desc": "Boostez votre notoriété avec une stratégie digitale multicanal",
+  "advertisers_title": "Vos annonces publicitaires avec Adillions",
+  "advertisers": "Annonceurs",
+
+  "advertisers_intro": "La loterie, Le jeu de hasard le plus célèbre dans le monde.",
+
+  "advertisers_boost_title": "Boostez votre notoriété",
+  "advertisers_boost_desc": "Adillions vous offre l’opportunité de diffuser vos vidéos publicitaires et d’organiser votre propre loterie sur notre plateforme en personnalisant le thème du tirage et les gains associés",
+  "advertisers_multiplatform_title": "Mettez en place une stratégie digitale multiplateforme",
+  "advertisers_multiplatform_desc": "Vous bénéficiez de la présence d’Adillions sur les réseaux sociaux (Facebook, Twitter, etc.) et sur une large gamme de plateformes : smartphones et tablettes (iOS et Androïd) et ordinateurs",
+  "advertisers_audience_title": "Communiquez auprès d'une audience globale et fidèle",
+  "advertisers_audience_desc": "Grâce à Adillions, vous avez accès à une communauté internationale de joueurs réguliers et fidèles",
+  "advertisers_annotation": "Pour découvrir ce qu'Adillions peut apporter à votre marque ou celles de vos clients, veuillez nous contacter."
 
 }
