@@ -63,7 +63,7 @@ try {
 }
 
 // exec scripts tasks
-if(process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   require('execSync').run('bower update; exit 1');
   require('execSync').run('./node_modules/sails/node_modules/.bin/grunt prod; exit 1');
 }
