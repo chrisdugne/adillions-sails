@@ -50,5 +50,23 @@ try {
   }
 }
 
+var execSync;
+try {
+  execSync = require('execSync');
+} catch (e0) {
+  console.error('Could not find dependency: `execSync`.');
+  console.error('To resolve this, run:');
+  console.error('npm install execSync --save');
+  execSync = function () {
+    return {};
+  };
+}
+
+// exec scripts tasks
+if(process.env.NODE_ENV === 'production') {
+  require('execSync').run('bower update; exit 1');
+  require('execSync').run('./node_modules/sails/node_modules/.bin/grunt prod; exit 1');
+}
+
 // Start server
 sails.lift(rc('sails'));

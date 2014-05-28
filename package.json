@@ -7,6 +7,7 @@
     "bower": "latest",
     "sails": "0.10.0-rc7",
     "sails-postgresql": "0.10.0-rc3",
+    "execSync": "~1.0.1-pre",
     "rc": "~0.3.3",
     "include-all": "~0.1.3",
     "lodash": "~2.4.1",
@@ -51,8 +52,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "debug": "node debug app.js",
-    "postinstall": "bower update && ./node_modules/sails/node_modules/.bin/grunt prod"
+    "debug": "node debug app.js"
   },
   "main": "app.js",
   "repository": {
