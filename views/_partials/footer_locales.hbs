@@ -1,10 +1,18 @@
 <div class='footer-locales text-right'>
-  <ul class="list-inline">
-    <li>
-      <a href="?setLng=en" class="">English</a>
-    </li>
-    <li>
-      <a href="?setLng=fr" class="">Français</a>
-    </li>
-  </ul>
+  <span class="text">Languages:</span>
+  <div class="dropdown dropup dispib">
+    <a data-toggle="dropdown" href="#" role="button">
+      {{locale}}
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dLabel">
+      <li>
+        <a href="?setLng=en" class="">English</a>
+      </li>
+      <li>
+        <a href="?setLng=fr" class="">Français</a>
+      </li>
+    </ul>
+  </div>
 </div>
+
