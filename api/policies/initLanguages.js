@@ -20,16 +20,7 @@ module.exports = function (req, res, next) {
 
   var config = req._sails.config,
     navLang = res.getLocale(),
-    languages = {
-      'en': {
-        current: false,
-        code: 'en'
-      },
-      'fr': {
-        current: false,
-        code: 'fr'
-      }
-    };
+    languages = config.i18n.languages;
 
   if (!_.isString(navLang) || _.isEmpty(navLang)) {
     sails.log.warn('No current language found', {
