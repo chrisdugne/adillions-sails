@@ -1,13 +1,15 @@
 /**
  * Handlebars CDN Statics helpers
  */
-var _ = require('lodash');
+var _ = require('lodash'),
+  fs = require('fs');
 
 /*
  * Options (default options and validation method)
  */
-var options;
-var defaultOptions = {};
+var options,
+  mapping,
+  defaultOptions = {};
 
 var validateOptions = function (opts) {
   options = _.merge({}, defaultOptions, opts);
@@ -16,12 +18,26 @@ var validateOptions = function (opts) {
   if (!_.isArray(options.hostname)) {
     throw new Error('The hostname option must be passed to init the helper and it must be an array.');
   }
-  if (!_.isPlainObject(options.mapping)) {
-    throw new Error('The mapping option must be passed to init the helper and it must be a plain object.');
+  if (!_.isString(options.mapping)) {
+    throw new Error('The mapping option must be passed to init the helper and it must be a string.');
   }
   if (!_.isString(options.environment)) {
     throw new Error('The environment option must be passed to init the helper and it must be a string.');
   }
+
+  try {
+    mapping = fs.readFileSync(options.mapping);
+  } catch (e) {
+    // Here you get the error when the file was not found,
+    // but you also get any other error
+    if (e.code === 'ENOENT') {
+      mapping = {};
+      sails.log.warn('helpers#statics: options.mapping file not found!', options.mapping);
+    } else {
+      throw e;
+    }
+  }
+
 };
 
 /**

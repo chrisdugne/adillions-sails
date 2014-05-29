@@ -28,7 +28,7 @@ module.exports.bootstrap = function (cb) {
   helpers.pagination.register(hbs);
 
   helpers.statics.register(hbs, {
-    mapping: require('./assets.json'),
+    mapping: __dirname + '/assets.json',
     environment: sails.config.environment,
     hostname: sails.config.static.resources_proxies
   });
