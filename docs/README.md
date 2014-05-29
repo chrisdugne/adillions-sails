@@ -7,9 +7,9 @@ You have to read it and contribute to it !
 - [General code conventions](conventions.md)
 - [Css conventions](css.md)
 - [Git practices](git.md)
-
+- [local configurations](local.md)
+- [heroku](heroku.md)
+- 
 TODO:
 
 - Grunt tasks
-- heroku preprod
-- local configurations
