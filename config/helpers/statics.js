@@ -26,7 +26,7 @@ var validateOptions = function (opts) {
   }
 
   try {
-    mapping = fs.readFileSync(options.mapping);
+    mapping = JSON.parse(fs.readFileSync(options.mapping).toString());
   } catch (e) {
     // Here you get the error when the file was not found,
     // but you also get any other error
@@ -102,7 +102,6 @@ var helpers = {
     } else {
       hostname = options.hostname[0] && options.hostname[0].trim();
     }
-    var mapping = options.mapping;
 
     // trim and remove starting slash
     var url = resource.trim();
