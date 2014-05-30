@@ -10,7 +10,6 @@
 
 var path = require('path'),
   hbs = require('hbs'),
-  hbsutils = require('hbs-utils')(hbs),
   helpers = require(path.resolve(__dirname + '/helpers'));
 
 module.exports.bootstrap = function (cb) {
@@ -20,7 +19,7 @@ module.exports.bootstrap = function (cb) {
   // template 2.html    -> {{> template_2}}
   // login view.hbs     -> {{> login_view}}
   // template-file.html -> {{> template_file}}
-  hbsutils.registerPartials(path.resolve('views/_partials'));
+  hbs.registerPartials(path.resolve('views/_partials'));
 
   // register all helpers located in '/helpers' folder
   helpers.templating.register(hbs);
