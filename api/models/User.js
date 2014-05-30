@@ -10,9 +10,6 @@ module.exports = {
   // Define a custom table name
   tableName: 'member',
 
-  // Define an adapter to use
-  // adapter: 'postgresql',
-
   // Enforce model schema in the case of schemaless databases
   schema: true,
 
