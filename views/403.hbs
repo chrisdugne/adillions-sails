@@ -6,9 +6,11 @@
     <h1>
       Forbidden page
     </h1>
-    {{#if message}}
-      {{message}}
+    <p>
+    {{#if error}}
+      {{error}}
     {{else}}
       You don't have permission to see the page you're trying to reach.
     {{/if}}
+    </p>
   </div>
