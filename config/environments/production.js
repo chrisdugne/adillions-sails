@@ -29,20 +29,14 @@ module.exports = {
     },
     github: {
       options: {
-        consumerKey: 'your-consumer-key',
-        consumerSecret: 'your-consumer-secret'
+        clientID: 'your-consumer-key',
+        clientSecret: 'your-consumer-secret'
       }
     },
     facebook: {
       options: {
-        consumerKey: '170148346520274',
-        consumerSecret: '887e8f7abb9b1cb9238a097e06585ae2'
-      }
-    },
-    google: {
-      options: {
-        consumerKey: 'your-consumer-key',
-        consumerSecret: 'your-consumer-secret'
+        clientID: '170148346520274',
+        clientSecret: '887e8f7abb9b1cb9238a097e06585ae2'
       }
     }
   }
