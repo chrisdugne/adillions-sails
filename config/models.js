@@ -10,8 +10,9 @@ module.exports.models = {
 
   // Your app's default connection.
   // i.e. the name of one of your app's connections (see `config/connections.js`)
-  //
-  // (defaults to Postgresql)
-  // for local connection, see (`config/local.js`)
-  connection: 'Postgresql'
+
+  // For production connection: see config/environments/production.js
+  // For development connection: see config/environments/development.js
+  // Default connection :
+  connection: 'localDiskDb'
 };
