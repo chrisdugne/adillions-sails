@@ -3,11 +3,39 @@
  *
  */
 var _ = require('lodash'),
-  util = require('util');
+  util = require('util'),
+  fs = require('fs');
+
+var validateOptions = function (opts) {
+  var aliases;
+
+  // Checks
+  if (!_.isString(opts.aliases)) {
+    throw new Error('The aliases option must be passed to init the helper and it must be a string.');
+  }
+
+  try {
+    aliases = JSON.parse(fs.readFileSync(opts.aliases).toString());
+  } catch (e) {
+    // Here you get the error when the file was not found,
+    // but you also get any other error
+    if (e.code === 'ENOENT') {
+      aliases = {};
+      sails.log.warn('helpers#extUrl: options.aliases file not found!', opts.aliases);
+    } else {
+      throw e;
+    }
+  }
+
+  opts.aliases = aliases;
+
+  return opts;
+};
 
 /**
  * Helpers
  */
+
 module.exports = {
 
   aliases: {},
@@ -15,6 +43,9 @@ module.exports = {
   hosts: {},
 
   register: function (hbs, config) {
+    // sanity check on options
+    config = validateOptions(config);
+
     this.aliases = config.aliases;
     this.hosts = config.hosts;
     var _this = this;
@@ -24,6 +55,9 @@ module.exports = {
   },
 
   getExtURLHelper: function (config) {
+    // sanity check on options
+    config = validateOptions(config);
+
     this.aliases = config.aliases;
     this.hosts = config.hosts;
     return this.getExtURL.bind(this);

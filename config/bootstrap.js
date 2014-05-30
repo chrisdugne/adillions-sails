@@ -38,10 +38,10 @@ module.exports.bootstrap = function (cb) {
   });
 
   helpers.extUrl.register(hbs, {
-    aliases: require('./urlAliases.json')
+    aliases: __dirname + '/urlAliases.json'
   });
   sails.config.extUrl = helpers.extUrl.getExtURLHelper({
-    aliases: require('./urlAliases.json')
+    aliases: __dirname + '/urlAliases.json'
   });
 
   // It's very important to trigger this callack method when you are finished
