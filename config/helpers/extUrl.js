@@ -14,17 +14,11 @@ var validateOptions = function (opts) {
     throw new Error('The aliases option must be passed to init the helper and it must be a string.');
   }
 
-  try {
+  if (fs.existsSync(opts.aliases)) {
     aliases = JSON.parse(fs.readFileSync(opts.aliases).toString());
-  } catch (e) {
-    // Here you get the error when the file was not found,
-    // but you also get any other error
-    if (e.code === 'ENOENT') {
-      aliases = {};
-      sails.log.warn('helpers#extUrl: options.aliases file not found!', opts.aliases);
-    } else {
-      throw e;
-    }
+  } else {
+    aliases = {};
+    sails.log.warn('helpers#extUrl: options.aliases file not found!', opts.aliases);
   }
 
   opts.aliases = aliases;

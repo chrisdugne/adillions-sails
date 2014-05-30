@@ -25,17 +25,11 @@ var validateOptions = function (opts) {
     throw new Error('The environment option must be passed to init the helper and it must be a string.');
   }
 
-  try {
+  if (fs.existsSync(options.mapping)) {
     mapping = JSON.parse(fs.readFileSync(options.mapping).toString());
-  } catch (e) {
-    // Here you get the error when the file was not found,
-    // but you also get any other error
-    if (e.code === 'ENOENT') {
-      mapping = {};
-      sails.log.warn('helpers#statics: options.mapping file not found!', options.mapping);
-    } else {
-      throw e;
-    }
+  } else {
+    mapping = {};
+    sails.log.warn('helpers#extUrl: options.aliases file not found!', options.mapping);
   }
 
 };
