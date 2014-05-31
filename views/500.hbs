@@ -4,13 +4,11 @@
 
   <div class="jumbotron">
     <h1>
-      500 error page.
+      500 error page
     </h1>
-    {{#if errors}}
+    {{#if error}}
       <pre class="error"><code>
-      {{#each errors}}
-        {{this}}
-      {{/each}}
+      {{error}}
       </code></pre>
     {{else}}
       <p class="error">

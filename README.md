@@ -44,14 +44,3 @@ Get informations : [Code and development doctrine](https://github.com/LukeParis/
 ## Tutorials
 
 **[Sails screencasts](https://www.youtube.com/playlist?list=PLf8i4fc0zJBzLhOe6FwHpGhBDgqwInJWZ)**
-
-## TODO
-
-Handlebars helpers:
-- [x] __routeUrl__: route app url (about, press...)
-- [x] __extUrl__: external url (facebook, twhitter, blog...)
-- [x] __setLangUrl__: Generates an url containing the setLng (i18n) parameter without affecting other query string parameters
-
-Database:
-- [ ] __postgresql__ : set heroku postgresql (env variables, aka `heroku config:set PG_URL=*`)
-

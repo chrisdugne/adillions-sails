@@ -16,5 +16,16 @@ module.exports.i18n = {
   defaultLocale: 'en',
   // sets a custom cookie name to parse locale settings from  - defaults to NULL
   // refers to api/policies/seoLang.js
-  cookie: 'locales'
+  cookie: 'locales',
+  // humanize languages
+  languages: {
+    'en': {
+      code: 'en',
+      name: 'English'
+    },
+    'fr': {
+      code: 'fr',
+      name: 'Français'
+    }
+  }
 };

@@ -10,7 +10,6 @@
 
 var path = require('path'),
   hbs = require('hbs'),
-  hbsutils = require('hbs-utils')(hbs),
   helpers = require(path.resolve(__dirname + '/helpers'));
 
 module.exports.bootstrap = function (cb) {
@@ -20,7 +19,7 @@ module.exports.bootstrap = function (cb) {
   // template 2.html    -> {{> template_2}}
   // login view.hbs     -> {{> login_view}}
   // template-file.html -> {{> template_file}}
-  hbsutils.registerPartials(path.resolve('views/_partials'));
+  hbs.registerPartials(path.resolve('views/_partials'));
 
   // register all helpers located in '/helpers' folder
   helpers.templating.register(hbs);
@@ -28,7 +27,7 @@ module.exports.bootstrap = function (cb) {
   helpers.pagination.register(hbs);
 
   helpers.statics.register(hbs, {
-    mapping: require('./assets.json'),
+    mapping: __dirname + '/assets.json',
     environment: sails.config.environment,
     hostname: sails.config.static.resources_proxies
   });
@@ -38,10 +37,10 @@ module.exports.bootstrap = function (cb) {
   });
 
   helpers.extUrl.register(hbs, {
-    aliases: require('./urlAliases.json')
+    aliases: __dirname + '/urlAliases.json'
   });
   sails.config.extUrl = helpers.extUrl.getExtURLHelper({
-    aliases: require('./urlAliases.json')
+    aliases: __dirname + '/urlAliases.json'
   });
 
   // It's very important to trigger this callack method when you are finished
