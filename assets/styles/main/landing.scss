@@ -1,0 +1,16 @@
+.landing-press {
+  @include linear-gradient(#2A7C77, #216562);
+  h2 {
+    color:#fff;
+    text-transform: uppercase;
+    font-size: em(20px);
+  }
+  .title {
+    line-height:80px;
+    border-right: 1px solid darken(#216562, 5%);
+    box-shadow: 1px 0 0 0 lighten(#2A7C77, 7%);
+  }
+  .list {
+    line-height:60px;
+  }
+}

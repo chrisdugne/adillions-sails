@@ -1,14 +1,32 @@
-  {{#push "meta"}}
-    <meta name="description" content="{{i18n 'adillions_meta_desc'}}">
-    {{#if canonicalUrl}}<link rel="canonical" href="{{canonicalUrl}}" />{{/if}}
-    {{#each alternateUrls}}
-      <link rel="alternate" href="{{url}}" hreflang="{{code}}" />
-    {{/each}}
-  {{/push}}
+{{#push "meta"}}
+  <meta name="description" content="{{i18n 'adillions_meta_desc'}}">
+  {{#if canonicalUrl}}<link rel="canonical" href="{{canonicalUrl}}" />{{/if}}
+  {{#each alternateUrls}}
+    <link rel="alternate" href="{{url}}" hreflang="{{code}}" />
+  {{/each}}
+{{/push}}
 
-  {{#push "styles"}}
-  {{/push}}
+{{#push "styles"}}
+{{/push}}
 
-  {{#push "scripts"}}
-  {{/push}}
+{{#push "scripts"}}
+{{/push}}
+
+<section class="landing-press">
+  <div class="container">
+    <div class="row ptl pbl">
+      <div class="col-xs-3 col-md-3">
+        <h2 class="title mtn mbn prxl dispib text-left">As Featured IN</h2>
+      </div>
+      <div class="col-xs-9">
+        <ul class="list-inline text-center">
+          <li>test</li>
+          <li>test</li>
+          <li>test</li>
+          <li>test</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 

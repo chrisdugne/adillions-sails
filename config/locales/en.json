@@ -45,6 +45,11 @@
   "ui_error": "An error occurred",
   "ui_ContactUs": "Contact us",
 
+  "footer_company": "Company",
+  "footer_support": "Support",
+  "footer_connect": "Connect",
+  "footer_game": "Game",
+
   "header_nav_home": "Home",
   "header_nav_game": "Game",
   "header_nav_results": "Results",

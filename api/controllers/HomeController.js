@@ -61,7 +61,9 @@ module.exports = {
 
     res.view({
       alternateUrls: alternateUrls,
-      canonicalUrl: canonicalUrl
+      canonicalUrl: canonicalUrl,
+      bodyClass: 'landing',
+      layout: 'layout_landing'
     });
   }
 };

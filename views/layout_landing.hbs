@@ -42,14 +42,14 @@
   </head>
   <body class="{{bodyClass}}{{#unless user}} public-view{{/unless}}">
     {{> 'header'}}
-    <main class="site-content pbxl">
-      <div class='container'>
+    <main class="site-content">
       {{> 'flash'}}
       {{{body}}}
-      </div>
     </main>
+    {{> 'footer'}}
     <script src="{{statics '/scripts/main.js'}}"></script>
     <script>require('app');</script>
     {{#pop "scripts"}}{{/pop}}
+    {{> 'scripts_social'}}
   </body>
 </html>
