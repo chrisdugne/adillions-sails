@@ -17,5 +17,14 @@ body {
 /* Lead button */
 
 .btn-lead {
-    @include button-variant($btn-lead-color, $btn-lead-bg, $btn-lead-border);
+  @include button-variant($btn-lead-color, $btn-lead-bg, $btn-lead-border);
+  padding:$padding-large-vertical, $padding-large-horizontal;
+  @include gradient-vertical-three-colors(tint($btn-lead-bg, 23%), tint($btn-lead-bg, 2%), 50%, darken($btn-lead-bg, 7%));
+  text-transform: uppercase;
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.6), inset 0 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary {
+  @include gradient-vertical(#1C3843, $btn-primary-bg);
+  text-transform: uppercase;
 }

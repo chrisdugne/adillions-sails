@@ -9,15 +9,29 @@ $text-color: #3B4047;
 
 $link-color:#58A8DF;
 
+$em-base: 14px;
+
 // set fonts location
 $icon-font-path : '/fonts/';
 
-$brand-lead: #F14015;
+$brand-lead: #F7B62F;
+$brand-primary: #13262E;
 $brand-footer: #13262e;
 
-$btn-lead-color: #fff !default;
-$btn-lead-bg: $brand-lead !default;
-$btn-lead-border: darken($btn-lead-bg, 5%) !default;
+$btn-lead-color: #13262E;
+$btn-lead-bg: $brand-lead;
+$btn-lead-border: darken($brand-lead, 5%);
+
+$btn-primary-color: #fff;
+$btn-primary-bg: $brand-primary;
+$btn-primary-border: darken($btn-primary-bg, 5%);
+
+$padding-large-vertical: 16px;
+$padding-large-horizontal: 26px;
+
+$border-radius-base: 2px;
+$border-radius-large: 4px;
+$border-radius-small: 2px;
 
 // spacing
 $spacingXs: 5px;

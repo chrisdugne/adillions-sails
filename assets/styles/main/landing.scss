@@ -7,9 +7,20 @@
     margin-top:0;
     margin-bottom: 20px;
   }
+  h3 {
+    text-transform: uppercase;
+    font-size: em(18px);
+    letter-spacing: 1px;
+    small {
+      font-size: em(18px, 18px);
+      color: #206260;
+    }
+  }
   .desc {
     color:shade($gray-light, 15%);
     line-height: 26px;
+    font-weight: 200;
+    letter-spacing: 1px;
   }
 }
 
@@ -17,8 +28,12 @@
   background: #13262e;
   h1 {
     color: #fff;
-    font-size: em(66px);
-    font-weight: normal;
+    font-size: em(54px);
+    font-weight: 100;
+  }
+  .play {
+    padding-left:70px;
+    padding-right:70px;
   }
 }
 
@@ -29,15 +44,6 @@ $howitworks-arrow-width: 18px;
 $howitworks-border-color: darken($gray-lighter, 7%);
 .landing-howitworks {
   background: #fff;
-  h3 {
-    text-transform: uppercase;
-    font-size: em(22px);
-    small {
-      font-size: em(22px, 22px);
-      color: #206260;
-      font-weight: bold;
-    }
-  }
   .see-more {
     text-decoration: none;
     .glyphicon {
@@ -89,6 +95,10 @@ $howitworks-border-color: darken($gray-lighter, 7%);
 
 .landing-global {
   background: #fff;
+}
+
+.landing-advertisers {
+
 }
 
 .landing-press {
