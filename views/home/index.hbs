@@ -12,18 +12,170 @@
 {{#push "scripts"}}
 {{/push}}
 
-<section class="landing-press">
+{{!-- section: How it Works --}}
+<section class="landing-section landing-hero">
+  <h1 class="text-center">{{i18n 'landing_title'}}</h1>
+  <p class="text-center">
+    <a href="" class="btn btn-lead btn-lg">
+      {{{i18n 'play_for_free'}}}
+    </a>
+  </p>
+</section>
+
+{{!-- section: How it Works --}}
+<section class="landing-section landing-howitworks">
   <div class="container">
-    <div class="row ptl pbl">
+    <h2 class="text-center">{{i18n 'landing_howitworks'}}</h2>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 text-center watch-ad">
+        <div class="icon"></div>
+        <h3><small>1.</small> {{i18n 'landing_watchad'}}</h3>
+        <p class="desc">{{{i18n 'landing_watchad_desc'}}}</p>
+        <p>
+          <a href="" class="see-more">
+            {{i18n 'landing_watchad_link'}}
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </p>
+      </div>
+      <div class="col-xs-12 col-sm-4 text-center get-ticket">
+        <div class="icon"></div>
+        <h3><small>2.</small> {{i18n 'landing_getticket'}}</h3>
+        <p class="desc">{{{i18n 'landing_getticket_desc'}}}</p>
+        <p>
+          <a href="" class="see-more">
+            {{i18n 'landing_getticket_link'}}
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </p>
+      </div>
+      <div class="col-xs-12 col-sm-4 text-center win-prize">
+        <div class="icon last"></div>
+        <h3><small>3.</small> {{i18n 'landing_winprize'}}</h3>
+        <p class="desc">{{{i18n 'landing_winprize_desc'}}}</p>
+        <p>
+          <a href="" class="see-more">
+            {{i18n 'landing_winprize_link'}}
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{{!-- section: Platforms --}}
+<section class="landing-section landing-platforms">
+  <div class="container">
+    <h2 class="text-center">{{i18n 'landing_platforms_title'}}</h2>
+    <p class="desc text-center">{{i18n 'landing_platforms_desc'}}</p>
+    {{!-- Platforms devices --}}
+    <div class="devices mtxl mbxl">
+      devices
+    </div>
+    {{!-- Platforms links --}}
+    <ul class="list-unstyled row">
+      <li class="col-xs-12 col-sm-3 col-md-3 mbm">
+        <a href="" class="btn btn-primary btn-lg center-block">
+          app store
+        </a>
+      </li>
+      <li class="col-xs-12 col-sm-3 col-md-3 mbm">
+        <a href="" class="btn btn-primary btn-lg center-block">
+          google play
+        </a>
+      </li>
+      <li class="col-xs-12 col-sm-3 col-md-3 mbm">
+        <a href="" class="btn btn-primary btn-lg center-block">
+          facebook
+        </a>
+      </li>
+      <li class="col-xs-12 col-sm-3 col-md-3 mbm">
+        <a href="" class="btn btn-lead btn-lg center-block">
+          {{{i18n 'play_for_free'}}}
+        </a>
+      </li>
+  </div>
+</section>
+
+{{!-- section: Responsible --}}
+<section class="landing-section landing-responsible">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 mbm">
+        image parallax
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 mbm">
+        <h2>{{i18n 'landing_responsible_title'}}</h2>
+        <p class="desc">{{i18n 'landing_responsible_desc'}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{!-- section: global --}}
+<section class="landing-section landing-global">
+  <div class="container">
+    <div class="row">
+      <h2 class="text-center">{{i18n 'landing_global_title'}}</h2>
+      <p class="desc text-center">{{i18n 'landing_global_desc'}}</p>
+       <p class="text-center">
+        <a href="" class="btn btn-lead btn-lg">
+          {{i18n 'see_previous_results'}}
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
+{{!-- section: advertisers --}}
+<section class="landing-section landing-advertisers">
+  <div class="container">
+    <div class="row">
+      <h2 class="text-center">{{i18n 'landing_advertisers_title'}}</h2>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 text-center watch-ad">
+        <div class="icon"></div>
+        <h3>{{i18n 'landing_advertisers_boost'}}</h3>
+        <p class="desc">{{{i18n 'landing_advertisers_boost_desc'}}}</p>
+      </div>
+      <div class="col-xs-12 col-sm-4 text-center get-ticket">
+        <div class="icon"></div>
+        <h3>{{i18n 'landing_advertisers_multiscreen'}}</h3>
+        <p class="desc">{{{i18n 'landing_advertisers_multiscreen_desc'}}}</p>
+      </div>
+      <div class="col-xs-12 col-sm-4 text-center win-prize">
+        <div class="icon last"></div>
+        <h3>{{i18n 'landing_advertisers_audience'}}</h3>
+        <p class="desc">{{{i18n 'landing_advertisers_audience_desc'}}}</p>
+      </div>
+    </div>
+
+      <p class="text-center">
+        <a href="" class="btn btn-lead btn-lg">
+          {{i18n 'contact_us'}}
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
+{{!-- section: press --}}
+<section class="landing-section landing-press">
+  <div class="container">
+    <div class="row">
       <div class="col-xs-3 col-md-3">
-        <h2 class="title mtn mbn prxl dispib text-left">As Featured IN</h2>
+        <h2 class="title mtn mbn prxl dispib text-left">{{i18n 'landing_press_title'}}</h2>
       </div>
       <div class="col-xs-9">
         <ul class="list-inline text-center">
-          <li>test</li>
-          <li>test</li>
-          <li>test</li>
-          <li>test</li>
+          <li class="press-item"><span class="text-hidden"></span></li>
+          <li class="press-item"><span class="text-hidden"></span></li>
+          <li class="press-item"><span class="text-hidden"></span></li>
+          <li class="press-item"><span class="text-hidden"></span></li>
         </ul>
       </div>
     </div>
