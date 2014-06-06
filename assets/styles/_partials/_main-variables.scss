@@ -12,7 +12,12 @@ $link-color:#58A8DF;
 $em-base: 14px;
 
 // set fonts location
-$icon-font-path : '/fonts/';
+$icon-font-path: '/fonts/';
+//** File name for all font files.
+$icon-font-name: 'glyphicons-regular';
+//** Element ID within SVG icon file.
+$icon-font-svg-id: 'glyphiconsregular';
+
 
 $brand-lead: #F7B62F;
 $brand-primary: #13262E;
