@@ -20,7 +20,7 @@ $brand-footer: #13262e;
 
 $btn-lead-color: $brand-primary;
 $btn-lead-bg: $brand-lead;
-$btn-lead-border: darken($brand-lead, 5%);
+$btn-lead-border: darken($btn-lead-bg, 5%);
 
 $btn-primary-color: #fff;
 $btn-primary-bg: $brand-primary;

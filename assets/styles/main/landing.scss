@@ -26,6 +26,7 @@
 
 .landing-hero {
   background: #13262e;
+  box-shadow: inset;
   h1 {
     color: #fff;
     font-size: em(54px);
@@ -44,6 +45,7 @@ $howitworks-arrow-width: 18px;
 $howitworks-border-color: darken($gray-lighter, 7%);
 .landing-howitworks {
   background: #fff;
+
   .see-more {
     text-decoration: none;
     .glyphicon {
@@ -51,37 +53,68 @@ $howitworks-border-color: darken($gray-lighter, 7%);
       top:0px;
     }
   }
+
   .icon {
     position: relative;
     height: $howitworks-icon-height;
-    border-right: 1px solid $howitworks-border-color;
+    border: 1px solid $howitworks-border-color;
+    border-width: 0 1px 0 0;
+
+    @media (max-width: $screen-xs-max) {
+      border-width: 1px 0 0 0;
+      margin-top: 15px;
+    }
+
+
+    &.first {
+      @media (max-width: $screen-xs-max) {
+        margin:0;
+        border:0 none;
+        &:before, &:after {
+          display:none;
+        }
+      }
+    }
+
+    &.last {
+      @media (min-width: $screen-xs-max) {
+        border:0 none;
+        &:before, &:after {
+          display:none;
+        }
+      }
+    }
+
+    &:before, &:after {
+      content:"";
+      position: absolute;
+      left:100%;
+      top:50%;
+      margin-top:-$howitworks-arrow-height/2;
+      @media (max-width: $screen-xs-max) {
+        left:50%;
+        top:0;
+        margin-top:0;
+        margin-left:-$howitworks-arrow-width/2;
+      }
+    }
 
     &:before {
-      position: absolute;
-      left:100%;
-      top:50%;
-      margin-top:-$howitworks-arrow-height/2;
-      content:"";
       @include triangle($howitworks-arrow-height $howitworks-arrow-width, $howitworks-border-color, right);
+      @media (max-width: $screen-xs-max) {
+        @include triangle($howitworks-arrow-height $howitworks-arrow-width, $howitworks-border-color, down);
+      }
     }
     &:after {
-      position: absolute;
-      left:100%;
-      top:50%;
-      margin-top:-$howitworks-arrow-height/2;
       margin-left:-2px;
-      content:"";
       @include triangle($howitworks-arrow-height $howitworks-arrow-width, white, right);
-    }
-    &.last {
-      border:0 none;
-      &:before {
-        display:none
-      }
-      &:after {
-        display:none
+      @media (max-width: $screen-xs-max) {
+        @include triangle($howitworks-arrow-height $howitworks-arrow-width, white, down);
+        margin-top:-2px;
+        margin-left:-$howitworks-arrow-width/2;
       }
     }
+
   }
 
 }
