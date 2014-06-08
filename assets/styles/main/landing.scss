@@ -27,14 +27,11 @@
   }
 
   .icon {
-    text-align: center;
-    font-size: em(60px);
   }
 }
 
 .landing-hero {
-  background: #13262e;
-  box-shadow: inset;
+  background: $blue;
   h1 {
     color: #fff;
     font-size: em(54px);
@@ -71,6 +68,7 @@ $howitworks-border-color: darken($gray-lighter, 7%);
     @media (max-width: $screen-xs-max) {
       border-width: 1px 0 0 0;
       margin-top: 15px;
+      padding-top:30px;
     }
 
 
@@ -128,14 +126,56 @@ $howitworks-border-color: darken($gray-lighter, 7%);
 }
 
 .landing-responsible {
-  background: #13262e;
+  background: $blue;
   h2,.desc {
     color:#fff;
   }
 }
 
+$global-arrow-height: 24px;
+$global-arrow-width: 12px;
 .landing-global {
   background: #fff;
+  .global-players {
+    text-align: center;
+  }
+  .global-player {
+    position: relative;
+    cursor: pointer;
+    padding:15px;
+    border: 1px solid lighten($gray-light, 15%);
+    margin:-1px 0 0 -1px;
+    @include transition(background 0.3s);
+    &:after {
+      content:"";
+      position: absolute;
+      top:100%;
+      left:50%;
+      margin-left: -$global-arrow-width/2;
+      visibility: hidden;
+      @include opacity(0);
+      @include triangle($global-arrow-height $global-arrow-width, $orange-light, down);
+      @include transition(opacity 1s $ease-out-expo);
+    }
+    &:hover {
+      background:#F6F5F1;
+    }
+    &.active {
+      border-bottom-color: $orange-light;
+      @include prefixer(box-shadow, inset 0px -2px 0px 0px $orange-light, webkit spec);
+      &:after {
+        visibility: visible;
+        @include opacity(1);
+      }
+    }
+  }
+  .media-body {
+    line-height:24px;
+    font-size: em(16px);
+    .badge-charity {
+      font-size: em(18px, 16px);
+    }
+  }
 }
 
 .landing-advertisers {
@@ -144,15 +184,15 @@ $howitworks-border-color: darken($gray-lighter, 7%);
 
 .landing-press {
   padding:20px 0;
-  @include linear-gradient(#2A7C77, #216562);
+  @include linear-gradient($green-light, $green-dark);
   h2 {
     color:#fff;
     font-size: em(20px);
   }
   .title {
     line-height:80px;
-    border-right: 1px solid darken(#216562, 5%);
-    box-shadow: 1px 0 0 0 lighten(#2A7C77, 7%);
+    border-right: 1px solid darken($green-dark, 2%);
+    @include prefixer(box-shadow, 1px 0 0 0 lighten($green-light,3%), webkit spec);
   }
   .list {
     line-height:60px;

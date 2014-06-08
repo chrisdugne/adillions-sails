@@ -29,11 +29,7 @@
 
     <div class="row">
       <div class="col-xs-12 col-sm-4 text-center watch-ad">
-        <div class="icon first">
-          <div class="glyphicon glyphicon-display">
-            <div class="glyphicon glyphicon-play"></div>
-          </div>
-        </div>
+        <div class="icon first"></div>
         <h3><small>1.</small> {{i18n 'landing_watchad'}}</h3>
         <p class="desc">{{{i18n 'landing_watchad_desc'}}}</p>
         <p>
@@ -44,9 +40,7 @@
         </p>
       </div>
       <div class="col-xs-12 col-sm-4 text-center get-ticket">
-        <div class="icon">
-          <div class="glyphicon glyphicon-display"></div>
-        </div>
+        <div class="icon"></div>
         <h3><small>2.</small> {{i18n 'landing_getticket'}}</h3>
         <p class="desc">{{{i18n 'landing_getticket_desc'}}}</p>
         <p>
@@ -57,9 +51,7 @@
         </p>
       </div>
       <div class="col-xs-12 col-sm-4 text-center win-prize">
-        <div class="icon last">
-          <div class="glyphicon glyphicon-money"></div>
-        </div>
+        <div class="icon last"></div>
         <h3><small>3.</small> {{i18n 'landing_winprize'}}</h3>
         <p class="desc">{{{i18n 'landing_winprize_desc'}}}</p>
         <p>
@@ -105,6 +97,7 @@
           {{{i18n 'play_for_free'}}}
         </a>
       </li>
+    </ul>
   </div>
 </section>
 
@@ -128,34 +121,51 @@
   <div class="container">
     <h2 class="text-center">{{i18n 'landing_global_title'}}</h2>
     <p class="desc text-center">{{i18n 'landing_global_desc'}}</p>
-    <ul id="global-players" class="global-players list-inline">
-      <li class="global-player">
+    <ul id="global-players" class="global-players list-inline row">
+      <li class="global-player col-sm-4 col-xs-12">
         <div class="media">
-          <a class="pull-left" href="#">
-            <img class="media-object" src="..." alt="...">
+          <a class="pull-left avatar" href="#">
+            <img class="media-object" src="/images/avatar/avatar-s-60x60.png" width="60">
           </a>
-          <div class="media-body">
-            Christine F (UK) won 359 €
+          <div class="media-body text-left"  data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
+            <p class="mtxs mbxs">Christine F (UK) won 359 €</p>
+            <div class="badge-wrap dispib">
+              <span class="mlxs badge-charity"></span>
+              <span class="mlxs badge-charity badge-charity-empty"></span>
+              <span class="mlxs badge-charity badge-charity-empty"></span>
+              <span class="mlxs badge-charity badge-charity-empty"></span>
+              <span class="mlxs badge-charity badge-charity-empty"></span>
+            </div>
           </div>
         </div>
       </li>
-      <li class="global-player">
+      <li class="global-player col-sm-4 col-xs-12">
         <div class="media">
-          <a class="pull-left" href="#">
-            <img class="media-object" src="..." alt="...">
+          <a class="pull-left avatar" href="#">
+            <img class="media-object" src="/images/avatar/avatar-s-60x60.png" width="60">
           </a>
-          <div class="media-body">
-            Christine F (UK) won 359 €
+          <div class="media-body text-left">
+            <p class="mtxs mbxs">Christine F (UK) won 359 €</p>
+            <span class="mlxs badge-charity"></span>
+            <span class="mlxs badge-charity"></span>
+            <span class="mlxs badge-charity badge-charity-empty"></span>
+            <span class="mlxs badge-charity badge-charity-empty"></span>
+            <span class="mlxs badge-charity badge-charity-empty"></span>
           </div>
         </div>
       </li>
-      <li class="global-player">
+      <li class="global-player col-sm-4 col-xs-12 active">
         <div class="media">
-          <a class="pull-left" href="#">
-            <img class="media-object" src="..." alt="...">
+          <a class="pull-left avatar" href="#">
+            <img class="media-object" src="/images/avatar/avatar-s-60x60.png" width="60">
           </a>
-          <div class="media-body">
-            Christine F (UK) won 359 €
+          <div class="media-body text-left">
+            <p class="mtxs mbxs">Christine F (UK) won 359 €</p>
+            <span class="mlxs badge-charity"></span>
+            <span class="mlxs badge-charity"></span>
+            <span class="mlxs badge-charity"></span>
+            <span class="mlxs badge-charity badge-charity-empty"></span>
+            <span class="mlxs badge-charity badge-charity-empty"></span>
           </div>
         </div>
       </li>
@@ -175,23 +185,19 @@
 
     <div class="row mbl">
       <div class="col-xs-12 col-sm-4 text-center watch-ad">
-          <div class="glyphicon glyphicon-airplane">
-          </div>
+        <div class="icon">
+        </div>
         <h3>{{i18n 'landing_advertisers_boost'}}</h3>
         <p class="desc">{{{i18n 'landing_advertisers_boost_desc'}}}</p>
       </div>
       <div class="col-xs-12 col-sm-4 text-center get-ticket">
         <div class="icon">
-          <div class="glyphicon glyphicon-share-alt">
-          </div>
         </div>
         <h3>{{i18n 'landing_advertisers_multiscreen'}}</h3>
         <p class="desc">{{{i18n 'landing_advertisers_multiscreen_desc'}}}</p>
       </div>
       <div class="col-xs-12 col-sm-4 text-center win-prize">
         <div class="icon last">
-          <div class="glyphicon glyphicon-global">
-          </div>
         </div>
         <h3>{{i18n 'landing_advertisers_audience'}}</h3>
         <p class="desc">{{{i18n 'landing_advertisers_audience_desc'}}}</p>
