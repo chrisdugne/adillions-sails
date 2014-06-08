@@ -9,7 +9,10 @@ You have to read it and contribute to it !
 - [Git practices](git.md)
 - [local configurations](local.md)
 - [heroku](heroku.md)
-- 
+
+
 TODO:
 
 - Grunt tasks
+- memberPhotoUrl helper
+- badge-charity helper
