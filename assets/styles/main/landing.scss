@@ -130,6 +130,26 @@ $howitworks-border-color: darken($gray-lighter, 7%);
   h2,.desc {
     color:#fff;
   }
+  .prize-item,
+  .prize-item,
+  .prize-currenry {
+    font-size: em(54px);
+    font-weight:bold;
+    margin-right:3px;
+  }
+  .prize-item {
+    color: $blue-dark;
+    padding:10px 10px;
+    border-radius:4px;
+    text-shadow: 0 1px rgba(255,255,255, 0.6);
+    @include prefixer(box-shadow, inset 0px 1px 0px 0px lighten(#C2C7CA, 20%), webkit spec);
+    @include linear-gradient(#C2C7CA 0%, #C2C7CA 50%, $blue-dark 51%, #fff 53%, #fff 100%);
+  }
+  .prize-currenry {
+    margin-left: 10px;
+    color:#fff;
+    text-shadow: 2px 2px $blue-dark;
+  }
 }
 
 $global-arrow-height: 24px;
