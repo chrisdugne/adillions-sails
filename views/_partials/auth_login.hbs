@@ -1,20 +1,20 @@
 <form role="form" action="{{route 'auth.callback'}}" method="post" class='auth-signin-form panel panel-default'>
 
-  <div class="panel-heading">
+{{!--   <div class="panel-heading">
     <h1 class="panel-title">{{i18n 'ui_signin'}}</h1>
-  </div>
+  </div> --}}
 
   <div class="panel-body">
 
-    <div class="auth-social">
+    <div class="auth-social clearfix">
       {{> 'auth_providers'}}
     </div>
 
     <div class="form-group">
-      <input type="text" class="form-control" name="identifier" placeholder="{{i18n 'auth_field_username_or_email'}}">
+      <input type="text" class="form-control identifier" name="identifier" placeholder="{{i18n 'auth_field_username_or_email'}}">
     </div>
     <div class="form-group">
-      <input type="password" class="form-control" name="password" placeholder="{{i18n 'auth_field_password'}}">
+      <input type="password" class="form-control password" name="password" placeholder="{{i18n 'auth_field_password'}}">
     </div>
     <div class="checkbox">
       <label>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="text-center">
-      <button type="submit" class="btn btn-primary btn-block">{{i18n 'ui_signin'}}</button>
+      <button type="submit" class="btn btn-lead btn-lg btn-block">{{i18n 'ui_signin'}}</button>
     </div>
 
   </div>

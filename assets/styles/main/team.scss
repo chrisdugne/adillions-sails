@@ -1,4 +1,4 @@
-.team {
+.team .site-content {
 
   .media, .media-body {
     overflow:visible;
@@ -20,11 +20,10 @@
   }
 
   .social {
-    font-size: em($font-size-base*2);
+    font-size: em(24px);
     text-decoration: none;
-    color:$gray;
+    color:$gray-light;
     &:hover {
-      color:$gray-dark;
       &.social-twitter {
         color:$twitter;
       }

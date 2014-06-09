@@ -55,7 +55,8 @@ var AuthController = {
     res.view({
       providers: providers,
       errors: req.flash('error'),
-      layout: 'layout_auth'
+      layout: 'layout_auth',
+      bodyClass: 'auth'
     });
   },
 
@@ -116,7 +117,8 @@ var AuthController = {
     res.view({
       providers: providers,
       errors: req.flash('error'),
-      layout: 'layout_auth'
+      layout: 'layout_auth',
+      bodyClass: 'auth'
     });
   },
 
