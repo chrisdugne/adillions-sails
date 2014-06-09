@@ -10,14 +10,15 @@
   "app_android": "https://play.google.com/store/apps/details?id=com.adillions.v1",
   "app_facebook": "https://apps.facebook.com/adillions/",
 
-  "ceo_twitter" : "",
-  "ceo_googlePlus" : "",
+  "ceo_twitter" : "https://twitter.com/timdecourlon",
+  "ceo_linkedin" : "https://www.linkedin.com/in/timotheedecourlon",
 
-  "cto_twitter" : "",
-  "cto_googlePlus" : "",
-  "cto_github" : "",
+  "cto_twitter" : "https://twitter.com/chrisdugne",
+  "cto_linkedin" : "https://www.linkedin.com/in/chrisdugne",
+  "cto_github" : "https://github.com/ChrisDugne",
 
   "fel_twitter" : "http://www.twitter.com/duvillierA",
-  "fel_googlePlus" : "https://plus.google.com/108796620313394653168/posts",
-  "fel_github" : "https://github.com/duvillierA"
+  "fel_googlePlus" : "https://plus.google.com/+AntoineDuvillier/posts",
+  "fel_github" : "https://github.com/duvillierA",
+  "fel_linkedin": "https://www.linkedin.com/pub/antoine-duvillier/39/2a6/460/en"
 }
