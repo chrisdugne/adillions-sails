@@ -1,3 +1,7 @@
+.landing {
+
+}
+
 .landing-section {
   padding:50px 0;
 
@@ -30,6 +34,7 @@
   }
 }
 
+$hero-title-color: #7CFFF8;
 .landing-hero {
   background: $blue;
   h1 {
@@ -40,6 +45,39 @@
   .play {
     padding-left:70px;
     padding-right:70px;
+  }
+  .highlight {
+    background: rgba(0,0,0, 0.4);
+    border: 1px solid rgba(255,255,255, 0.5);
+    border-radius:2px;
+    padding:20px 5px;
+    margin:0;
+    color: #fff;
+    white-space: nowrap;
+    .title {
+      display: block;
+      color: $hero-title-color;
+      text-transform: uppercase;
+    }
+    .text {
+      font-size: em(30px);
+      font-weight:100;
+    }
+  }
+  .highlight-prize{
+    position: absolute;
+    left:-15px;
+    right:-15px;
+    top:-8px;
+    border-color: rgba(255,255,255, 0.9);
+    @include prefixer(box-shadow, 0px 0 12px 0 lighten($hero-title-color, 5%), webkit spec);
+    @media (max-width: $screen-xs-max) {
+      position: static;
+      @include prefixer(box-shadow, 0px 0 5px 1px lighten($hero-title-color, 5%), webkit spec);
+    }
+    .text {
+      font-size: em(40px);
+    }
   }
 }
 
@@ -131,11 +169,14 @@ $howitworks-border-color: darken($gray-lighter, 7%);
     color:#fff;
   }
   .prize-item,
-  .prize-item,
+  .prize-comma,
   .prize-currenry {
     font-size: em(50px);
     font-weight:bold;
     margin-right:3px;
+    @media (max-width: $screen-xs-max) {
+      font-size: em(40px);
+    }
   }
   .prize-item {
     color: $blue-dark;
@@ -144,12 +185,15 @@ $howitworks-border-color: darken($gray-lighter, 7%);
     font-family:"Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-shadow: 0 1px rgba(255,255,255, 0.6);
     @include prefixer(box-shadow, inset 0px 1px 0px 0px lighten(#C2C7CA, 20%), webkit spec);
-    @include linear-gradient(#C2C7CA 0%, #C2C7CA 50%, $blue-dark 51%, #fff 53%, #fff 100%);
+    @include linear-gradient(#C2C7CA 0%, #C2C7CA 50%, $blue-dark 51%, #fff 52%, #fff 100%);
   }
   .prize-currenry {
     margin-left: 10px;
     color:#fff;
     text-shadow: 2px 2px $blue-dark;
+  }
+  .prize-comma {
+    color: #fff;
   }
 }
 

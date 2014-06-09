@@ -6,8 +6,13 @@
 
 $body-bg: #F6F5F1;
 $text-color: #3B4047;
-
 $link-color:#58A8DF;
+
+$gray-darker:            lighten(#000, 13.5%) !default; // #222
+$gray-dark:              lighten(#000, 20%) !default;   // #333
+$gray:                   lighten(#000, 33.5%) !default; // #555
+$gray-light:             lighten(#000, 60%) !default;   // #999
+$gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 
 $em-base: 14px;
 
@@ -52,6 +57,20 @@ $spacingXl: 30px;
 // navbar
 $navbar-height: 80px;
 $navbar-default-bg:  #fff;
+$navbar-border-radius: 0;
+
+// navbar inverse
+$navbar-inverse-color: $gray-lighter;
+$navbar-inverse-bg: $blue;
+$navbar-inverse-border: rgba(255,255,255, 0.2);
+$navbar-inverse-link-hover-bg: $green-light;
+$navbar-inverse-link-color: $gray-lighter;
+$navbar-inverse-link-active-bg: $green-light;
+$navbar-inverse-toggle-hover-bg: darken($blue-dark, 20%);
+$navbar-inverse-toggle-icon-bar-bg: $gray-lighter;
+$navbar-inverse-toggle-border-color: darken($blue-dark, 20%);
+
+
 
 $facebook: #306199;
 $tumblr: #32506d;
