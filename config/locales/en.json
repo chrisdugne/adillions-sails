@@ -74,27 +74,27 @@
 
   "_comment": "##### LANDING/index #####",
 
-  "landing_title": "Free sweepstake with real cash prize",
+  "landing_title": "Free sweepstake with real cash prizes",
 
   "landing_howitworks": "How it Works",
 
-  "landing_watchad": "Watch an AD",
-  "landing_watchad_desc": "Instead of paying for lottery tickets,<br /> watch an 30-seconds advertising video<br /> or complete a simple mission.",
-  "landing_watchad_link": "See all missons",
+  "landing_watchad": "Watch an Ad",
+  "landing_watchad_desc": "Instead of paying for lottery tickets,<br /> watch a 30-second advertising video.",
+  "landing_watchad_link": "See the Win-Win-Win",
 
   "landing_getticket": "Get your ticket",
-  "landing_getticket_desc": "Pick 5 numbers from a pool of 49 numbers<br />  and your lucky balls from a pool of 6,<br /> this week themed Lucky Balls.",
-  "landing_getticket_link": "Read all rules",
+  "landing_getticket_desc": "Pick 5 numbers from a pool of 49 numbers<br />  and your Lucky Ball from a pool of 6.",
+  "landing_getticket_link": "Read the Key Rules",
 
   "landing_winprize": "Win the prize - real cash",
-  "landing_winprize_desc": "Invite your friends and share<br/> your activity on Facebook and Twitter. <br /> The more players there are, the greater jackpot.",
-  "landing_winprize_link": "See previous results",
+  "landing_winprize_desc": "Invite and share - The more players<br/> there are, the greater jackpot!",
+  "landing_winprize_link": "See Previous Results",
 
   "landing_platforms_title": "Free on all Platforms",
-  "landing_platforms_desc": "Play on a whole range of platforms. You can play directly through one of our mobile apps, on Facebook, Twitter or on our website.",
+  "landing_platforms_desc": "Play on a whole range of platforms - Directly through one of our mobile apps, on Facebook or on our website.",
 
   "landing_responsible_title": "Responsible",
-  "landing_responsible_desc": "Dedicate a few seconds of your time to charitable organizations each time you participate.",
+  "landing_responsible_desc": "A share of Adillions advertising revenues (10% objective)<br/> is dedicated to Charities. In concrete terms, each time you<br/> watch a 30-second ad, you dedicate 3 seconds of your time to Charities.",
 
   "landing_global_title": "Global",
   "landing_global_desc": "Join an international community of players. Everyone can be a winner.",
@@ -102,13 +102,13 @@
   "landing_advertisers_title": "Adillions for advertisers",
 
   "landing_advertisers_boost": "Boost your brand awareness",
-  "landing_advertisers_boost_desc": "Adillions offers you opportunity to broadcast quality viadeo ads and to organize your own sweepstake on your platform with a customized theme and prices.",
+  "landing_advertisers_boost_desc": "Adillions offers you the opportunity to<br/> broadcast quality viadeo ads and to organize<br/> your own sweepstake on your platform<br/> with customized Theme and Prizes.",
 
   "landing_advertisers_multiscreen": "Implement a multi-screen strategy",
-  "landing_advertisers_multiscreen_desc": "You can benefit from Adillions presence on social networks (Facebook, Twitter, etc.) and on wide range on platforms - smartphones and tablets (iOS and Android) and desktops.",
+  "landing_advertisers_multiscreen_desc": "You can benefit from Adillions presence<br/> on social networks (Facebook, Twitter,<br/> etc.) and on wide range on platforms -<br/> smartphones and tablets (iOS and Android)<br/> and desktops.",
 
   "landing_advertisers_audience": "Reach a global engaged audience",
-  "landing_advertisers_audience_desc": "Thanks to Adillions international community of players, you get access to thousands of engaged users accrose the globe.",
+  "landing_advertisers_audience_desc": "Thanks to Adillions international<br/> community of players, you get access to<br/> thousands of engaged users accrose the<br/> globe.",
 
   "landing_press_title": "As featured in",
 
@@ -128,16 +128,16 @@
   "about_Global_title": "Global",
   "about_Responsible_title": "Responsible",
 
-  "about_Easy_text": "Watch an ad to get your free sweepstake ticket",
+  "about_Easy_text": "Watch an ad to get your free sweepstake Ticket",
   "about_Fun_text": "Pick 5 numbers and choose your Lucky Ball",
   "about_Viral_text": "Invite your friends to increase the jackpot",
   "about_Global_text": "Join an international community of players",
-  "about_Responsible_text": "Whether there are winners or not, a part of each video ad finances the Adillions Solidarity & Sustainable Development Fund",
+  "about_Responsible_text": "Whether there are winners or not, a part of each video ad funds the Adillions Solidarity & Sustainable Development Fund",
 
-  "about_DrawAmount": "The sweepstake is drawn every Saturday at 8:00 p.m. (PST) and it is broadcast live online on Youtube. Like any traditional sweepstake, if nobody wins, the amount accumulates and is added to the next draw.",
+  "about_DrawAmount": "The sweepstake is drawn every Saturday at 8:00 p.m. (PST). Like any traditional sweepstake, if nobody wins, the amount accumulates and is added to the next draw.",
   "about_consult_terms": "Read our Terms of Use",
 
-  "about_EachPlay": "Each time you play on Adillions, you have a chance to win the jackpot and you dedicate few seconds of your day to charitable organizations",
+  "about_EachPlay": "Each time you play on Adillions, you have a chance to win the jackpot and you dedicate a few seconds of your day to charitable organizations",
 
   "about_Adillions": "Adillions",
   "about_AdillionsCatch": "Much more than a game",
@@ -150,7 +150,7 @@
   "about_InnovSimple": "We are eager to develop a simple and user-friendly product used by millions of users across the globe",
 
   "about_Responsibility": "Social responsibility",
-  "about_RespoBefore": "Since long before Christ, lotteries have helped to finance major public projects (build the Great Wall of China, help the poor, finance public school systems, etc.)",
+  "about_RespoBefore": "Throughout the ages, on all continents, lotteries have helped to fund major public projects (build the Great Wall of China, help the poor, finance public school systems, etc.)",
   "about_RespoPublic": "Public interests were part of the game as much as the gambling itself. Today, Adillions brings back sweepstake to its true origins",
   "about_RespoProud": "Adillions and the internet make it possible to gamble and to contribute to a global charitable project at the same time. We want our users to be proud members of Adillions community",
   "about_RespoPeport": "The Adillions team is committed to publish each year a report about Adillions Solidarity & Sustainable Development Fund. Moreover, our final objective is to let our users choose the charitable projects they want to fund",
