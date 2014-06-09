@@ -1,5 +1,4 @@
 .site-header {
-  border-top:2px solid $brand-primary;
   .navbar-brand {
     padding-top:0;
     padding-bottom:0;
@@ -41,8 +40,7 @@
 @media screen and (min-width: $grid-float-breakpoint) {
   .navbar-right {
     .btn {
-      margin: $navbar-padding-horizontal;
-      margin-right: 0;
+      margin-left: 5px;
     }
   }
 }

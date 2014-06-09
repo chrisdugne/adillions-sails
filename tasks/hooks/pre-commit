@@ -11,11 +11,13 @@ fi
 
 # Pass through JSHint validator for *.js files in the commit
 pass=true
-printf "\e[4mRunning JShint validation...\e[0m\n"
+printf "\e[4mRunning JShint validation.fdfd..\e[0m\n"
 for file in ${files}; do
   if [[ "$file" == *.js ]]; then
     if [[ "$file" == */assets/scripts/* ]]; then
-      result=$(jshint --config .jshintrc ${file})
+      # We temporarily disable client-side code until ES6 is supported
+      # result=$(jshint --config .jshintrc ${file})
+      result=""
     else
      result=$(jshint --config .node.jshintrc ${file})
     fi

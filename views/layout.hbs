@@ -1,9 +1,9 @@
 <!doctype html>
-<!--[if lt IE 7]><html class="no-js lt-ie11 lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="{{language.code}}"> <![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie11 lt-ie10 lt-ie9 lt-ie8" lang="{{language.code}}"> <![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie11 lt-ie10 lt-ie9" lang="{{language.code}}"> <![endif]-->
-<!--[if IE 9]><html class="no-js lt-ie11 lt-ie10" lang="{{language.code}}"> <![endif]-->
-<!--[if IE 10]><html class="no-js lt-ie11" lang="{{language.code}}"> <![endif]-->
+<!--[if lt IE 7]><html class="no-js lt-ie11 lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="{{locale}}"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie11 lt-ie10 lt-ie9 lt-ie8" lang="{{locale}}"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie11 lt-ie10 lt-ie9" lang="{{locale}}"> <![endif]-->
+<!--[if IE 9]><html class="no-js lt-ie11 lt-ie10" lang="{{locale}}"> <![endif]-->
+<!--[if IE 10]><html class="no-js lt-ie11" lang="{{locale}}"> <![endif]-->
 <!--[if gt IE 10]><!--><html class="no-js" lang="{{locale}}"> <!--<![endif]-->
 <head prefix="og: http://ogp.me/ns#">
     <meta charset="utf-8">
@@ -34,8 +34,7 @@
     <script>(function(d){d.className=d.className.replace(/no-js/,'');})(document.documentElement);</script>
 
     <!--[if lt IE 9]>
-    <script src="{{statics '/scripts/html5.js'}}"></script>
-    <script src="{{statics '/scripts/json2.js'}}"></script>
+    <script src="{{statics '/scripts/polyfill.js'}}"></script>
     <![endif]-->
 
     {{> 'analytics'}}
@@ -52,5 +51,6 @@
     <script src="{{statics '/scripts/main.js'}}"></script>
     <script>require('app');</script>
     {{#pop "scripts"}}{{/pop}}
+    {{> 'scripts_social'}}
   </body>
 </html>

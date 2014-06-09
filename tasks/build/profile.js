@@ -21,14 +21,11 @@ var modules = {
     '.tmp/transpile/modules/**/*.js'
   ],
 
-  // HTML 5 Shiv
-  '.tmp/public/scripts/html5.js': [
-    'assets/bower_components/html5shiv/dist/html5shiv.js'
-  ],
-
-  // JSON Polyfill
-  '.tmp/public/scripts/json2.js': [
-    'assets/bower_components/json2/json2.js'
+  // HTML 5 Shiv, JSON Polyfill, CSS3 Polyfill
+  '.tmp/public/scripts/polyfill.js': [
+    'assets/bower_components/html5shiv/dist/html5shiv.js',
+    'assets/bower_components/json2/json2.js',
+    'assets/bower_components/respond/dest/respond.src.js'
   ]
 
 };

@@ -1,0 +1,265 @@
+.landing {
+
+}
+
+.landing-section {
+  padding:50px 0;
+
+  h2 {
+    text-transform: uppercase;
+    font-size: em(30px);
+    letter-spacing: 2px;
+    margin-top:0;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    font-size: em(18px);
+    letter-spacing: 1px;
+    small {
+      font-size: em(18px, 18px);
+      color: #206260;
+    }
+  }
+
+  .desc {
+    color:shade($gray-light, 15%);
+    line-height: 26px;
+    font-weight: 200;
+    letter-spacing: 0.6px;
+  }
+
+  .icon {
+  }
+}
+
+$hero-title-color: #7CFFF8;
+.landing-hero {
+  background: $blue;
+  h1 {
+    color: #fff;
+    font-size: em(54px);
+    font-weight: 100;
+  }
+  .play {
+    padding-left:70px;
+    padding-right:70px;
+  }
+  .highlight {
+    background: rgba(0,0,0, 0.4);
+    border: 1px solid rgba(255,255,255, 0.5);
+    border-radius:2px;
+    padding:20px 5px;
+    margin:0;
+    color: #fff;
+    white-space: nowrap;
+    .title {
+      display: block;
+      color: $hero-title-color;
+      text-transform: uppercase;
+    }
+    .text {
+      font-size: em(30px);
+      font-weight:100;
+    }
+  }
+  .highlight-prize{
+    position: absolute;
+    left:-15px;
+    right:-15px;
+    top:-8px;
+    border-color: rgba(255,255,255, 0.9);
+    @include prefixer(box-shadow, 0px 0 12px 0 lighten($hero-title-color, 5%), webkit spec);
+    @media (max-width: $screen-xs-max) {
+      position: static;
+      @include prefixer(box-shadow, 0px 0 5px 1px lighten($hero-title-color, 5%), webkit spec);
+    }
+    .text {
+      font-size: em(40px);
+    }
+  }
+}
+
+
+$howitworks-icon-height: 130px;
+$howitworks-arrow-height: 23px;
+$howitworks-arrow-width: 18px;
+$howitworks-border-color: darken($gray-lighter, 7%);
+.landing-howitworks {
+  background: #fff;
+
+  .see-more {
+    text-decoration: none;
+    .glyphicon {
+      font-size:em(10px);
+      top:0px;
+    }
+  }
+
+  .icon {
+    position: relative;
+    height: $howitworks-icon-height;
+    border: 1px solid $howitworks-border-color;
+    border-width: 0 1px 0 0;
+
+    @media (max-width: $screen-xs-max) {
+      border-width: 1px 0 0 0;
+      margin-top: 15px;
+      padding-top:30px;
+    }
+
+
+    &.first {
+      @media (max-width: $screen-xs-max) {
+        margin:0;
+        border:0 none;
+        &:before, &:after {
+          display:none;
+        }
+      }
+    }
+
+    &.last {
+      @media (min-width: $screen-xs-max) {
+        border:0 none;
+        &:before, &:after {
+          display:none;
+        }
+      }
+    }
+
+    &:before, &:after {
+      content:"";
+      position: absolute;
+      left:100%;
+      top:50%;
+      margin-top:-$howitworks-arrow-height/2;
+      @media (max-width: $screen-xs-max) {
+        left:50%;
+        top:0;
+        margin-top:0;
+        margin-left:-$howitworks-arrow-width/2;
+      }
+    }
+
+    &:before {
+      @include triangle($howitworks-arrow-height $howitworks-arrow-width, $howitworks-border-color, right);
+      @media (max-width: $screen-xs-max) {
+        @include triangle($howitworks-arrow-height $howitworks-arrow-width, $howitworks-border-color, down);
+      }
+    }
+    &:after {
+      margin-left:-2px;
+      @include triangle($howitworks-arrow-height $howitworks-arrow-width, white, right);
+      @media (max-width: $screen-xs-max) {
+        @include triangle($howitworks-arrow-height $howitworks-arrow-width, white, down);
+        margin-top:-2px;
+        margin-left:-$howitworks-arrow-width/2;
+      }
+    }
+
+  }
+
+}
+
+.landing-responsible {
+  background: $blue;
+  h2,.desc {
+    color:#fff;
+  }
+  .prize-item,
+  .prize-comma,
+  .prize-currenry {
+    font-size: em(50px);
+    font-weight:bold;
+    margin-right:3px;
+    @media (max-width: $screen-xs-max) {
+      font-size: em(40px);
+    }
+  }
+  .prize-item {
+    color: $blue-dark;
+    padding:10px 10px;
+    border-radius:4px;
+    font-family:"Verdana", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-shadow: 0 1px rgba(255,255,255, 0.6);
+    @include prefixer(box-shadow, inset 0px 1px 0px 0px lighten(#C2C7CA, 20%), webkit spec);
+    @include linear-gradient(#C2C7CA 0%, #C2C7CA 50%, $blue-dark 51%, #fff 52%, #fff 100%);
+  }
+  .prize-currenry {
+    margin-left: 10px;
+    color:#fff;
+    text-shadow: 2px 2px $blue-dark;
+  }
+  .prize-comma {
+    color: #fff;
+  }
+}
+
+$global-arrow-height: 24px;
+$global-arrow-width: 12px;
+.landing-global {
+  background: #fff;
+  .global-players {
+    text-align: center;
+  }
+  .global-player {
+    position: relative;
+    cursor: pointer;
+    padding:15px;
+    border: 1px solid lighten($gray-light, 15%);
+    margin:-1px 0 0 -1px;
+    @include transition(background 0.3s);
+    &:after {
+      content:"";
+      position: absolute;
+      top:100%;
+      left:50%;
+      margin-left: -$global-arrow-width/2;
+      visibility: hidden;
+      @include opacity(0);
+      @include triangle($global-arrow-height $global-arrow-width, $orange-light, down);
+      @include transition(opacity 1s $ease-out-expo);
+    }
+    &:hover {
+      background:#F6F5F1;
+    }
+    &.active {
+      border-bottom-color: $orange-light;
+      @include prefixer(box-shadow, inset 0px -2px 0px 0px $orange-light, webkit spec);
+      &:after {
+        visibility: visible;
+        @include opacity(1);
+      }
+    }
+  }
+  .media-body {
+    line-height:24px;
+    font-size: em(16px);
+    .badge-charity {
+      font-size: em(18px, 16px);
+    }
+  }
+}
+
+.landing-advertisers {
+
+}
+
+.landing-press {
+  padding:20px 0;
+  @include linear-gradient($green-light, $green-dark);
+  h2 {
+    color:#fff;
+    font-size: em(20px);
+  }
+  .title {
+    line-height:80px;
+    border-right: 1px solid darken($green-dark, 2%);
+    @include prefixer(box-shadow, 1px 0 0 0 lighten($green-light,3%), webkit spec);
+  }
+  .list {
+    line-height:60px;
+  }
+}

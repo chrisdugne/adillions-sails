@@ -17,5 +17,78 @@ body {
 /* Lead button */
 
 .btn-lead {
-    @include button-variant($btn-lead-color, $btn-lead-bg, $btn-lead-border);
+  // bourbon mixin
+  @include button(simple, lighten($btn-lead-bg, 3%));
+  &:hover {
+    color: $btn-lead-color;
+  }
+}
+
+.btn-primary {
+  // bourbon mixin
+  @include button(simple, lighten($btn-primary-bg, 6%));
+  &:hover {
+    color: $btn-primary-color;
+  }
+}
+
+.btn-default {
+  // bourbon mixin
+  @include button(simple, $btn-default-bg);
+  &:hover {
+    color: $btn-default-color;
+  }
+}
+
+.btn-lead,
+.btn-primary,
+.btn-default  {
+  text-transform: uppercase;
+  font-weight:normal;
+  &.btn-lg {
+    // rewrite bootstrap mixin
+    @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+  }
+  &.btn-sm {
+    // rewrite bootstrap mixin
+    @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+  }
+  &.btn-xs {
+    // rewrite bootstrap mixin
+    @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+  }
+  &.btn-lg,
+  &.btn-sm,
+  &.btn-xs {
+    &.btn-block {
+      @extend .btn-block;
+    }
+  }
+}
+
+$avatar-bg: darken($gray-lighter,5%);
+$avatar-border-color: lighten($blue-lighter,5%);
+.avatar {
+  background: $avatar-bg;
+  border-radius:50%;
+  overflow: hidden;
+  display:block;
+  border: 2px solid $avatar-border-color;
+  @include transition(background 0.3s, border-color 0.3s, box-shadow 0.3s);
+  &:hover {
+    background: lighten($avatar-bg, 3%);
+    border-color: lighten($avatar-border-color, 10%);
+    @include prefixer(box-shadow, inset 0px 0px 0.6em 0px $gray-light, webkit spec);
+  }
+}
+
+.badge-charity, .badge-charity-empty  {
+  color:$green;
+  @extend .glyphicon;
+}
+.badge-charity {
+  @extend .glyphicon-heart;
+}
+.badge-charity-empty {
+  @extend .glyphicon-heart-empty
 }

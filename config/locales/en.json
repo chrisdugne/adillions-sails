@@ -43,7 +43,20 @@
   "ui_signin": "Sign in",
   "ui_register": "Register",
   "ui_error": "An error occurred",
-  "ui_ContactUs": "Contact us",
+
+  "contact_us": "Contact us",
+  "see_previous_results": "See previous results",
+  "play_for_free": "Play for <strong>free</strong>",
+  "play_now": "Play now!",
+  "current_theme": "Current theme",
+  "fund_prize": "Fund prize",
+  "next_drawing": "Next drawing",
+
+
+  "footer_company": "Company",
+  "footer_support": "Support",
+  "footer_connect": "Connect",
+  "footer_game": "Game",
 
   "header_nav_home": "Home",
   "header_nav_game": "Game",
@@ -58,6 +71,46 @@
   "auth_field_email": "Email",
   "auth_field_password": "Password",
   "auth_field_username_or_email": "Username or email",
+
+  "_comment": "##### LANDING/index #####",
+
+  "landing_title": "Free sweepstake with real cash prize",
+
+  "landing_howitworks": "How it Works",
+
+  "landing_watchad": "Watch an AD",
+  "landing_watchad_desc": "Instead of paying for lottery tickets,<br /> watch an 30-seconds advertising video<br /> or complete a simple mission.",
+  "landing_watchad_link": "See all missons",
+
+  "landing_getticket": "Get your ticket",
+  "landing_getticket_desc": "Pick 5 numbers from a pool of 49 numbers<br />  and your lucky balls from a pool of 6,<br /> this week themed Lucky Balls.",
+  "landing_getticket_link": "Read all rules",
+
+  "landing_winprize": "Win the prize - real cash",
+  "landing_winprize_desc": "Invite your friends and share<br/> your activity on Facebook and Twitter. <br /> The more players there are, the greater jackpot.",
+  "landing_winprize_link": "See previous results",
+
+  "landing_platforms_title": "Free on all Platforms",
+  "landing_platforms_desc": "Play on a whole range of platforms. You can play directly through one of our mobile apps, on Facebook, Twitter or on our website.",
+
+  "landing_responsible_title": "Responsible",
+  "landing_responsible_desc": "Dedicate a few seconds of your time to charitable organizations each time you participate.",
+
+  "landing_global_title": "Global",
+  "landing_global_desc": "Join an international community of players. Everyone can be a winner.",
+
+  "landing_advertisers_title": "Adillions for advertisers",
+
+  "landing_advertisers_boost": "Boost your brand awareness",
+  "landing_advertisers_boost_desc": "Adillions offers you opportunity to broadcast quality viadeo ads and to organize your own sweepstake on your platform with a customized theme and prices.",
+
+  "landing_advertisers_multiscreen": "Implement a multi-screen strategy",
+  "landing_advertisers_multiscreen_desc": "You can benefit from Adillions presence on social networks (Facebook, Twitter, etc.) and on wide range on platforms - smartphones and tablets (iOS and Android) and desktops.",
+
+  "landing_advertisers_audience": "Reach a global engaged audience",
+  "landing_advertisers_audience_desc": "Thanks to Adillions international community of players, you get access to thousands of engaged users accrose the globe.",
+
+  "landing_press_title": "As featured in",
 
   "_comment": "##### ABOUT/index #####",
 
