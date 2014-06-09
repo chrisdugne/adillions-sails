@@ -14,12 +14,34 @@
 
 {{!-- section: How it Works --}}
 <section class="landing-section landing-hero">
-  <h1 class="text-center">{{i18n 'landing_title'}}</h1>
-  <p class="text-center">
-    <a href="" class="btn btn-lead btn-lg play">
-      {{{i18n 'play_for_free'}}}
-    </a>
-  </p>
+  <h1 class="text-center mtn mbxl">{{i18n 'landing_title'}}</h1>
+  <div class="container mbxl">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <p class="text-center highlight highlight-theme">
+          <span class="title">{{i18n 'current_theme'}}</span>
+          <strong class="text">Famous Actors</strong>
+        </p>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <p class="text-center highlight highlight-prize">
+          <span class="title">{{i18n 'fund_prize'}}</span>
+          <strong class="text">US$ 545</strong>
+        </p>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <p class="text-center highlight highlight-drawing">
+          <span class="title">{{i18n 'next_drawing'}}</span>
+          <strong class="text">1d 18h 15min 30s</strong>
+        </p>
+      </div>
+    </div>
+    <p class="text-center mtxl">
+      <a href="" class="btn btn-lead btn-lg play">
+        {{{i18n 'play_for_free'}}}
+      </a>
+    </p>
+  </div>
 </section>
 
 {{!-- section: How it Works --}}
@@ -111,10 +133,10 @@
       <div class="col-xs-12 col-sm-6 col-md-6 mbm">
         <h2>{{i18n 'landing_responsible_title'}}</h2>
         <p class="desc">{{i18n 'landing_responsible_desc'}}</p>
-        <p class="prize mbn">
+        <p class="prize mbn mtxl">
           <span class="prize-item">3</span>
           <span class="prize-item">2</span>
-          <span class="prize-spacing">,</span>
+          <span class="prize-comma">,</span>
           <span class="prize-item">1</span>
           <span class="prize-item">0</span>
           <span class="prize-item">0</span>
