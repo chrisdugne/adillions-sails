@@ -164,7 +164,7 @@ $howitworks-border-color: darken($gray-lighter, 7%);
 }
 
 .landing-responsible {
-  background: $blue;
+  background: $blue url('/images/landing/responsible_bg.jpg') no-repeat 30% 0;
   h2,.desc {
     color:#fff;
   }
