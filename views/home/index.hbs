@@ -10,6 +10,8 @@
 {{/push}}
 
 {{#push "scripts"}}
+<script src="{{statics '/scripts/landing.js'}}"></script>
+<script>require('landing');</script>
 {{/push}}
 
 {{!-- section: How it Works --}}
@@ -124,7 +126,7 @@
 </section>
 
 {{!-- section: Responsible --}}
-<section class="landing-section landing-responsible">
+<section class="landing-section landing-responsible" data-100-top-center="background-position:20% 0%;" data-bottom-center="background-position:20% 90%;">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6 mbm">
