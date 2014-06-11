@@ -1,5 +1,8 @@
-.landing  .site-content {
-
+body.landing {
+  background: $blue url('/images/bg/stars.png') repeat;
+  .navbar {
+    background: transparent;
+  }
 }
 
 .landing-section {
@@ -36,13 +39,13 @@
 
 $hero-title-color: #7CFFF8;
 .landing-hero {
-  background: $blue;
   h1 {
     color: #fff;
     font-size: em(54px);
     font-weight: 100;
   }
   .play {
+    margin-top: 70px;
     padding-left:70px;
     padding-right:70px;
   }
