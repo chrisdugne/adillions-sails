@@ -93,6 +93,13 @@ $howitworks-border-color: darken($gray-lighter, 7%);
   background: $body-bg-alt;
   border-top: 1px solid #d7d7d7;
 
+  h2 {
+    margin-bottom:40px;
+  }
+  h3 {
+    margin-top:30px;
+  }
+
   .see-more {
     text-decoration: none;
     .glyphicon {
@@ -289,6 +296,9 @@ $global-arrow-width: 12px;
 .landing-advertisers {
   background: $body-bg;
   border-top: 1px solid #d7d7d7;
+  h2 {
+    margin-bottom:40px;
+  }
 }
 
 .landing-press {
