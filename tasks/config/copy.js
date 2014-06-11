@@ -30,6 +30,18 @@ module.exports = function (grunt) {
         dest: '.tmp/public'
       }]
     },
+    images: {
+      files: [{
+        expand: true,
+        cwd: './assets/images/',
+        src: [
+          '**/*.{png,jpg}',
+          '!sprites/**',
+          'sprites/*.{png,jpg}'
+        ],
+        dest: '.tmp/public/images/'
+      }]
+    },
     build: {
       files: [{
         expand: true,
