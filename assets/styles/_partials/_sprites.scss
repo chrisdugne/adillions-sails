@@ -38,14 +38,44 @@
   width: 134px;
 }
 
-.features-sprite, .features-iphone {
-  background: url('/images/sprites/features-s17df396918.png') no-repeat;
+.features-sprite, .features-android-phone, .features-android-tablet, .features-apple-phone, .features-apple-tablet, .features-browser, .features-macbookair {
+  background: url('/images/sprites/features-s76e47ebe82.png') no-repeat;
 }
 
-.features-iphone {
-  background-position: 0 0;
+.features-android-phone {
+  background-position: -324px -182px;
+  height: 147px;
+  width: 86px;
+}
+
+.features-android-tablet {
+  background-position: -168px -182px;
+  height: 264px;
+  width: 156px;
+}
+
+.features-apple-phone {
+  background-position: -255px 0;
   height: 182px;
   width: 90px;
+}
+
+.features-apple-tablet {
+  background-position: 0 -182px;
+  height: 246px;
+  width: 168px;
+}
+
+.features-browser {
+  background-position: 0 0;
+  height: 161px;
+  width: 255px;
+}
+
+.features-macbookair {
+  background-position: 0 -446px;
+  height: 276px;
+  width: 484px;
 }
 
 .logos-sprite, .logos-adillions-ball, .logos-adillions {

@@ -18,7 +18,7 @@ $main-sprite-dimensions: true;
 @import "main/*.png";
 @include all-main-sprites;
 
-$features-layout: vertical;
+$features-layout: smart;
 $features-spacing: 10px;
 $features-sprite-dimensions: true;
 @import "features/*.png";
