@@ -90,7 +90,8 @@ $howitworks-arrow-height: 23px;
 $howitworks-arrow-width: 18px;
 $howitworks-border-color: darken($gray-lighter, 7%);
 .landing-howitworks {
-  background: #fff;
+  background: $body-bg-alt;
+  border-top: 1px solid #d7d7d7;
 
   .see-more {
     text-decoration: none;
@@ -102,7 +103,6 @@ $howitworks-border-color: darken($gray-lighter, 7%);
 
   .icon {
     position: relative;
-    height: $howitworks-icon-height;
     border: 1px solid $howitworks-border-color;
     border-width: 0 1px 0 0;
 
@@ -166,6 +166,11 @@ $howitworks-border-color: darken($gray-lighter, 7%);
 
 }
 
+.landing-platforms {
+  background: $body-bg;
+  border-top: 1px solid #d7d7d7;
+}
+
 .landing-responsible {
 
   background: $blue;
@@ -226,7 +231,8 @@ $howitworks-border-color: darken($gray-lighter, 7%);
 $global-arrow-height: 24px;
 $global-arrow-width: 12px;
 .landing-global {
-  background: #fff;
+  background: $body-bg-alt;
+
   .global-players {
     text-align: center;
   }
@@ -270,7 +276,8 @@ $global-arrow-width: 12px;
 }
 
 .landing-advertisers {
-
+  background: $body-bg;
+  border-top: 1px solid #d7d7d7;
 }
 
 .landing-press {
