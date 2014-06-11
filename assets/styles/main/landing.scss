@@ -164,10 +164,33 @@ $howitworks-border-color: darken($gray-lighter, 7%);
 }
 
 .landing-responsible {
-  background: $blue url('/images/landing/responsible_bg.jpg') no-repeat 30% 0;
+
+  background: $blue;
+
   h2,.desc {
     color:#fff;
   }
+
+  .row {
+    position: relative;
+  }
+
+  .responsible-bg-wrap {
+    position: static;
+    min-height: 250px;
+  }
+  .responsible-bg {
+    position: absolute;
+    top:-50px;
+    bottom:-50px;
+    left:0;
+    right:0;
+    background: url('/images/landing/responsible_bg.jpg') no-repeat 0 0;
+    @media (max-width: $screen-xs-max) {
+      height:250px;
+    }
+  }
+
   .prize-item,
   .prize-comma,
   .prize-currenry {
