@@ -194,6 +194,9 @@ $howitworks-border-color: darken($gray-lighter, 7%);
     left:0;
     right:0;
     background: url('/images/landing/responsible_bg.jpg') no-repeat 0 0;
+    html[lang=fr] & {
+      background-image: url('/images/landing/responsible_bg-FR.jpg');
+    }
     @media (max-width: $screen-xs-max) {
       height:250px;
     }
