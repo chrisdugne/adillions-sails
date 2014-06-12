@@ -11,63 +11,92 @@ module.exports = {
 
   index: function (req, res) {
     res.view({
-      usePopTitle: true
+      usePopTitle: true,
+      title: res.i18n('about'),
+      layout: 'layout_about'
+    });
+  },
+
+  winwinwin: function (req, res) {
+    return res.view({
+      usePopTitle: true,
+      title: res.i18n('winwinwin_title'),
+      bodyClass: 'winwinwin',
+      layout: 'layout_about'
     });
   },
 
   team: function (req, res) {
     return res.view({
       usePopTitle: true,
-      bodyClass: 'team'
+      title: res.i18n('team'),
+      bodyClass: 'team',
+      layout: 'layout_about'
     });
   },
 
   advertisers: function (req, res) {
     return res.view({
       usePopTitle: true,
-      bodyClass: 'advertisers'
+      title: res.i18n('advertisers_title'),
+      bodyClass: 'advertisers',
+      layout: 'layout_about'
     });
   },
 
   reward: function (req, res) {
     return res.view({
-      usePopTitle: true
+      usePopTitle: true,
+      title: res.i18n('reward'),
+      layout: 'layout_about'
     });
   },
 
   prizes: function (req, res) {
     return res.view({
-      usePopTitle: true
+      usePopTitle: true,
+      title: res.i18n('prizes'),
+      layout: 'layout_about'
     });
   },
 
   press: function (req, res) {
     return res.view({
-      usePopTitle: true
+      usePopTitle: true,
+      title: res.i18n('press'),
+      layout: 'layout_about'
     });
   },
 
   faq: function (req, res) {
     return res.view({
-      usePopTitle: true
+      usePopTitle: true,
+      title: res.i18n('faq'),
+      layout: 'layout_about'
     });
   },
 
   rules: function (req, res) {
     return res.view({
-      usePopTitle: true
+      usePopTitle: true,
+      title: res.i18n('keyrules'),
+      layout: 'layout_about'
     });
   },
 
   jobs: function (req, res) {
     return res.view({
-      usePopTitle: true
+      usePopTitle: true,
+      title: res.i18n('jobs'),
+      layout: 'layout_about'
     });
   },
 
   privacy: function (req, res) {
     return res.view({
-      usePopTitle: true
+      usePopTitle: true,
+      title: res.i18n('privacy'),
+      layout: 'layout_about'
     });
   },
 
@@ -94,7 +123,9 @@ module.exports = {
       }
       return res.view({
         usePopTitle: true,
-        articles: articles
+        title: res.i18n('terms'),
+        articles: articles,
+        layout: 'layout_about'
       });
     });
 

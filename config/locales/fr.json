@@ -111,6 +111,35 @@
 
   "landing_press_title": "A été vu sur",
 
+  "_comment": "##### WINWINWIN/INDEX #####",
+
+  "winwinwin_meta_title": "Winwinwin",
+  "winwinwin_meta_desc": "Annonceurs, Joueurs, Associations. Ils sont tous gagnants!",
+  "winwinwin": "Winwinwin",
+
+  "winwinwin_title": "Winwinwin",
+  "winwinwin_intro": "Annonceurs, Joueurs, Associations et Fondations, tout le monde est gagnant.",
+
+  "winwinwin_advertisers_title": "Annonceurs",
+  "winwinwin_advertisers_desc1": "Un canal de communication multiplateforme pour boostervotre notoriété.",
+  "winwinwin_advertisers_desc2": "Une opportunité pour communiquer auprès d’une audience mondiale engagée.",
+  "winwinwin_advertisers_communication": "Communication",
+  "winwinwin_advertisers_global": "Internationale",
+
+  "winwinwin_players_title": "Joueurs",
+  "winwinwin_players_desc1": "Un jeu gratuit avec des gains d’argent réel.",
+  "winwinwin_players_desc2": "Un moyen simple et ludique pour consacrer quelques secondes de son temps à des œuvres caritatives.",
+  "winwinwin_players_free": "Gratuit",
+  "winwinwin_players_responsible": "Responsable",
+
+  "winwinwin_charity_title": "Associations et Fondations",
+  "winwinwin_charity_desc1": "Une communauté unique d’utilisateurs qui donnent de leur temps.",
+  "winwinwin_charity_desc2": "Une base potentielle de donateurs de 2,7 milliards de personnes* (en forte augmentation).",
+  "winwinwin_charity_community": "Communauté",
+  "winwinwin_charity_donator": "Donateur",
+
+  "winwinwin_charity_annotation": "* Personnes connectées dans le monde selon l’Union Internationale des Télécommunications (Nations Unies) à déc. 2013",
+
   "_comment": "##### ABOUT/INDEX #####",
 
   "about_meta_title": "À propos du jeu de loterie",

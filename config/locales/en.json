@@ -112,6 +112,35 @@
 
   "landing_press_title": "As featured in",
 
+  "_comment": "##### WINWINWIN/INDEX #####",
+
+  "winwinwin_meta_title": "Winwinwin",
+  "winwinwin_meta_desc": "Advertisers, Players & Charities. They are all winners!",
+  "winwinwin": "Winwinwin",
+
+  "winwinwin_title": "Winwinwin",
+  "winwinwin_intro": "Advertisers, Players, Charitable organizations, everybody win.",
+
+  "winwinwin_advertisers_title": "Advertisers",
+  "winwinwin_advertisers_desc1": "A multi-platform channel to boost brand awareness.",
+  "winwinwin_advertisers_desc2": "An opportunity to reach a global engaged audience.",
+  "winwinwin_advertisers_communication": "Boost",
+  "winwinwin_advertisers_global": "Global",
+
+  "winwinwin_players_title": "Players",
+  "winwinwin_players_desc1": "A free game with real cash prizes.",
+  "winwinwin_players_desc2": "A fun and easy way to dedicate a few seconds of your time to charitable organizations.",
+  "winwinwin_players_free": "Free",
+  "winwinwin_players_responsible": "Responsible",
+
+  "winwinwin_charity_title": "Charitable organizations",
+  "winwinwin_charity_desc1": "A unique community of users donating their time for charitable purposes.",
+  "winwinwin_charity_desc2": "A potential international donor base of 2.7 billion people* (still growing at fast pace).",
+  "winwinwin_charity_community": "Community",
+  "winwinwin_charity_donator": "Donor",
+
+  "winwinwin_charity_annotation": "* World Internet users according to the UN's International Telecommunication Union (as of Dec. 2013)",
+
   "_comment": "##### ABOUT/index #####",
 
   "about_meta_title": "About the lottery game",

@@ -39,7 +39,7 @@
       </div>
     </div>
     <p class="text-center">
-      <a href="" class="btn btn-lead btn-lg play">
+      <a href="{{route 'game.index' lang=locale}}" class="btn btn-lead btn-lg play">
         {{{i18n 'play_for_free'}}}
       </a>
     </p>
@@ -59,7 +59,7 @@
         <h3><small class="hidden">1.</small> {{i18n 'landing_watchad'}}</h3>
         <p class="desc">{{{i18n 'landing_watchad_desc'}}}</p>
         <p>
-          <a href="" class="see-more">
+          <a href="{{route 'about.winwinwin' lang=locale}}" class="see-more">
             {{i18n 'landing_watchad_link'}}
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
@@ -72,7 +72,7 @@
         <h3><small class="hidden">2.</small> {{i18n 'landing_getticket'}}</h3>
         <p class="desc">{{{i18n 'landing_getticket_desc'}}}</p>
         <p>
-          <a href="" class="see-more">
+          <a href="{{route 'about.rules' lang=locale}}" class="see-more">
             {{i18n 'landing_getticket_link'}}
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
@@ -85,7 +85,7 @@
         <h3><small class="hidden">3.</small> {{i18n 'landing_winprize'}}</h3>
         <p class="desc">{{{i18n 'landing_winprize_desc'}}}</p>
         <p>
-          <a href="" class="see-more">
+          <a href="{{route 'game.results' lang=locale}}" class="see-more">
             {{i18n 'landing_winprize_link'}}
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
@@ -134,7 +134,7 @@
         </a>
       </li>
       <li class="col-xs-12 col-sm-3 col-md-3 mbm">
-        <a href="{{route 'auth.register'}}" class="btn btn-lead btn-lg btn-block">
+        <a href="{{route 'game.index'}}" class="btn btn-lead btn-lg btn-block">
           {{{i18n 'play_for_free'}}}
         </a>
       </li>
