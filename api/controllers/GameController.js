@@ -15,10 +15,5 @@ module.exports = {
     res.view({
       usePopTitle: true
     });
-  },
-  charity: function (req, res) {
-    res.view({
-      usePopTitle: true
-    });
   }
 };
