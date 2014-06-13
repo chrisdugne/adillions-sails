@@ -43,7 +43,8 @@
     "grunt-nodemon": "~0.2.1",
     "grunt-concurrent": "~0.5.0",
     "time-grunt": "~0.3.1",
-    "load-grunt-tasks": "~0.4.0"
+    "load-grunt-tasks": "~0.4.0",
+    "numeral": "~1.5.3"
   },
   "devDependencies": {
     "sails-disk": "~0.10.0"
@@ -58,8 +59,8 @@
     "type": "git",
     "url": "https://github.com/LukeParis/adillions-next.git"
   },
-  "engines" : {
-    "node" : "~0.10.20"
+  "engines": {
+    "node": "~0.10.20"
   },
   "author": "Duvillier Antoine",
   "license": ""

@@ -2,7 +2,8 @@
  * Handlebars Misc helpers
  *
  */
-var _ = require('lodash');
+var _ = require('lodash'),
+  numeral = require('numeral');
 
 /**
  * Helpers
@@ -106,6 +107,32 @@ var helpers = {
     }
 
     this[ressource] = options.fn(this);
+  },
+
+  /**
+   *  'numeral'
+   *  ===============
+   *
+   *  Description
+   *  -----------
+   *
+   *  format number: add comma at each thousands
+   *
+   *  Usage
+   *  -----
+   *
+   *  {{#set 'termsroute'}}
+   *     {{route 'about.terms' lang=locale}}
+   *  {{/set}}
+   *
+   */
+
+  numeral: function (ressource) {
+    if (isNaN(Number(ressource))) {
+      throw new Error('The ressource agurments must be passed to the "splitNumber" helper and it must be a string or a number');
+    }
+
+    return numeral(ressource).format('0,0');
   }
 
 };

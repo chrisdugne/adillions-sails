@@ -19,7 +19,8 @@ var getUrl = function (req, code) {
 module.exports = {
   index: function (req, res) {
     var languages = res.locals.languages,
-      currentLanguage = res.getLocale();
+      currentLanguage = res.getLocale(),
+      LotteryService = new sails.services.lottery();
 
     if (_.isEmpty(languages)) {
       sails.log.error('home#index: languages cannot be found');
@@ -57,13 +58,30 @@ module.exports = {
       });
     }
 
-    var canonicalUrl = getUrl(req, currentLanguage);
+    var canonicalUrl = getUrl(req, currentLanguage),
+      locals = {
+        alternateUrls: alternateUrls,
+        canonicalUrl: canonicalUrl,
+        bodyClass: 'landing',
+        layout: 'layout_landing'
+      };
 
-    res.view({
-      alternateUrls: alternateUrls,
-      canonicalUrl: canonicalUrl,
-      bodyClass: 'landing',
-      layout: 'layout_landing'
+    async.parallel({
+      charityPrice: function (cb) {
+        LotteryService.getTotalCharityPrice(true, cb);
+      },
+      drawings: function (cb) {
+        LotteryService.getTotalDrawings(cb);
+      },
+      averageCharity: function (cb) {
+        LotteryService.getAverageCharity(cb);
+      },
+    }, function (err, results) {
+      if (err) {
+        return res.serverError(err);
+      }
+      res.view(_.defaults(locals, results));
     });
+
   }
 };
