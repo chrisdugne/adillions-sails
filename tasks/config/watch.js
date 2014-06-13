@@ -26,6 +26,21 @@ module.exports = function (grunt) {
       // API files to watch:
       files: ['api/**/*']
     },
+
+    // This task cannot use 'newer' as updates to imported dependencies are not picked up
+    images: {
+      options: {
+        spawn: false,
+        interrupt: true
+      },
+      files: [
+        'assets/images/**/*.{png,jpg}'
+      ],
+      tasks: [
+        'copy:images'
+      ]
+    },
+
     // This task cannot use 'newer' as updates to imported dependencies are not picked up
     styles: {
       options: {

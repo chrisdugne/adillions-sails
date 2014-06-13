@@ -14,6 +14,19 @@ body {
   font-size: em(14px, 10px);
 }
 
+.site-content {
+  overflow:hidden;
+}
+
+.page-header-about {
+  background: lighten($body-bg, 10%);
+  padding:20px 0;
+  margin:0 0 40px 0;
+  border-color: #d7d7d7;
+  color: $green;
+
+}
+
 /* Lead button */
 
 .btn-lead {
@@ -75,9 +88,11 @@ $avatar-border-color: lighten($blue-lighter,5%);
   display:block;
   border: 2px solid $avatar-border-color;
   @include transition(background 0.3s, border-color 0.3s, box-shadow 0.3s);
-  &:hover {
+  &:hover, &:active, &:focus {
     background: lighten($avatar-bg, 3%);
     border-color: lighten($avatar-border-color, 10%);
+  }
+  &:active, &:focus {
     @include prefixer(box-shadow, inset 0px 0px 0.6em 0px $gray-light, webkit spec);
   }
 }
@@ -90,5 +105,5 @@ $avatar-border-color: lighten($blue-lighter,5%);
   @extend .glyphicon-heart;
 }
 .badge-charity-empty {
-  @extend .glyphicon-heart-empty
+  @extend .glyphicon-heart-empty;
 }

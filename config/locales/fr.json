@@ -73,43 +73,71 @@
 
   "_comment": "##### LANDING/index #####",
 
-  "landing_title": "Loterie gratuite avec des gains d'argent réels",
+  "landing_title": "Loterie gratuite avec des gains d'argent réel",
 
-  "landing_howitworks": "Comment ça marche",
+  "landing_howitworks": "Comment ça marche ?",
 
   "landing_watchad": "Visionnez une pub",
-  "landing_watchad_desc": "Au lieu de payer un ticket de loterie,<br /> regardez une publicité vidéo de 30 secondes<br /> ou compléter une mission simple.",
-  "landing_watchad_link": "Voir toutes les missions",
+  "landing_watchad_desc": "Au lieu de payer un ticket de loterie,<br /> regardez une publicité vidéo de 30 secondes",
+  "landing_watchad_link": "Voir le Win-Win-Win",
 
   "landing_getticket": "Obtenez votre ticket",
-  "landing_getticket_desc": "Sélectionnez 5 numéros sur 49<br /> et une boulle chance sur 6,<br /> un nouveau thème boule chance par semaine.",
-  "landing_getticket_link": "Lire toutes les règles",
+  "landing_getticket_desc": "Sélectionnez 5 numéros sur 49<br /> et votre Boule Chance parmis 6 boules",
+  "landing_getticket_link": "Lire les principales règles",
 
   "landing_winprize": "Gagnez le jackpot",
-  "landing_winprize_desc": "Invitez vos amis et partagez<br/> votre activité sur Facebook et Twitter. <br /> Plus il y a de joueurs, plus la cagnotte grossit.",
+  "landing_winprize_desc": "Invitez vos amis et partagez !<br/> Plus il y a de joueurs, plus la cagnotte grossit",
   "landing_winprize_link": "Voir les précédents résultats",
 
   "landing_platforms_title": "Gratuit sur toutes les plateformes",
-  "landing_platforms_desc": "Jouez sur plusieurs plateformes. Vous pouvez jouer directement sur nos applications mobiles, sur Facebook, Twitter ou sur notre site internet.",
-
+  "landing_platforms_desc": "Vous pouvez jouer directement sur les applications mobiles, sur Facebook ou sur le site internet d'Adillions.",
   "landing_responsible_title": "Responsable",
-  "landing_responsible_desc": "A chaque fois que vous jouez, vous donnez un peu de votre temps à des oeuvres caritatives.",
+  "landing_responsible_desc": "Une partie des revenus publicitaires est reversée à des associations.<br/> Concrètement, à chaque fois que vous jouez, vous donnez un peu de<br/>  votre temps à des oeuvres caritatives",
 
-  "landing_global_title": "international",
-  "landing_global_desc": "Faites partie d'une communauté internationale de joueurs. Tout le monde peut gagner.",
+  "landing_global_title": "International",
+  "landing_global_desc": "Faites partie d'une communauté internationale de joueurs. Tout le monde peut gagner",
 
   "landing_advertisers_title": "Adillions pour les annonceurs",
 
   "landing_advertisers_boost": "Boostez votre notoriété",
-  "landing_advertisers_boost_desc": "Adlllions vous offre l'opportunité de diffuser vos vidéos publicitaires de qualité et d'organiser votre propre loterie gratuite sur notre plateforme en personnalisant le thème du tirage et les gains associés.",
+  "landing_advertisers_boost_desc": "Adlllions vous offre l'opportunité de diffuser vos vidéos publicitaires et d'organiser votre propre loterie gratuite sur notre plateforme en personnalisant le thème du tirage et les gains associés",
 
   "landing_advertisers_multiscreen": "Mettez en place une stratégie digitale multi-supports",
-  "landing_advertisers_multiscreen_desc": "Vous bénéficiez de la présence d’Adillions sur les réseaux sociaux (Facebook, Twitter, etc.) et sur une large gamme de plateformes : smartphones et tablettes (iOS et Androïd) et ordinateurs.",
+  "landing_advertisers_multiscreen_desc": "Vous bénéficiez de la présence d’Adillions sur les réseaux sociaux (Facebook, Twitter, etc.) et sur une large gamme de plateformes",
 
   "landing_advertisers_audience": "Accédez à une large audience",
-  "landing_advertisers_audience_desc": "Grâce à Adillions, vous avez accès à une communauté internationale de joueurs engagés, fidèles à travers le monde.",
+  "landing_advertisers_audience_desc": "Grâce à Adillions, vous avez accès à une communauté de joueurs engagés et fidèles à travers le monde",
 
   "landing_press_title": "A été vu sur",
+
+  "_comment": "##### WINWINWIN/INDEX #####",
+
+  "winwinwin_meta_title": "Win - Win - Win",
+  "winwinwin_meta_desc": "Annonceurs, Joueurs, Associations. Ils sont tous gagnants !",
+  "winwinwin": "Win - Win - Win",
+
+  "winwinwin_title": "Gagnant - Gagnant - Gagnant",
+  "winwinwin_intro": "Sur Adillions, vous êtes tous gagnants !",
+
+  "winwinwin_advertisers_title": "Annonceurs",
+  "winwinwin_advertisers_desc1": "Un canal de communication multiplateforme pour booster votre notoriété",
+  "winwinwin_advertisers_desc2": "Une opportunité pour communiquer auprès d’une audience mondiale engagée",
+  "winwinwin_advertisers_communication": "Notoriété",
+  "winwinwin_advertisers_global": "Audience",
+
+  "winwinwin_players_title": "Joueurs",
+  "winwinwin_players_desc1": "Un jeu gratuit avec des gains d’argent réel.",
+  "winwinwin_players_desc2": "Un moyen simple et ludique pour consacrer quelques secondes de son temps à des œuvres caritatives.",
+  "winwinwin_players_free": "Gratuit",
+  "winwinwin_players_responsible": "Responsable",
+
+  "winwinwin_charity_title": "Associations",
+  "winwinwin_charity_desc1": "Une communauté unique d’utilisateurs qui donnent de leur temps",
+  "winwinwin_charity_desc2": "Une base potentielle de donateurs de 2,7 milliards de personnes* (en forte augmentation)",
+  "winwinwin_charity_community": "Dons",
+  "winwinwin_charity_donator": "Donateurs",
+
+  "winwinwin_charity_annotation": "* Personnes connectées dans le monde selon l’Union Internationale des Télécommunications (Nations Unies) à déc. 2013",
 
   "_comment": "##### ABOUT/INDEX #####",
 
@@ -120,26 +148,22 @@
   "about_WhatIs": "Adillions en quelques mots",
   "about_AdillionsDesc": "Adillions est un jeu de loterie simple et gratuit avec des gains d'argent réel financés par la publicité vidéo",
 
-  "about_AdillionsWords": "C'est aussi un jeu :",
   "about_Easy_title": "Facile",
   "about_Fun_title": "Fun",
   "about_Viral_title": "Viral",
   "about_Global_title": "Global",
   "about_Responsible_title": "Responsable",
 
-  "about_Easy_text": "Visionnez une publicité pour obtenir votre ticket gratuit de loterie ",
+  "about_Easy_text": "Visionnez une publicité pour obtenir votre ticket gratuit de loterie",
   "about_Fun_text": "Choisissez 5 numéros et votre Boule Chance",
   "about_Viral_text": "Invitez vos amis pour faire augmenter la cagnotte",
   "about_Global_text": "Rejoignez une communauté internationale de joueurs",
   "about_Responsible_text": "Qu'il y ait des gagnants ou non, une part de chaque spot publicitaire alimente le Fonds de Solidarité et de Développement Durable d'Adillions",
 
-  "about_DrawAmount": "Les tirages ont lieu chaque samedi à 20h00 (GMT) et ils sont diffusés en direct en ligne sur Youtube. Comme toutes les loteries traditionnelles, si personne ne gagne alors la cagnotte s'ajoute à celle du prochain tirage.",
+  "about_DrawAmount": "Les tirages ont lieu chaque dimanche à 11h00 (France). Comme toutes les loteries traditionnelles, si personne ne gagne alors la cagnotte s'ajoute à celle du prochain tirage - ",
   "about_consult_terms": "Consulter notre Règlement",
 
   "about_EachPlay": "Chaque fois que vous jouez sur Adillions, vous avez une chance de gagner le jackpot et vous consacrez quelques secondes de votre journée à des œuvres caritatives",
-
-  "about_Adillions": "Adillions",
-  "about_AdillionsCatch": "Bien plus qu'un jeu",
 
   "about_VisionValues": "Notre Vision et nos Valeurs",
 
@@ -147,12 +171,14 @@
   "about_InnovDisrupt": "Nous croyons qu'il est possible d'innover sur le marché des jeux d'argent et de proposer une offre inédite par rapport aux loteries nationales traditionnelles avec un jeu global, social et gratuit",
   "about_InnovOriginal": "Les loteries peuvent être amusantes et originales. Avec Adillions, vous jouez vos numéros préférés et une boule inédite chaque semaine en fonction du thème du tirage",
   "about_InnovSimple": "Nous souhaitons développer un produit simple et convivial utilisé par des millions d'utilisateurs à travers le monde",
+  "about_InnovConclusion": "Les internautes préfèrent regarder volontairement des publicités ciblées et pertinentes à un moment opportun pour eux plutôt que d'être submergés constamment de publicités (peu) ciblées",
 
   "about_Responsibility": "Responsabilité sociale",
-  "about_RespoBefore": "Bien avant Jésus-Christ, les loteries contribuaient à financer les grands projets publics (la construction de la Grande Muraille de Chine, l'aide aux plus défavorisés, le financement des écoles publiques, etc.)",
+  "about_RespoBefore": "Apparu il y a plus de 2000 ans, le jeu de la loterie a contribué sur tous les continents à financer de grands projets publics comme la construction de la Grande Muraille de Chine, l'aide aux plus défavorisés, le financement d'écoles publiques, etc.",
   "about_RespoPublic": "La dimension de solidarité faisait partie intégrante du jeu. Aujourd'hui, avec Adillions, le jeu de la loterie retrouve ses origines",
   "about_RespoProud": "Grâce à la puissance d'Internet, Adillions permet de gagner de l’argent et de contribuer à un projet caritatif mondial. Nous voulons que nos utilisateurs soient fiers d’appartenir à la communauté d’Adillions",
   "about_RespoPeport": "Adillions s'engage à publier chaque année un rapport sur son Fonds de Solidarité et de Développement Durable. Par ailleurs, notre objectif à terme est de donner le pouvoir à nos utilisateurs pour qu'ils choisissent eux-mêmes les projets caritatifs qu'ils souhaitent financer",
+  "about_RespoConclusion": "Nous voulons que nos utilisateurs soient fiers d’appartenir à la communauté d’Adillions",
 
   "about_Fairness": "Intégrité",
   "about_FairTransparent": "L'équipe d'Adillions porte une attention toute particulière à traiter tous les joueurs avec équité et à être aussi transparent que possible avec nos utilisateurs et les organismes publics de réglementation",
@@ -162,15 +188,13 @@
   "about_FairRules3": "Un nombre limité de tickets par tirage par joueur",
   "about_FairRules4": "Un ensemble de procédures techniques pour éviter les fraudes",
   "about_FairRules5": "...",
-
-  "about_Conclusion": "Conclusion",
-  "about_ConclTime": "Notre ambition est de développer un jeu de hasard qui permet de collecter sur une plateforme la seule et unique monnaie commune dans le monde - Le temps - et de maximiser sa valeur pour nos joueurs et nos partenaires humanitaires et caritatifs",
+  "about_FairConclusion": "Notre ambition est de développer un jeu de chance innovant et responsable, accessible au plus grand nombre car seuls Internet et le temps sont nécessaires pour jouer",
 
   "about_Team": "L'équipe",
   "about_TeamIntro": "L'équipe d'Adillions est basée à Paris (France) et elle est dirigée par:",
   "about_cofounder": "Co-fondateur",
 
-  "about_ceo": "Président-Directeur Général",
+  "about_ceo": "Président",
   "about_cto": "Directeur Technique",
   "about_fel": "Front-end Leader",
 
@@ -181,7 +205,7 @@
   "about_ceo_desc": "Timothée a initié le projet Adillions. Il a travaillé dans le secteur bancaire puis dans le conseil en stratégie pendant plusieurs années. Aujourd'hui, il supervise les aspects business et opérationnels du projet tels que le business développement, le marketing et la communication. Timothée est diplômé de l'ESSEC avec une spécialisation en Finance et Private Equity",
   "about_cto_desc_1": "Christophe a commencé sa carrière en tant que développeur au sein d'une start-up dans le domaine du marketing web. Il a participé à la création de plusieurs start-ups dans l'univers du gaming et du mobile ainsi qu'un outil cartographique sur le cloud, ",
   "about_cto_desc_2": ". Christophe est en charge du développement technique des produits d'Adillions. Christophe est diplômé de l'ENSEIRB à Bordeaux où il a étudié l'informatique",
-  "about_fel_desc": "Antoine a 5 années d'expérience dans l'univers du développement front-end. Antoine est un autodidacte passionné.<br /> Antoine est actuellement le Team Leader du framework UI open-source <a href='https://github.com/viadeo/tetra-ui'>Tetra-ui</a>.",
+  "about_fel_desc": "Antoine a 5 années d'expérience dans l'univers du développement front-end. Antoine est un autodidacte passionné.<br /> Antoine est actuellement le Team Leader du framework UI open-source Tetra-ui",
 
   "_comment": "##### ABOUT/PRIVACY #####",
 
@@ -276,16 +300,16 @@
   "faq_a6": "Oui. Un nombre maximum de tickets est fixé pour chaque joueur par tirage afin de préserver l'égalité des chances entre les participants. Vous pouvez gagner des Tickets Bonus en likant notre page Facebook, en nous suivant sur Twitter, etc. (cf. Récompenses).",
 
   "faq_q7": "Est-ce que je suis averti quand j'ai remporté un gain ?",
-  "faq_a7": "Oui. A l'issue du tirage, si vous êtes parmi les gagnants, un mail vous est adressé pour vous informer du montant de votre gain.",
+  "faq_a7": "Oui. A l'issue du tirage, si vous êtes parmi les gagnants, un popup appraraît pour vous informer du montant de votre gain.",
 
   "faq_q8": "Est-ce que je dois renseigner mes coordonnées bancaires à l'inscription ?",
   "faq_a8": "Non. L'inscription sur Adillions ne requiert, à aucun moment, l'obligation de communiquer vos coordonnées bancaires.",
 
   "faq_q9": "Quand et comment est-ce que je reçois mes gains ?",
-  "faq_a9": "Les gains des joueurs sont versés au minimum 4 semaines après qu'ils aient atteint un solde global minimum de 10 euros et au maximum huit 8 semaines après. Le versement des gains s'effectue par virement bancaire pour les gagnants de la zone SEPA / Euro et via PayPal pour les autres gagnants (consultez le Règlement pour plus de détails).",
+  "faq_a9": "Vos gains vous sont versés au minimum quatre 4 semaines après que vous ayez réalisé une demande de paiement et au maximum 8 semaines après. Vous pouvez réaliser cette demande de paiement à partir de votre 'Profil' lorsque vos gains ont atteint un solde global minimum de gains de 15 euros. Le versement des gains s'effectue par virement bancaire pour les gagnants de la zone SEPA / Euro et via PayPal pour les autres gagnants (consultez le Règlement pour plus de détails).",
 
   "faq_q10": "A quel moment dois-je transmettre mes coordonnées bancaires / PayPal ?",
-  "faq_a10": "Adillions vous demande de fournir vos coordonnées bancaires / PayPal uniquement lors du versement de vos gains.",
+  "faq_a10": "Adillions vous demande de fournir ces informations uniquement lors du versement de vos gains.",
 
   "faq_q11": "Est-ce que l'identité du / des vainqueur(s) est publiée sur la plateforme ?",
   "faq_a11": "Non. Adillions s'engage à respecter la confidentialité de vos données personnelles. En accord avec notre Règlement et notre Politique de Confidentialité, seuls votre prénom, la première lettre de votre nom de famille ainsi que votre lieu de résidence (ville / pays) seront potentiellement affichés sur la plateforme.",
@@ -296,7 +320,7 @@
   "faq_q13": "Comment la plateforme se prémunit-elle contre de potentielles fraudes / triches ?",
   "faq_a13": "Adillions s'engage à limiter les risques de triche et de fraude et à protéger l'intégrité des tirages grâce à plusieurs mesures et notamment :",
   "faq_a13a": "Adillions vérifie l'unicité des comptes;",
-  "faq_a13b": "Pour les gains supérieurs à 2000 euros, il est demandé de fournir un document attestant de l'identité exacte du gagnant;",
+  "faq_a13b": "Pour les gains supérieurs à 1,000 euros, il est demandé de fournir un document attestant de l'identité exacte du gagnant;",
   "faq_a13c": "Avant chaque tirage, la base de données des tickets est sécurisée;",
   "faq_a13d": "Des logiciels anti-fraude ont été développés afin de préserver l'intégrité du jeu.",
 
@@ -581,9 +605,8 @@
   "team_fel_name": "Antoine DUVILLIER",
 
   "team_ceo_desc": "Timothée a initié le projet Adillions. Il a travaillé dans le secteur bancaire puis dans le conseil en stratégie pendant plusieurs années. Aujourd'hui, il supervise les aspects business et opérationnels du projet tels que le business développement, le marketing et la communication. Timothée est diplômé de l'ESSEC avec une spécialisation en Finance et Private Equity",
-  "team_cto_desc_1": "Christophe a commencé sa carrière en tant que développeur au sein d'une start-up dans le domaine du marketing web. Il a participé à la création de plusieurs start-ups dans l'univers du gaming et du mobile ainsi qu'un outil cartographique sur le cloud, ",
-  "team_cto_desc_2": ". Christophe est en charge du développement technique des produits d'Adillions. Christophe est diplômé de l'ENSEIRB à Bordeaux où il a étudié l'informatique",
-  "team_fel_desc": "Antoine a 5 années d'expérience dans l'univers du développement front-end. Antoine est un autodidacte passionné.<br /> Antoine est actuellement le Team Leader du framework UI open-source <a href='https://github.com/viadeo/tetra-ui'>Tetra-ui</a>.",
+  "team_cto_desc": "Christophe a commencé sa carrière en tant que développeur au sein d'une start-up dans le domaine du marketing web. Il a participé à la création de plusieurs start-ups dans l'univers du gaming et du mobile ainsi qu'un outil cartographique sur le cloud, Maperial. Christophe est en charge du développement technique des produits d'Adillions. Christophe est diplômé de l'ENSEIRB à Bordeaux où il a étudié l'informatique",
+  "team_fel_desc": "Antoine a 5 années d'expérience dans l'univers du développement front-end. Antoine est un autodidacte passionné.<br /> Antoine est actuellement le Team Leader du framework UI open-source Tetra-ui.",
 
   "_comment": "##### ABOUT/ADVERTISERS #####",
 

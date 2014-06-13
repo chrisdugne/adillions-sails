@@ -17,8 +17,10 @@ var modules = {
     'assets/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js',
 
     // main modules
-    'assets/scripts/modules/main.js',
-    '.tmp/transpile/modules/**/*.js'
+    'assets/scripts/main.js',
+
+    '.tmp/transpile/modules/app.js',
+    '.tmp/transpile/modules/main/*.js'
   ],
 
   // HTML 5 Shiv, JSON Polyfill, CSS3 Polyfill
@@ -26,6 +28,13 @@ var modules = {
     'assets/bower_components/html5shiv/dist/html5shiv.js',
     'assets/bower_components/json2/json2.js',
     'assets/bower_components/respond/dest/respond.src.js'
+  ],
+
+  // HTML 5 Shiv, JSON Polyfill, CSS3 Polyfill
+  '.tmp/public/scripts/landing.js': [
+    'assets/bower_components/skrollr/src/skrollr.js',
+    '.tmp/transpile/modules/landing.js',
+    '.tmp/transpile/modules/landing/*.js'
   ]
 
 };

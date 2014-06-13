@@ -1,5 +1,8 @@
-.landing {
-
+body.landing {
+  background: $blue url('/images/bg/stars.png') repeat;
+  .navbar {
+    background: transparent;
+  }
 }
 
 .landing-section {
@@ -36,13 +39,13 @@
 
 $hero-title-color: #7CFFF8;
 .landing-hero {
-  background: $blue;
   h1 {
     color: #fff;
     font-size: em(54px);
     font-weight: 100;
   }
   .play {
+    margin-top: 70px;
     padding-left:70px;
     padding-right:70px;
   }
@@ -87,7 +90,15 @@ $howitworks-arrow-height: 23px;
 $howitworks-arrow-width: 18px;
 $howitworks-border-color: darken($gray-lighter, 7%);
 .landing-howitworks {
-  background: #fff;
+  background: $body-bg-alt;
+  border-top: 1px solid #d7d7d7;
+
+  h2 {
+    margin-bottom:40px;
+  }
+  h3 {
+    margin-top:30px;
+  }
 
   .see-more {
     text-decoration: none;
@@ -99,7 +110,6 @@ $howitworks-border-color: darken($gray-lighter, 7%);
 
   .icon {
     position: relative;
-    height: $howitworks-icon-height;
     border: 1px solid $howitworks-border-color;
     border-width: 0 1px 0 0;
 
@@ -163,11 +173,50 @@ $howitworks-border-color: darken($gray-lighter, 7%);
 
 }
 
+.landing-platforms {
+  background: $body-bg;
+  border-top: 1px solid #d7d7d7;
+  .devices {
+    height:280px;
+    position: relative;
+  }
+  .device {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
 .landing-responsible {
+
   background: $blue;
+
   h2,.desc {
     color:#fff;
   }
+
+  .row {
+    position: relative;
+  }
+
+  .responsible-bg-wrap {
+    position: static;
+    min-height: 250px;
+  }
+  .responsible-bg {
+    position: absolute;
+    top:-50px;
+    bottom:-50px;
+    left:0;
+    right:0;
+    background: url('/images/landing/responsible_bg.jpg') no-repeat 0 0;
+    html[lang=fr] & {
+      background-image: url('/images/landing/responsible_bg-FR.jpg');
+    }
+    @media (max-width: $screen-xs-max) {
+      height:250px;
+    }
+  }
+
   .prize-item,
   .prize-comma,
   .prize-currenry {
@@ -200,7 +249,8 @@ $howitworks-border-color: darken($gray-lighter, 7%);
 $global-arrow-height: 24px;
 $global-arrow-width: 12px;
 .landing-global {
-  background: #fff;
+  background: $body-bg-alt;
+
   .global-players {
     text-align: center;
   }
@@ -244,7 +294,11 @@ $global-arrow-width: 12px;
 }
 
 .landing-advertisers {
-
+  background: $body-bg;
+  border-top: 1px solid #d7d7d7;
+  h2 {
+    margin-bottom:40px;
+  }
 }
 
 .landing-press {

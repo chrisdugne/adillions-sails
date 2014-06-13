@@ -1,7 +1,39 @@
+body.auth {
+  background: $blue;
+}
+
 .auth-register-form,.auth-signin-form {
+  margin-top: 75px;
+  background: $blue;
+  border: 0 none;
+  color: #fff;
   .auth-social {
     padding-bottom: 15px;
     margin-bottom: 15px;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid lighten($gray, 10%);
+    li {
+      @media (max-width: $screen-xs-max) {
+        margin-bottom: 15px;
+      }
+      &:last-child {
+        @media (max-width: $screen-xs-max) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  .form-group {
+    margin:0;
+    input {
+      height: 46px;
+    }
+  }
+  .username,.email,.identifier {
+    @include border-bottom-radius(0);
+  }
+  .email,.password {
+    border-top:0 none;
+    @include border-top-radius(0);
   }
 }
+

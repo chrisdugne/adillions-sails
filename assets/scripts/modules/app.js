@@ -1,8 +1,7 @@
-import login from 'registration/login';
-import signup from 'registration/signup';
+import login from 'main/login';
+import signup from 'main/signup';
 
-import team from 'team/index';
-import landing from 'landing/index';
+import team from 'main/team';
 
 (function ($) {
   'use strict';
@@ -10,7 +9,6 @@ import landing from 'landing/index';
   login();
   signup();
 
-  landing();
   team();
 
 })(window.jQuery);

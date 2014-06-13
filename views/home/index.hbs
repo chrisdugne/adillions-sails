@@ -10,6 +10,8 @@
 {{/push}}
 
 {{#push "scripts"}}
+<script src="{{statics '/scripts/landing.js'}}"></script>
+<script>require('landing');</script>
 {{/push}}
 
 {{!-- section: How it Works --}}
@@ -36,8 +38,8 @@
         </p>
       </div>
     </div>
-    <p class="text-center mtxl">
-      <a href="" class="btn btn-lead btn-lg play">
+    <p class="text-center">
+      <a href="{{route 'game.index' lang=locale}}" class="btn btn-lead btn-lg play">
         {{{i18n 'play_for_free'}}}
       </a>
     </p>
@@ -51,33 +53,39 @@
 
     <div class="row">
       <div class="col-xs-12 col-sm-4 text-center watch-ad">
-        <div class="icon first"></div>
-        <h3><small>1.</small> {{i18n 'landing_watchad'}}</h3>
+        <div class="icon first">
+          <div class="center-block main-howitworks-watchad"></div>
+        </div>
+        <h3><small class="hidden">1.</small> {{i18n 'landing_watchad'}}</h3>
         <p class="desc">{{{i18n 'landing_watchad_desc'}}}</p>
         <p>
-          <a href="" class="see-more">
+          <a href="{{route 'about.winwinwin' lang=locale}}" class="see-more">
             {{i18n 'landing_watchad_link'}}
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
         </p>
       </div>
       <div class="col-xs-12 col-sm-4 text-center get-ticket">
-        <div class="icon"></div>
-        <h3><small>2.</small> {{i18n 'landing_getticket'}}</h3>
+        <div class="icon">
+          <div class="center-block main-howitworks-getticket"></div>
+        </div>
+        <h3><small class="hidden">2.</small> {{i18n 'landing_getticket'}}</h3>
         <p class="desc">{{{i18n 'landing_getticket_desc'}}}</p>
         <p>
-          <a href="" class="see-more">
+          <a href="{{route 'about.rules' lang=locale}}" class="see-more">
             {{i18n 'landing_getticket_link'}}
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
         </p>
       </div>
       <div class="col-xs-12 col-sm-4 text-center win-prize">
-        <div class="icon last"></div>
-        <h3><small>3.</small> {{i18n 'landing_winprize'}}</h3>
+        <div class="icon last">
+          <div class="center-block main-howitworks-winprize"></div>
+        </div>
+        <h3><small class="hidden">3.</small> {{i18n 'landing_winprize'}}</h3>
         <p class="desc">{{{i18n 'landing_winprize_desc'}}}</p>
         <p>
-          <a href="" class="see-more">
+          <a href="{{route 'game.results' lang=locale}}" class="see-more">
             {{i18n 'landing_winprize_link'}}
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
@@ -95,7 +103,18 @@
     <p class="desc text-center">{{i18n 'landing_platforms_desc'}}</p>
     {{!-- Platforms devices --}}
     <div class="devices mtxl mbxl">
-      devices
+      <div class="device features-sprite features-macbookair"
+      data--50-top="left:100%;margin-left:-446px;" data--100-bottom="left:70%;margin-left:-446px;" data-anchor-target=".landing-platforms"></div>
+      <div class="device features-sprite features-browser"
+      data--50-top="left:80%;margin-left:-255px;" data--100-bottom="left:65%;margin-left:-255px;" data-anchor-target=".landing-platforms"></div>
+      <div class="device features-sprite features-android-tablet"
+      data--50-top="left:33%;" data--100-bottom="left:30%;" data-anchor-target=".landing-platforms"></div>
+      <div class="device features-sprite features-apple-tablet"
+      data--50-top="left:3%;" data--100-bottom="left:35%;" data-anchor-target=".landing-platforms"></div>
+      <div class="device features-sprite features-android-phone"
+      data--50-top="left:30%;" data--100-bottom="left:30%;" data-anchor-target=".landing-platforms"></div>
+      <div class="device features-sprite features-apple-phone"
+      data--50-top="left:0;" data--100-bottom="left:25%;" data-anchor-target=".landing-platforms"></div>
     </div>
     {{!-- Platforms links --}}
     <ul class="list-unstyled row">
@@ -115,7 +134,7 @@
         </a>
       </li>
       <li class="col-xs-12 col-sm-3 col-md-3 mbm">
-        <a href="{{route 'auth.register'}}" class="btn btn-lead btn-lg btn-block">
+        <a href="{{route 'game.index' lang=locale}}" class="btn btn-lead btn-lg btn-block">
           {{{i18n 'play_for_free'}}}
         </a>
       </li>
@@ -127,19 +146,26 @@
 <section class="landing-section landing-responsible">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6 mbm">
-        image parallax
+      <div class="col-xs-12 col-sm-6 col-md-6 mbm responsible-bg-wrap">
+        <div class="responsible-bg visible-md visible-lg" data--0-top="background-position:-20% 90%;" data--200-bottom="background-position:-20% 0%;"></div>
+        <div class="responsible-bg visible-sm" data--0-top="background-position:-200% 90%;" data--100-bottom="background-position:-200% 0%;"></div>
+        <div class="responsible-bg visible-xs" data-top="background-position:50% 80%;" data-bottom="background-position:50% 20%;"></div>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 mbm">
         <h2>{{i18n 'landing_responsible_title'}}</h2>
-        <p class="desc">{{i18n 'landing_responsible_desc'}}</p>
+        <p class="desc">{{{i18n 'landing_responsible_desc'}}}</p>
         <p class="prize mbn mtxl">
-          <span class="prize-item">3</span>
-          <span class="prize-item">2</span>
-          <span class="prize-comma">,</span>
-          <span class="prize-item">1</span>
-          <span class="prize-item">0</span>
-          <span class="prize-item">0</span>
+          {{#each charityPrice}}
+            {{#if comma}}
+              <span class="prize-comma">{{value}}</span>
+            {{/if}}
+            {{#if currency}}
+              <span class="prize-currenry">{{value}}</span>
+            {{/if}}
+            {{#if number}}
+                <span class="prize-item">{{value}}</span>
+            {{/if}}
+          {{/each}}
           <span class="prize-currenry">€</span>
         </p>
       </div>
@@ -217,18 +243,21 @@
     <div class="row mbl">
       <div class="col-xs-12 col-sm-4 text-center watch-ad">
         <div class="icon">
+          <div class="center-block main-sprite main-advertisers-boost"></div>
         </div>
         <h3>{{i18n 'landing_advertisers_boost'}}</h3>
         <p class="desc">{{{i18n 'landing_advertisers_boost_desc'}}}</p>
       </div>
       <div class="col-xs-12 col-sm-4 text-center get-ticket">
         <div class="icon">
+          <div class="center-block main-sprite main-advertisers-multiscreen "></div>
         </div>
         <h3>{{i18n 'landing_advertisers_multiscreen'}}</h3>
         <p class="desc">{{{i18n 'landing_advertisers_multiscreen_desc'}}}</p>
       </div>
       <div class="col-xs-12 col-sm-4 text-center win-prize">
         <div class="icon last">
+          <div class="center-block main-sprite main-advertisers-global "></div>
         </div>
         <h3>{{i18n 'landing_advertisers_audience'}}</h3>
         <p class="desc">{{{i18n 'landing_advertisers_audience_desc'}}}</p>
@@ -253,10 +282,10 @@
       </div>
       <div class="col-xs-9">
         <ul class="list-inline text-center">
-          <li class="press-item"><span class="text-hidden"></span></li>
-          <li class="press-item"><span class="text-hidden"></span></li>
-          <li class="press-item"><span class="text-hidden"></span></li>
-          <li class="press-item"><span class="text-hidden"></span></li>
+          <li class="press-item"><span class="text-hide"></span></li>
+          <li class="press-item"><span class="text-hide"></span></li>
+          <li class="press-item"><span class="text-hide"></span></li>
+          <li class="press-item"><span class="text-hide"></span></li>
         </ul>
       </div>
     </div>

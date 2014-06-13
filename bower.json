@@ -6,6 +6,7 @@
     "underscore": "~1.6.0",
     "i18next": "~1.7.2",
     "amd-loadr": "~0.0.2",
+    "skrollr": "~0.6.26",
     "html5shiv": "latest",
     "json2": "latest",
     "respond": "latest",

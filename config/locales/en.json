@@ -52,7 +52,6 @@
   "fund_prize": "Fund prize",
   "next_drawing": "Next drawing",
 
-
   "footer_company": "Company",
   "footer_support": "Support",
   "footer_connect": "Connect",
@@ -74,43 +73,72 @@
 
   "_comment": "##### LANDING/index #####",
 
-  "landing_title": "Free sweepstake with real cash prize",
+  "landing_title": "Free sweepstake with real cash prizes",
 
-  "landing_howitworks": "How it Works",
+  "landing_howitworks": "How it Works?",
 
-  "landing_watchad": "Watch an AD",
-  "landing_watchad_desc": "Instead of paying for lottery tickets,<br /> watch an 30-seconds advertising video<br /> or complete a simple mission.",
-  "landing_watchad_link": "See all missons",
+  "landing_watchad": "Watch an Ad",
+  "landing_watchad_desc": "Instead of paying for a lottery ticket,<br /> watch a 30-second advertising video",
+  "landing_watchad_link": "See the Win-Win-Win",
 
   "landing_getticket": "Get your ticket",
-  "landing_getticket_desc": "Pick 5 numbers from a pool of 49 numbers<br />  and your lucky balls from a pool of 6,<br /> this week themed Lucky Balls.",
-  "landing_getticket_link": "Read all rules",
+  "landing_getticket_desc": "Pick 5 numbers from a pool of 49 numbers<br /> and your Lucky Ball from a pool of 6 Balls",
+  "landing_getticket_link": "Read the Key Rules",
 
   "landing_winprize": "Win the prize - real cash",
-  "landing_winprize_desc": "Invite your friends and share<br/> your activity on Facebook and Twitter. <br /> The more players there are, the greater jackpot.",
-  "landing_winprize_link": "See previous results",
+  "landing_winprize_desc": "Invite your friends and share your activity.<br /> The more players there are, the greater jackpot!",
+  "landing_winprize_link": "See Previous Results",
 
   "landing_platforms_title": "Free on all Platforms",
-  "landing_platforms_desc": "Play on a whole range of platforms. You can play directly through one of our mobile apps, on Facebook, Twitter or on our website.",
+  "landing_platforms_desc": "Play on a whole range of platforms, directly through one of our mobile apps, on Facebook or on our website",
 
   "landing_responsible_title": "Responsible",
-  "landing_responsible_desc": "Dedicate a few seconds of your time to charitable organizations each time you participate.",
+  "landing_responsible_desc": "A share of Adillions advertising revenues is dedicated to Charities.<br /> In concrete terms, each time you watch a 30-second ad, you dedicate a few seconds<br /> of your time to Charities",
 
   "landing_global_title": "Global",
-  "landing_global_desc": "Join an international community of players. Everyone can be a winner.",
+  "landing_global_desc": "Join an international community of players. Everyone can be a winner!",
 
   "landing_advertisers_title": "Adillions for advertisers",
 
   "landing_advertisers_boost": "Boost your brand awareness",
-  "landing_advertisers_boost_desc": "Adillions offers you opportunity to broadcast quality viadeo ads and to organize your own sweepstake on your platform with a customized theme and prices.",
+  "landing_advertisers_boost_desc": "Adillions offers you the opportunity to<br /> broadcast quality viadeo ads and to organize<br /> your own sweepstake on your platform<br /> with customized theme and prizes",
 
   "landing_advertisers_multiscreen": "Implement a multi-screen strategy",
-  "landing_advertisers_multiscreen_desc": "You can benefit from Adillions presence on social networks (Facebook, Twitter, etc.) and on wide range on platforms - smartphones and tablets (iOS and Android) and desktops.",
+  "landing_advertisers_multiscreen_desc": "You can benefit from Adillions presence<br /> on social networks (Facebook, Twitter,<br /> etc.) and on wide range on platforms<br /> (smartphones, tablets, desktop, etc.) ",
 
   "landing_advertisers_audience": "Reach a global engaged audience",
-  "landing_advertisers_audience_desc": "Thanks to Adillions international community of players, you get access to thousands of engaged users accrose the globe.",
+  "landing_advertisers_audience_desc": "Thanks to Adillions international<br /> community of players, you get access<br /> to thousands of engaged users accrose<br /> the globe",
 
   "landing_press_title": "As featured in",
+
+  "_comment": "##### WINWINWIN/INDEX #####",
+
+  "winwinwin_meta_title": "Win - Win - Win",
+  "winwinwin_meta_desc": "Advertisers, Players & Charities. They are all winners!",
+  "winwinwin": "Win - Win - Win",
+
+  "winwinwin_title": "Win - Win - Win",
+  "winwinwin_intro": "On Adillions, you are all winners!",
+
+  "winwinwin_advertisers_title": "Advertisers",
+  "winwinwin_advertisers_desc1": "A multi-platform channel to boost brand awareness",
+  "winwinwin_advertisers_desc2": "An opportunity to reach a global engaged audience",
+  "winwinwin_advertisers_communication": "Brand awareness",
+  "winwinwin_advertisers_global": "Engaged audience",
+
+  "winwinwin_players_title": "Players",
+  "winwinwin_players_desc1": "A free game with real cash prizes",
+  "winwinwin_players_desc2": "A fun and easy way to dedicate a few seconds of your time to charitable organizations",
+  "winwinwin_players_free": "Free",
+  "winwinwin_players_responsible": "Responsible",
+
+  "winwinwin_charity_title": "Charitable organizations",
+  "winwinwin_charity_desc1": "A unique community of users donating their time for charitable purposes",
+  "winwinwin_charity_desc2": "A potential international donor base of 2.7 billion people* (still growing at fast pace)",
+  "winwinwin_charity_community": "Donations",
+  "winwinwin_charity_donator": "Donors",
+
+  "winwinwin_charity_annotation": "* World Internet users according to the UN's International Telecommunication Union (as of Dec. 2013)",
 
   "_comment": "##### ABOUT/index #####",
 
@@ -120,27 +148,22 @@
 
   "about_WhatIs": "What is Adillions?",
   "about_AdillionsDesc": "Adillions is a simple and free sweepstake with real cash prizes funded by video advertising",
-
-  "about_AdillionsWords": "In a few words, Adillions is:",
   "about_Easy_title": "Easy",
   "about_Fun_title": "Fun",
   "about_Viral_title": "Viral",
   "about_Global_title": "Global",
   "about_Responsible_title": "Responsible",
 
-  "about_Easy_text": "Watch an ad to get your free sweepstake ticket",
+  "about_Easy_text": "Watch an ad to get your free sweepstake Ticket",
   "about_Fun_text": "Pick 5 numbers and choose your Lucky Ball",
   "about_Viral_text": "Invite your friends to increase the jackpot",
   "about_Global_text": "Join an international community of players",
-  "about_Responsible_text": "Whether there are winners or not, a part of each video ad finances the Adillions Solidarity & Sustainable Development Fund",
+  "about_Responsible_text": "Whether there are winners or not, a part of each video ad funds the Adillions Solidarity & Sustainable Development Fund",
 
-  "about_DrawAmount": "The sweepstake is drawn every Saturday at 8:00 p.m. (PST) and it is broadcast live online on Youtube. Like any traditional sweepstake, if nobody wins, the amount accumulates and is added to the next draw.",
+  "about_DrawAmount": "The sweepstake is drawn every Saturday at 8:00 p.m. (PST). Like any traditional sweepstake, if nobody wins, the amount accumulates and is added to the next draw.",
   "about_consult_terms": "Read our Terms of Use",
 
-  "about_EachPlay": "Each time you play on Adillions, you have a chance to win the jackpot and you dedicate few seconds of your day to charitable organizations",
-
-  "about_Adillions": "Adillions",
-  "about_AdillionsCatch": "Much more than a game",
+  "about_EachPlay": "Each time you play on Adillions, you have a chance to win the jackpot and you dedicate a few seconds of your time to charitable organizations",
 
   "about_VisionValues": "Our Vision and Values",
 
@@ -148,12 +171,14 @@
   "about_InnovDisrupt": "We believe that it is possible to innovate in the gambling market and to disrupt traditional domestic lotteries with a global, social and free game",
   "about_InnovOriginal": "Lotteries can be fun and original. With Adillions, you play your favorite lotto numbers and a new item each week depending on the draw theme",
   "about_InnovSimple": "We are eager to develop a simple and user-friendly product used by millions of users across the globe",
+  "about_InnovConclusion": "Users prefer watching willingly targeted and relevant ads at certain specific times of the day than being overwhelmed constantly with (non-)targeted advertising",
 
   "about_Responsibility": "Social responsibility",
-  "about_RespoBefore": "Since long before Christ, lotteries have helped to finance major public projects (build the Great Wall of China, help the poor, finance public school systems, etc.)",
+  "about_RespoBefore": "Throughout the ages, on all continents, lotteries have helped to fund major public projects (build the Great Wall of China, help the poor, finance public school systems, etc.)",
   "about_RespoPublic": "Public interests were part of the game as much as the gambling itself. Today, Adillions brings back sweepstake to its true origins",
   "about_RespoProud": "Adillions and the internet make it possible to gamble and to contribute to a global charitable project at the same time. We want our users to be proud members of Adillions community",
   "about_RespoPeport": "The Adillions team is committed to publish each year a report about Adillions Solidarity & Sustainable Development Fund. Moreover, our final objective is to let our users choose the charitable projects they want to fund",
+  "about_RespoConclusion": "We want our users to feel part of the Adillions community",
 
   "about_Fairness": "Fairness",
   "about_FairTransparent": "The Adillions team pays a special attention to treat all Adillions players with fairness and equity and to be as transparent as possible with our users and public regulatory agencies",
@@ -163,13 +188,12 @@
   "about_FairRules3": "A limited number of tickets per draw per player",
   "about_FairRules4": "A series of technical procedures to prevent fraud",
   "about_FairRules5": "...",
-
-  "about_Conclusion": "Conclusion",
-  "about_ConclTime": "Our ambition is to develop a game of chance thriving to gather in one place the unique common currency worldwide - Time - and to maximize its value for our players and our charity partners",
+  "about_FairConclusion": "Our ambition is to develop an innovative and responsible game of chance accessible to as many people as possible because the Internet and time are all that is needed",
 
   "about_Team": "Team",
   "about_TeamIntro": "Adillions is based in Paris, France and the team is lead by:",
   "about_cofounder": "Co-founder",
+  
   "about_ceo": "CEO",
   "about_cto": "CTO",
   "about_fel": "Front-end Leader",
@@ -181,7 +205,7 @@
   "about_ceo_desc": "Timothée brainstormed the original idea for Adillions. He worked in the banking and strategy consulting industries for several years. Today, in his role as CEO, he manages all the business aspects of the project from legal and finance to marketing and communication. Timothée holds a MBA in Finance and Private Equity from ESSEC Business School",
   "about_cto_desc_1": "Christophe started to work as a software developer for a start-up, a provider of search and contextual advertising. He already co-founded several start-ups in the mobile and gaming markets as well as an innovative GIS in the cloud, ",
   "about_cto_desc_2": ". Christophe is dedicated to design and develop the best products for Adillions players. Christophe graduated from ENSEIRB where he studied Computer Science and Software Engineering",
-  "about_fel_desc": "Antoine has 5 years experience in front-end development with an eye for detail and a passion for creating unique and interesting website. Antoine is currently the team leader of the open-sourced UI framework <a href='https://github.com/viadeo/tetra-ui'>Tetra-ui</a>",
+  "about_fel_desc": "Antoine has 5 years experience in front-end development with an eye for detail and a passion for creating unique and interesting website. Antoine is currently the team leader of the open-sourced UI framework Tetra-ui",
 
   "_comment": "##### ABOUT/PRIVACY #####",
 
@@ -274,13 +298,13 @@
   "faq_a6": "Yes. Adillions allows a maximum number of tickets per user per draw to preserve equality of opportunities for all participants. You can gain Bonus Tickets by liking our Facebook Page, following us on Twitter, etc. (see Rewards).",
 
   "faq_q7": "Do I receive an alert/email if I win a prize?",
-  "faq_a7": "At the end of each draw, if you are a winner, you will receive an email informing you of your win.",
+  "faq_a7": "At the end of each draw, if you are a winner, a popup appears informing you of your winnings.",
 
   "faq_q8": "During the registration, do I need to provide my bank account details?",
   "faq_a8": "No. Adillions does not require any bank account details to submit your registration.",
 
   "faq_q9": "When will I receive my payment? And how?",
-  "faq_a9": "You will receive payment within 4-8 weeks having won a minimum total balance of 10 euros. They will be paid by bank transfer for winners inside the SEPA/EU zone and via PayPal for other countries (for more details please read our Terms).",
+  "faq_a9": "You are paid at least 4 weeks after your cash-out request (your winnings must have reached a minimum total balance of 15 euros / 20 US dollars) and maximum 8 weeks after. They will be paid by bank transfer for winners inside the SEPA/EU zone and via PayPal (for more details please read our Terms).",
 
   "faq_q10": "When do I need to give my bank account details?",
   "faq_a10": "Adillions only asks for your bank account details once it will proceed with your prize payment.",
@@ -565,9 +589,8 @@
   "team_fel_name": "Antoine DUVILLIER",
 
   "team_ceo_desc": "Timothée brainstormed the original idea for Adillions. He worked in the banking and strategy consulting industries for several years. Today, in his role as CEO, he manages all the business aspects of the project from legal and finance to marketing and communication. Timothée holds a MBA in Finance and Private Equity from ESSEC Business School",
-  "team_cto_desc_1": "Christophe started to work as a software developer for a start-up, a provider of search and contextual advertising. He already co-founded several start-ups in the mobile and gaming markets as well as an innovative GIS in the cloud, ",
-  "team_cto_desc_2": ". Christophe is dedicated to design and develop the best products for Adillions players. Christophe graduated from ENSEIRB where he studied Computer Science and Software Engineering",
-  "team_fel_desc": "Antoine has 5 years experience in front-end development with an eye for detail and a passion for creating unique and interesting website. Antoine is currently the team leader of the open-sourced UI framework <a href='https://github.com/viadeo/tetra-ui'>Tetra-ui</a>",
+  "team_cto_desc": "Christophe started to work as a software developer for a start-up, a provider of search and contextual advertising. He already co-founded several start-ups in the mobile and gaming markets as well as an innovative GIS in the cloud, Maperial. Christophe is dedicated to design and develop the best products for Adillions players. Christophe graduated from ENSEIRB where he studied Computer Science and Software Engineering",
+  "team_fel_desc": "Antoine has 5 years experience in front-end development with an eye for detail and a passion for creating unique and interesting website. Antoine is currently the team leader of the open-sourced UI framework Tetra-ui",
 
   "_comment": "##### ABOUT/ADVERTISERS #####",
 
