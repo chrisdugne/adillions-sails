@@ -43,6 +43,8 @@
   "ui_signin": "Sign in",
   "ui_register": "Register",
   "ui_error": "An error occurred",
+  "ui_day": "day",
+  "ui_days": "days",
 
   "contact_us": "Contact us",
   "see_previous_results": "See previous results",
@@ -193,7 +195,7 @@
   "about_Team": "Team",
   "about_TeamIntro": "Adillions is based in Paris, France and the team is lead by:",
   "about_cofounder": "Co-founder",
-  
+
   "about_ceo": "CEO",
   "about_cto": "CTO",
   "about_fel": "Front-end Leader",

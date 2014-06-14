@@ -17,24 +17,28 @@
 {{!-- section: How it Works --}}
 <section class="landing-section landing-hero">
   <h1 class="text-center mtn mbxl">{{i18n 'landing_title'}}</h1>
-  <div class="container mbxl">
+  <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
         <p class="text-center highlight highlight-theme">
           <span class="title">{{i18n 'current_theme'}}</span>
-          <strong class="text">Famous Actors</strong>
+          <strong class="text">{{nextDrawing.theme}}</strong>
         </p>
       </div>
       <div class="col-xs-12 col-sm-4">
         <p class="text-center highlight highlight-prize">
           <span class="title">{{i18n 'fund_prize'}}</span>
-          <strong class="text">US$ 545</strong>
+          <strong class="text">US$ {{nextDrawing.prize}}</strong>
         </p>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <p class="text-center highlight highlight-drawing">
+        <p class="text-center highlight highlight-drawing" id="js-highlight-drawing"
+        data-timestamp="{{nextDrawing.timestamp}}"
+        data-day="{{i18n 'ui_day'}}"
+        data-days="{{i18n 'ui_days'}}"
+        >
           <span class="title">{{i18n 'next_drawing'}}</span>
-          <strong class="text">1d 18h 15min 30s</strong>
+          <strong class="text"></strong>
         </p>
       </div>
     </div>
@@ -43,6 +47,9 @@
         {{{i18n 'play_for_free'}}}
       </a>
     </p>
+    <div class="lucky-balls">
+      <img src="/images/landing/ipad.png" class="img-responsive center-block" />
+    </div>
   </div>
 </section>
 

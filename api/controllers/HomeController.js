@@ -70,11 +70,8 @@ module.exports = {
       charityPrice: function (cb) {
         LotteryService.getTotalCharityPrice(true, cb);
       },
-      drawings: function (cb) {
-        LotteryService.getTotalDrawings(cb);
-      },
-      averageCharity: function (cb) {
-        LotteryService.getAverageCharity(cb);
+      nextDrawing: function (cb) {
+        LotteryService.getNextDrawing(cb);
       },
     }, function (err, results) {
       if (err) {

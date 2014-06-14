@@ -43,6 +43,8 @@
   "ui_signin": "Se connecter",
   "ui_register": "S'inscrire",
   "ui_error" : "Une erreur est survenue",
+  "ui_day": "jour",
+  "ui_days": "jours",
 
   "contact_us": "Contactez-nous",
   "see_previous_results": "Voir les résultats précédents",

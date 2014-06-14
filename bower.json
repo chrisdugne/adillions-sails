@@ -12,6 +12,7 @@
     "respond": "latest",
     "bourbon": "~3.2.1",
     "bootstrap-sass-official": "~3.1.1",
-    "RRSSB": "~1.6.0"
+    "RRSSB": "~1.6.0",
+    "jquery.countdown": "~2.0.4"
   }
 }

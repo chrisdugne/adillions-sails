@@ -39,6 +39,7 @@ body.landing {
 
 $hero-title-color: #7CFFF8;
 .landing-hero {
+  padding-bottom:0;
   h1 {
     color: #fff;
     font-size: em(54px);
@@ -81,6 +82,9 @@ $hero-title-color: #7CFFF8;
     .text {
       font-size: em(40px);
     }
+  }
+  .lucky-balls {
+
   }
 }
 

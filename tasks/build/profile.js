@@ -33,6 +33,7 @@ var modules = {
   // HTML 5 Shiv, JSON Polyfill, CSS3 Polyfill
   '.tmp/public/scripts/landing.js': [
     'assets/bower_components/skrollr/src/skrollr.js',
+    'assets/bower_components/jquery.countdown/dist/jquery.countdown.js',
     '.tmp/transpile/modules/landing.js',
     '.tmp/transpile/modules/landing/*.js'
   ]

@@ -27,7 +27,7 @@ module.exports = {
       unique: true
     },
 
-    date: {
+    timestamp: {
       type: 'int',
       columnName: 'date'
     },
@@ -40,6 +40,10 @@ module.exports = {
     numbers: {
       type: 'int',
       columnName: 'max_numbers'
+    },
+
+    theme: {
+      type: 'json'
     },
 
     price: {
