@@ -46,7 +46,7 @@ $hero-title-color: #7CFFF8;
     font-weight: 100;
   }
   .play {
-    margin-top: 70px;
+    margin: 70px 0 40px 0;
     padding-left:70px;
     padding-right:70px;
   }
@@ -84,7 +84,50 @@ $hero-title-color: #7CFFF8;
     }
   }
   .lucky-balls {
-
+    position: relative;
+    h3 {
+      position: absolute;
+      left:0;
+      right:0;
+      top:30%;
+      margin:0;
+    }
+    ul {
+      position: absolute;
+      left:0;
+      right:0;
+      bottom:10%;
+      margin:0;
+    }
+    @media (max-width: $screen-sm-max) {
+      h3 {
+        top:25%;
+      }
+      .lucky-ball {
+        height:70px;
+        width:70px;
+      }
+    }
+    @media (max-width: $screen-xs-max) {
+      h3 {
+        top:25%;
+      }
+      .lucky-ball {
+        height:55px;
+        width:55px;
+      }
+      display: none;
+    }
+  }
+  .lucky-ball {
+    margin:0 5px 0 0;
+    background: #fff;
+    border: 4px solid $green-dark;
+    border-radius: 100%;
+    height:90px;
+    width:90px;
+    vertical-align: middle;
+    @include prefixer(box-shadow, inset 0 0 0 4px #fff, webkit spec);
   }
 }
 

@@ -71,7 +71,7 @@ module.exports = {
         LotteryService.getTotalCharityPrice(true, cb);
       },
       nextDrawing: function (cb) {
-        LotteryService.getNextDrawing(cb);
+        LotteryService.getNextDrawing(currentLanguage, cb);
       },
     }, function (err, results) {
       if (err) {

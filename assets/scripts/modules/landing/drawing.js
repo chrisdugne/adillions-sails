@@ -11,13 +11,15 @@ var drawing = function () {
       var format = ' %H:%M:%S';
       if (event.offset.days === 1) {
         format = '%-D ' + day + format;
-      }else if (event.offset.days > 1) {
+      } else if (event.offset.days > 1) {
         format = '%-D ' + days + format;
       }
       $(this).html(event.strftime(format));
     }).on('finish.countdown', function (event) {
 
     });
+
+  $('#js-lucky-balls .lucky-ball').tooltip();
 };
 export
 default drawing;

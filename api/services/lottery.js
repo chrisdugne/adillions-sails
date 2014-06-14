@@ -176,13 +176,13 @@ Lottery.prototype.getAverageCharity = function (next) {
  * - Number
  */
 
-Lottery.prototype.getNextDrawing = function (next) {
+Lottery.prototype.getNextDrawing = function (currentLanguage ,next) {
 
   if (!_.isFunction(next)) {
     throw new Error('Lottery#getNextDrawing Service: the callback function is mandatory');
   }
 
-  var query = 'SELECT (date/1000)  as timestamp, theme, min_price as prize ' +
+  var query = 'SELECT (date/1000) as timestamp, theme, min_price as prize ' +
     'FROM lottery ' +
     'where date > (select extract(epoch from now()) * 1000) ' +
     'order by date asc ' +
@@ -194,44 +194,20 @@ Lottery.prototype.getNextDrawing = function (next) {
     }
 
     var result = results.rows[0];
+    var theme = _.isObject(result.theme) ? result.theme : JSON.parse(result.theme);
+
+    console.log(theme);
 
     return next(null, {
-      theme: JSON.parse(result.theme).title,
+      theme: {
+        title: theme.title,
+        balls: theme.icons
+      },
       timestamp: Number(result.timestamp),
       prize: result.prize
     });
   });
 
-  /*
-  sails.models.lottery
-    .findOne()
-    .then(function (result) {
-      console.log(result);
-      return next(null);
-      if (false) {
-        sails.log.error('Lottery#getNextDrawing : result is not well formated', result);
-        return next(null, 0);
-      }
-
-      var averageCharity = result[0].charity;
-
-      if (isNaN(averageCharity)) {
-        sails.log.error('Lottery#getNextDrawing : averageCharity must be a number', result);
-        return next(null, 0);
-      }
-
-      if (averageCharity === 0) {
-        sails.log.warn('Lottery#getNextDrawing : averageCharity must not equals to 0', result);
-        return next(null, averageCharity);
-      }
-
-      next(null, Math.round(averageCharity));
-    })
-    .fail(function (err) {
-      // do not expose error
-      sails.log.error('Lottery#getNextDrawing : query fails', err);
-      next(null);
-    });*/
 };
 
 module.exports = Lottery;

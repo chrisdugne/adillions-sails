@@ -22,7 +22,7 @@
       <div class="col-xs-12 col-sm-4">
         <p class="text-center highlight highlight-theme">
           <span class="title">{{i18n 'current_theme'}}</span>
-          <strong class="text">{{nextDrawing.theme}}</strong>
+          <strong class="text">{{nextDrawing.theme.title}}</strong>
         </p>
       </div>
       <div class="col-xs-12 col-sm-4">
@@ -47,8 +47,16 @@
         {{{i18n 'play_for_free'}}}
       </a>
     </p>
-    <div class="lucky-balls">
+    <div class="lucky-balls" id="js-lucky-balls">
+      <h3 class="text-center">{{i18n 'the_lucky_balls'}}</h3>
       <img src="/images/landing/ipad.png" class="img-responsive center-block" />
+      <ul class="list-inline text-center">
+      {{#each nextDrawing.theme.balls}}
+        <li class="lucky-ball" data-toggle="tooltip" data-placement="top" title="{{name}}">
+          <img src="{{image}}" class="img-responsive center-block" alt="lucky ball {{name}}"/>
+        </li>
+      {{/each}}
+      </ul>
     </div>
   </div>
 </section>
