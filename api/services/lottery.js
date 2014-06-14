@@ -176,7 +176,7 @@ Lottery.prototype.getAverageCharity = function (next) {
  * - Number
  */
 
-Lottery.prototype.getNextDrawing = function (currentLanguage ,next) {
+Lottery.prototype.getNextDrawing = function (currentLanguage, next) {
 
   if (!_.isFunction(next)) {
     throw new Error('Lottery#getNextDrawing Service: the callback function is mandatory');

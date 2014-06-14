@@ -101,7 +101,7 @@ $hero-title-color: #7CFFF8;
     }
     @media (max-width: $screen-sm-max) {
       h3 {
-        top:25%;
+        top:27%;
       }
       .lucky-ball {
         height:70px;
@@ -120,6 +120,8 @@ $hero-title-color: #7CFFF8;
     }
   }
   .lucky-ball {
+    position: relative;
+    padding: 0;
     margin:0 5px 0 0;
     background: #fff;
     border: 4px solid $green-dark;
@@ -127,7 +129,18 @@ $hero-title-color: #7CFFF8;
     height:90px;
     width:90px;
     vertical-align: middle;
-    @include prefixer(box-shadow, inset 0 0 0 4px #fff, webkit spec);
+    overflow: hidden;
+    @include prefixer(box-shadow, 0px 3px 6px 0px rgba(0,0,0,0.4), webkit spec);
+    &:after {
+      position: absolute;
+      content:"";
+      top:0;
+      left:0;
+      right:0;
+      bottom: 0;
+      border-radius: 100%;
+      @include prefixer(box-shadow, inset 0 0 0 4px #fff, webkit spec);
+    }
   }
 }
 
