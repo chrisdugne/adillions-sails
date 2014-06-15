@@ -82,7 +82,7 @@ module.exports = {
       }
 
       _.forEach(results.lastWinners, function (winner) {
-        if(winner.charityStatusRang) {
+        if (winner.charityStatusRang) {
           winner.charityStatusName = res.i18n('charity_rang_' + winner.charityStatusRang);
         }
       });

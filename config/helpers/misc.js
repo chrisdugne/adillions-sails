@@ -3,7 +3,6 @@
  *
  */
 var _ = require('lodash'),
-  i18n = require('i18n'),
   numeral = require('numeral'),
   hbs = require('hbs');
 
