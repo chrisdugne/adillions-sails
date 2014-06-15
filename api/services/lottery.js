@@ -85,7 +85,7 @@ Lottery.prototype.getTotalCharityPrice = function (split, next) {
  * - Return the total count of lottery drawings
  * @params:
  * - array
- *  - charity
+ *  - charity:number
  * @return:
  * - Number
  */
@@ -123,7 +123,7 @@ Lottery.prototype.getTotalDrawings = function (next) {
  * - Return the average of charity price from lottery drawings
  * @params:
  * - array
- *  - charity
+ *  - charity:number
  * @return:
  * - Number
  */
@@ -169,9 +169,9 @@ Lottery.prototype.getAverageCharity = function (next) {
  * @desc:
  * - Return the next drawing
  * @params:
- * - timestamp
- * - theme
- * - prize
+ * - timestamp:number
+ * - theme:json
+ * - prize:number
  * @return:
  * - Number
  */
@@ -182,31 +182,109 @@ Lottery.prototype.getNextDrawing = function (currentLanguage, next) {
     throw new Error('Lottery#getNextDrawing Service: the callback function is mandatory');
   }
 
-  var query = 'SELECT (date/1000) as timestamp, theme, min_price as prize ' +
-    'FROM lottery ' +
-    'where date > (select extract(epoch from now()) * 1000) ' +
-    'order by date asc ' +
-    'limit 1';
+  if (!_.isString(currentLanguage)) {
+    currentLanguage = 'en';
+    sails.log.warn('Lottery#getNextDrawing Service: \'currentLanguage\' property must be a string', currentLanguage);
+  }
 
-  sails.models.lottery.query(query, function (err, results) {
-    if (err) {
-      return next(err);
-    }
+  sails.models.lottery
+    .findOne()
+    .where({
+      timestamp: {
+        '>': new Date().getTime()
+      }
+    })
+    .then(function (lottery) {
+      var theme = _.isObject(lottery.theme) ? lottery.theme : JSON.parse(lottery.theme);
 
-    var result = results.rows[0];
-    var theme = _.isObject(result.theme) ? result.theme : JSON.parse(result.theme);
-
-    console.log(theme);
-
-    return next(null, {
-      theme: {
-        title: theme.title,
-        balls: theme.icons
-      },
-      timestamp: Number(result.timestamp),
-      prize: result.prize
+      next(null, {
+        theme: {
+          title: theme.title,
+          balls: theme.balls[currentLanguage]
+        },
+        timestamp: Number(lottery.timestamp) / 1000, // turn milliseconds to seconds
+        prize: lottery.final_price || lottery.min_price
+      });
+    })
+    .fail(function (err) {
+      sails.log.error('Lottery#getNextDrawing : query fails', err);
+      next(err);
     });
-  });
+
+};
+
+/*
+ * @desc:
+ * - Return lottery winners
+ * @params:
+ * - total:number
+ * - offset:number
+ * - next:functin
+ * @return:
+ * - Number
+ */
+
+Lottery.prototype.getWinners = function (total, offset, next) {
+
+  if (!_.isFunction(next)) {
+    throw new Error('Lottery#getLastWinners Service: the callback function is mandatory');
+  }
+
+  if (!_.isNumber(total)) {
+    total = 10;
+    sails.log.warn('Lottery#getLastWinners Service: \'total\' property must be a number', total);
+  }
+
+  if (!_.isNumber(offset)) {
+    offset = 0;
+    sails.log.warn('Lottery#getLastWinners Service: \'offset\' property must be a number', offset);
+  }
+
+  sails.models.ticket
+    .find()
+    .where({
+      price: {
+        '>': 0
+      }
+    })
+    .limit(total)
+    .skip(offset)
+    .sort('timestamp DESC')
+    .populate('user')
+    .then(function (results) {
+      var winners = [];
+      _(results).forEach(function (ticket) {
+        var user = ticket.user,
+          charity_status = user.charity_status(),
+          charityStatusRang;
+
+        _.forEach(charity_status, function (charity) {
+          charity.active = user.playedtickets <= charity.tickets;
+        });
+
+        _.forEach(charity_status, function (charity) {
+          if (charity.active) {
+            charityStatusRang = charity.rang;
+            return false;
+          }
+        });
+
+        winners.push({
+          firstname: user.firstname,
+          lastname: user.lastname,
+          country: user.country,
+          prize: ticket.euros,
+          charityStatus: charity_status,
+          charityStatusRang: charityStatusRang
+        });
+
+      });
+      next(null, winners);
+    })
+    .fail(function (err) {
+      sails.log.error('Lottery#getLastWinners : query fails', err);
+      next(err);
+    });
 
 };
 

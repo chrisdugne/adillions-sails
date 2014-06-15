@@ -73,10 +73,20 @@ module.exports = {
       nextDrawing: function (cb) {
         LotteryService.getNextDrawing(currentLanguage, cb);
       },
+      lastWinners: function (cb) {
+        LotteryService.getWinners(3, 0, cb);
+      }
     }, function (err, results) {
       if (err) {
         return res.serverError(err);
       }
+
+      _.forEach(results.lastWinners, function (winner) {
+        if(winner.charityStatusRang) {
+          winner.charityStatusName = res.i18n('charity_rang_' + winner.charityStatusRang);
+        }
+      });
+
       res.view(_.defaults(locals, results));
     });
 
