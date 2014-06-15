@@ -28,7 +28,7 @@
       <div class="col-xs-12 col-sm-4">
         <p class="text-center highlight highlight-prize">
           <span class="title">{{i18n 'fund_prize'}}</span>
-          <strong class="text">US$ {{nextDrawing.prize}}</strong>
+          <strong class="text">{{nextDrawing.prize}} €</strong>
         </p>
       </div>
       <div class="col-xs-12 col-sm-4">
@@ -52,7 +52,7 @@
       <img src="/images/landing/ipad.png" class="img-responsive center-block" />
       <ul class="list-inline text-center">
       {{#each nextDrawing.theme.balls}}
-        <li class="lucky-ball" data-toggle="tooltip" data-placement="top" title="{{name}}">
+        <li class="lucky-ball" data-toggle="tooltip" data-placement="top" title="{{name}} {{name2}}">
           <img src="{{image}}" class="img-responsive center-block" alt="lucky ball {{name}}"/>
         </li>
       {{/each}}
@@ -193,40 +193,34 @@
   <div class="container">
     <h2 class="text-center">{{i18n 'landing_global_title'}}</h2>
     <p class="desc text-center">{{i18n 'landing_global_desc'}}</p>
-    <ul id="global-players" class="global-players list-inline row mtxl">
-      <li class="global-player col-sm-4 col-xs-12">
+    <ul id="js-global-players" class="global-players list-inline row mtxl">
+      {{#each lastWinners}}
+      <li class="global-player col-sm-4 col-xs-12" data-country="{{country}}">
         <div class="media">
-          <a class="pull-left avatar" href="#">
+          <span class="pull-left avatar" href="#">
             <img class="media-object" src="/images/avatar/avatar-s-60x60.png" width="60">
-          </a>
+          </span>
           <div class="media-body text-left">
-            <p class="mtxs mbxs">Christine F (UK) won 359 €</p>
-            <div class="badge-wrap dispib">
-              <span class="mlxs badge-charity"></span>
-              <span class="mlxs badge-charity badge-charity-empty"></span>
-              <span class="mlxs badge-charity badge-charity-empty"></span>
-              <span class="mlxs badge-charity badge-charity-empty"></span>
-              <span class="mlxs badge-charity badge-charity-empty"></span>
+            <p class="mtxs mbxs">
+            {{firstname}} {{truncate lastname 1}}
+            {{#if country}}
+              ({{country}})
+            {{/if}}
+            {{#mergeContexts parent=..}}
+              {{i18n 'won'}}
+            {{/mergeContexts}}
+            {{prize}} €
+            </p>
+            <div class="badge-wrap dispib" data-toggle="tooltip" data-placement="bottom" title="{{charityStatusName}}">
+              {{#each charityStatus}}
+              <span class="mlxs badge-charity {{#if active}}badge-charity-empty{{/if}}"></span>
+              {{/each}}
             </div>
           </div>
         </div>
       </li>
-      <li class="global-player col-sm-4 col-xs-12">
-        <div class="media">
-          <a class="pull-left avatar" href="#">
-            <img class="media-object" src="/images/avatar/avatar-s-60x60.png" width="60">
-          </a>
-          <div class="media-body text-left">
-            <p class="mtxs mbxs">Christine F (UK) won 359 €</p>
-            <span class="mlxs badge-charity"></span>
-            <span class="mlxs badge-charity"></span>
-            <span class="mlxs badge-charity badge-charity-empty"></span>
-            <span class="mlxs badge-charity badge-charity-empty"></span>
-            <span class="mlxs badge-charity badge-charity-empty"></span>
-          </div>
-        </div>
-      </li>
-      <li class="global-player col-sm-4 col-xs-12 active">
+      {{/each}}
+{{!--       <li class="global-player col-sm-4 col-xs-12 active">
         <div class="media">
           <a class="pull-left avatar" href="#">
             <img class="media-object" src="/images/avatar/avatar-s-60x60.png" width="60">
@@ -240,7 +234,7 @@
             <span class="mlxs badge-charity badge-charity-empty"></span>
           </div>
         </div>
-      </li>
+      </li> --}}
     </ul>
      <p class="text-center">
       <a href="" class="btn btn-primary btn-lg">
