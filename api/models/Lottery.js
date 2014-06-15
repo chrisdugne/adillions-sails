@@ -24,7 +24,8 @@ module.exports = {
 
     uid: {
       type: 'string',
-      unique: true
+      unique: true,
+      primaryKey: true
     },
 
     timestamp: {
@@ -46,23 +47,24 @@ module.exports = {
       type: 'json'
     },
 
-    price: {
-      count: {
-        type: 'float',
-        columnName: 'final_price'
-      },
-      result: {
-        type: 'json',
-        columnName: 'prizes'
-      },
-      min: {
-        type: 'int',
-        columnName: 'min_price'
-      },
-      mac: {
-        type: 'int',
-        columnName: 'max_price'
-      }
+    final_price: {
+      type: 'float',
+      columnName: 'final_price'
+    },
+
+    prizes: {
+      type: 'array',
+      columnName: 'prizes'
+    },
+
+    min_price: {
+      type: 'int',
+      columnName: 'min_price'
+    },
+
+    max_price: {
+      type: 'int',
+      columnName: 'max_price'
     },
 
     result: {
