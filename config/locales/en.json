@@ -54,6 +54,13 @@
   "fund_prize": "Fund prize",
   "next_drawing": "Next drawing",
   "the_lucky_balls": "The lucky balls",
+  "won": "won",
+
+  "charity_rang_1" : "Boy scout",
+  "charity_rang_2" : "Contributor",
+  "charity_rang_3" : "Junior Donor",
+  "charity_rang_4" : "Donor",
+  "charity_rang_5" : "Benefactor",
 
   "footer_company": "Company",
   "footer_support": "Support",
