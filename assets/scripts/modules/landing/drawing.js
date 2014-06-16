@@ -19,6 +19,7 @@ var drawing = function () {
 
     });
 
+  // enable tooltip
   $('#js-lucky-balls .lucky-ball').tooltip();
 };
 export
