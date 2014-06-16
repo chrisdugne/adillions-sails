@@ -19,6 +19,7 @@ body.landing {
   h3 {
     text-transform: uppercase;
     font-size: em(18px);
+    line-height: 24px;
     letter-spacing: 1px;
     small {
       font-size: em(18px, 18px);
@@ -51,7 +52,7 @@ $hero-title-color: #7CFFF8;
     padding-right:70px;
   }
   .highlight {
-    background: rgba(0,0,0, 0.4);
+    background: #000;
     border: 1px solid rgba(255,255,255, 0.5);
     border-radius:2px;
     padding:20px 5px;
