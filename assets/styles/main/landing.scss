@@ -312,11 +312,9 @@ $global-arrow-width: 12px;
 .landing-global {
   background: $body-bg-alt;
 
-  .global-map {
-    height:400px;
-  }
   .global-players {
     text-align: center;
+    margin:0 0 40px 0;
   }
   .global-player {
     position: relative;
@@ -354,6 +352,10 @@ $global-arrow-width: 12px;
     .badge-charity {
       font-size: em(18px, 16px);
     }
+  }
+  .global-map {
+    height:550px;
+    margin:0 0 40px 0;
   }
 }
 
