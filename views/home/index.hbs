@@ -12,7 +12,9 @@
 {{#push "scripts"}}
 <script src="{{statics '/scripts/landing.js'}}"></script>
 <script>require('landing');</script>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&v={{api.google.version}}&key={{api.google.key}}"></script>
 {{/push}}
+
 
 {{!-- section: How it Works --}}
 <section class="landing-section landing-hero">

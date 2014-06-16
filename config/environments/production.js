@@ -40,6 +40,16 @@ module.exports = {
         clientSecret: '887e8f7abb9b1cb9238a097e06585ae2'
       }
     }
+  },
+
+  google: {
+    key: "AIzaSyDy4ANp7E82UTvmb_I2v-24mJZiOZXXLO4",
+    version: "3"
+  },
+  aws: {
+    key: "",
+    secret: "",
+    version: ""
   }
 
 };
