@@ -312,6 +312,9 @@ $global-arrow-width: 12px;
 .landing-global {
   background: $body-bg-alt;
 
+  .global-map {
+    height:400px;
+  }
   .global-players {
     text-align: center;
   }
