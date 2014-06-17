@@ -8,7 +8,6 @@ import team from 'main/team';
 
   login();
   signup();
-
   team();
 
 })(window.jQuery);

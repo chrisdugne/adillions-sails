@@ -197,7 +197,7 @@
     <p class="desc text-center">{{i18n 'landing_global_desc'}}</p>
     <ul id="js-global-players" class="global-players list-inline row mtxl">
       {{#each lastWinners}}
-      <li class="global-player col-sm-4 col-xs-12" data-country="{{country}}">
+      <li class="global-player col-sm-4 col-xs-12" data-country="{{country}}" data-title="{{firstname}} {{truncate lastname 1}}">
         <div class="media">
           <span class="pull-left avatar" href="#">
             <img class="media-object" src="/images/avatar/avatar-s-60x60.png" width="60">
