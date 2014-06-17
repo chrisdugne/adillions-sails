@@ -12,8 +12,10 @@ module.exports = {
     });
   },
   results: function (req, res) {
-    var LotteryService = new sails.services.lottery();
-    LotteryService.getLoteries(10, 0, function (err, results) {
+    // think at the pagination req.params('start'),
+    var LotteryService = new sails.services.lottery(),
+      start = Number(req.query.start) || 0;
+    LotteryService.getLoteries(10, start, function (err, results) {
       if (err) {
         return res.serverError(err);
       }

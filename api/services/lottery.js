@@ -1,5 +1,6 @@
 var _ = require('lodash'),
-  numeral = require('numeral');
+  numeral = require('numeral'),
+  moment = require('moment');
 
 function Lottery() {
 
