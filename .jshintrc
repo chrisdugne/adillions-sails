@@ -23,6 +23,7 @@
   "-W098": false,
   "-W014": false,
   "globals": {
+    "define": true,
     "console": true,
     "Handlebars": true,
     "i18n": true,
