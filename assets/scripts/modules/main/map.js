@@ -46,7 +46,7 @@ map.prototype.setMarker = function (options) {
     strokeWeight: 25,
     strokeOpacity: 0.4,
     scale: 8
-  })
+  });
   this.markers.push(marker);
   if (this.map) {
     marker.setMap(this.map);
