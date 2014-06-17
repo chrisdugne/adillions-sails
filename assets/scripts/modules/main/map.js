@@ -1,6 +1,7 @@
 var map = function () {
   this.map = null;
   this.geocoder = null;
+  this.bounds = null;
   this.markers = [];
 };
 
@@ -22,6 +23,7 @@ map.prototype.init = function (id, params) {
   };
   this.map = new google.maps.Map(document.getElementById(id), options);
   this.geocoder = new google.maps.Geocoder();
+  this.bounds = new google.maps.LatLngBounds();
   this.bindMarkers();
   return this;
 };
@@ -57,6 +59,7 @@ map.prototype.setMarker = function (options) {
     strokeOpacity: 0.4,
     scale: 8
   });
+
   this.markers.push(marker);
   if (this.map) {
     marker.setMap(this.map);
@@ -83,6 +86,26 @@ map.prototype.setCenter = function (lat, lng) {
 
 map.prototype.setZoom = function (zoom) {
   this.map.setZoom(zoom);
+  return this;
+};
+
+map.prototype.setBounds = function (lat, lng) {
+  this.bounds.extend(new google.maps.LatLng(lat, lng));
+  return this;
+};
+
+map.prototype.fitBounds = function () {
+  this.map.fitBounds(this.bounds);
+  return this;
+};
+
+map.prototype.clearBounds = function (lat, lng) {
+  this.bounds = new google.maps.LatLngBounds();
+  return this;
+};
+
+map.prototype.panToBounds = function () {
+  this.map.panTo(this.bounds.getCenter());
   return this;
 };
 

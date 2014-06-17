@@ -354,10 +354,18 @@ $global-arrow-width: 12px;
     }
   }
   .global-map {
-    height:550px;
+    height:690px;
     margin:0 0 40px 0;
+    @include center-block();
+    @media (min-width: $screen-md-max) {
+      width: 1030px;
+      height:690px;
+    }
+    @media (max-width: $screen-sm-max) {
+      height:500px;
+    }
     @media (max-width: $screen-xs-max) {
-      height: 350px;
+      height: 450px;
     }
   }
 }

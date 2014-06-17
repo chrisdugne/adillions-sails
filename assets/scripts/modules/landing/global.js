@@ -5,7 +5,7 @@ var global = function () {
   $('#js-global-players .badge-wrap').tooltip();
 
   var globalMap = new Map();
-  globalMap.init('js-global-map').setCenter(40, -15).setZoom(2);
+  globalMap.init('js-global-map').setCenter(40, 12).setZoom(2);
 
   $('#js-global-players').on('click', '.global-player', function (e) {
     if ($(this).hasClass('active')) {
@@ -26,7 +26,10 @@ var global = function () {
         position: position,
         title: title,
         animation: google.maps.Animation.DROP
-      });
+      })
+      .clearBounds()
+      .setBounds(position.lat(), position.lng())
+      .panToBounds();
       return;
     }
 
@@ -34,11 +37,15 @@ var global = function () {
       'address': country
     }, function (results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
+        var position = results[0].geometry.location;
         globalMap.setMarker({
-          position: results[0].geometry.location,
+          position: position,
           title: title,
           animation: google.maps.Animation.DROP
-        });
+        })
+        .clearBounds()
+        .setBounds(position.lat(), position.lng())
+        .panToBounds();
         $(self).data('position', results[0].geometry.location);
       }
     });
