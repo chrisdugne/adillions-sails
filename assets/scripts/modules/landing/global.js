@@ -27,9 +27,9 @@ var global = function () {
         title: title,
         animation: google.maps.Animation.DROP
       })
-      .clearBounds()
-      .setBounds(position.lat(), position.lng())
-      .panToBounds();
+        .clearBounds()
+        .setBounds(position.lat(), position.lng())
+        .panToBounds();
       return;
     }
 
@@ -43,9 +43,9 @@ var global = function () {
           title: title,
           animation: google.maps.Animation.DROP
         })
-        .clearBounds()
-        .setBounds(position.lat(), position.lng())
-        .panToBounds();
+          .clearBounds()
+          .setBounds(position.lat(), position.lng())
+          .panToBounds();
         $(self).data('position', results[0].geometry.location);
       }
     });

@@ -39,11 +39,11 @@ map.prototype.bindMarkers = function () {
 };
 
 map.prototype.setInfoWindow = function (html, marker) {
- var infowindow = new google.maps.InfoWindow({
-      content: html,
-      maxWidth: 300
+  var infowindow = new google.maps.InfoWindow({
+    content: html,
+    maxWidth: 300
   });
-  google.maps.event.addListener(marker, 'click', function() {
+  google.maps.event.addListener(marker, 'click', function () {
     infowindow.open(this.map, marker);
   }.call(this));
 };
