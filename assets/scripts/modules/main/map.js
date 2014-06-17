@@ -36,6 +36,16 @@ map.prototype.bindMarkers = function () {
   return this;
 };
 
+map.prototype.setInfoWindow = function (html, marker) {
+ var infowindow = new google.maps.InfoWindow({
+      content: html,
+      maxWidth: 300
+  });
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(this.map, marker);
+  }.call(this));
+};
+
 map.prototype.setMarker = function (options) {
   var marker = new google.maps.Marker(options);
   marker.setIcon({
