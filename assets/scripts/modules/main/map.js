@@ -38,6 +38,15 @@ map.prototype.bindMarkers = function () {
 
 map.prototype.setMarker = function (options) {
   var marker = new google.maps.Marker(options);
+  marker.setIcon({
+    path: google.maps.SymbolPath.CIRCLE,
+    fillColor: '#ffb413',
+    fillOpacity: 0.8,
+    strokeColor: '#ffb413',
+    strokeWeight: 25,
+    strokeOpacity: 0.4,
+    scale: 8
+  })
   this.markers.push(marker);
   if (this.map) {
     marker.setMap(this.map);
