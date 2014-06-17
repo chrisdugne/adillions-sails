@@ -43,6 +43,10 @@ module.exports = {
       columnName: 'max_numbers'
     },
 
+    nb_players: {
+      type: 'int'
+    },
+
     theme: {
       type: 'json'
     },

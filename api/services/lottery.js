@@ -219,9 +219,9 @@ Lottery.prototype.getNextDrawing = function (currentLanguage, next) {
  * @params:
  * - total:number
  * - offset:number
- * - next:functin
+ * - next:function
  * @return:
- * - Number
+ * - object
  */
 
 Lottery.prototype.getWinners = function (total, offset, next) {
@@ -231,13 +231,13 @@ Lottery.prototype.getWinners = function (total, offset, next) {
   }
 
   if (!_.isNumber(total)) {
-    total = 10;
     sails.log.warn('Lottery#getLastWinners Service: \'total\' property must be a number', total);
+    total = 10;
   }
 
   if (!_.isNumber(offset)) {
-    offset = 0;
     sails.log.warn('Lottery#getLastWinners Service: \'offset\' property must be a number', offset);
+    offset = 0;
   }
 
   sails.models.ticket
@@ -283,6 +283,53 @@ Lottery.prototype.getWinners = function (total, offset, next) {
     })
     .fail(function (err) {
       sails.log.error('Lottery#getLastWinners : query fails', err);
+      next(err);
+    });
+
+};
+
+/*
+ * @desc:
+ * - Return loteries
+ * @params:
+ * - total:number
+ * - offset:number
+ * - next:function
+ * @return:
+ * - Number
+ */
+
+Lottery.prototype.getLoteries = function (total, offset, next) {
+
+  if (!_.isFunction(next)) {
+    throw new Error('Lottery#getLoteries Service: the callback function is mandatory');
+  }
+
+  if (!_.isNumber(total)) {
+    sails.log.warn('Lottery#getLoteries Service: \'total\' property must be a number', total);
+    total = 10;
+  }
+
+  if (!_.isNumber(offset)) {
+    sails.log.warn('Lottery#getLoteries Service: \'offset\' property must be a number', offset);
+    offset = 0;
+  }
+
+  sails.models.lottery
+    .find()
+    .where({
+      result: {
+        '!': null
+      }
+    })
+    .limit(total)
+    .skip(offset)
+    .sort('timestamp DESC')
+    .then(function (loteries) {
+      next(null, loteries);
+    })
+    .fail(function (err) {
+      sails.log.error('Lottery#getLoteries : query fails', err);
       next(err);
     });
 

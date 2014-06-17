@@ -1,0 +1,14 @@
+
+
+{{#each loteries}}
+  <div class="lotery mbm">
+    Date: {{timestamp}}<br />
+    Tirages : {{result}}<br />
+    Tirages : {{nb_players}}<br />
+    Sommes gagnés : {{final_price}}<br />
+    {{#each result}}
+    {{this}}
+    {{/each}}
+  </div>
+{{/each}}
+

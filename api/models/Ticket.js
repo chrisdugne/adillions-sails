@@ -61,6 +61,7 @@ module.exports = {
     // public static final int CLASSIC_TICKET         = 1;
     // public static final int INSTANT_TICKET         = 2;
     type: {
+      type: 'int',
       emun: [1, 2]
     },
 
@@ -70,6 +71,7 @@ module.exports = {
     // public static final int payed       = 3; // to set manually when paiement is done
     // public static final int gift        = 4; // gift to charity
     status: {
+      type: 'int',
       emun: [0, 1, 2, 3, 4]
     }
 
