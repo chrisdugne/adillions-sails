@@ -29,7 +29,7 @@ module.exports = {
     },
 
     timestamp: {
-      type: 'int',
+      type: 'integer',
       columnName: 'date'
     },
 
@@ -39,12 +39,12 @@ module.exports = {
     },
 
     numbers: {
-      type: 'int',
+      type: 'integer',
       columnName: 'max_numbers'
     },
 
     nb_players: {
-      type: 'int'
+      type: 'integer'
     },
 
     theme: {
@@ -62,12 +62,12 @@ module.exports = {
     },
 
     min_price: {
-      type: 'int',
+      type: 'integer',
       columnName: 'min_price'
     },
 
     max_price: {
-      type: 'int',
+      type: 'integer',
       columnName: 'max_price'
     },
 

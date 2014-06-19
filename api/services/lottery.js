@@ -291,7 +291,7 @@ Lottery.prototype.getWinners = function (total, offset, next) {
 
 /*
  * @desc:
- * - Return loteries
+ * - Return lotteries
  * @params:
  * - total:number
  * - offset:number
@@ -300,19 +300,19 @@ Lottery.prototype.getWinners = function (total, offset, next) {
  * - Number
  */
 
-Lottery.prototype.getLoteries = function (total, offset, next) {
+Lottery.prototype.getLotteries = function (total, offset, next) {
 
   if (!_.isFunction(next)) {
-    throw new Error('Lottery#getLoteries Service: the callback function is mandatory');
+    throw new Error('Lottery#getLotteries Service: the callback function is mandatory');
   }
 
   if (!_.isNumber(total)) {
-    sails.log.warn('Lottery#getLoteries Service: \'total\' property must be a number', total);
+    sails.log.warn('Lottery#getLotteries Service: \'total\' property must be a number', total);
     total = 10;
   }
 
   if (!_.isNumber(offset)) {
-    sails.log.warn('Lottery#getLoteries Service: \'offset\' property must be a number', offset);
+    sails.log.warn('Lottery#getLotteries Service: \'offset\' property must be a number', offset);
     offset = 0;
   }
 
@@ -326,14 +326,16 @@ Lottery.prototype.getLoteries = function (total, offset, next) {
     .limit(total)
     .skip(offset)
     .sort('timestamp DESC')
-    .then(function (loteries) {
-      next(null, loteries);
+    .then(function (lotteries) {
+      _.forEach(lotteries, function (lottery) {
+        lottery.result = _.isObject(lottery.result) ? lottery.result : JSON.parse(lottery.result);
+      });
+      next(null, lotteries);
     })
     .fail(function (err) {
-      sails.log.error('Lottery#getLoteries : query fails', err);
+      sails.log.error('Lottery#getLotteries : query fails', err);
       next(err);
     });
-
 };
 
 module.exports = Lottery;

@@ -56,6 +56,10 @@
   "next_drawing": "Prochain tirage",
   "the_lucky_balls": "Les boules chances",
   "won": "a gagné",
+  "charities": "Associations",
+  "prizes": "Récompenses",
+  "players": "Joueurs",
+  "results": "Résultats",
 
   "charity_rang_1" : "Scout",
   "charity_rang_2" : "Contributeur",
@@ -120,6 +124,16 @@
   "landing_advertisers_audience_desc": "Grâce à Adillions, vous avez accès à une communauté de joueurs engagés et fidèles à travers le monde",
 
   "landing_press_title": "A été vu sur",
+
+  "_comment": "##### GAME/results #####",
+
+  "results_meta_title": "Résultats loterie",
+  "results_meta_desc": "Les derniers résultats des tirages de loteries Adillions. Découvrez les boules chances, les récompenses pour les joueurs et associations.",
+
+  "results_title": "Les derniers tirages",
+
+  "results_empty": "Aucun résultats",
+  "results_goback": "Retourner au derniers résultats",
 
   "_comment": "##### WINWINWIN/INDEX #####",
 

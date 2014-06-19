@@ -70,13 +70,13 @@ module.exports = {
     },
 
     playedtickets: {
-      type: 'int',
+      type: 'integer',
       columnName: 'total_played_tickets',
       defaultsTo: 0
     },
 
     nbavailabletickets: {
-      type: 'int',
+      type: 'integer',
       columnName: 'available_tickets',
       defaultsTo: 8
     },

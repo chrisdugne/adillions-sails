@@ -1,14 +1,55 @@
+{{#push "title"}}
+    <title>{{i18n 'brand'}}: {{i18n 'results_meta_title'}}</title>
+{{/push}}
+{{#push "meta"}}
+    <meta name="description" content="{{i18n 'results_meta_desc'}}">
+{{/push}}
 
+{{#each lotteries}}
+<section class="lotery-result mbm icons-section">
+  <h2 class="lotery-date">{{date}}</h2>
 
-{{#each loteries}}
-  <div class="lotery mbm">
-    Date: {{timestamp}}<br />
-    Tirages : {{result}}<br />
-    nb_players : {{nb_players}}<br />
-    Sommes gagnés : {{final_price}}<br />
-    {{#each result}}
-    {{this}}
-    {{/each}}
+  <div class="row text-center mtxl">
+
+    <div class="col-xs-12 col-sm-6">
+      <ul class="list-inline lotery-list well drawing-balls">
+      {{#each result}}
+        <li class="ball">{{this}}</li>
+      {{/each}}
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+      <div class="row text-center">
+        <div class="col-xs-12 col-sm-4">
+          <div class="icon glyphicon glyphicon-group mtn">
+          </div>
+          <h3>{{#mergeContexts parent=..}}{{i18n 'players'}}{{/mergeContexts}}</h3>
+          <p class="desc">{{nb_players}}</p>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+          <div class="icon glyphicon glyphicon-money mtn">
+          </div>
+          <h3>{{#mergeContexts parent=..}}{{i18n 'prizes'}}{{/mergeContexts}}</h3>
+          <p class="desc">{{final_price}} €</p>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+          <div class="icon glyphicon glyphicon-heart mtn">
+          </div>
+          <h3>{{#mergeContexts parent=..}}{{i18n 'charities'}}{{/mergeContexts}}</h3>
+          <p class="desc">{{charity}} €</p>
+        </div>
+      </div>
+    </div>
+
   </div>
-{{/each}}
 
+</section>
+{{else}}
+  <p class="lead">
+    {{#mergeContexts parent=..}}{{i18n 'results_empty'}}{{/mergeContexts}}
+  </p>
+  <p><a href="{{route 'game.results' lang=locale}}" class="btn btn-default">{{#mergeContexts parent=..}}{{i18n 'results_goback'}}{{/mergeContexts}}</a></p>
+{{/each}}

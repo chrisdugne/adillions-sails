@@ -1,0 +1,14 @@
+body.results  .site-content {
+
+  .lotery-result {
+    h2 {
+      text-transform: capitalize;
+      color: $gray;
+      @extend h3;
+    }
+    .well {
+      background: #fff;
+    }
+  }
+
+}

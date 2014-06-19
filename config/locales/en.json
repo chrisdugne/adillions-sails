@@ -56,6 +56,10 @@
   "next_drawing": "Next drawing",
   "the_lucky_balls": "The lucky balls",
   "won": "won",
+  "charities": "Charities",
+  "prizes": "Prizes",
+  "players": "Players",
+  "results": "Results",
 
   "charity_rang_1" : "Boy scout",
   "charity_rang_2" : "Contributor",
@@ -121,6 +125,16 @@
   "landing_advertisers_audience_desc": "Thanks to Adillions international<br /> community of players, you get access<br /> to thousands of engaged users accross<br /> the globe",
 
   "landing_press_title": "As featured in",
+
+  "_comment": "##### GAME/results #####",
+
+  "results_meta_title": "Sweepstake results",
+  "results_meta_desc": "Last sweepstake results, lucky balls, players and charities prizes!",
+
+  "results_title": "Sweepstake results",
+
+  "results_empty": "No results",
+  "results_goback": "Go back to last results",
 
   "_comment": "##### WINWINWIN/INDEX #####",
 
