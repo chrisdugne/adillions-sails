@@ -5,51 +5,74 @@
     <meta name="description" content="{{i18n 'results_meta_desc'}}">
 {{/push}}
 
-{{#each lotteries}}
-<section class="lotery-result mbm icons-section">
-  <h2 class="lotery-date">{{date}}</h2>
-
-  <div class="row text-center mtxl">
-
-    <div class="col-xs-12 col-sm-6">
-      <ul class="list-inline lotery-list well drawing-balls">
-      {{#each result}}
-        <li class="ball">{{this}}</li>
-      {{/each}}
-      </ul>
+<div class="loteries">
+  <div class="row">
+    <div class="col-xs-4 col-sm-2 lotery-timeline prn pln">
     </div>
+  </div>
+  {{#each lotteries}}
+  <section class="lotery pbxl">
 
-    <div class="col-xs-12 col-sm-6">
-      <div class="row text-center">
-        <div class="col-xs-12 col-sm-4">
-          <div class="icon glyphicon glyphicon-group mtn">
-          </div>
-          <h3>{{#mergeContexts parent=..}}{{i18n 'players'}}{{/mergeContexts}}</h3>
-          <p class="desc">{{nb_players}}</p>
-        </div>
-
-        <div class="col-xs-12 col-sm-4">
-          <div class="icon glyphicon glyphicon-money mtn">
-          </div>
-          <h3>{{#mergeContexts parent=..}}{{i18n 'prizes'}}{{/mergeContexts}}</h3>
-          <p class="desc">{{final_price}} €</p>
-        </div>
-
-        <div class="col-xs-12 col-sm-4">
-          <div class="icon glyphicon glyphicon-heart mtn">
-          </div>
-          <h3>{{#mergeContexts parent=..}}{{i18n 'charities'}}{{/mergeContexts}}</h3>
-          <p class="desc">{{charity}} €</p>
-        </div>
+    <div class="clearfix">
+      <div class="col-xs-4 col-sm-2 prn pln text-center">
+        <h2 class="lotery-date man">
+          <span class="day">{{date_day}}</span>
+          <span class="month">{{date_month}}</span>
+        </h2>
+      </div>
+      <div class="col-xs-8 col-sm-10">
+        <span class="lotery-date-year">{{date_year}}</span>
       </div>
     </div>
 
-  </div>
 
-</section>
-{{else}}
-  <p class="lead">
-    {{#mergeContexts parent=..}}{{i18n 'results_empty'}}{{/mergeContexts}}
-  </p>
-  <p><a href="{{route 'game.results' lang=locale}}" class="btn btn-default">{{#mergeContexts parent=..}}{{i18n 'results_goback'}}{{/mergeContexts}}</a></p>
-{{/each}}
+    <div class="row">
+      <div class="col-xs-offset-4 col-xs-8 col-sm-offset-2 col-sm-10">
+        <h3>{{theme.title}}</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-offset-4 col-xs-8 col-sm-offset-2 col-sm-10">
+
+        <div class="well dispib">
+          <ul class="list-inline lotery-list drawing-balls">
+          {{#each result}}
+            <li class="ball">{{this}}</li>
+          {{/each}}
+          </ul>
+        </div>
+
+        <div class="clearfix text-center icons-section">
+          <div class="pull-left mrl">
+            <div class="icon glyphicon glyphicon-group mtn">
+            </div>
+            <h3>{{#mergeContexts parent=..}}{{i18n 'players'}}{{/mergeContexts}}</h3>
+            <p class="desc">{{nb_players}}</p>
+          </div>
+          <div class="pull-left mrl">
+            <div class="icon glyphicon glyphicon-money mtn">
+            </div>
+            <h3>{{#mergeContexts parent=..}}{{i18n 'prizes'}}{{/mergeContexts}}</h3>
+            <p class="desc">{{final_price}} €</p>
+          </div>
+          <div class="pull-left">
+            <div class="icon glyphicon glyphicon-heart mtn">
+            </div>
+            <h3>{{#mergeContexts parent=..}}{{i18n 'charities'}}{{/mergeContexts}}</h3>
+            <p class="desc">{{charity}} €</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+  {{else}}
+    <p class="lead">
+      {{#mergeContexts parent=..}}{{i18n 'results_empty'}}{{/mergeContexts}}
+    </p>
+    <p><a href="{{route 'game.results' lang=locale}}" class="btn btn-default">{{#mergeContexts parent=..}}{{i18n 'results_goback'}}{{/mergeContexts}}</a></p>
+  {{/each}}
+
+</div>

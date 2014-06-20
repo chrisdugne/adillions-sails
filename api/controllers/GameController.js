@@ -38,12 +38,12 @@ module.exports = {
       }
 
       _.forEach(lotteries, function (lottery) {
-        var format = 'dddd, MMMM Do YYYY, h:mm A';
-        if (res.locale === 'fr') {
-          format = 'dddd, Do MMMM YYYY, h:mm';
-        }
-        lottery.date = req.format_date(parseInt(lottery.timestamp), 10).format(format);
+        lottery.date = req.format_date(parseInt(lottery.timestamp), 10).format('D MMM YYYY');
+        lottery.date_day = req.format_date(parseInt(lottery.timestamp), 10).format('D');
+        lottery.date_month = req.format_date(parseInt(lottery.timestamp), 10).format('MMM');
+        lottery.date_year = req.format_date(parseInt(lottery.timestamp), 10).year();
       });
+      //console.log(lotteries[0])
 
       res.view(_.merge(conf, {
         lotteries: lotteries

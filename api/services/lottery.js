@@ -27,6 +27,18 @@ var splitNumber = function (ressource) {
   return items;
 };
 
+var parseAttributes = function(lottery) {
+  // parse attributes types
+  lottery.theme = _.isObject(lottery.theme) ? lottery.theme : JSON.parse(lottery.theme);
+  lottery.result = _.isObject(lottery.result) ? lottery.result : JSON.parse(lottery.result);
+  lottery.prizes = _.isObject(lottery.prizes) ? lottery.prizes : JSON.parse(lottery.prizes);
+  // rangs bugs beacause of useless comma at the end of array
+  //lottery.rangs = _.isObject(lottery.rangs) ? lottery.rangs : JSON.parse(lottery.rangs);
+  lottery.timestamp = _.isNumber(lottery.timestamp) ? lottery.timestamp : Number(lottery.timestamp);
+
+  return lottery;
+};
+
 /*
  * Return the total charity price from all lottery drawings
  * results : Number
@@ -195,15 +207,18 @@ Lottery.prototype.getNextDrawing = function (currentLanguage, next) {
         '>': new Date().getTime()
       }
     })
+    .then(function(lottery) {
+      return parseAttributes(lottery);
+    })
     .then(function (lottery) {
-      var theme = _.isObject(lottery.theme) ? lottery.theme : JSON.parse(lottery.theme);
+      var theme = lottery.theme;
 
       next(null, {
         theme: {
           title: theme.title,
           balls: theme.balls[currentLanguage]
         },
-        timestamp: Number(lottery.timestamp) / 1000, // turn milliseconds to seconds
+        timestamp: lottery.timestamp / 1000, // turn milliseconds to seconds
         prize: lottery.final_price || lottery.min_price
       });
     })
@@ -327,9 +342,12 @@ Lottery.prototype.getLotteries = function (total, offset, next) {
     .skip(offset)
     .sort('timestamp DESC')
     .then(function (lotteries) {
-      _.forEach(lotteries, function (lottery) {
-        lottery.result = _.isObject(lottery.result) ? lottery.result : JSON.parse(lottery.result);
+      _.forEach(lotteries, function (lottery){
+        return parseAttributes(lottery);
       });
+      return lotteries;
+    })
+    .then(function (lotteries) {
       next(null, lotteries);
     })
     .fail(function (err) {

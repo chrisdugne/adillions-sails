@@ -109,12 +109,12 @@ $avatar-border-color: lighten($blue-lighter,5%);
 }
 
 .drawing-balls {
-  background: $green;
   li {
     display: inline-block;
     border-radius:100%;
     padding:8px 13px;
     font-size:em(22px);
+    text-align: center;
     min-width: 60px;
     color:#fff;
     margin:0 5px;
