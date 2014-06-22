@@ -3,7 +3,8 @@
  *
  */
 var _ = require('lodash'),
-  numeral = require('numeral');
+  numeral = require('numeral'),
+  hbs = require('hbs');
 
 /**
  * Helpers
@@ -81,6 +82,46 @@ var helpers = {
    */
   mergeContexts: function (options) {
     return options.fn(_.merge({}, this, options.hash.parent));
+  },
+
+  /**
+   *  'set'
+   *  ===============
+   *
+   *  Description
+   *  -----------
+   *
+   *  Truncate a string
+   *
+   *  Usage
+   *  -----
+   *
+   *  {{truncate stringvariable 10 '...'}}
+   *
+   */
+
+  truncate: function (ressource, length, dots) {
+    if (!_.isString(ressource) || _.isEmpty(ressource)) {
+      throw new Error('truncate#helper: The ressource agurments must be a string');
+    }
+
+    if (!_.isNumber(length)) {
+      throw new Error('truncate#helper: The length agurments must be a number');
+    }
+
+    if (!_.isString(dots)) {
+      dots = '';
+    }
+
+    if (ressource.length <= length) {
+      return ressource;
+    }
+
+    var str = ressource + ' ';
+    str = ressource.substr(0, length);
+    str = ressource.substr(0, str.lastIndexOf(' '));
+    str = (str.length > 0) ? str : ressource.substr(0, length);
+    return new hbs.SafeString(str + dots);
   },
 
   /**

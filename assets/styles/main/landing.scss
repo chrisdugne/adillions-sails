@@ -19,6 +19,7 @@ body.landing {
   h3 {
     text-transform: uppercase;
     font-size: em(18px);
+    line-height: 24px;
     letter-spacing: 1px;
     small {
       font-size: em(18px, 18px);
@@ -39,18 +40,19 @@ body.landing {
 
 $hero-title-color: #7CFFF8;
 .landing-hero {
+  padding-bottom:0;
   h1 {
     color: #fff;
     font-size: em(54px);
     font-weight: 100;
   }
   .play {
-    margin-top: 70px;
+    margin: 70px 0 40px 0;
     padding-left:70px;
     padding-right:70px;
   }
   .highlight {
-    background: rgba(0,0,0, 0.4);
+    background: #000;
     border: 1px solid rgba(255,255,255, 0.5);
     border-radius:2px;
     padding:20px 5px;
@@ -80,6 +82,65 @@ $hero-title-color: #7CFFF8;
     }
     .text {
       font-size: em(40px);
+    }
+  }
+  .lucky-balls {
+    position: relative;
+    h3 {
+      position: absolute;
+      left:0;
+      right:0;
+      top:30%;
+      margin:0;
+    }
+    ul {
+      position: absolute;
+      left:0;
+      right:0;
+      bottom:10%;
+      margin:0;
+    }
+    @media (max-width: $screen-sm-max) {
+      h3 {
+        top:27%;
+      }
+      .lucky-ball {
+        height:70px;
+        width:70px;
+      }
+    }
+    @media (max-width: $screen-xs-max) {
+      h3 {
+        top:25%;
+      }
+      .lucky-ball {
+        height:55px;
+        width:55px;
+      }
+      display: none;
+    }
+  }
+  .lucky-ball {
+    position: relative;
+    padding: 0;
+    margin:0 5px 0 0;
+    background: #fff;
+    border: 4px solid $green-dark;
+    border-radius: 100%;
+    height:90px;
+    width:90px;
+    vertical-align: middle;
+    overflow: hidden;
+    @include prefixer(box-shadow, 0px 3px 6px 0px rgba(0,0,0,0.4), webkit spec);
+    &:after {
+      position: absolute;
+      content:"";
+      top:0;
+      left:0;
+      right:0;
+      bottom: 0;
+      border-radius: 100%;
+      @include prefixer(box-shadow, inset 0 0 0 4px #fff, webkit spec);
     }
   }
 }
@@ -253,6 +314,7 @@ $global-arrow-width: 12px;
 
   .global-players {
     text-align: center;
+    margin:0 0 40px 0;
   }
   .global-player {
     position: relative;
@@ -289,6 +351,21 @@ $global-arrow-width: 12px;
     font-size: em(16px);
     .badge-charity {
       font-size: em(18px, 16px);
+    }
+  }
+  .global-map {
+    height:690px;
+    margin:0 0 40px 0;
+    @include center-block();
+    @media (min-width: $screen-md-max) {
+      width: 1030px;
+      height:690px;
+    }
+    @media (max-width: $screen-sm-max) {
+      height:500px;
+    }
+    @media (max-width: $screen-xs-max) {
+      height: 450px;
     }
   }
 }

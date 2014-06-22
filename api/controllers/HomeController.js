@@ -70,16 +70,23 @@ module.exports = {
       charityPrice: function (cb) {
         LotteryService.getTotalCharityPrice(true, cb);
       },
-      drawings: function (cb) {
-        LotteryService.getTotalDrawings(cb);
+      nextDrawing: function (cb) {
+        LotteryService.getNextDrawing(currentLanguage, cb);
       },
-      averageCharity: function (cb) {
-        LotteryService.getAverageCharity(cb);
-      },
+      lastWinners: function (cb) {
+        LotteryService.getWinners(3, 0, cb);
+      }
     }, function (err, results) {
       if (err) {
         return res.serverError(err);
       }
+
+      _.forEach(results.lastWinners, function (winner) {
+        if (winner.charityStatusRang) {
+          winner.charityStatusName = res.i18n('charity_rang_' + winner.charityStatusRang);
+        }
+      });
+
       res.view(_.defaults(locals, results));
     });
 

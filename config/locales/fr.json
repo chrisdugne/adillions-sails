@@ -43,6 +43,9 @@
   "ui_signin": "Se connecter",
   "ui_register": "S'inscrire",
   "ui_error" : "Une erreur est survenue",
+  "ui_day": "jour",
+  "ui_days": "jours",
+  "ui_languages": "Langues",
 
   "contact_us": "Contactez-nous",
   "see_previous_results": "Voir les résultats précédents",
@@ -51,6 +54,18 @@
   "current_theme": "Thème en cours",
   "fund_prize": "Cagnotte",
   "next_drawing": "Prochain tirage",
+  "the_lucky_balls": "Les boules chances",
+  "won": "a gagné",
+  "charities": "Associations",
+  "prizes": "Récompenses",
+  "players": "Joueurs",
+  "results": "Résultats",
+
+  "charity_rang_1" : "Scout",
+  "charity_rang_2" : "Contributeur",
+  "charity_rang_3" : "Donateur junior",
+  "charity_rang_4" : "Donateur",
+  "charity_rang_5" : "Bienfaiteur",
 
   "footer_company": "Société",
   "footer_support": "Support",
@@ -99,16 +114,26 @@
 
   "landing_advertisers_title": "Adillions pour les annonceurs",
 
-  "landing_advertisers_boost": "Boostez votre notoriété",
+  "landing_advertisers_boost": "Boostez votre<br /> notoriété",
   "landing_advertisers_boost_desc": "Adlllions vous offre l'opportunité de diffuser vos vidéos publicitaires et d'organiser votre propre loterie gratuite sur notre plateforme en personnalisant le thème du tirage et les gains associés",
 
-  "landing_advertisers_multiscreen": "Mettez en place une stratégie digitale multi-supports",
+  "landing_advertisers_multiscreen": "Mettez en place une stratégie<br /> digitale multi-supports",
   "landing_advertisers_multiscreen_desc": "Vous bénéficiez de la présence d’Adillions sur les réseaux sociaux (Facebook, Twitter, etc.) et sur une large gamme de plateformes",
 
-  "landing_advertisers_audience": "Accédez à une large audience",
+  "landing_advertisers_audience": "Accédez à une large<br />  audience",
   "landing_advertisers_audience_desc": "Grâce à Adillions, vous avez accès à une communauté de joueurs engagés et fidèles à travers le monde",
 
   "landing_press_title": "A été vu sur",
+
+  "_comment": "##### GAME/results #####",
+
+  "results_meta_title": "Résultats loterie",
+  "results_meta_desc": "Les derniers résultats des tirages de loteries Adillions. Découvrez les boules chances, les récompenses pour les joueurs et associations.",
+
+  "results_title": "Les derniers tirages",
+
+  "results_empty": "Aucun résultats",
+  "results_goback": "Retourner au derniers résultats",
 
   "_comment": "##### WINWINWIN/INDEX #####",
 
@@ -160,7 +185,7 @@
   "about_Global_text": "Rejoignez une communauté internationale de joueurs",
   "about_Responsible_text": "Qu'il y ait des gagnants ou non, une part de chaque spot publicitaire alimente le Fonds de Solidarité et de Développement Durable d'Adillions",
 
-  "about_DrawAmount": "Les tirages ont lieu chaque dimanche à 11h00 (France). Comme toutes les loteries traditionnelles, si personne ne gagne alors la cagnotte s'ajoute à celle du prochain tirage - ",
+  "about_DrawAmount": "Les tirages ont lieu chaque dimanche à 11h00 (heure française). Comme toutes les loteries traditionnelles, si personne ne gagne alors la cagnotte s'ajoute à celle du prochain tirage - ",
   "about_consult_terms": "Consulter notre Règlement",
 
   "about_EachPlay": "Chaque fois que vous jouez sur Adillions, vous avez une chance de gagner le jackpot et vous consacrez quelques secondes de votre journée à des œuvres caritatives",
@@ -175,8 +200,7 @@
 
   "about_Responsibility": "Responsabilité sociale",
   "about_RespoBefore": "Apparu il y a plus de 2000 ans, le jeu de la loterie a contribué sur tous les continents à financer de grands projets publics comme la construction de la Grande Muraille de Chine, l'aide aux plus défavorisés, le financement d'écoles publiques, etc.",
-  "about_RespoPublic": "La dimension de solidarité faisait partie intégrante du jeu. Aujourd'hui, avec Adillions, le jeu de la loterie retrouve ses origines",
-  "about_RespoProud": "Grâce à la puissance d'Internet, Adillions permet de gagner de l’argent et de contribuer à un projet caritatif mondial. Nous voulons que nos utilisateurs soient fiers d’appartenir à la communauté d’Adillions",
+  "about_RespoPublic": "La dimension de solidarité faisait partie intégrante du jeu. Aujourd'hui, avec Adillions, le jeu de la loterie retrouve ses origines. En effet, grâce à la puissance d'Internet, Adillions permet de gagner de l’argent et de contribuer à un projet caritatif mondial",
   "about_RespoPeport": "Adillions s'engage à publier chaque année un rapport sur son Fonds de Solidarité et de Développement Durable. Par ailleurs, notre objectif à terme est de donner le pouvoir à nos utilisateurs pour qu'ils choisissent eux-mêmes les projets caritatifs qu'ils souhaitent financer",
   "about_RespoConclusion": "Nous voulons que nos utilisateurs soient fiers d’appartenir à la communauté d’Adillions",
 

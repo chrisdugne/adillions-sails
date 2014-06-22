@@ -13,6 +13,7 @@ module.exports = {
     res.view({
       usePopTitle: true,
       title: res.i18n('about'),
+      bodyClass: 'about',
       layout: 'layout_about'
     });
   },

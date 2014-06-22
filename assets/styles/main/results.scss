@@ -1,0 +1,63 @@
+body.results  .site-content {
+
+  .lotery {
+    position: relative;
+    .well {
+      background: #fff;
+    }
+  }
+
+  .loteries {
+    position: relative;
+  }
+
+  .lotery-timeline {
+    position: absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    &:before {
+      content: "";
+      position: absolute;
+      top:0;
+      left:50%;
+      width:3px;
+      height:100%;
+      background: rgba(153, 153, 153, 0.40);
+    }
+  }
+
+  $date-size: 70px;
+  .lotery-date {
+    font-weight: normal;
+    position: relative;
+    display: inline-block;
+    background: $gray;
+    border: 8px solid lighten($body-bg, 5%);
+    color: #fff;
+    border-radius:100%;
+    width:$date-size;
+    height:$date-size;
+    text-transform: capitalize;
+    text-align: center;
+    text-shadow: 0 1px rgba(0, 0, 0,0.8);
+    @include prefixer(box-shadow, 0px 0px 2px 0px rgba(153, 153, 153, 0.80), webkit spec);
+    .day {
+      display: block;
+      font-size:em(10px);
+      margin:8px 0 0 0;
+    }
+    .month {
+      display: block;
+      font-size:em(6px);
+    }
+  }
+
+  .lotery-date-year {
+    font-size:em(16px);
+    color: $gray-light;
+    line-height: $date-size;
+    display:block;
+  }
+
+}

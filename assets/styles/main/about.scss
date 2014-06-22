@@ -1,0 +1,49 @@
+ body.layout_about .site-content {
+
+  .lead {
+    margin: 0 0 40px 0;
+  }
+
+  .icons-section {
+    h3 {
+      text-transform: uppercase;
+      font-size: em(18px);
+      letter-spacing: 1px;
+      small {
+        font-size: em(18px, 18px);
+        color: #206260;
+      }
+    }
+
+    .desc {
+      color:shade($gray-light, 15%);
+      line-height: 26px;
+      font-weight: 200;
+      letter-spacing: 0.6px;
+    }
+
+    .icon {
+      position: relative;
+      background: #fff;
+      border-radius: 100px;
+      border: 3px solid $green;
+      padding: 25px;
+      font-size: em(40px);
+      margin:20px 0;
+
+      &.first {
+      }
+
+      &.last {
+      }
+
+      &:before, &:after {
+      }
+
+      &:before {
+      }
+      &:after {
+      }
+    }
+  }
+ }

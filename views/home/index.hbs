@@ -10,31 +10,37 @@
 {{/push}}
 
 {{#push "scripts"}}
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&v={{api.google.version}}&key={{api.google.key}}&language={{locale}}"></script>
 <script src="{{statics '/scripts/landing.js'}}"></script>
 <script>require('landing');</script>
 {{/push}}
 
+
 {{!-- section: How it Works --}}
 <section class="landing-section landing-hero">
   <h1 class="text-center mtn mbxl">{{i18n 'landing_title'}}</h1>
-  <div class="container mbxl">
+  <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
         <p class="text-center highlight highlight-theme">
           <span class="title">{{i18n 'current_theme'}}</span>
-          <strong class="text">Famous Actors</strong>
+          <strong class="text">{{nextDrawing.theme.title}}</strong>
         </p>
       </div>
       <div class="col-xs-12 col-sm-4">
         <p class="text-center highlight highlight-prize">
           <span class="title">{{i18n 'fund_prize'}}</span>
-          <strong class="text">US$ 545</strong>
+          <strong class="text">{{nextDrawing.prize}} €</strong>
         </p>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <p class="text-center highlight highlight-drawing">
+        <p class="text-center highlight highlight-drawing" id="js-highlight-drawing"
+        data-timestamp="{{nextDrawing.timestamp}}"
+        data-day="{{i18n 'ui_day'}}"
+        data-days="{{i18n 'ui_days'}}"
+        >
           <span class="title">{{i18n 'next_drawing'}}</span>
-          <strong class="text">1d 18h 15min 30s</strong>
+          <strong class="text"></strong>
         </p>
       </div>
     </div>
@@ -43,6 +49,17 @@
         {{{i18n 'play_for_free'}}}
       </a>
     </p>
+    <div class="lucky-balls" id="js-lucky-balls">
+      <h3 class="text-center">{{i18n 'the_lucky_balls'}}</h3>
+      <img src="/images/landing/ipad.png" class="img-responsive center-block" />
+      <ul class="list-inline text-center">
+      {{#each nextDrawing.theme.balls}}
+        <li class="lucky-ball" data-toggle="tooltip" data-placement="top" title="{{name}} {{name2}}">
+          <img src="{{image}}" class="img-responsive center-block" alt="lucky ball {{name}}"/>
+        </li>
+      {{/each}}
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -178,57 +195,38 @@
   <div class="container">
     <h2 class="text-center">{{i18n 'landing_global_title'}}</h2>
     <p class="desc text-center">{{i18n 'landing_global_desc'}}</p>
-    <ul id="global-players" class="global-players list-inline row mtxl">
-      <li class="global-player col-sm-4 col-xs-12">
+    <ul id="js-global-players" class="global-players list-inline row mtxl">
+      {{#each lastWinners}}
+      <li class="global-player col-sm-4 col-xs-12" data-country="{{country}}" data-title="{{firstname}} {{truncate lastname 1}}">
         <div class="media">
-          <a class="pull-left avatar" href="#">
+          <span class="pull-left avatar" href="#">
             <img class="media-object" src="/images/avatar/avatar-s-60x60.png" width="60">
-          </a>
+          </span>
           <div class="media-body text-left">
-            <p class="mtxs mbxs">Christine F (UK) won 359 €</p>
-            <div class="badge-wrap dispib">
-              <span class="mlxs badge-charity"></span>
-              <span class="mlxs badge-charity badge-charity-empty"></span>
-              <span class="mlxs badge-charity badge-charity-empty"></span>
-              <span class="mlxs badge-charity badge-charity-empty"></span>
-              <span class="mlxs badge-charity badge-charity-empty"></span>
+            <p class="mtxs mbxs">
+            {{firstname}} {{truncate lastname 1}}
+            {{#if country}}
+              ({{country}})
+            {{/if}}
+            {{#mergeContexts parent=..}}
+              {{i18n 'won'}}
+            {{/mergeContexts}}
+            {{prize}} €
+            </p>
+            <div class="badge-wrap dispib" data-toggle="tooltip" data-placement="bottom" title="{{charityStatusName}}">
+              {{#each charityStatus}}
+              <span class="mlxs badge-charity {{#if active}}badge-charity-empty{{/if}}"></span>
+              {{/each}}
             </div>
           </div>
         </div>
       </li>
-      <li class="global-player col-sm-4 col-xs-12">
-        <div class="media">
-          <a class="pull-left avatar" href="#">
-            <img class="media-object" src="/images/avatar/avatar-s-60x60.png" width="60">
-          </a>
-          <div class="media-body text-left">
-            <p class="mtxs mbxs">Christine F (UK) won 359 €</p>
-            <span class="mlxs badge-charity"></span>
-            <span class="mlxs badge-charity"></span>
-            <span class="mlxs badge-charity badge-charity-empty"></span>
-            <span class="mlxs badge-charity badge-charity-empty"></span>
-            <span class="mlxs badge-charity badge-charity-empty"></span>
-          </div>
-        </div>
-      </li>
-      <li class="global-player col-sm-4 col-xs-12 active">
-        <div class="media">
-          <a class="pull-left avatar" href="#">
-            <img class="media-object" src="/images/avatar/avatar-s-60x60.png" width="60">
-          </a>
-          <div class="media-body text-left">
-            <p class="mtxs mbxs">Christine F (UK) won 359 €</p>
-            <span class="mlxs badge-charity"></span>
-            <span class="mlxs badge-charity"></span>
-            <span class="mlxs badge-charity"></span>
-            <span class="mlxs badge-charity badge-charity-empty"></span>
-            <span class="mlxs badge-charity badge-charity-empty"></span>
-          </div>
-        </div>
-      </li>
+      {{/each}}
     </ul>
+    <div id="js-global-map" class="global-map">
+    </div>
      <p class="text-center">
-      <a href="" class="btn btn-primary btn-lg">
+      <a href="{{route 'game.results' lang=locale}}" class="btn btn-primary btn-lg">
         {{i18n 'see_previous_results'}}
       </a>
     </p>
@@ -245,21 +243,21 @@
         <div class="icon">
           <div class="center-block main-sprite main-advertisers-boost"></div>
         </div>
-        <h3>{{i18n 'landing_advertisers_boost'}}</h3>
+        <h3>{{{i18n 'landing_advertisers_boost'}}}</h3>
         <p class="desc">{{{i18n 'landing_advertisers_boost_desc'}}}</p>
       </div>
       <div class="col-xs-12 col-sm-4 text-center get-ticket">
         <div class="icon">
           <div class="center-block main-sprite main-advertisers-multiscreen "></div>
         </div>
-        <h3>{{i18n 'landing_advertisers_multiscreen'}}</h3>
+        <h3>{{{i18n 'landing_advertisers_multiscreen'}}}</h3>
         <p class="desc">{{{i18n 'landing_advertisers_multiscreen_desc'}}}</p>
       </div>
       <div class="col-xs-12 col-sm-4 text-center win-prize">
         <div class="icon last">
           <div class="center-block main-sprite main-advertisers-global "></div>
         </div>
-        <h3>{{i18n 'landing_advertisers_audience'}}</h3>
+        <h3>{{{i18n 'landing_advertisers_audience'}}}</h3>
         <p class="desc">{{{i18n 'landing_advertisers_audience_desc'}}}</p>
       </div>
     </div>

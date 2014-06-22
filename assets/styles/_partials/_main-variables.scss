@@ -55,6 +55,11 @@ $spacingM: 15px;
 $spacingL: 20px;
 $spacingXl: 30px;
 
+//** Blockquote small color
+$blockquote-font-size: ($em-base * 1.15) !default;
+$blockquote-small-color: $gray !default;
+$blockquote-border-color: $green-light;
+
 // navbar
 $navbar-height: 80px;
 $navbar-default-bg:  #fff;

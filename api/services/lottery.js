@@ -1,5 +1,6 @@
 var _ = require('lodash'),
-  numeral = require('numeral');
+  numeral = require('numeral'),
+  moment = require('moment');
 
 function Lottery() {
 
@@ -24,6 +25,18 @@ var splitNumber = function (ressource) {
   }
 
   return items;
+};
+
+var parseAttributes = function(lottery) {
+  // parse attributes types
+  lottery.theme = _.isObject(lottery.theme) ? lottery.theme : JSON.parse(lottery.theme);
+  lottery.result = _.isObject(lottery.result) ? lottery.result : JSON.parse(lottery.result);
+  lottery.prizes = _.isObject(lottery.prizes) ? lottery.prizes : JSON.parse(lottery.prizes);
+  // rangs bugs beacause of useless comma at the end of array
+  //lottery.rangs = _.isObject(lottery.rangs) ? lottery.rangs : JSON.parse(lottery.rangs);
+  lottery.timestamp = _.isNumber(lottery.timestamp) ? lottery.timestamp : Number(lottery.timestamp);
+
+  return lottery;
 };
 
 /*
@@ -81,8 +94,13 @@ Lottery.prototype.getTotalCharityPrice = function (split, next) {
 };
 
 /*
- * Return the total count of lottery drawings
- * results : Number
+ * @desc:
+ * - Return the total count of lottery drawings
+ * @params:
+ * - array
+ *  - charity:number
+ * @return:
+ * - Number
  */
 
 Lottery.prototype.getTotalDrawings = function (next) {
@@ -114,8 +132,13 @@ Lottery.prototype.getTotalDrawings = function (next) {
 };
 
 /*
- * Return the average of charity price from lottery drawings
- * results : Number
+ * @desc:
+ * - Return the average of charity price from lottery drawings
+ * @params:
+ * - array
+ *  - charity:number
+ * @return:
+ * - Number
  */
 
 Lottery.prototype.getAverageCharity = function (next) {
@@ -137,12 +160,12 @@ Lottery.prototype.getAverageCharity = function (next) {
       var averageCharity = result[0].charity;
 
       if (isNaN(averageCharity)) {
-        sails.log.error('Lottery#getAverageaverageCharity : averageCharity must be a number', result);
+        sails.log.error('Lottery#getAverageCharity : averageCharity must be a number', result);
         return next(null, 0);
       }
 
       if (averageCharity === 0) {
-        sails.log.warn('Lottery#getAverageaverageCharity : averageCharity must not equals to 0', result);
+        sails.log.warn('Lottery#getAverageCharity : averageCharity must not equals to 0', result);
         return next(null, averageCharity);
       }
 
@@ -152,6 +175,184 @@ Lottery.prototype.getAverageCharity = function (next) {
       // do not expose error
       sails.log.error('Lottery#getAverageCharity : query fails', err);
       next(null);
+    });
+};
+
+/*
+ * @desc:
+ * - Return the next drawing
+ * @params:
+ * - timestamp:number
+ * - theme:json
+ * - prize:number
+ * @return:
+ * - Number
+ */
+
+Lottery.prototype.getNextDrawing = function (currentLanguage, next) {
+
+  if (!_.isFunction(next)) {
+    throw new Error('Lottery#getNextDrawing Service: the callback function is mandatory');
+  }
+
+  if (!_.isString(currentLanguage)) {
+    currentLanguage = 'en';
+    sails.log.warn('Lottery#getNextDrawing Service: \'currentLanguage\' property must be a string', currentLanguage);
+  }
+
+  sails.models.lottery
+    .findOne()
+    .where({
+      timestamp: {
+        '>': new Date().getTime()
+      }
+    })
+    .then(function(lottery) {
+      return parseAttributes(lottery);
+    })
+    .then(function (lottery) {
+      var theme = lottery.theme;
+
+      next(null, {
+        theme: {
+          title: theme.title,
+          balls: theme.balls[currentLanguage]
+        },
+        timestamp: lottery.timestamp / 1000, // turn milliseconds to seconds
+        prize: lottery.final_price || lottery.min_price
+      });
+    })
+    .fail(function (err) {
+      sails.log.error('Lottery#getNextDrawing : query fails', err);
+      next(err);
+    });
+
+};
+
+/*
+ * @desc:
+ * - Return lottery winners
+ * @params:
+ * - total:number
+ * - offset:number
+ * - next:function
+ * @return:
+ * - object
+ */
+
+Lottery.prototype.getWinners = function (total, offset, next) {
+
+  if (!_.isFunction(next)) {
+    throw new Error('Lottery#getLastWinners Service: the callback function is mandatory');
+  }
+
+  if (!_.isNumber(total)) {
+    sails.log.warn('Lottery#getLastWinners Service: \'total\' property must be a number', total);
+    total = 10;
+  }
+
+  if (!_.isNumber(offset)) {
+    sails.log.warn('Lottery#getLastWinners Service: \'offset\' property must be a number', offset);
+    offset = 0;
+  }
+
+  sails.models.ticket
+    .find()
+    .where({
+      price: {
+        '>': 0
+      }
+    })
+    .limit(total)
+    .skip(offset)
+    .sort('timestamp DESC')
+    .populate('user')
+    .then(function (results) {
+      var winners = [];
+      _(results).forEach(function (ticket) {
+        var user = ticket.user,
+          charity_status = user.charity_status(),
+          charityStatusRang;
+
+        _.forEach(charity_status, function (charity) {
+          charity.active = user.playedtickets <= charity.tickets;
+        });
+
+        _.forEach(charity_status, function (charity) {
+          if (charity.active) {
+            charityStatusRang = charity.rang;
+            return false;
+          }
+        });
+
+        winners.push({
+          firstname: user.firstname,
+          lastname: user.lastname,
+          country: user.country,
+          prize: ticket.euros,
+          charityStatus: charity_status,
+          charityStatusRang: charityStatusRang
+        });
+
+      });
+      next(null, winners);
+    })
+    .fail(function (err) {
+      sails.log.error('Lottery#getLastWinners : query fails', err);
+      next(err);
+    });
+
+};
+
+/*
+ * @desc:
+ * - Return lotteries
+ * @params:
+ * - total:number
+ * - offset:number
+ * - next:function
+ * @return:
+ * - Number
+ */
+
+Lottery.prototype.getLotteries = function (total, offset, next) {
+
+  if (!_.isFunction(next)) {
+    throw new Error('Lottery#getLotteries Service: the callback function is mandatory');
+  }
+
+  if (!_.isNumber(total)) {
+    sails.log.warn('Lottery#getLotteries Service: \'total\' property must be a number', total);
+    total = 10;
+  }
+
+  if (!_.isNumber(offset)) {
+    sails.log.warn('Lottery#getLotteries Service: \'offset\' property must be a number', offset);
+    offset = 0;
+  }
+
+  sails.models.lottery
+    .find()
+    .where({
+      result: {
+        '!': null
+      }
+    })
+    .limit(total)
+    .skip(offset)
+    .sort('timestamp DESC')
+    .then(function (lotteries) {
+      _.forEach(lotteries, function (lottery){
+        return parseAttributes(lottery);
+      });
+      return lotteries;
+    })
+    .then(function (lotteries) {
+      next(null, lotteries);
+    })
+    .fail(function (err) {
+      sails.log.error('Lottery#getLotteries : query fails', err);
+      next(err);
     });
 };
 

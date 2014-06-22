@@ -43,6 +43,9 @@
   "ui_signin": "Sign in",
   "ui_register": "Register",
   "ui_error": "An error occurred",
+  "ui_day": "day",
+  "ui_days": "days",
+  "ui_languages": "Languages",
 
   "contact_us": "Contact us",
   "see_previous_results": "See previous results",
@@ -51,6 +54,18 @@
   "current_theme": "Current theme",
   "fund_prize": "Fund prize",
   "next_drawing": "Next drawing",
+  "the_lucky_balls": "The lucky balls",
+  "won": "won",
+  "charities": "Charities",
+  "prizes": "Prizes",
+  "players": "Players",
+  "results": "Results",
+
+  "charity_rang_1" : "Boy scout",
+  "charity_rang_2" : "Contributor",
+  "charity_rang_3" : "Junior Donor",
+  "charity_rang_4" : "Donor",
+  "charity_rang_5" : "Benefactor",
 
   "footer_company": "Company",
   "footer_support": "Support",
@@ -93,23 +108,33 @@
   "landing_platforms_desc": "Play on a whole range of platforms, directly through one of our mobile apps, on Facebook or on our website",
 
   "landing_responsible_title": "Responsible",
-  "landing_responsible_desc": "A share of Adillions advertising revenues is dedicated to Charities.<br /> In concrete terms, each time you watch a 30-second ad, you dedicate a few seconds<br /> of your time to Charities",
+  "landing_responsible_desc": "A share of Adillions advertising revenues is dedicated to Charities.<br /> In concrete terms, each time you watch a 30-second ad, you dedicate a few seconds of your time to Charities",
 
   "landing_global_title": "Global",
   "landing_global_desc": "Join an international community of players. Everyone can be a winner!",
 
   "landing_advertisers_title": "Adillions for advertisers",
 
-  "landing_advertisers_boost": "Boost your brand awareness",
-  "landing_advertisers_boost_desc": "Adillions offers you the opportunity to<br /> broadcast quality viadeo ads and to organize<br /> your own sweepstake on your platform<br /> with customized theme and prizes",
+  "landing_advertisers_boost": "Boost your brand<br /> awareness",
+  "landing_advertisers_boost_desc": "Adillions offers you the opportunity to<br /> broadcast quality viadeo ads and to organize<br /> your own sweepstake on our platform<br /> with customized theme and prizes",
 
-  "landing_advertisers_multiscreen": "Implement a multi-screen strategy",
-  "landing_advertisers_multiscreen_desc": "You can benefit from Adillions presence<br /> on social networks (Facebook, Twitter,<br /> etc.) and on wide range on platforms<br /> (smartphones, tablets, desktop, etc.) ",
+  "landing_advertisers_multiscreen": "Implement a multi-screen<br /> strategy",
+  "landing_advertisers_multiscreen_desc": "You can benefit from Adillions presence on<br /> social networks (Facebook, Twitter, etc.) and <br /> on a wide range of platforms (desktop,<br /> smartphones, tablets, etc.) ",
 
-  "landing_advertisers_audience": "Reach a global engaged audience",
-  "landing_advertisers_audience_desc": "Thanks to Adillions international<br /> community of players, you get access<br /> to thousands of engaged users accrose<br /> the globe",
+  "landing_advertisers_audience": "Reach a global engaged<br />  audience",
+  "landing_advertisers_audience_desc": "Thanks to Adillions international<br /> community of players, you get access<br /> to thousands of engaged users accross<br /> the globe",
 
   "landing_press_title": "As featured in",
+
+  "_comment": "##### GAME/results #####",
+
+  "results_meta_title": "Sweepstake results",
+  "results_meta_desc": "Last sweepstake results, lucky balls, players and charities prizes!",
+
+  "results_title": "Sweepstake results",
+
+  "results_empty": "No results",
+  "results_goback": "Go back to last results",
 
   "_comment": "##### WINWINWIN/INDEX #####",
 
@@ -160,7 +185,7 @@
   "about_Global_text": "Join an international community of players",
   "about_Responsible_text": "Whether there are winners or not, a part of each video ad funds the Adillions Solidarity & Sustainable Development Fund",
 
-  "about_DrawAmount": "The sweepstake is drawn every Saturday at 8:00 p.m. (PST). Like any traditional sweepstake, if nobody wins, the amount accumulates and is added to the next draw.",
+  "about_DrawAmount": "The sweepstake is drawn every Sunday at 9:00 a.m. (GMT). Like any traditional lottery, if nobody wins, the amount accumulates and is added to the next draw.",
   "about_consult_terms": "Read our Terms of Use",
 
   "about_EachPlay": "Each time you play on Adillions, you have a chance to win the jackpot and you dedicate a few seconds of your time to charitable organizations",
@@ -175,8 +200,7 @@
 
   "about_Responsibility": "Social responsibility",
   "about_RespoBefore": "Throughout the ages, on all continents, lotteries have helped to fund major public projects (build the Great Wall of China, help the poor, finance public school systems, etc.)",
-  "about_RespoPublic": "Public interests were part of the game as much as the gambling itself. Today, Adillions brings back sweepstake to its true origins",
-  "about_RespoProud": "Adillions and the internet make it possible to gamble and to contribute to a global charitable project at the same time. We want our users to be proud members of Adillions community",
+  "about_RespoPublic": "Public interests were part of the game as much as the gambling itself. Today, Adillions brings back the lottery to its true origins. Indeed, Adillions and the internet make it possible to gamble and to contribute to a global charitable project at the same time",
   "about_RespoPeport": "The Adillions team is committed to publish each year a report about Adillions Solidarity & Sustainable Development Fund. Moreover, our final objective is to let our users choose the charitable projects they want to fund",
   "about_RespoConclusion": "We want our users to feel part of the Adillions community",
 
@@ -193,7 +217,7 @@
   "about_Team": "Team",
   "about_TeamIntro": "Adillions is based in Paris, France and the team is lead by:",
   "about_cofounder": "Co-founder",
-  
+
   "about_ceo": "CEO",
   "about_cto": "CTO",
   "about_fel": "Front-end Leader",

@@ -24,11 +24,12 @@ module.exports = {
 
     uid: {
       type: 'string',
-      unique: true
+      unique: true,
+      primaryKey: true
     },
 
-    date: {
-      type: 'int',
+    timestamp: {
+      type: 'integer',
       columnName: 'date'
     },
 
@@ -38,27 +39,36 @@ module.exports = {
     },
 
     numbers: {
-      type: 'int',
+      type: 'integer',
       columnName: 'max_numbers'
     },
 
-    price: {
-      count: {
-        type: 'float',
-        columnName: 'final_price'
-      },
-      result: {
-        type: 'json',
-        columnName: 'prizes'
-      },
-      min: {
-        type: 'int',
-        columnName: 'min_price'
-      },
-      mac: {
-        type: 'int',
-        columnName: 'max_price'
-      }
+    nb_players: {
+      type: 'integer'
+    },
+
+    theme: {
+      type: 'json'
+    },
+
+    final_price: {
+      type: 'float',
+      columnName: 'final_price'
+    },
+
+    prizes: {
+      type: 'array',
+      columnName: 'prizes'
+    },
+
+    min_price: {
+      type: 'integer',
+      columnName: 'min_price'
+    },
+
+    max_price: {
+      type: 'integer',
+      columnName: 'max_price'
     },
 
     result: {

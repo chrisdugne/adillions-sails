@@ -7,10 +7,53 @@
 
   <p class="lead">{{i18n 'about_AdillionsDesc'}}</p>
 
-<section class="section">
+<section class="about-section overview-section icons-section">
   <h2>{{i18n 'about_WhatIs'}}</h2>
 
-  <dl>
+  <div class="row text-center mtxl">
+
+    <div class="col-xs-12 col-sm-4">
+      <div class="icon glyphicon glyphicon-ok-2">
+      </div>
+      <h3>{{i18n 'about_Easy_title'}}</h3>
+      <p class="desc">{{i18n 'about_Easy_text'}}</p>
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+      <div class="icon glyphicon glyphicon-thumbs-up">
+      </div>
+      <h3>{{i18n 'about_Fun_title'}}</h3>
+      <p class="desc">{{i18n 'about_Fun_text'}}</p>
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+      <div class="icon glyphicon glyphicon-share-alt">
+      </div>
+      <h3>{{i18n 'about_Viral_title'}}</h3>
+      <p class="desc">{{i18n 'about_Viral_text'}}</p>
+    </div>
+
+  </div>
+
+  <div class="row text-center mtxl mbxl">
+
+    <div class="col-xs-12 col-sm-6">
+      <div class="icon glyphicon glyphicon-globe">
+      </div>
+      <h3>{{i18n 'about_Global_title'}}</h3>
+      <p class="desc">{{i18n 'about_Global_text'}}</p>
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+      <div class="icon glyphicon glyphicon-heart">
+      </div>
+      <h3>{{i18n 'about_Responsible_title'}}</h3>
+      <p class="desc">{{i18n 'about_Responsible_text'}}</p>
+    </div>
+
+  </div>
+
+{{!--   <dl>
     <dt>{{i18n 'about_Easy_title'}}</dt>
     <dd>{{i18n 'about_Easy_text'}}</dd>
     <dt>{{i18n 'about_Fun_title'}}</dt>
@@ -21,15 +64,17 @@
     <dd>{{i18n 'about_Global_text'}}</dd>
     <dt>{{i18n 'about_Responsible_title'}}</dt>
     <dd>{{i18n 'about_Responsible_text'}}</dd>
-  </dl>
+  </dl> --}}
+
   <p>
     {{i18n 'about_DrawAmount'}} <a href="{{route 'about.terms' lang=locale}}">{{i18n 'about_consult_terms'}}.</a>
   </p>
+
   <p>{{i18n 'about_EachPlay'}}</p>
 
 </section>
 
-<section class="section">
+<section class="about-section">
   <h2>{{i18n 'about_VisionValues'}}</h2>
 
   <h3>{{i18n 'about_Innovation'}}</h3>
@@ -37,15 +82,14 @@
   <p>{{i18n 'about_InnovOriginal'}}</p>
   <p>{{i18n 'about_InnovSimple'}}</p>
 
-  <p>{{i18n 'about_InnovConclusion'}}</p>
+  <blockquote><p>{{i18n 'about_InnovConclusion'}}</p></blockquote>
 
   <h3>{{i18n 'about_Responsibility'}}</h3>
   <p>{{i18n 'about_RespoBefore'}}</p>
   <p>{{i18n 'about_RespoPublic'}}</p>
-  <p>{{i18n 'about_RespoProud'}}</p>
   <p>{{i18n 'about_RespoPeport'}}</p>
 
-  <p>{{i18n 'about_RespoConclusion'}}</p>
+  <blockquote><p>{{i18n 'about_RespoConclusion'}}</p></blockquote>
 
   <h3>{{i18n 'about_Fairness'}}</h3>
   <p>{{i18n 'about_FairTransparent'}}</p>
@@ -57,7 +101,7 @@
     <li>{{i18n 'about_FairRules4'}}</li>
   </ul>
 
-  <p>{{i18n 'about_FairConclusion'}}</p>
+  <blockquote><p>{{i18n 'about_FairConclusion'}}</p></blockquote>
 
 </section>
 
