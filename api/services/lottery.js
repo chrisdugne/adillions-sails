@@ -86,9 +86,7 @@ Lottery.prototype.getTotalCharityPrice = function (split, next) {
       next(null, charity);
     })
     .fail(function (err) {
-      // do not expose error
-      sails.log.error('Lottery#getTotalCharityPrice Service: query fails', err);
-      next(null);
+      next(err);
     });
 
 };
@@ -125,9 +123,7 @@ Lottery.prototype.getTotalDrawings = function (next) {
       next(null, drawings);
     })
     .fail(function (err) {
-      // do not expose error
-      sails.log.error('Lottery#getTotalDrawings Service: query fails', err);
-      next(null);
+      next(err);
     });
 };
 
@@ -172,9 +168,7 @@ Lottery.prototype.getAverageCharity = function (next) {
       next(null, Math.round(averageCharity));
     })
     .fail(function (err) {
-      // do not expose error
-      sails.log.error('Lottery#getAverageCharity Service: query fails', err);
-      next(null);
+      next(err);
     });
 };
 
@@ -208,10 +202,8 @@ Lottery.prototype.getNextDrawing = function (currentLanguage, next) {
       }
     })
     .then(function (lottery) {
-      console.log(lottery);
-      if(!lottery) {
-        sails.log.error('Lottery#getNextDrawing Service: no next drawing found');
-        return next(null, {});
+      if (!lottery) {
+        throw new Error('Lottery#getNextDrawing Service: no next drawing found');
       }
       return parseAttributes(lottery);
     })
@@ -228,7 +220,6 @@ Lottery.prototype.getNextDrawing = function (currentLanguage, next) {
       });
     })
     .fail(function (err) {
-      sails.log.error('Lottery#getNextDrawing Service: query fails', err);
       next(err);
     });
 

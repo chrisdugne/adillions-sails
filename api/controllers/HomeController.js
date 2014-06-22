@@ -67,25 +67,48 @@ module.exports = {
       };
 
     async.parallel({
-      charityPrice: function (cb) {
-        LotteryService.getTotalCharityPrice(true, cb);
-      },
       nextDrawing: function (cb) {
-        LotteryService.getNextDrawing(currentLanguage, cb);
+        LotteryService.getNextDrawing(currentLanguage, function (err ,results){
+          if(err) {
+            // dont' break the page
+            // just log the error;
+            sails.log.error(err);
+          }
+          cb(null, results);
+        });
+      },
+      charityPrice: function (cb) {
+        LotteryService.getTotalCharityPrice(true, function (err ,results){
+          if(err) {
+            // dont' break the page
+            // just log the error;
+            sails.log.error(err);
+          }
+          cb(null, results);
+        });
       },
       lastWinners: function (cb) {
-        LotteryService.getWinners(3, 0, cb);
+        LotteryService.getWinners(3, 0, function (err ,results){
+          if(err) {
+            // dont' break the page
+            // just log the error;
+            sails.log.error(err);
+          }
+          cb(null, results);
+        });
       }
     }, function (err, results) {
       if (err) {
         return res.serverError(err);
       }
 
-      _.forEach(results.lastWinners, function (winner) {
-        if (winner.charityStatusRang) {
-          winner.charityStatusName = res.i18n('charity_rang_' + winner.charityStatusRang);
-        }
-      });
+      if(results && results.lastWinners) {
+        _.forEach(results.lastWinners, function (winner) {
+          if (winner.charityStatusRang) {
+            winner.charityStatusName = res.i18n('charity_rang_' + winner.charityStatusRang);
+          }
+        });
+      }
 
       res.view(_.defaults(locals, results));
     });
