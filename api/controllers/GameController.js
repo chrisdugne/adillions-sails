@@ -54,7 +54,7 @@ module.exports = {
           lottery.lucky_ball = lottery.theme[navLang][lucky_ball];
         } else if (lottery.theme.icons) {
           lottery.lucky_ball = lottery.theme.icons[lucky_ball];
-        }else {
+        } else {
           sails.log.error('game#results controller : no lucky ball found', lottery.theme);
         }
 
