@@ -68,8 +68,8 @@ module.exports = {
 
     async.parallel({
       nextDrawing: function (cb) {
-        LotteryService.getNextDrawing(currentLanguage, function (err ,results){
-          if(err) {
+        LotteryService.getNextDrawing(currentLanguage, function (err, results) {
+          if (err) {
             // dont' break the page
             // just log the error;
             sails.log.error(err);
@@ -78,8 +78,8 @@ module.exports = {
         });
       },
       charityPrice: function (cb) {
-        LotteryService.getTotalCharityPrice(true, function (err ,results){
-          if(err) {
+        LotteryService.getTotalCharityPrice(true, function (err, results) {
+          if (err) {
             // dont' break the page
             // just log the error;
             sails.log.error(err);
@@ -88,8 +88,8 @@ module.exports = {
         });
       },
       lastWinners: function (cb) {
-        LotteryService.getWinners(3, 0, function (err ,results){
-          if(err) {
+        LotteryService.getWinners(3, 0, function (err, results) {
+          if (err) {
             // dont' break the page
             // just log the error;
             sails.log.error(err);
@@ -102,7 +102,7 @@ module.exports = {
         return res.serverError(err);
       }
 
-      if(results && results.lastWinners) {
+      if (results && results.lastWinners) {
         _.forEach(results.lastWinners, function (winner) {
           if (winner.charityStatusRang) {
             winner.charityStatusName = res.i18n('charity_rang_' + winner.charityStatusRang);

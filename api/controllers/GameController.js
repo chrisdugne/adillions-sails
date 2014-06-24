@@ -43,7 +43,6 @@ module.exports = {
         lottery.date_month = req.format_date(parseInt(lottery.timestamp), 10).format('MMM');
         lottery.date_year = req.format_date(parseInt(lottery.timestamp), 10).year();
       });
-      //console.log(lotteries[0])
 
       res.view(_.merge(conf, {
         lotteries: lotteries

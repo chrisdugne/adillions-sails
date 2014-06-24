@@ -27,7 +27,7 @@ var splitNumber = function (ressource) {
   return items;
 };
 
-var parseAttributes = function (lottery) {
+var normalizeAttributes = function (lottery) {
   // parse attributes types
   lottery.theme = _.isObject(lottery.theme) ? lottery.theme : JSON.parse(lottery.theme);
   lottery.result = _.isObject(lottery.result) ? lottery.result : JSON.parse(lottery.result);
@@ -35,7 +35,7 @@ var parseAttributes = function (lottery) {
   // rangs bugs beacause of useless comma at the end of array
   //lottery.rangs = _.isObject(lottery.rangs) ? lottery.rangs : JSON.parse(lottery.rangs);
   lottery.timestamp = _.isNumber(lottery.timestamp) ? lottery.timestamp : Number(lottery.timestamp);
-
+  lottery.nb_winners = lottery.nb_winners();
   return lottery;
 };
 
@@ -205,7 +205,7 @@ Lottery.prototype.getNextDrawing = function (currentLanguage, next) {
       if (!lottery) {
         throw new Error('Lottery#getNextDrawing Service: no next drawing found');
       }
-      return parseAttributes(lottery);
+      return normalizeAttributes(lottery);
     })
     .then(function (lottery) {
       var theme = lottery.theme;
@@ -339,7 +339,7 @@ Lottery.prototype.getLotteries = function (total, offset, next) {
     .sort('timestamp DESC')
     .then(function (lotteries) {
       _.forEach(lotteries, function (lottery) {
-        return parseAttributes(lottery);
+        return normalizeAttributes(lottery);
       });
       return lotteries;
     })
