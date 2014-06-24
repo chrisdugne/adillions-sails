@@ -4,59 +4,66 @@
 {{#push "meta"}}
     <meta name="description" content="{{i18n 'results_meta_desc'}}">
 {{/push}}
+{{#push "scripts"}}
+<script src="{{statics '/scripts/results.js'}}"></script>
+<script>require('results');</script>
+{{/push}}
 
 <div class="loteries">
   <div class="row">
-    <div class="col-xs-4 col-sm-2 lotery-timeline prn pln">
+    <div class="col-xs-3 col-sm-2 lotery-timeline prn pln">
     </div>
   </div>
   {{#each lotteries}}
   <section class="lotery pbxl">
 
     <div class="clearfix">
-      <div class="col-xs-4 col-sm-2 prn pln text-center">
+      <div class="col-xs-3 col-sm-2 prn pln text-center">
         <h2 class="lotery-date man">
           <span class="day">{{date_day}}</span>
           <span class="month">{{date_month}}</span>
         </h2>
       </div>
-      <div class="col-xs-8 col-sm-10">
+      <div class="col-xs-9 col-sm-10">
         <span class="lotery-date-year">{{date_year}}</span>
       </div>
     </div>
 
 
     <div class="row">
-      <div class="col-xs-offset-4 col-xs-8 col-sm-offset-2 col-sm-10">
+      <div class="col-xs-offset-3 col-xs-9 col-sm-offset-2 col-sm-10">
         <h3>{{theme.title}}</h3>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-xs-offset-4 col-xs-8 col-sm-offset-2 col-sm-10">
+      <div class="col-xs-offset-3 col-xs-9 col-sm-offset-2 col-sm-10">
 
         <div class="well dispib">
           <ul class="list-inline lotery-list drawing-balls">
           {{#each result}}
             <li class="ball">{{this}}</li>
           {{/each}}
+          {{#if lucky_ball}}
+            <li class="js-lucky-ball-tooltip ball lucky-ball" data-toggle="tooltip" data-placement="top" data-original-title="{{lucky_ball.name}} {{lucky_ball.name2}}"><img src="{{lucky_ball.image}}" alt="{{lucky_ball.name}} {{lucky_ball.name2}}" width="60"/></li>
+          {{/if}}
           </ul>
         </div>
 
-        <div class="clearfix text-center icons-section">
-          <div class="pull-left mrl">
+        <div class="clearfix icons-section">
+          <div class="dispib mrl text-center">
             <div class="icon glyphicon glyphicon-group mtn">
             </div>
             <h3>{{#mergeContexts parent=..}}{{i18n 'winners'}}{{/mergeContexts}}</h3>
             <p class="desc">{{nb_winners}}</p>
           </div>
-          <div class="pull-left mrl">
+          <div class="dispib mrl text-center">
             <div class="icon glyphicon glyphicon-money mtn">
             </div>
             <h3>{{#mergeContexts parent=..}}{{i18n 'prizes'}}{{/mergeContexts}}</h3>
             <p class="desc">{{final_price}} €</p>
           </div>
-          <div class="pull-left">
+          <div class="dispib text-center">
             <div class="icon glyphicon glyphicon-heart mtn">
             </div>
             <h3>{{#mergeContexts parent=..}}{{i18n 'charities'}}{{/mergeContexts}}</h3>

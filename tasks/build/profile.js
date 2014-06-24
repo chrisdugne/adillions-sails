@@ -30,12 +30,18 @@ var modules = {
     'assets/bower_components/respond/dest/respond.src.js'
   ],
 
-  // HTML 5 Shiv, JSON Polyfill, CSS3 Polyfill
+  // landing page
   '.tmp/public/scripts/landing.js': [
     'assets/bower_components/skrollr/src/skrollr.js',
     'assets/bower_components/jquery.countdown/dist/jquery.countdown.js',
     '.tmp/transpile/modules/landing.js',
     '.tmp/transpile/modules/landing/*.js'
+  ],
+
+  // results page
+  '.tmp/public/scripts/results.js': [
+    '.tmp/transpile/modules/results.js',
+    '.tmp/transpile/modules/results/*.js'
   ]
 
 };

@@ -27,6 +27,12 @@ body.results  .site-content {
     }
   }
 
+  .icons-section {
+    @media (max-width: $screen-xs-max) {
+      text-align: center;
+    }
+  }
+
   $date-size: 70px;
   .lotery-date {
     font-weight: normal;
@@ -54,10 +60,20 @@ body.results  .site-content {
   }
 
   .lotery-date-year {
-    font-size:em(16px);
     color: $gray-light;
     line-height: $date-size;
     display:block;
+    position: relative;
+    left:-55px;
+    @media (max-width: $screen-md-max) {
+      left:-45px;
+    }
+    @media (max-width: $screen-sm-max) {
+      left:0;
+    }
+    @media (max-width: $screen-xs-max) {
+      left:0;
+    }
   }
 
 }

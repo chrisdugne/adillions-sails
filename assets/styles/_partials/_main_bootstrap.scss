@@ -109,7 +109,7 @@ $avatar-border-color: lighten($blue-lighter,5%);
 }
 
 .drawing-balls {
-  li {
+  .ball {
     display: inline-block;
     border-radius:100%;
     padding:8px 13px;
@@ -123,6 +123,9 @@ $avatar-border-color: lighten($blue-lighter,5%);
     @include radial-gradient(lighten($green-light, 10%), $green-dark);
     @include prefixer(box-shadow, 0px 0px 3px 0px rgba(0, 0, 0,0.4), webkit spec);
     text-shadow: 1px 1px rgba(0,0,0,0.6);
+  }
+  .lucky-ball {
+    padding:4px;
   }
   &.drawing-balls-lg {
     font-size:em(20px);
