@@ -9,6 +9,7 @@
 <script>require('results');</script>
 {{/push}}
 
+{{#if lotteries}}
 <div class="loteries">
   <div class="row">
     <div class="col-xs-3 col-sm-2 lotery-timeline prn pln">
@@ -75,11 +76,12 @@
     </div>
 
   </section>
-  {{else}}
-    <p class="lead">
-      {{#mergeContexts parent=..}}{{i18n 'results_empty'}}{{/mergeContexts}}
-    </p>
-    <p><a href="{{route 'game.results' lang=locale}}" class="btn btn-default">{{#mergeContexts parent=..}}{{i18n 'results_goback'}}{{/mergeContexts}}</a></p>
   {{/each}}
-
 </div>
+{{else}}
+  <p class="lead">
+    {{#mergeContexts parent=..}}{{i18n 'results_empty'}}{{/mergeContexts}}
+  </p>
+  <p><a href="{{route 'game.results' lang=locale}}" class="btn btn-default">{{#mergeContexts parent=..}}{{i18n 'results_goback'}}{{/mergeContexts}}</a></p>
+{{/if}}
+
