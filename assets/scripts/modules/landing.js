@@ -7,6 +7,7 @@ import global from 'landing/global';
 
   drawing();
   parallax();
-  global();
+  // wait load of google maps; see home/index.hbs
+  //global();
 
 })(window.jQuery);

@@ -10,9 +10,22 @@
 {{/push}}
 
 {{#push "scripts"}}
-<script src="https://maps.googleapis.com/maps/api/js?sensor=false&v={{api.google.version}}&key={{api.google.key}}&language={{locale}}"></script>
+{{!-- <script src="https://maps.googleapis.com/maps/api/js?sensor=false&v={{api.google.version}}&key={{api.google.key}}&language={{locale}}"></script> --}}
 <script src="{{statics '/scripts/landing.js'}}"></script>
 <script>require('landing');</script>
+<script>
+function loadScript() {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'https://maps.googleapis.com/maps/api/js?key={{api.google.key}}&v={{api.google.version}}&language={{locale}}&' +
+      'callback=initializeMap';
+  document.body.appendChild(script);
+};
+function initializeMap () {
+  require('landing/global')['default']();
+};
+window.onload = loadScript;
+</script>
 {{/push}}
 
 
