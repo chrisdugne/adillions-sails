@@ -186,9 +186,9 @@ window.onload = loadScript;
       <div class="col-xs-12 col-sm-6 col-md-6 mbm">
         <h2>{{i18n 'landing_responsible_title'}}</h2>
         <p class="desc">{{{i18n 'landing_responsible_desc'}}}</p>
-        {{#if charityPrice}}
+        {{#if totalCharity}}
         <p class="prize mbn mtxl">
-          {{#each charityPrice}}
+          {{#each totalCharity}}
             {{#if comma}}
               <span class="prize-comma">{{value}}</span>
             {{/if}}

@@ -6,6 +6,7 @@
  */
 
 var url = require('url'),
+  numeral = require('numeral'),
   _ = require('lodash');
 
 var getUrl = function (req, code) {
@@ -16,11 +17,32 @@ var getUrl = function (req, code) {
   });
 };
 
+var splitCharityPrice = function (CharityPrice) {
+  var formatedCharityPrice = numeral(CharityPrice).format('0,0'),
+    i = 1,
+    l = formatedCharityPrice.length,
+    items = [];
+  while (i <= l) {
+    var item = formatedCharityPrice.substring(i - 1, i);
+    items.push({
+      value: item,
+      number: !_.isNaN(Number(item)),
+      comma: item === ',',
+      currency: item === '$' || item === '€'
+    });
+    i++;
+  }
+  return items;
+};
+
 module.exports = {
   index: function (req, res) {
     var languages = res.locals.languages,
       currentLanguage = res.getLocale(),
-      LotteryService = new sails.services.lottery();
+      LotteryService = new sails.services.lottery(),
+      TOTAL_WINNERS = 3,
+      OFFSET_WINNERS = 0,
+      SPLIT_CHARITY = true;
 
     if (_.isEmpty(languages)) {
       sails.log.error('home#index: languages cannot be found');
@@ -77,18 +99,18 @@ module.exports = {
           cb(null, results);
         });
       },
-      charityPrice: function (cb) {
-        LotteryService.getTotalCharityPrice(true, function (err, results) {
+      totalCharity: function (cb) {
+        LotteryService.getTotalCharityPrice(SPLIT_CHARITY, function (err, results) {
           if (err) {
             // dont' break the page
             // just log the error;
             sails.log.error(err);
           }
-          cb(null, results);
+          cb(null, splitCharityPrice(results));
         });
       },
       lastWinners: function (cb) {
-        LotteryService.getWinners(3, 0, function (err, results) {
+        LotteryService.getWinners(TOTAL_WINNERS, OFFSET_WINNERS, function (err, results) {
           if (err) {
             // dont' break the page
             // just log the error;

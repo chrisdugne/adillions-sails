@@ -1,31 +1,9 @@
 var _ = require('lodash'),
-  numeral = require('numeral'),
   moment = require('moment');
 
 function Lottery() {
-
+  // construtor
 }
-
-var splitNumber = function (ressource) {
-
-  var formatedRessource = numeral(ressource).format('0,0'),
-    i = 1,
-    l = formatedRessource.length,
-    items = [];
-
-  while (i <= l) {
-    var item = formatedRessource.substring(i - 1, i);
-    items.push({
-      value: item,
-      number: !_.isNaN(Number(item)),
-      comma: item === ',',
-      currency: item === '$' || item === '€'
-    });
-    i++;
-  }
-
-  return items;
-};
 
 var normalizeAttributes = function (lottery) {
   // parse attributes types
@@ -78,10 +56,6 @@ Lottery.prototype.getTotalCharityPrice = function (split, next) {
       }
 
       charity = Math.round(charity);
-
-      if (split) {
-        charity = splitNumber(charity);
-      }
 
       next(null, charity);
     })
