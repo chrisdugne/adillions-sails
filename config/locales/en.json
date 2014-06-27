@@ -166,6 +166,30 @@
 
   "winwinwin_charity_annotation": "* World Internet users according to the UN's International Telecommunication Union (as of Dec. 2013)",
 
+  "_comment": "##### about/legalnotices #####",
+
+  "legalnotices_meta_title": "Legal notices",
+  "legalnotices_meta_desc": "",
+
+  "legalnotices": "Legal notices",
+
+  "legalnotices_site_editor" : "Owner & Publisher",
+  "legalnotices_site_editor_desc" : "Adillions is a simplified joint-stock company (S.A.S.) under French law, with a share capital of 10.000 euros, whose head office is located at: 57 rue du Faubourg Montmartre, 75009 Paris -France, registered at the Paris RCS (French Trade Registery) under No. 797 736 261",
+  "legalnotices_publisher_director" : "Publisher",
+  "legalnotices_publisher_director_desc" : "Timothée LE BOULLEUR DE COURLON",
+  "legalnotices_host" : "Hoster",
+  "legalnotices_host_desc" : "Server: Heroku Europe (Amazon Web Services Europe West)",
+  "legalnotices_host_address" : "Heroku Inc.<br /> 650 7th Street<br /> San Francisco, CA, 94103, USA<br /> Contact : +1 877 563-4311",
+  "legalnotices_tva" : "Intra community VAT Number",
+  "legalnotices_tva_desc" : "FR 60 797736261",
+  "legalnotices_cnil" : "<abbr title='Commission Nationale de l’Informatique et des Libertés'>CNIL</abbr> number",
+  "legalnotices_cnil_desc" : "1716298",
+  "legalnotices_contact" : "For any request, please send a mail to the following address",
+  "legalnotices_contact_desc" : "Adillions<br /> Service Contact<br /> 57 rue du Faubourg Montmartre<br /> 75009 Paris - France<br /> or by email to the following electronic address: contact[at]adillions.com",
+  "legalnotices_property" : "Intellectual Property",
+  "legalnotices_property_desc" : "The website located at www.adillions.com and downloadable mobile applications from the Apple App Store and Google Play Google , hereinafter together referred to as the \"Platform\" and all rights attached to it are the exclusive property of Adillions.",
+  "legalnotices_property_desc2" : "The trademark \"Adillions\" is a registered and protected trademark . All trademarks, logos and other distinctive signs displayed on the Platform as well as the sites it provides access whatever way, are the exclusive property of Adillions and are protected as such by the provisions of the Intellectual Property Code. Any reproduction, and/or total or partial adaptation, unauthorized use of such trademarks, logos and signs, by any means or in any manner, is an infringement subject to civil and criminal penalties . In particular, all softwares used on the Platform and its partners, as well as images, text and illustrations reproduced on the Platform and its partners are protected by copyright and reproduction, representation and/or unauthorized adaptation is an infringement subject to civil and criminal penalties.",
+
   "_comment": "##### ABOUT/index #####",
 
   "about_meta_title": "About the lottery game",
