@@ -18,6 +18,9 @@
   padding:30px 0;
   background: $footer-top;
   border-top:1px solid tint($footer-top, 2%);
+  .share-button {
+    max-height: 20px;
+  }
 }
 
 .footer-nav {
