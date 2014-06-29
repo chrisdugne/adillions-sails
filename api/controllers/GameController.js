@@ -19,7 +19,7 @@ module.exports = {
       navLang = res.getLocale(),
       page = Number(req.query.page) || 1,
       total = 10,
-      start = (page-1) * total;
+      start = (page - 1) * total;
 
     var locals = {
       usePopTitle: true,

@@ -326,16 +326,4 @@ Lottery.prototype.getLotteries = function (total, offset, next) {
     });
 };
 
-Lottery.prototype.getTotalLotteries = function (next) {
-  sails.models.lottery
-    .count()
-    .then(function (total) {
-      next(null, total);
-    })
-    .fail(function (err) {
-      sails.log.error('Lottery#getTotalLotteries Service: query fails', err);
-      next(err);
-    });
-}
-
 module.exports = Lottery;
