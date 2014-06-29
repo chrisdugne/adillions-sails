@@ -190,7 +190,7 @@ Lottery.prototype.getNextDrawing = function (currentLanguage, next) {
           balls: theme.balls[currentLanguage]
         },
         timestamp: lottery.timestamp / 1000, // turn milliseconds to seconds
-        prize: lottery.final_price || lottery.min_price
+        prize: lottery.min_price || lottery.final_price
       });
     })
     .fail(function (err) {
@@ -325,5 +325,17 @@ Lottery.prototype.getLotteries = function (total, offset, next) {
       next(err);
     });
 };
+
+Lottery.prototype.getTotalLotteries = function (next) {
+  sails.models.lottery
+    .count()
+    .then(function (total) {
+      next(null, total);
+    })
+    .fail(function (err) {
+      sails.log.error('Lottery#getTotalLotteries Service: query fails', err);
+      next(err);
+    });
+}
 
 module.exports = Lottery;

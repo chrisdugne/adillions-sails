@@ -138,3 +138,12 @@ $avatar-border-color: lighten($blue-lighter,5%);
     font-size:em(10px);
   }
 }
+
+.pager {
+  a {
+    color:$pagination-color;
+    &:hover {
+      color:$pagination-hover-color;
+    }
+  }
+}

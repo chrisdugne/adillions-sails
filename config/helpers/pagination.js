@@ -11,7 +11,7 @@ var _ = require('lodash'),
 var options;
 var defaultOptions = {
   defaultPageNumber: 1,
-  defaultPageSize: 20,
+  defaultPageSize: 10,
   defaultDisplayLimit: 3,
   defaultHtmlClass: '',
   defaultBtnHtmlClass: '',
@@ -128,7 +128,7 @@ var helpers = {
     var displayLimitMin = (currentPage === totalPage) ? currentPage - (displayLimit + 1) : (currentPage - displayLimit);
 
     // render html paginator
-    var finalClass = (htmlClass) ? ('paginator ' + htmlClass) : 'paginator';
+    var finalClass = (htmlClass) ? ('pagination ' + htmlClass) : 'pagination';
     var html = util.format('<ul class="%s">\n', finalClass);
     var relAttribute = '';
     for (var pageNumber = 1, ellipsis = true; pageNumber <= totalPage; pageNumber++) {
@@ -198,6 +198,7 @@ var helpers = {
       htmlClass = params.hash.htmlClass || options.defaultBtnHtmlClass,
       currentPage = params.hash.currentPage || options.defaultPageNumber,
       type = params.hash.type || options.defaultBtnType,
+      title = params.hash.title || '',
       baseUrl = params.hash.baseUrl;
 
     // sanity check
@@ -238,17 +239,17 @@ var helpers = {
     }
 
     var destPageNumber = (type === 'prev') ? currentPage - 1 : currentPage + 1;
-    var finalClass = (htmlClass) ? ('btn btn-pagination ' + htmlClass) : 'btn btn-pagination';
+    var finalClass = (htmlClass);
 
     // Create HTML code for the button
     var html = util.format(
-      '<a href="%s" class="%s" rel="%s">',
+      '<a href="%s" class="%s" rel="%s" title="%s">',
       createPageUrl(baseUrl, destPageNumber),
       finalClass,
-      type);
-    html += (type === 'prev') ? '<i class="vicon btn-icon-before">‹</i> ' : '';
+      type,
+      title);
+
     html += params.fn(this);
-    html += (type === 'next') ? ' <i class="vicon btn-icon-after">›</i>' : '';
     html += '</a>';
 
     return new hbs.SafeString(html);

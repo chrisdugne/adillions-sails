@@ -77,7 +77,27 @@
 
   </section>
   {{/each}}
+
 </div>
+
+<div class="row mtxl">
+  <div class="col-xs-offset-3 col-xs-9 col-sm-offset-2 col-sm-10 clearfix">
+
+    {{#set 'prev'}}{{i18n 'ui_prev'}}{{/set}}
+    <ul class="pager pager-lg pull-left mrm">
+      <li>{{#paginationBtn type='prev' total=paginationTotal nbPerPage=paginationOffset baseUrl=paginationBaseUrl currentPage=paginationCurrentPage title=prev}}<span class="glyphicon glyphicon-chevron-left" title="{{i18n 'ui_prev'}}"></span>{{/paginationBtn}}</li>
+    </ul>
+
+    {{{pagination htmlClass='pagination-lg pull-left mrm' total=paginationTotal nbPerPage=paginationOffset baseUrl=paginationBaseUrl currentPage=paginationCurrentPage}}}
+
+    {{#set 'next'}}{{i18n 'ui_next'}}{{/set}}
+    <ul class="pager pager-lg pull-left">
+      <li>{{#paginationBtn type='next' total=paginationTotal nbPerPage=paginationOffset baseUrl=paginationBaseUrl currentPage=paginationCurrentPage title=next}}<span class="glyphicon glyphicon-chevron-right"></span>{{/paginationBtn}}</li>
+    </ul>
+
+  </div>
+</div>
+
 {{else}}
   <p class="lead">
     {{#mergeContexts parent=..}}{{i18n 'results_empty'}}{{/mergeContexts}}

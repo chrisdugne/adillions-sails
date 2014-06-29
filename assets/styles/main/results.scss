@@ -1,5 +1,18 @@
 body.results  .site-content {
 
+  .pagination-lg {
+    > li > a {
+      padding:8px 18px;
+    }
+  }
+
+  .pager-lg {
+    > li > a {
+      padding:10px 18px 6px 18px;
+      font-size: 18px;
+    }
+  }
+
   .lotery {
     position: relative;
     .well {
