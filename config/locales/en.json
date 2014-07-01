@@ -47,6 +47,7 @@
   "ui_days": "days",
   "ui_languages": "Languages",
 
+  "coming_soon": "Coming soon",
   "contact_us": "Contact us",
   "see_previous_results": "See previous results",
   "play_for_free": "Play for <strong>free</strong>",
@@ -67,6 +68,10 @@
   "charity_rang_3" : "Junior Donor",
   "charity_rang_4" : "Donor",
   "charity_rang_5" : "Benefactor",
+
+  "coming_soon_game_desc": "We will soon release a web version of the game.",
+  "coming_soon_game_desc2": "You can already enjoy Adillions on your smartphone and tablet (iOS & Android).",
+  "coming_soon_game_desc3": "Try your luck now!",
 
   "footer_company": "Company",
   "footer_support": "Support",
@@ -126,6 +131,13 @@
   "landing_advertisers_audience_desc": "Thanks to Adillions international<br /> community of players, you get access<br /> to thousands of engaged users accross<br /> the globe",
 
   "landing_press_title": "As featured in",
+
+  "_comment": "##### GAME/index #####",
+
+  "game_meta_title": "Sweepstake game",
+  "game_meta_desc": "Try your luck with adillions sweepstake. Play for free on your smartphone and tablet (iOS & Android)",
+
+  "game_title": "Play on Adillions sweepstake",
 
   "_comment": "##### GAME/results #####",
 
