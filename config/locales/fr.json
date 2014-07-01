@@ -47,6 +47,7 @@
   "ui_days": "jours",
   "ui_languages": "Langues",
 
+  "coming_soon": "À venir",
   "contact_us": "Contactez-nous",
   "see_previous_results": "Voir les résultats précédents",
   "play_for_free": "Jouez <strong>gratuitement</strong>",
@@ -67,6 +68,10 @@
   "charity_rang_3" : "Donateur junior",
   "charity_rang_4" : "Donateur",
   "charity_rang_5" : "Bienfaiteur",
+
+  "coming_soon_game_desc": "Nous travaillons actuellement sur la version web du jeu.",
+  "coming_soon_game_desc2": "Vous pouvez d'ores et déjà jouer à Adillions sur votre smartphone et tablette (iOS et Android).",
+  "coming_soon_game_desc3": "Tentez votre chance!",
 
   "footer_company": "Société",
   "footer_support": "Support",
@@ -125,6 +130,13 @@
   "landing_advertisers_audience_desc": "Grâce à Adillions, vous avez accès à une communauté de joueurs engagés et fidèles à travers le monde",
 
   "landing_press_title": "A été vu sur",
+
+  "_comment": "##### GAME/index #####",
+
+  "game_meta_title": "Jouer à la loterie innovante et responsable",
+  "game_meta_desc": "Tentez votre chance avec la loterie Adillions. Jouez gratuitement sur votre smartphone et tablette (iOS et Android)",
+
+  "game_title": "Jouer à une loterie innovante et responsable",
 
   "_comment": "##### GAME/results #####",
 

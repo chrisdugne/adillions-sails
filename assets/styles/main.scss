@@ -8,6 +8,7 @@
 
 @import 'main/header.scss';
 @import 'main/footer.scss';
+@import 'main/light.scss';
 @import 'main/auth.scss';
 
 @import 'main/results.scss';
@@ -16,3 +17,5 @@
 @import 'main/advertisers.scss';
 @import 'main/landing.scss';
 @import 'main/winwinwin.scss';
+
+@import '_partials/_sprites';
