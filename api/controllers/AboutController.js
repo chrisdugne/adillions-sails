@@ -77,6 +77,14 @@ module.exports = {
     });
   },
 
+  legalnotices: function (req, res) {
+    return res.view({
+      usePopTitle: true,
+      title: res.i18n('legalnotices'),
+      layout: 'layout_about'
+    });
+  },
+
   rules: function (req, res) {
     return res.view({
       usePopTitle: true,

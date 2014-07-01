@@ -1,5 +1,18 @@
 body.results  .site-content {
 
+  .pagination-lg {
+    > li > a {
+      padding:8px 18px;
+    }
+  }
+
+  .pager-lg {
+    > li > a {
+      padding:10px 18px 6px 18px;
+      font-size: 18px;
+    }
+  }
+
   .lotery {
     position: relative;
     .well {
@@ -24,6 +37,12 @@ body.results  .site-content {
       width:3px;
       height:100%;
       background: rgba(153, 153, 153, 0.40);
+    }
+  }
+
+  .icons-section {
+    @media (max-width: $screen-xs-max) {
+      text-align: center;
     }
   }
 
@@ -54,10 +73,20 @@ body.results  .site-content {
   }
 
   .lotery-date-year {
-    font-size:em(16px);
     color: $gray-light;
     line-height: $date-size;
     display:block;
+    position: relative;
+    left:-55px;
+    @media (max-width: $screen-md-max) {
+      left:-45px;
+    }
+    @media (max-width: $screen-sm-max) {
+      left:0;
+    }
+    @media (max-width: $screen-xs-max) {
+      left:0;
+    }
   }
 
 }

@@ -43,6 +43,7 @@ module.exports.routes = {
   '/:lang/about/prizes': 'AboutController.prizes',
   '/:lang/about/press': 'AboutController.press',
   '/:lang/about/faq': 'AboutController.faq',
+  '/:lang/about/legalnotices': 'AboutController.legalnotices',
   '/:lang/about/rules': 'AboutController.rules',
   '/:lang/about/jobs': 'AboutController.jobs',
   '/:lang/about/privacy': 'AboutController.privacy',

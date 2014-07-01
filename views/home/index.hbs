@@ -10,15 +10,29 @@
 {{/push}}
 
 {{#push "scripts"}}
-<script src="https://maps.googleapis.com/maps/api/js?sensor=false&v={{api.google.version}}&key={{api.google.key}}&language={{locale}}"></script>
+{{!-- <script src="https://maps.googleapis.com/maps/api/js?sensor=false&v={{api.google.version}}&key={{api.google.key}}&language={{locale}}"></script> --}}
 <script src="{{statics '/scripts/landing.js'}}"></script>
 <script>require('landing');</script>
+<script>
+function loadScript() {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'https://maps.googleapis.com/maps/api/js?key={{api.google.key}}&v={{api.google.version}}&language={{locale}}&' +
+      'callback=initializeMap';
+  document.body.appendChild(script);
+};
+function initializeMap () {
+  require('landing/global')['default']();
+};
+window.onload = loadScript;
+</script>
 {{/push}}
 
 
-{{!-- section: How it Works --}}
+{{!-- section: hero--}}
 <section class="landing-section landing-hero">
   <h1 class="text-center mtn mbxl">{{i18n 'landing_title'}}</h1>
+  {{#if nextDrawing}}
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
@@ -61,6 +75,7 @@
       </ul>
     </div>
   </div>
+  {{/if}}
 </section>
 
 {{!-- section: How it Works --}}
@@ -171,8 +186,9 @@
       <div class="col-xs-12 col-sm-6 col-md-6 mbm">
         <h2>{{i18n 'landing_responsible_title'}}</h2>
         <p class="desc">{{{i18n 'landing_responsible_desc'}}}</p>
+        {{#if totalCharity}}
         <p class="prize mbn mtxl">
-          {{#each charityPrice}}
+          {{#each totalCharity}}
             {{#if comma}}
               <span class="prize-comma">{{value}}</span>
             {{/if}}
@@ -185,6 +201,7 @@
           {{/each}}
           <span class="prize-currenry">€</span>
         </p>
+        {{/if}}
       </div>
     </div>
   </div>
@@ -195,6 +212,7 @@
   <div class="container">
     <h2 class="text-center">{{i18n 'landing_global_title'}}</h2>
     <p class="desc text-center">{{i18n 'landing_global_desc'}}</p>
+    {{#if lastWinners}}
     <ul id="js-global-players" class="global-players list-inline row mtxl">
       {{#each lastWinners}}
       <li class="global-player col-sm-4 col-xs-12" data-country="{{country}}" data-title="{{firstname}} {{truncate lastname 1}}">
@@ -223,6 +241,7 @@
       </li>
       {{/each}}
     </ul>
+    {{/if}}
     <div id="js-global-map" class="global-map">
     </div>
      <p class="text-center">
@@ -263,7 +282,7 @@
     </div>
 
     <p class="text-center">
-      <a href="" class="btn btn-primary btn-lg">
+      <a href="mailto:advertisers@adillions.com" class="btn btn-primary btn-lg">
         {{i18n 'contact_us'}}
       </a>
     </p>
@@ -272,7 +291,7 @@
 </section>
 
 {{!-- section: press --}}
-<section class="landing-section landing-press">
+{{!-- <section class="landing-section landing-press">
   <div class="container">
     <div class="row">
       <div class="col-xs-3 col-md-3">
@@ -289,4 +308,4 @@
     </div>
   </div>
 </section>
-
+ --}}

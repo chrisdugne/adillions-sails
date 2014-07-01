@@ -17,6 +17,12 @@
       margin:em(14px) 0;
       display:inline-block;
     }
+    @media (max-width: $screen-xs-max) {
+      text-align: center;
+      ul {
+        display: block;
+      }
+    }
   }
 
   .social {

@@ -59,6 +59,7 @@
   "charities": "Associations",
   "prizes": "Récompenses",
   "players": "Joueurs",
+  "winners": "Gagnants",
   "results": "Résultats",
 
   "charity_rang_1" : "Scout",
@@ -164,6 +165,30 @@
 
   "winwinwin_charity_annotation": "* Personnes connectées dans le monde selon l’Union Internationale des Télécommunications (Nations Unies) à déc. 2013",
 
+  "_comment": "##### about/legalnotices #####",
+
+  "legalnotices_meta_title": "Mentions légales",
+  "legalnotices_meta_desc": "",
+
+  "legalnotices": "Mentions légales",
+
+  "legalnotices_site_editor" : "Éditeur du site",
+  "legalnotices_site_editor_desc" : "Adillions est une société par actions simplifiée au capital de 10.000 euros, située au 57 rue du Faubourg Montmartre, 75009 Paris - France, immatriculée au RCS de Paris sous le numéro 797 736 261.",
+  "legalnotices_publisher_director" : "Directeur de la publication ",
+  "legalnotices_publisher_director_desc" : "Timothée LE BOULLEUR DE COURLON",
+  "legalnotices_host" : "Hébergeur",
+  "legalnotices_host_desc" : "Serveur : Heroku Europe (Amazon Web Services Europe West)",
+  "legalnotices_host_address" : "Heroku Inc.<br /> 650 7th Street<br /> San Francisco, CA, 94103, USA<br /> Contact : +1 877 563-4311",
+  "legalnotices_tva" : "Numéro de TVA intracommunautaire",
+  "legalnotices_tva_desc" : "FR 60 797736261",
+  "legalnotices_cnil" : "Numéro <abbr title='Commission Nationale de l’Informatique et des Libertés'>CNIL</abbr>",
+  "legalnotices_cnil_desc" : "1716298",
+  "legalnotices_contact" : "Pour toute demande, adressez vos courriers à",
+  "legalnotices_contact_desc" : "Adillions<br /> Service Contact<br /> 57 rue du Faubourg Montmartre<br /> 75009 Paris - France<br /> ou par mail à l'adresse suivante :contact[at]adillions.com",
+  "legalnotices_property" : "Propriété Intellectuelle",
+  "legalnotices_property_desc" : "Le site internet à l'adresse www.adillions.com et les applications mobiles téléchargeables depuis l'App Store d'Apple et le Google Play de Google, ci-après, ensemble, dénommés la « Plateforme » et tous les droits qui lui sont rattachés sont la propriété exclusive d'Adillions.",
+  "legalnotices_property_desc2" : "La marque « Adillions » est une marque déposée et protégée. Toutes les marques, logos et autres signes distinctifs reproduits sur la Plateforme ainsi que sur les sites auxquels celui-ci permet l'accès quelle qu'en soit la manière, sont la propriété exclusive d'Adillions et sont protégés à ce titre par les dispositions du Code de la propriété intellectuelle. Toute reproduction, représentation et/ou adaptation totale ou partielle, non autorisée de ces marques, logos et signes constitue une contrefaçon passible de sanctions civiles et pénales. En particulier, tous les logiciels utilisés sur la Plateforme et ses partenaires, ainsi que les images, textes et illustrations reproduits sur la Plateforme et ses partenaires sont protégés par le droit d'auteur et leur reproduction, représentation et/ou adaptation non autorisée constitue une contrefaçon passible de sanctions civiles et pénales.",
+
   "_comment": "##### ABOUT/INDEX #####",
 
   "about_meta_title": "À propos du jeu de loterie",
@@ -183,9 +208,9 @@
   "about_Fun_text": "Choisissez 5 numéros et votre Boule Chance",
   "about_Viral_text": "Invitez vos amis pour faire augmenter la cagnotte",
   "about_Global_text": "Rejoignez une communauté internationale de joueurs",
-  "about_Responsible_text": "Qu'il y ait des gagnants ou non, une part de chaque spot publicitaire alimente le Fonds de Solidarité et de Développement Durable d'Adillions",
+  "about_Responsible_text": "Les spots financent le Fonds de solidarité et de Développement Durable d'Adillions ",
 
-  "about_DrawAmount": "Les tirages ont lieu chaque dimanche à 11h00 (heure française). Comme toutes les loteries traditionnelles, si personne ne gagne alors la cagnotte s'ajoute à celle du prochain tirage - ",
+  "about_DrawAmount": "Les tirages ont lieu chaque dimanche à 11h00 (heure française). Comme toutes les loteries traditionnelles, si personne ne gagne alors la cagnotte s'ajoute à celle du prochain tirage.",
   "about_consult_terms": "Consulter notre Règlement",
 
   "about_EachPlay": "Chaque fois que vous jouez sur Adillions, vous avez une chance de gagner le jackpot et vous consacrez quelques secondes de votre journée à des œuvres caritatives",
@@ -622,7 +647,7 @@
 
   "team_ceo": "Président-Directeur Général",
   "team_cto": "Directeur Technique",
-  "team_fel": "Front-end Leader",
+  "team_fel": "Web architect & Front-end Leader",
 
   "team_ceo_name": "Timothée de COURLON",
   "team_cto_name": "Christophe DUGNE-ESQUEVIN",

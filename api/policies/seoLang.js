@@ -22,7 +22,7 @@ var isExists = function (array, key) {
 module.exports = function (req, res, next) {
 
   var config = req._sails.config,
-    language = req.path.match(/\/([a-z]{2})\//),
+    language = req.param('lang') || req.path.match(/\/([a-z]{2})\//),
     languagesList = config.i18n.locales,
     fallbackLanguage = config.i18n.defaultLocale,
     setLng = req.query.setLng,
@@ -52,7 +52,7 @@ module.exports = function (req, res, next) {
     //return res.notFound();
   }
 
-  language = language ? language[1] : fallbackLanguage;
+  language = language || fallbackLanguage;
 
   // Private pages with a SEO friendly URL, trying to change the language through the setLgn param
   // We redirect to URL with the lang param updated

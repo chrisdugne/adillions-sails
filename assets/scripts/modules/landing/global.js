@@ -34,7 +34,10 @@ var global = function () {
     }
 
     globalMap.geocode({
-      'address': country
+      'address': country,
+      componentRestrictions: {
+        country: country
+      }
     }, function (results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         var position = results[0].geometry.location;

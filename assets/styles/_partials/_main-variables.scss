@@ -56,9 +56,10 @@ $spacingL: 20px;
 $spacingXl: 30px;
 
 //** Blockquote small color
-$blockquote-font-size: ($em-base * 1.15) !default;
+$blockquote-font-size: ($em-base * 1.25) !default;
 $blockquote-small-color: $gray !default;
 $blockquote-border-color: $green-light;
+$blockquote-background-color: #fff;
 
 // navbar
 $navbar-height: 80px;
@@ -76,7 +77,21 @@ $navbar-inverse-toggle-hover-bg: darken($blue-dark, 20%);
 $navbar-inverse-toggle-icon-bar-bg: $gray-lighter;
 $navbar-inverse-toggle-border-color: darken($blue-dark, 20%);
 
+//== Pagination
+$pagination-color:                     $gray !default;
+$pagination-bg:                        #fff !default;
+$pagination-border:                    #ddd !default;
 
+$pagination-hover-color:               $green-lighter !default;
+$pagination-hover-bg:                  $gray-lighter !default;
+$pagination-hover-border:              #ddd !default;
+
+$pagination-active-color:              #fff !default;
+$pagination-active-bg:                 $green-light !default;
+$pagination-active-border:             $green !default;
+
+//== Pager
+$pager-border-radius:                  3px;
 
 $facebook: #306199;
 $tumblr: #32506d;

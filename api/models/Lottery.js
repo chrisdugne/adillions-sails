@@ -77,6 +77,24 @@ module.exports = {
 
     charity: {
       type: 'float'
+    },
+
+    nb_winners: function () {
+      var prizes = this.prizes,
+        winners = 0;
+      _.forEach(prizes, function (prize) {
+        if (Number(prize.share)) {
+          winners = winners + Number(prize.winners);
+        }
+      });
+      return winners;
+    },
+
+    lucky_ball_number: function () {
+      if (!this.result) {
+        return null;
+      }
+      return this.result[5];
     }
 
   }
