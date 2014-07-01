@@ -25,7 +25,8 @@ module.exports = function (req, res, next) {
     languagesList = config.i18n.locales,
     fallbackLanguage = config.i18n.defaultLocale,
     setLng = req.query.setLng,
-    user = res.locals.user;
+    user = res.locals.user,
+    pathname;
 
   if (req.path === '/') {
     if (setLng) {
@@ -64,8 +65,6 @@ module.exports = function (req, res, next) {
         lang: language,
         setLng: setLng
       });
-
-      var pathname;
 
       if (req.path.match(/^\/([a-z]{2})$/)) {
         pathname = req.path.replace('/' + language, '/' + setLng + '/');
@@ -118,8 +117,6 @@ module.exports = function (req, res, next) {
         return false;
       });
     }
-
-    var pathname;
 
     if (req.path.match(/^\/([a-z]{2})$/)) {
       pathname = req.path.replace('/' + language, '/' + fallbackLanguage + '/');
