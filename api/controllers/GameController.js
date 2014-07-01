@@ -11,7 +11,10 @@ var _ = require('lodash'),
 module.exports = {
   index: function (req, res) {
     res.view({
-      usePopTitle: true
+      usePopTitle: true,
+      title: res.i18n('game_title'),
+      bodyClass: 'game',
+      layout: 'layout_light'
     });
   },
   results: function (req, res) {

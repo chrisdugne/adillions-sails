@@ -1,0 +1,10 @@
+body.layout_light {
+  background: $blue url('/images/bg/stars.png') repeat;
+  color:#fff;
+  .navbar {
+    background: transparent;
+  }
+  .navbar-right {
+    display: none;
+  }
+}
