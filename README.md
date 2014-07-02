@@ -25,7 +25,7 @@ First make sure that you have correctly installed the __latest__ versions of the
 > During the bcrypt installation, if an error occured relating to node-gyp, please refers to [node-gyp#installation](https://github.com/TooTallNate/node-gyp/#installation)
 
 ## Start the server
- 
+
 Run app :
 ```shell
 grunt
