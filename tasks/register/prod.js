@@ -3,7 +3,7 @@ module.exports = function (grunt) {
     'validate',
     'compileAssets',
     'cssmin',
-    'imagemin',
+    'imagemin:prod',
     'strip',
     'uglify',
     'hash'
