@@ -36,7 +36,7 @@ module.exports.connections = {
   // Wait config.url support of sails-postgresql to remove host, port, user, password, database.
   Postgresql: {
     adapter: 'sails-postgresql',
-    url: process.env.PG_DATABASE
+    url: process.env.DATABASE_URL
   },
 
   // MySQL is the world's most popular relational database.
