@@ -1,5 +1,9 @@
 # Adillions node.js Webapp
 
+## Continous integration
+
+[ ![Codeship Status for LukeParis/adillions-next](https://www.codeship.io/projects/25514)
+
 ## Prerequisites
 
 First make sure that you have correctly installed the __latest__ versions of the following libraries
@@ -45,7 +49,3 @@ Get informations : [Code and development doctrine](https://github.com/LukeParis/
 
 **[Sails screencasts](https://www.youtube.com/playlist?list=PLf8i4fc0zJBzLhOe6FwHpGhBDgqwInJWZ)**
 
-
-## Continous integration
-
-[ ![Codeship Status for LukeParis/adillions-next](https://www.codeship.io/projects/54273b90-e3fc-0131-ac19-1a224a6206b8/status)](https://www.codeship.io/projects/25514)
