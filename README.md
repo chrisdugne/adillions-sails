@@ -2,7 +2,7 @@
 
 ## Continous integration
 
-[![Codeship Status for LukeParis/adillions-next](https://www.codeship.io/projects/25514)()
+[ ![Codeship Status for LukeParis/adillions-next](https://www.codeship.io/projects/25514)]
 
 ## Prerequisites
 
