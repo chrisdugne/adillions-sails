@@ -14,7 +14,7 @@ module.exports = function (grunt) {
       pngquant: false,
       progressive: false,
     },
-    local: {
+    dev: {
       files: [{
         expand: true,
         cwd: 'assets/images/',
