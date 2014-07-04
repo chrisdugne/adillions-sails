@@ -22,11 +22,11 @@ var isExists = function (array, key) {
 module.exports = function (req, res, next) {
 
   var config = req._sails.config,
-    language = req.param('lang') || req.path.match(/\/([a-z]{2})\//),
     languagesList = config.i18n.locales,
     fallbackLanguage = config.i18n.defaultLocale,
     setLng = req.query.setLng,
-    user = res.locals.user;
+    user = res.locals.user,
+    pathname;
 
   if (req.path === '/') {
     if (setLng) {
@@ -43,16 +43,16 @@ module.exports = function (req, res, next) {
     return next();
   }
 
+  var language = req.param('lang') ? req.param('lang').match(/^([a-z]{2})$/) : null;
   // Public pages must have language in URL
   if (!user && !language) {
     sails.log.info('Public page try to access to an url without a SEO friendly URL', {
       path: req.path
     });
-    return next();
-    //return res.notFound();
+    return res.notFound();
   }
 
-  language = language || fallbackLanguage;
+  language = language[1] || fallbackLanguage;
 
   // Private pages with a SEO friendly URL, trying to change the language through the setLgn param
   // We redirect to URL with the lang param updated
@@ -65,10 +65,17 @@ module.exports = function (req, res, next) {
         lang: language,
         setLng: setLng
       });
+
+      if (req.path.match(/^\/([a-z]{2})$/)) {
+        pathname = req.path.replace('/' + language, '/' + setLng + '/');
+      } else {
+        pathname = req.path.replace('/' + language + '/', '/' + setLng + '/');
+      }
+
       return res.redirect(url.format({
         protocol: req.protocol,
         host: req.headers.host,
-        pathname: req.path.replace('/' + language + '/', '/' + setLng + '/'),
+        pathname: pathname,
         query: _.omit(req.query, 'setLng')
       }));
     }
@@ -92,7 +99,7 @@ module.exports = function (req, res, next) {
     res.setLocale(language);
     res.locals.locale = language;
     res.cookie('locales', language, {
-      maxAge: 7 * 24 * 60 * 60 * 1000,
+      maxAge: 1 * 24 * 60 * 60 * 1000,
       httpOnly: true
     });
     // If we don't support the language in the URL, redirect to page with supported language
@@ -111,15 +118,22 @@ module.exports = function (req, res, next) {
       });
     }
 
+    if (req.path.match(/^\/([a-z]{2})$/)) {
+      pathname = req.path.replace('/' + language, '/' + fallbackLanguage + '/');
+    } else {
+      pathname = req.path.replace('/' + language + '/', '/' + fallbackLanguage + '/');
+    }
+
     sails.log.info('Page with a SEO friendly URL, redirecting to page with supported language', {
       path: req.path,
       lang: language,
       fallbackLanguage: fallbackLanguage
     });
+
     return res.redirect(301, url.format({
       protocol: req.protocol,
       host: req.headers.host,
-      pathname: req.path.replace('/' + language + '/', '/' + fallbackLanguage + '/'),
+      pathname: pathname,
       query: req.query
     }));
   }

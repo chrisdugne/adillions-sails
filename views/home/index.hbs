@@ -36,9 +36,13 @@ window.onload = loadScript;
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
-        <p class="text-center highlight highlight-theme">
-          <span class="title">{{i18n 'current_theme'}}</span>
-          <strong class="text">{{nextDrawing.theme.title}}</strong>
+        <p class="text-center highlight highlight-drawing" id="js-highlight-drawing"
+        data-timestamp="{{nextDrawing.timestamp}}"
+        data-day="{{i18n 'ui_day'}}"
+        data-days="{{i18n 'ui_days'}}"
+        >
+          <span class="title">{{i18n 'next_drawing'}}</span>
+          <strong class="text"></strong>
         </p>
       </div>
       <div class="col-xs-12 col-sm-4">
@@ -48,13 +52,9 @@ window.onload = loadScript;
         </p>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <p class="text-center highlight highlight-drawing" id="js-highlight-drawing"
-        data-timestamp="{{nextDrawing.timestamp}}"
-        data-day="{{i18n 'ui_day'}}"
-        data-days="{{i18n 'ui_days'}}"
-        >
-          <span class="title">{{i18n 'next_drawing'}}</span>
-          <strong class="text"></strong>
+        <p class="text-center highlight highlight-theme">
+          <span class="title">{{i18n 'current_theme'}}</span>
+          <strong class="text">{{nextDrawing.theme.title}}</strong>
         </p>
       </div>
     </div>

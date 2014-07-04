@@ -8,11 +8,6 @@ module.exports = {
     Postgresql: {
       adapter: 'sails-postgresql',
       url: process.env.DATABASE_URL,
-      host: process.env.DATABASE_HOST,
-      port: process.env.DATABASE_PORT,
-      user: process.env.DATABASE_USER,
-      password: process.env.DATABASE_PASSWORD,
-      database: process.env.DATABASE_NAME,
       ssl: true
     }
   },
