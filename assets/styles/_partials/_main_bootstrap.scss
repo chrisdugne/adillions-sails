@@ -100,15 +100,15 @@ $avatar-border-color: lighten($blue-lighter,5%);
   }
 }
 
-.badge-charity, .badge-charity-empty  {
+.badge-charity {
   color:$green;
   @extend .glyphicon;
 }
-.badge-charity {
-  @extend .glyphicon-heart;
-}
 .badge-charity-empty {
   @extend .glyphicon-heart-empty;
+}
+.badge-charity-active {
+  @extend .glyphicon-heart;
 }
 
 .drawing-balls {

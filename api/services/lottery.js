@@ -242,16 +242,12 @@ Lottery.prototype.getWinners = function (total, offset, next) {
       _(results).forEach(function (ticket) {
         var user = ticket.user,
           charity_status = user.charity_status(),
-          charityStatusRang;
+          charity_rang = 1;
 
         _.forEach(charity_status, function (charity) {
-          charity.active = user.playedtickets <= charity.tickets;
-        });
-
-        _.forEach(charity_status, function (charity) {
-          if (charity.active) {
-            charityStatusRang = charity.rang;
-            return false;
+          if (user.playedtickets >= charity.tickets) {
+            charity.active = true;
+            charity_rang = charity.rang;
           }
         });
 
@@ -261,7 +257,7 @@ Lottery.prototype.getWinners = function (total, offset, next) {
           country: user.country,
           prize: ticket.euros,
           charityStatus: charity_status,
-          charityStatusRang: charityStatusRang
+          charityStatusRang: charity_rang
         });
 
       });
