@@ -233,7 +233,7 @@ window.onload = loadScript;
             </p>
             <div class="badge-wrap dispib" data-toggle="tooltip" data-placement="bottom" title="{{charityStatusName}}">
               {{#each charityStatus}}
-              <span class="mlxs badge-charity {{#if active}}badge-charity-empty{{/if}}"></span>
+              <span class="mlxs badge-charity {{#if active}}badge-charity-active{{else}}badge-charity-empty{{/if}}"></span>
               {{/each}}
             </div>
           </div>
