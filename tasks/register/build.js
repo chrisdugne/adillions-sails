@@ -3,6 +3,6 @@ module.exports = function (grunt) {
     'compileAssets',
     'clean:build',
     'copy:build',
-    'webapp-dev'
+    'webapp'
   ]);
 };

@@ -2,13 +2,13 @@ module.exports = function (grunt) {
   grunt.registerTask('buildProd', [
     'validate',
     'compileAssets',
+    'webapp',
     'cssmin',
     'imagemin',
     'strip',
     'uglify',
     'hash',
     'clean:build',
-    'copy:build',
-    'webapp-prod'
+    'copy:build'
   ]);
 };
