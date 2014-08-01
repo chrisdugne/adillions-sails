@@ -2,7 +2,7 @@
 var Marionette = require('Marionette'),
     template   = require('../../templates/application.hbs'),
     MenuView   = require('./menu-view'),
-    MainView   = require('./main-view');
+    PlayView   = require('./play-view');
 
 var Layout = module.exports = Marionette.LayoutView.extend({
 
@@ -16,6 +16,6 @@ var Layout = module.exports = Marionette.LayoutView.extend({
 
     onRender : function(){
         this.menu.show(new MenuView());
-        this.main.show(new MainView());
+        this.main.show(new PlayView());
     }
 });
