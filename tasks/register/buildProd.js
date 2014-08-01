@@ -8,6 +8,7 @@ module.exports = function (grunt) {
     'uglify',
     'hash',
     'clean:build',
-    'copy:build'
+    'copy:build',
+    'webapp-prod'
   ]);
 };

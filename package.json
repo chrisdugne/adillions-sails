@@ -20,9 +20,11 @@
     "passport-google": "~0.3.0",
     "validator": "~3.11.0",
     "bcrypt": "~0.7.8",
-    "grunt": "0.4.4",
+    "browserify": "^4.2.3",
+    "grunt": "^0.4.5",
     "grunt-cli": "0.1.13",
     "grunt-sync": "~0.0.4",
+    "grunt-browserify": "^2.1.3",
     "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-concat": "~0.3.0",
@@ -46,10 +48,27 @@
     "time-grunt": "~0.3.1",
     "load-grunt-tasks": "~0.4.0",
     "numeral": "~1.5.3",
-    "moment": "~2.7.0"
+    "moment": "~2.7.0",
+    "browserify-shim": "~3.6.0"
   },
   "devDependencies": {
-    "sails-disk": "~0.10.0"
+    "sails-disk": "~0.10.0",
+    "grunt-bower-task": "~0.4.0"
+  },
+  "browserify": {
+    "transform": [ "browserify-shim" ]
+  },
+  "browser": {
+    "jquery": ".tmp/public/scripts/requires/jquery/js/jquery.js",
+    "underscore": ".tmp/public/scripts/requires/underscore/js/underscore.js",
+    "Backbone": ".tmp/public/scripts/requires/backbone/js/backbone.js",
+    "Marionette": ".tmp/public/scripts/requires/backbone.marionette/js/backbone.marionette.js"
+  },
+  "browserify-shim": {
+    "jquery": "$",
+    "underscore": "_",
+    "Backbone": { "exports": "Backbone", "depends": [ "underscore:_" ] },
+    "Marionette": { "exports": "Marionette", "depends": [ "jquery:$", "Backbone:Backbone", "underscore:_"] }
   },
   "scripts": {
     "postinstall": "node_modules/.bin/bower install",

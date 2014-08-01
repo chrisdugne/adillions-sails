@@ -2,8 +2,7 @@
   "name": "Adillions-next",
   "private": true,
   "dependencies": {
-    "jquery": "1.10.2",
-    "underscore": "~1.6.0",
+    "jquery": "~1.10.2",
     "i18next": "~1.7.2",
     "amd-loadr": "~0.0.2",
     "skrollr": "~0.6.26",
@@ -13,6 +12,23 @@
     "bourbon": "~3.2.1",
     "bootstrap-sass-official": "~3.1.1",
     "RRSSB": "~1.6.0",
-    "jquery.countdown": "~2.0.4"
+    "jquery.countdown": "~2.0.4",
+    "backbone.marionette": "~1.4.1",
+    "underscore": "~1.5.2",
+    "backbone": "~1.1.0"
+  },
+  "exportsOverride": {
+    "jquery": {
+      "js": "jquery.js"
+    },
+    "underscore": {
+      "js": "underscore.js"
+    },
+    "backbone": {
+      "js": "backbone.js"
+    },
+    "backbone.marionette": {
+      "js": "lib/backbone.marionette.js"
+    }
   }
 }

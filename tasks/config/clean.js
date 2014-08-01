@@ -12,6 +12,10 @@
 module.exports = function (grunt) {
 
   grunt.config.set('clean', {
+    webapp: [
+      '.tmp/public/scripts/requires/**',
+      '.tmp/public/scripts/webapp.js',
+    ],
     dev: ['.tmp/public/**'],
     build: ['www']
   });
