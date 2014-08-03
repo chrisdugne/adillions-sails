@@ -2,11 +2,11 @@
 //---------------------------------------------------------------
 
 var Marionette = require('Marionette'),
-    template   = require('../../templates/profile.hbs');
+    template   = require('./tickets-view.hbs');
 
 //---------------------------------------------------------------
 
-var Profile = module.exports = Marionette.ItemView.extend({
+var Tickets = module.exports = Marionette.ItemView.extend({
     template:  template
 });
 

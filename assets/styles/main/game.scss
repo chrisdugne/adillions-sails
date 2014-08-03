@@ -5,6 +5,15 @@
   position: absolute;
   left: 0;
 
+  .drawing-balls .ball {
+    opacity: 0.65;
+    cursor: pointer;
+    -webkit-user-select: none;
+
+    &.selected {
+      opacity: 1;
+    }
+  }
 }
 
 .dev-item{

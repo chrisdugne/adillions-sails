@@ -3,7 +3,7 @@
 
 var Marionette = require('Marionette'),
     app        = require('../application'),
-    template   = require('../../templates/menu.hbs');
+    template   = require('./menu-view.hbs');
 
 //---------------------------------------------------------------
 
