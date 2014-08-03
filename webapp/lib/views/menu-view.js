@@ -1,27 +1,34 @@
 
+//---------------------------------------------------------------
+
 var Marionette = require('Marionette'),
+    app        = require('../application'),
     template   = require('../../templates/menu.hbs');
+
+//---------------------------------------------------------------
 
 var Menu = module.exports = Marionette.ItemView.extend({
     
     template:  template,
 
     events : {
-        "click .play-btn":    "onOpenPlay",
-        "click .tickets-btn": "onOpenTickets",
-        "click .profile-btn": "onOpenProfile"
+        "click .play-btn":    "onClickPlayButton",
+        "click .tickets-btn": "onClickTicketsButton",
+        "click .profile-btn": "onClickProfileButton"
     },
 
-    onOpenPlay : function(){
-        console.log('onOpenPlay');
+    onClickPlayButton : function(){
+        app.router.navigate('play', {trigger : true});
     },
 
-    onOpenTickets : function(){
-        console.log('onOpenTickets');
+    onClickTicketsButton : function(){
+        app.router.navigate('tickets', {trigger : true});
     },
 
-    onOpenProfile : function(){
-        console.log('onOpenProfile');
-    },
+    onClickProfileButton : function(){
+        app.router.navigate('profile', {trigger : true});
+    }
 
 });
+
+//---------------------------------------------------------------

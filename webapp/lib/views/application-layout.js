@@ -1,8 +1,11 @@
 
+//---------------------------------------------------------------
+
 var Marionette = require('Marionette'),
-    template   = require('../../templates/application.hbs'),
-    MenuView   = require('./menu-view'),
-    PlayView   = require('./play-view');
+    app        = require('../application.js'),
+    template   = require('../../templates/application.hbs');
+
+//---------------------------------------------------------------
 
 var Layout = module.exports = Marionette.LayoutView.extend({
 
@@ -12,10 +15,7 @@ var Layout = module.exports = Marionette.LayoutView.extend({
     regions: {
         menu: '.menu',
         main: '.main'
-    },
-
-    onRender : function(){
-        this.menu.show(new MenuView());
-        this.main.show(new PlayView());
     }
 });
+
+//---------------------------------------------------------------
