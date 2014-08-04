@@ -1,10 +1,33 @@
 
-var Backbone  = require('Backbone');
+var Backbone  = require('Backbone'),
+    Balls   = require('../collections/balls');
 
 var User = module.exports = Backbone.Model.extend({
     
     defaults : {
-      currentSelection : [],
+      currentSelection : null,
+    },
+
+    initialize : function(){
+      this.set('currentSelection', new Balls());
+    },
+
+    unselect : function(ball){
+      var selection = this.get('currentSelection');
+      selection.remove(ball);
+      this.set('currentSelection', selection);
+    },
+
+    tryToSelect : function(ball){
+      var selection   = this.get('currentSelection'),
+          canSelect   = selection.length < 5;
+      
+      if(canSelect){
+        selection.add(ball);
+        this.set('currentSelection', selection);
+      }
+
+      return canSelect;
     },
 
     isLoggedIn : function(){

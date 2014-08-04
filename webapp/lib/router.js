@@ -2,12 +2,12 @@
 //---------------------------------------------------------------
 
 var Marionette      = require('Marionette'),
-    app             = require('./application'),
-    lotteryTools    = require('./tools/lottery-tools'),
-    TicketsView     = require('./views/main/tickets-view'),
-    ProfileView     = require('./views/main/profile-view'),
-    PlayView        = require('./views/main/play-view'),
-    PickNumbersView = require('./views/game/pick-numbers-view');
+    app               = require('./application'),
+    lotteryTools      = require('./tools/lottery-tools'),
+    TicketsView       = require('./views/main/tickets-view'),
+    ProfileView       = require('./views/main/profile-view'),
+    PlayView          = require('./views/main/play-view'),
+    PickNumbersLayout = require('./views/game/numbers-selection/layout');
 
 //---------------------------------------------------------------
 
@@ -33,7 +33,7 @@ var mainRouting = {
 
   checkTickets: function(){
     if(app.user.canFillOutATicket()){
-      app.layout.main.show(new PickNumbersView({
+      app.layout.main.show(new PickNumbersLayout({
         model : app.nextDrawing
       }));
     }

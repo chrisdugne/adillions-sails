@@ -1,23 +1,24 @@
 
 var Backbone  = require('Backbone'),
-    Numbers   = require('../collections/numbers');
+    Balls   = require('../collections/balls');
 
 var Drawing = module.exports = Backbone.Model.extend({
     
     defaults : {
       maxPick : 5,
-      numbers : null,
+      balls : null,
       result  : null
     },
 
     initialize : function(options){
-      var numbers = new Numbers();
+      var balls = new Balls();
       for(var i = 0; i < 49; i++){
-        numbers.add({
-          value : i+1
+        balls.add({
+          selectable: true,
+          value:      i+1
         });
       }
 
-      this.set('numbers', numbers);
+      this.set('balls', balls);
     }
 });

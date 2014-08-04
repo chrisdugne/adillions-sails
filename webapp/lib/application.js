@@ -17,17 +17,6 @@ app.addInitializer(function(){
   // models
   this.user         = new User();
   this.nextDrawing  = new Drawing();
-  
-  var currentSelection = [];
-  currentSelection[0] = lotteryTools.getNum(currentSelection);
-  currentSelection[1] = lotteryTools.getNum(currentSelection);
-  currentSelection[2] = lotteryTools.getNum(currentSelection);
-  currentSelection[3] = lotteryTools.getNum(currentSelection);
-  currentSelection[4] = lotteryTools.getNum(currentSelection);
-  currentSelection[5] = lotteryTools.getNum(currentSelection);
-  this.user.set('currentSelection', currentSelection);
-
-  console.log('start : ', this.user.get('currentSelection'));
 
   // view
   this.layout = new layout().render();

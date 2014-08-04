@@ -1,11 +1,12 @@
 
 //---------------------------------------------------------------
 
-var Marionette = require('Marionette');
+var Marionette = require('Marionette'),
+    app        = require('../../application.js');
 
 //---------------------------------------------------------------
 
-var NumView = module.exports = Marionette.ItemView.extend({
+var BallView = module.exports = Marionette.ItemView.extend({
     
     tagName:   'li',
     className: 'ball',
@@ -23,13 +24,26 @@ var NumView = module.exports = Marionette.ItemView.extend({
 
       if(this.model.get('selected'))
         this.$el.addClass('selected');
+      else
+        this.$el.removeClass('selected');
 
       if(this.model.get('won'))
         this.$el.addClass('won');
+      else
+        this.$el.removeClass('won');
     },
     
     onClick : function(){
-        this.$el.toggleClass('selected');
+      if(this.model.get('selectable')){
+        if(this.model.get('selected')){
+          app.user.unselect(this.model);
+          this.model.set('selected', false);
+        }
+        else{
+          var couldSelect = app.user.tryToSelect(this.model);
+          this.model.set('selected', couldSelect);
+        }
+      }
     }
 });
 
