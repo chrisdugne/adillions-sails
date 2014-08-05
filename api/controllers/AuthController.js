@@ -55,7 +55,7 @@ var AuthController = {
     res.view({
       providers: providers,
       errors: req.flash('error'),
-      layout: 'layout_light',
+      layout: 'layout_chris_snake',
       bodyClass: 'auth'
     });
   },

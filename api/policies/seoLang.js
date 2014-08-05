@@ -21,10 +21,7 @@ var isExists = function (array, key) {
 
 module.exports = function (req, res, next) {
 
-  if (req.method === 'POST') {
-    console.log(req.path);
-    return next();
-  }
+  console.log('seoLang', req.path);
 
   var config = req._sails.config,
     languagesList = config.i18n.locales,

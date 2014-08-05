@@ -1,4 +1,4 @@
-var APIController = module.exports = {
+var ApiController = module.exports = {
   nextLottery: function (req, res) {
     console.log('reached LotteryController.nextLottery');
 
