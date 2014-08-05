@@ -4,6 +4,9 @@ var Backbone  = require('Backbone'),
 
 var Drawing = module.exports = Backbone.Model.extend({
     
+    // url : 'http://api.adillions.com/nextLottery',
+    url : '/nextLottery',
+
     defaults : {
       maxPick : 5,
       balls : null,
@@ -19,6 +22,10 @@ var Drawing = module.exports = Backbone.Model.extend({
         });
       }
 
-      this.set('balls', balls);
+      //headers["Content-Type"] = "application/json"
+      //headers["X-Auth-Token"] = GLOBALS.savedData.authToken
+      this.fetch({
+          type: 'POST'
+      });
     }
 });
