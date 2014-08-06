@@ -3,6 +3,17 @@ var ApiController = module.exports = {
     console.log('reached LotteryController.nextLottery');
 
     var LotteryService = new sails.services.lottery();
-    var result = LotteryService.getNextLottery();
-  },
+
+    async.parallel({
+      nextLottery: function (cb) {
+        LotteryService.getNextLottery(cb);
+      }
+    }, function (err, results) {
+      if (err) {
+        return res.serverError(err);
+      }
+
+      res.json(results);
+    });
+  }
 };

@@ -22,24 +22,10 @@ module.exports.policies = {
   //   '*': true
   // },
 
-  AboutController: {
-    '*': ['passport', 'seoLang', 'initLanguages', 'formatDate', 'layout']
-  },
-
-  AuthController: {
-    '*': ['passport', 'seoLang', 'initLanguages', 'formatDate', 'layout']
-  },
-
-  GameController: {
-    '*': ['passport', 'seoLang', 'initLanguages', 'formatDate', 'layout']
-  },
-
-  HomeController: {
-    '*': ['passport', 'seoLang', 'initLanguages', 'formatDate', 'layout']
-  },
+  '*': ['passport', 'seoLang', 'initLanguages', 'formatDate', 'layout'],
 
   ApiController: {
-    '*': ['layout']
+    '*': true
   }
 
   /*
