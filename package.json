@@ -36,6 +36,7 @@
     "grunt-contrib-imagemin": "~0.7.0",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-compass": "~0.7.2",
+    "grunt-contrib-handlebars": "~0.8.0",
     "grunt-es6-module-transpiler": "~0.6.0",
     "grunt-jsonlint": "~1.0.4",
     "grunt-sass": "~0.12.1",

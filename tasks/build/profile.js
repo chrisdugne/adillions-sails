@@ -5,9 +5,10 @@ var modules = {
   '.tmp/public/scripts/main.js': [
     // main vendors
     'assets/bower_components/jquery/jquery.js',
-    //'assets/bower_components/i18next/i18next.js',
-    //'assets/bower_components/underscore/underscore.js',
+    'assets/bower_components/handlebars/handlebars.js',
+    'assets/bower_components/underscore/underscore.js',
     'assets/bower_components/amd-loadr/loadr.js',
+    'assets/bower_components/backbone/backbone.js',
 
     // boostrap vendors
     'assets/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js',
@@ -42,6 +43,13 @@ var modules = {
   '.tmp/public/scripts/results.js': [
     '.tmp/transpile/modules/results.js',
     '.tmp/transpile/modules/results/*.js'
+  ],
+
+  // game page
+  '.tmp/public/scripts/game.js': [
+    'assets/bower_components/backbone.marionette/lib/backbone.marionette.js',
+    '.tmp/transpile/modules/game.js',
+    '.tmp/transpile/modules/game/**/*.js'
   ]
 
 };

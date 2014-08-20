@@ -8,5 +8,7 @@
 <div class="webapp-container"></div>
 
 {{#push "scripts"}}
-  <script src="{{statics '/scripts/webapp.js'}}"></script>
+  {{!-- <script src="{{statics '/scripts/webapp.js'}}"></script> --}}
+  <script src="{{statics '/scripts/game.js'}}"></script>
+  <script>require('game');</script>
 {{/push}}
