@@ -618,6 +618,9 @@
 
   "prizes_intro": "Distribution of the Prize Fund over the different Prize Categories",
 
+  "prizes_match": "Match",
+  "prizes_breakdown": "Prize fund breakdown",
+
   "_comment": "##### ABOUT/REWARD #####",
 
   "reward_meta_title": "Reward",

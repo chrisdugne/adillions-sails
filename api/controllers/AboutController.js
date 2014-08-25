@@ -57,6 +57,7 @@ module.exports = {
     return res.view({
       usePopTitle: true,
       title: res.i18n('prizes'),
+      bodyClass: 'prizes',
       layout: 'layout_about'
     });
   },

@@ -634,6 +634,9 @@
 
   "prizes_intro": "Répartition de la cagnotte par rang de gains",
 
+  "prizes_match": "Résultat",
+  "prizes_breakdown": "Répartition de la cagnotte",
+
   "_comment": "##### ABOUT/REWARD #####",
 
   "reward_meta_title": "Récompenses",
