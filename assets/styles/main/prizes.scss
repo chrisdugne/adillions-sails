@@ -1,0 +1,40 @@
+body.prizes {
+  .table {
+    background: white;
+    thead > tr > th,
+    tbody > tr > td {
+      padding: 12px;
+    }
+
+    thead > tr > th {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      font-size: 14px;
+    }
+  }
+  .glyphicon {
+    font-size: 20px;
+    margin-right: 10px
+  }
+  .text {
+        color: $gray;
+  }
+
+  .rank {
+    width: 33%;
+    .glyphicon {
+      font-size: 18px;
+    }
+  }
+  .match {
+    width: 33%;
+    .glyphicon {
+    }
+  }
+  .prize {
+    width: 33%;
+    .glyphicon {
+      top: 3px;
+    }
+  }
+}
