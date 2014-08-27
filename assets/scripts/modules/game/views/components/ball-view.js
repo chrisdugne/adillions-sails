@@ -17,15 +17,17 @@ default Marionette.ItemView.extend({
   render: function () {
     this.$el.html(this.model.get('value'));
 
-    if (this.model.get('selected'))
+    if (this.model.get('selected')) {
       this.$el.addClass('selected');
-    else
+    } else {
       this.$el.removeClass('selected');
+    }
 
-    if (this.model.get('won'))
+    if (this.model.get('won')) {
       this.$el.addClass('won');
-    else
+    } else {
       this.$el.removeClass('won');
+    }
   },
 
   onClick: function () {
