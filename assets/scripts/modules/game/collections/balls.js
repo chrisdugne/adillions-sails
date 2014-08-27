@@ -3,7 +3,7 @@
 import Ball from 'game/models/ball';
 
 export
-default = Backbone.Collection.extend({
+default Backbone.Collection.extend({
   model: Ball,
   comparator: 'value'
 });

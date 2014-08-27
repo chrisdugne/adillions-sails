@@ -4,7 +4,7 @@ import SelectionView from 'game/views/game/numbers-selection/selection-view';
 //---------------------------------------------------------------
 
 export
-default = Marionette.LayoutView.extend({
+default Marionette.LayoutView.extend({
 
   template: Handlebars.partials['game/_partials/game/numbers-selection/layout'],
 

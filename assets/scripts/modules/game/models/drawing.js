@@ -1,7 +1,7 @@
 import Balls from 'game/collections/balls';
 
 export
-default = Backbone.Model.extend({
+default Backbone.Model.extend({
 
   defaults: {
     maxPick: 5,

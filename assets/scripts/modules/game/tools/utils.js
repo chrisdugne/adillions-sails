@@ -1,5 +1,5 @@
 export
-default = {
+default {
 
   //return 1->i
   random1: function (i) {
@@ -11,4 +11,4 @@ default = {
     return Math.floor(Math.random() * (i + 1));
   }
 
-}
+};

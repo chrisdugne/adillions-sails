@@ -1,8 +1,7 @@
 /*global GameApp:false */
 
-//---------------------------------------------------------------
-
-var ball = Marionette.ItemView.extend({
+export
+default Marionette.ItemView.extend({
 
   tagName: 'li',
   className: 'ball',
@@ -41,8 +40,3 @@ var ball = Marionette.ItemView.extend({
     }
   }
 });
-
-export
-default ball;
-
-//---------------------------------------------------------------

@@ -4,7 +4,7 @@ import BallView from 'game/views/components/ball-view';
 //---------------------------------------------------------------
 
 export
-default = Marionette.CollectionView.extend({
+default Marionette.CollectionView.extend({
 
   tagName: 'ul',
   className: 'drawing-balls',

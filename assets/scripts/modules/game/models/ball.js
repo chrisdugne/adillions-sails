@@ -3,7 +3,7 @@
     image !null
 */
 export
-default = Backbone.Model.extend({
+default Backbone.Model.extend({
 
   defaults: {
     value: '',
