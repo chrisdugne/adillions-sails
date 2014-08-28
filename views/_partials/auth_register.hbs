@@ -1,4 +1,4 @@
-<form role="form" action="{{route 'auth.callback'}}/register" method="post" class='auth-register-form panel panel-default'>
+<form role="form" action="{{route 'auth.callback' lang=locale}}/register" method="post" class='auth-register-form panel panel-default'>
 
 {{!--   <div class="panel-heading">
     <h1 class="panel-title">{{i18n 'auth_register'}}</h1>
@@ -34,6 +34,8 @@
     <div class="text-center">
       <button type="submit" class="btn btn-lead btn-lg btn-block">{{i18n 'auth_register'}}</button>
     </div>
+
+    <p class="mts text-center">Already on Adillions? <a href="{{route 'auth.login' lang=locale}}">Sign in</a></p>
 
   </div>
 
