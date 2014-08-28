@@ -21,7 +21,7 @@
 
 module.exports.routes = {
 
-  // '/login': 'AuthController.login',
+  '/login': 'AuthController.login',
   // '/logout': 'AuthController.logout',
   // '/register': 'AuthController.register',
 
