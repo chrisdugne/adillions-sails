@@ -55,38 +55,7 @@
     "handlebars": "~2.0.0-alpha.4"
   },
   "devDependencies": {
-    "sails-disk": "~0.10.0",
-    "grunt-bower-task": "~0.4.0"
-  },
-  "browserify": {
-    "transform": [
-      "hbsfy",
-      "browserify-shim"
-    ]
-  },
-  "browser": {
-    "jquery": ".tmp/build/vendors/jquery/js/jquery.js",
-    "underscore": ".tmp/build/vendors/underscore/js/underscore.js",
-    "Backbone": ".tmp/build/vendors/backbone/js/backbone.js",
-    "Marionette": ".tmp/build/vendors/backbone.marionette/js/backbone.marionette.js"
-  },
-  "browserify-shim": {
-    "jquery": "$",
-    "underscore": "_",
-    "Backbone": {
-      "exports": "Backbone",
-      "depends": [
-        "underscore:_"
-      ]
-    },
-    "Marionette": {
-      "exports": "Marionette",
-      "depends": [
-        "jquery:$",
-        "Backbone:Backbone",
-        "underscore:_"
-      ]
-    }
+    "sails-disk": "~0.10.0"
   },
   "scripts": {
     "postinstall": "node_modules/.bin/bower install",
