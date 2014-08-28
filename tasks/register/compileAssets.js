@@ -3,6 +3,7 @@ module.exports = function (grunt) {
     'clean:dev',
     'sass:dev',
     'es6',
+    'handlebars',
     'copy:dev',
     'concat:dev'
   ]);

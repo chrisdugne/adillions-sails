@@ -17,11 +17,7 @@
   "strict": false,
   "trailing": true,
   "smarttabs": true,
-  "-W034": true,
-  "-W097": false,
-  "-W015": false,
   "-W098": false,
-  "-W014": false,
   "globals": {
     "define": true,
     "console": true,
@@ -35,6 +31,8 @@
     "google": true,
     "_gaq": true,
     "_snaq": true,
-    "_": true
+    "_": true,
+    "Backbone": true,
+    "Marionette": true
   }
 }

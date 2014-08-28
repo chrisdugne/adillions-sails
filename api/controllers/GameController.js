@@ -14,7 +14,9 @@ module.exports = {
       usePopTitle: true,
       title: res.i18n('game_title'),
       bodyClass: 'game',
-      layout: 'layout_light'
+      layout: 'layout_light',
+      // featureFliping of the new game app
+      featureEnabled: false
     });
   },
   results: function (req, res) {
