@@ -74,9 +74,9 @@ app.addInitializer(function () {
   console.log('initialize');
 
   // models
-  this.user        = new User();
+  this.user = new User();
   this.nextDrawing = new Drawing();
-  this.globals     = new Globals();
+  this.globals = new Globals();
 
   // view
   this.layout = new layout().render();
