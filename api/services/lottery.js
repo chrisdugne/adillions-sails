@@ -322,13 +322,17 @@ Lottery.prototype.getLotteries = function (total, offset, next) {
     });
 };
 
-Lottery.prototype.getNextLottery = function (callback) {
+Lottery.prototype.getNextLottery = function (next) {
   sails.models.lottery
     .find()
     .limit(2)
     .sort('timestamp DESC')
     .then(function (lotteries) {
-      callback(null, lotteries);
+      next(null, lotteries);
+    })
+    .fail(function (err) {
+      sails.log.error('Lottery#getNextLottery Service: query fails', err);
+      next(err);
     });
 };
 
