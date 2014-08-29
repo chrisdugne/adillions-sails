@@ -16,12 +16,6 @@ module.exports.policies = {
   // Default policy for all controllers and actions
   // (`true` allows public access)
 
-  // '*': ['passport', 'seoLang', 'initLanguages', 'formatDate', 'layout'],
-
-  // APIController: {
-  //   '*': true
-  // },
-
   '*': ['passport', 'seoLang', 'initLanguages', 'formatDate', 'layout'],
 
   ApiController: {

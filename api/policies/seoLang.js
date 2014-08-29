@@ -21,8 +21,6 @@ var isExists = function (array, key) {
 
 module.exports = function (req, res, next) {
 
-  console.log('seoLang', req.path);
-
   var config = req._sails.config,
     languagesList = config.i18n.locales,
     fallbackLanguage = config.i18n.defaultLocale,
