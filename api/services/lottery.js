@@ -329,7 +329,7 @@ Lottery.prototype.getNextLottery = function (callback) {
     .sort('timestamp DESC')
     .then(function (lotteries) {
       callback(null, lotteries);
-    })
+    });
 };
 
 module.exports = Lottery;
