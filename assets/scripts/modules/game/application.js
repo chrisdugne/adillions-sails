@@ -3,6 +3,7 @@ var app = new Marionette.Application();
 import lotteryTools from 'game/tools/lottery-tools';
 import User from 'game/models/user';
 import Drawing from 'game/models/drawing';
+import Globals from 'game/models/globals';
 import layout from 'game/views/application-layout';
 import MenuView from 'game/views/menu-view';
 
@@ -70,9 +71,12 @@ app.router.start = function () {
 
 app.addInitializer(function () {
 
+  console.log('initialize');
+
   // models
-  this.user = new User();
+  this.user        = new User();
   this.nextDrawing = new Drawing();
+  this.globals     = new Globals();
 
   // view
   this.layout = new layout().render();

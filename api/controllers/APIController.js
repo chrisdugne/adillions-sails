@@ -23,6 +23,12 @@ var ApiController = module.exports = {
   //----------------------------------------------------------------------------
 
   globals: function (req, res) {
-    console.log('reached ApiController.globals');
+    var globals = new sails.services.globals();
+    globals.fetch(function(error, result){
+      res.json({
+        serverTime  : new Date().getTime(),
+        global      : result
+      });
+    });
   }
 };
