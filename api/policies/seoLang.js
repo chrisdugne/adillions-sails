@@ -44,6 +44,7 @@ module.exports = function (req, res, next) {
   }
 
   var language = req.param('lang') ? req.param('lang').match(/^([a-z]{2})$/) : null;
+
   // Public pages must have language in URL
   if (!user && !language) {
     sails.log.info('Public page try to access to an url without a SEO friendly URL', {

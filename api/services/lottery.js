@@ -322,4 +322,14 @@ Lottery.prototype.getLotteries = function (total, offset, next) {
     });
 };
 
+Lottery.prototype.getNextLottery = function (callback) {
+  sails.models.lottery
+    .find()
+    .limit(2)
+    .sort('timestamp DESC')
+    .then(function (lotteries) {
+      callback(null, lotteries);
+    });
+};
+
 module.exports = Lottery;
