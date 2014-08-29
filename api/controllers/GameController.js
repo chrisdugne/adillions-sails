@@ -14,9 +14,9 @@ module.exports = {
       usePopTitle: true,
       title: res.i18n('game_title'),
       bodyClass: 'game',
-      layout: 'layout_light',
+      layout: 'layout_chris_snake',
       // featureFliping of the new game app
-      featureEnabled: false
+      featureEnabled: true
     });
   },
   results: function (req, res) {
