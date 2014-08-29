@@ -1,6 +1,9 @@
 var ApiController = module.exports = {
+
+  //----------------------------------------------------------------------------
+
   nextLottery: function (req, res) {
-    console.log('reached LotteryController.nextLottery');
+    console.log('reached ApiController.nextLottery');
 
     var LotteryService = new sails.services.lottery();
 
@@ -15,5 +18,11 @@ var ApiController = module.exports = {
 
       res.json(results);
     });
+  },
+
+  //----------------------------------------------------------------------------
+
+  globals: function (req, res) {
+    console.log('reached ApiController.globals');
   }
 };

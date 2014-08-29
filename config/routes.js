@@ -57,6 +57,7 @@ module.exports.routes = {
   '/:lang/about/terms': 'AboutController.terms',
   '/:lang/about/advertisers': 'AboutController.advertisers',
 
+  'POST /api/globals': 'APIController.globals',
   'POST /api/nextLottery': 'APIController.nextLottery'
 
   // If a request to a URL doesn't match any of the custom routes above, it is matched
