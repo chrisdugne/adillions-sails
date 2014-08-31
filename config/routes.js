@@ -21,11 +21,11 @@
 
 module.exports.routes = {
 
-  '/:lang/login': 'AuthController.login',
+  //'/:lang/login': 'AuthController.login',
   // '/logout': 'AuthController.logout',
   // '/register': 'AuthController.register',
 
-  'post /auth/callback': 'AuthController.callback',
+  // 'post /auth/callback': 'AuthController.callback',
   // 'post /auth/local/:action': 'AuthController.callback',
 
   // '/auth/:provider': 'AuthController.provider',
