@@ -69,6 +69,21 @@ module.exports = function (grunt) {
       ]
     },
 
+    // Transpile all ES6 modules and components. This task could use 'newer' but, as transpile is very
+    // fast, it ends up being *slower* that just rebuilding everything
+    module_partials: {
+      options: {
+        spawn: false
+      },
+      files: [
+        'assets/scripts/modules/**/_partials/**/*.hbs',
+      ],
+      tasks: [
+        'newer:handlebars:modules',
+        'newer:concat:dev'
+      ]
+    },
+
     apps: {
       options: {
         spawn: false

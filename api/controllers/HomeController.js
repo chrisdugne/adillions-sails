@@ -9,11 +9,11 @@ var url = require('url'),
   numeral = require('numeral'),
   _ = require('lodash');
 
-var getUrl = function (req, code) {
+var getUrl = function (req, pathname) {
   return url.format({
     protocol: req.protocol,
     host: req.headers.host,
-    pathname: code
+    pathname: pathname
   });
 };
 
@@ -81,9 +81,11 @@ module.exports = {
     }
 
     var canonicalUrl = getUrl(req, currentLanguage),
+      ogImageUrl = getUrl(req, '/images/landing/og_bg.jpg'),
       locals = {
         alternateUrls: alternateUrls,
         canonicalUrl: canonicalUrl,
+        ogImageUrl: ogImageUrl,
         bodyClass: 'landing',
         layout: 'layout_landing'
       };
