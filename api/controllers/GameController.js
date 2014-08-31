@@ -15,8 +15,10 @@ module.exports = {
       title: res.i18n('game_title'),
       bodyClass: 'game',
       layout: 'layout_light',
-      // featureFliping of the new game app
       featureEnabled: false
+
+      // layout: 'layout_chris_snake',
+      // featureEnabled: true
     });
   },
   results: function (req, res) {

@@ -3,6 +3,8 @@ import Balls from 'game/collections/balls';
 export
 default Backbone.Model.extend({
 
+  url: '/api/nextLottery',
+
   defaults: {
     maxPick: 5,
     balls: null,

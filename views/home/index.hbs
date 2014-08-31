@@ -1,5 +1,10 @@
 {{#push "meta"}}
   <meta name="description" content="{{i18n 'adillions_meta_desc'}}">
+  <meta property="og:title" content="{{i18n 'adillions_meta_title'}}">
+  <meta property="og:description" content="{{i18n 'adillions_meta_desc'}}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{canonicalUrl}}">
+  <meta property="og:image" content="/images/landing/og_bg.jpg">
   {{#if canonicalUrl}}<link rel="canonical" href="{{canonicalUrl}}" />{{/if}}
   {{#each alternateUrls}}
     <link rel="alternate" href="{{url}}" hreflang="{{code}}" />
