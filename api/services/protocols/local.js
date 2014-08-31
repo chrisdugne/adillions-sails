@@ -1,5 +1,5 @@
 var validator = require('validator');
-
+var uuid = require('node-uuid');
 /**
  * Local Authentication Protocol
  *
@@ -44,9 +44,12 @@ exports.register = function (req, res, next) {
 
   User.create({
     username: username,
-    email: email
+    email: email,
+    uid: uuid.v4(),
+    last_update: new Date()
   }, function (err, user) {
     if (err) {
+      sails.log.error(err);
       req.flash('error', 'Error.Passport.User.Exists');
       return next(err);
     }
@@ -54,7 +57,7 @@ exports.register = function (req, res, next) {
     Passport.create({
       protocol: 'local',
       password: password,
-      user: user.id
+      user: user.uid
     }, function (err, passport) {
       next(err, user);
     });
@@ -78,7 +81,7 @@ exports.connect = function (req, res, next) {
 
   Passport.findOne({
     protocol: 'local',
-    user: user.id
+    user: user.uid
   }, function (err, passport) {
     if (err) {
       return next(err);
@@ -88,7 +91,7 @@ exports.connect = function (req, res, next) {
       Passport.create({
         protocol: 'local',
         password: password,
-        user: user.id
+        user: user.uid
       }, function (err, passport) {
         next(err, user);
       });
@@ -137,7 +140,7 @@ exports.login = function (req, identifier, password, next) {
 
     Passport.findOne({
       protocol: 'local',
-      user: user.id
+      user: user.uid
     }, function (err, passport) {
       if (passport) {
         passport.validatePassword(password, function (err, res) {

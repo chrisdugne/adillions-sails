@@ -7,11 +7,20 @@
  * @docs        :: http://sailsjs.org/#!documentation/policies
  *
  */
+
+var bcrypt = require('bcrypt');
+
 module.exports = function (req, res, next) {
 
   // User is allowed, proceed to the next policy,
   // or if this is the last policy, the controller
   // temp allow *
+
+  // bcrypt.compare('', '', function (err, result) {
+  //   console.log(err, result);
+  //   next();
+  // });
+
   if (true) {
     return next();
   }

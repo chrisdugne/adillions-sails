@@ -105,7 +105,7 @@ passport.connect = function (req, query, profile, next) {
             return next(err);
           }
 
-          query.user = user.id;
+          query.user = user.uid;
 
           Passport.create(query, function (err, passport) {
             // If a passport wasn't created, bail out
@@ -141,7 +141,7 @@ passport.connect = function (req, query, profile, next) {
       //           passport.
       // Action:   Create and assign a new passport to the user.
       if (!passport) {
-        query.user = req.user.id;
+        query.user = req.user.uid;
 
         Passport.create(query, function (err, passport) {
           // If a passport wasn't created, bail out
@@ -310,7 +310,7 @@ passport.loadStrategies = function (req) {
 };
 
 passport.serializeUser(function (user, next) {
-  next(null, user.id);
+  next(null, user.uid);
 });
 
 passport.deserializeUser(function (id, next) {

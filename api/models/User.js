@@ -9,6 +9,9 @@ module.exports = {
 
   tableName: 'player',
 
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
+
   // Set false to prevent creating id. By default id will be created as index with auto increment
   autoPK: false,
 
@@ -21,6 +24,27 @@ module.exports = {
   migrate: 'safe',
 
   attributes: {
+
+    // new date way
+    // createdAt: {
+    //   type: 'datetime',
+    //   defaultsTo: function (){ return new Date(); }
+    // },
+    // updatedAt: {
+    //   type: 'datetime',
+    //   defaultsTo: function (){ return new Date(); }
+    // },
+
+    // legacy date way
+    creation_date: {
+      type: 'integer',
+      columnName: 'creation_date'
+    },
+
+    last_update: {
+      type: 'date',
+      columnName: 'last_update'
+    },
 
     uid: {
       type: 'string',
@@ -111,6 +135,12 @@ module.exports = {
         rang: 5
       }];
       return status;
+    },
+    beforeCreate: function (user, next) {
+      // Handle legacy date
+      user.creation_date = new Date().getTime();
+      user.last_update = new Date();
+      next(null);
     }
   }
 };

@@ -75,6 +75,7 @@ var AuthController = {
    * @param {Object} res
    */
   logout: function (req, res) {
+    sails.log.info('logout user');
     req.logout();
     res.redirect('/');
   },
@@ -150,11 +151,25 @@ var AuthController = {
    */
   callback: function (req, res) {
     sails.services.passport.callback(req, res, function (err, user) {
+      if (err) {
+        sails.log.info('authController#Callback err', err);
+      }
       req.login(user, function (err) {
         // If an error was thrown, redirect the user to the login which should
         // take care of rendering the error messages.
         if (err) {
-          res.redirect(req.param('action') === 'register' ? '/register' : '/login');
+          sails.log.info('authController#Callback login failed', err);
+          var registerRoute = sails.config.route('auth.register', {
+              hash: {
+                'lang': res.getLocale()
+              }
+            }),
+            loginRoute = sails.config.route('auth.login', {
+              hash: {
+                'lang': res.getLocale()
+              }
+            });
+          res.redirect(req.param('action') === 'register' ? registerRoute : loginRoute);
         }
         // Upon successful login, send the user to the homepage were req.user
         // will available.
