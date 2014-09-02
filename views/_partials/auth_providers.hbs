@@ -2,7 +2,7 @@
   <ul class="rrssb-buttons list-unstyled">
   {{#each providers}}
     <li class="{{slug}}{{#if isGoogle}}plus{{/if}} col-xs-12 col-sm-4">
-      <a href="/auth/{{slug}}">
+      <a href="{{route 'auth.provider' lang=../locale provider=slug}}">
         <span class="icon">
           {{#if isFacebook}}
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
