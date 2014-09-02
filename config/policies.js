@@ -15,7 +15,12 @@ module.exports.policies = {
 
   // Default policy for all controllers and actions
   // (`true` allows public access)
-  '*': ['passport', 'seoLang', 'initLanguages', 'formatDate', 'layout']
+  '*': ['passport', 'seoLang', 'initLanguages', 'formatDate', 'layout'],
+
+  'gameController': {
+    // authenticated policy
+    index: ['passport', 'authenticated', 'seoLang', 'initLanguages', 'formatDate', 'layout']
+  }
 
   /*
 	// Here's an example of adding some policies to a controller

@@ -12,16 +12,17 @@ var bcrypt = require('bcrypt');
 
 module.exports = function (req, res, next) {
 
+  var loginRoute = sails.config.route('auth.login', {
+    hash: {
+      'lang': res.getLocale()
+    }
+  });
+
   // User is allowed, proceed to the next policy,
   // or if this is the last policy, the controller
   // temp allow *
 
-  // bcrypt.compare('', '', function (err, result) {
-  //   console.log(err, result);
-  //   next();
-  // });
-
-  if (true) {
+  if (req.user || req.path === loginRoute) {
     return next();
   }
 
@@ -31,5 +32,6 @@ module.exports = function (req, res, next) {
 
   // User is not allowed
   // (default res.forbidden() behavior can be overridden in `config/403.js`)
-  return res.forbidden('You are not permitted to perform this action.');
+
+  return res.forbidden('You must be logged in to view this page', loginRoute);
 };
