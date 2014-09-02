@@ -16,6 +16,16 @@ var bcrypt = require('bcrypt');
  */
 var Passport = {
 
+  tableName: 'passport',
+
+  // Set schema true/false to only allow fields defined in attributes to be saved. Only for schemaless adapters.
+  schema: true,
+
+  // migrate: 'alter', // adds and/or removes columns on changes to the schema
+  // migrate: 'drop', // drops all your tables and then re-creates them. All data is deleted.
+  // doesn't do anything on sails lift- for use in production.
+  migrate: 'alter',
+
   attributes: {
 
     // Required field: Protocol
