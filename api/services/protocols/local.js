@@ -1,5 +1,4 @@
 var validator = require('validator');
-var uuid = require('node-uuid');
 /**
  * Local Authentication Protocol
  *
@@ -44,9 +43,7 @@ exports.register = function (req, res, next) {
 
   User.create({
     username: username,
-    email: email,
-    uid: uuid.v4(),
-    last_update: new Date()
+    email: email
   }, function (err, user) {
     if (err) {
       sails.log.error(err);
@@ -156,6 +153,15 @@ exports.login = function (req, identifier, password, next) {
           }
         });
       } else {
+
+        if (user.secret) {
+          // legacy hash
+          var secret = require('crypto').createHash('sha512').update(1409609226940 + 'mcclane54').digest('hex');
+          console.log('from: ' + secret, 'to: ce45c638f92e5984525d13b0cf67f50c1e12f4af3af6f2de5b191baf3a438a4821114c7d9ec1a79d50ad0d4610192d85843609dcaf29493d716fa56a7f7860ab');
+          req.flash('error', 'todo: handle legacy local login with secret');
+          return next(null, false);
+        }
+
         req.flash('error', 'Error.Passport.Password.NotSet');
         return next(null, false);
       }
