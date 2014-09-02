@@ -21,6 +21,7 @@ var validator = require('validator');
  * @param {Object}   res
  * @param {Function} next
  */
+
 exports.register = function (req, res, next) {
   var email = req.param('email'),
     username = req.param('username'),
@@ -110,6 +111,11 @@ exports.connect = function (req, res, next) {
  * @param {string}   password
  * @param {Function} next
  */
+
+var getHash = function (str) {
+  return require('crypto').createHash('sha512').update(str).digest('hex');
+};
+
 exports.login = function (req, identifier, password, next) {
   var isEmail = validator.isEmail(identifier),
     query = {};
@@ -127,11 +133,12 @@ exports.login = function (req, identifier, password, next) {
 
     if (!user) {
       if (isEmail) {
+        sails.log.info('Passport#service: email not found');
         req.flash('error', 'Error.Passport.Email.NotFound');
       } else {
+        sails.log.info('Passport#service: username not found');
         req.flash('error', 'Error.Passport.Username.NotFound');
       }
-
       return next(null, false);
     }
 
@@ -146,6 +153,7 @@ exports.login = function (req, identifier, password, next) {
           }
 
           if (!res) {
+            sails.log.info('Passport#service: wrong password');
             req.flash('error', 'Error.Passport.Password.Wrong');
             return next(null, false);
           } else {
@@ -156,15 +164,24 @@ exports.login = function (req, identifier, password, next) {
 
         if (user.secret) {
           // legacy hash
-          var secret = require('crypto').createHash('sha512').update(1409609226940 + 'mcclane54').digest('hex');
-          console.log('from: ' + secret, 'to: ce45c638f92e5984525d13b0cf67f50c1e12f4af3af6f2de5b191baf3a438a4821114c7d9ec1a79d50ad0d4610192d85843609dcaf29493d716fa56a7f7860ab');
-          req.flash('error', 'todo: handle legacy local login with secret');
-          return next(null, false);
+          var hash = getHash(password);
+          var secret = getHash(user.creation_date + hash);
+
+          if (secret === user.secret) {
+            return next(null, user);
+          } else {
+            sails.log.info('Passport#service: wrong legacy password');
+            req.flash('error', 'Error.Passport.Password.Wrong');
+            return next(null, false);
+          }
+
         }
 
+        sails.log.info('Passport#service: password not set');
         req.flash('error', 'Error.Passport.Password.NotSet');
         return next(null, false);
       }
     });
   });
 };
+

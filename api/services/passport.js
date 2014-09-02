@@ -137,7 +137,7 @@ passport.connect = function (req, query, profile, next) {
           if (err) {
             return next(err);
           }
-          sails.log.info('user not connected, has already a passport : update passport', passport);
+          sails.log.info('user not connected, has already a passport : update passport', passport.user.uid);
           // Fetch the user associated with the Passport
           User.findOne({
             uid: passport.user.uid

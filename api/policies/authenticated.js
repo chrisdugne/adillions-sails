@@ -33,5 +33,5 @@ module.exports = function (req, res, next) {
   // User is not allowed
   // (default res.forbidden() behavior can be overridden in `config/403.js`)
 
-  return res.forbidden('You must be logged in to view this page', loginRoute);
+  return res.forbidden('You must be logged in, to view this page', loginRoute);
 };
