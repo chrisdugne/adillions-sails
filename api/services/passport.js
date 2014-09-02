@@ -1,6 +1,7 @@
 var passport = require('passport'),
   path = require('path'),
-  url = require('url');
+  url = require('url'),
+  _ = require('lodash');
 
 /**
  * Passport Service
@@ -76,8 +77,13 @@ passport.connect = function (req, query, profile, next) {
     user.email = profile.emails[0].value;
   }
   // If the profile object contains a username, add it to the user.
-  if (profile.hasOwnProperty('username')) {
+  if (profile.hasOwnProperty('username') && _.isString('username')) {
     user.username = profile.username;
+  }
+  // If the profile object contains a username, add it to the user.
+  if (profile.hasOwnProperty('name')) {
+    user.lastname = profile.name.familyName ? profile.name.familyName : null;
+    user.firstname = profile.name.givenName ? profile.name.givenName : null;
   }
 
   // If neither an email or a username was available in the profile, we don't
@@ -104,7 +110,7 @@ passport.connect = function (req, query, profile, next) {
           if (err) {
             return next(err);
           }
-
+          sails.log.info('user not connected, has not a passport : create a user', user);
           query.user = user.uid;
 
           Passport.create(query, function (err, passport) {
@@ -112,7 +118,7 @@ passport.connect = function (req, query, profile, next) {
             if (err) {
               return next(err);
             }
-
+            sails.log.info('user not connected, has not a passport : create a passport', passport);
             next(err, user);
           });
         });
@@ -131,9 +137,11 @@ passport.connect = function (req, query, profile, next) {
           if (err) {
             return next(err);
           }
-
+          sails.log.info('user not connected, has already a passport : update passport', passport);
           // Fetch the user associated with the Passport
-          User.findOne(passport.user, next);
+          User.findOne({
+            uid: passport.user.uid
+          }, next);
         });
       }
     } else {
@@ -142,19 +150,20 @@ passport.connect = function (req, query, profile, next) {
       // Action:   Create and assign a new passport to the user.
       if (!passport) {
         query.user = req.user.uid;
-
         Passport.create(query, function (err, passport) {
           // If a passport wasn't created, bail out
           if (err) {
             return next(err);
           }
 
+          sails.log.info('connected user, has not a passport, create a passport', req.user);
           next(err, req.user);
         });
       }
       // Scenario: The user is a nutjob or spammed the back-button.
       // Action:   Simply pass along the already established session.
       else {
+        sails.log.info('connected user: has already a passport', req.user);
         next(null, req.user);
       }
     }
@@ -281,7 +290,7 @@ passport.loadStrategies = function (req) {
         callback = strategies[key].callback;
 
       if (!callback) {
-        callback = path.join('auth', key, 'callback');
+        callback = path.join(req.getLocale() + '/auth', key, 'callback');
       }
 
       Strategy = strategies[key].strategy;

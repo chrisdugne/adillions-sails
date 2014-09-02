@@ -1,4 +1,5 @@
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt'),
+  _ = require('lodash');
 
 /**
  * Passport Model
@@ -24,7 +25,7 @@ var Passport = {
   // migrate: 'alter', // adds and/or removes columns on changes to the schema
   // migrate: 'drop', // drops all your tables and then re-creates them. All data is deleted.
   // doesn't do anything on sails lift- for use in production.
-  migrate: 'alter',
+  migrate: 'safe',
 
   attributes: {
 
@@ -117,7 +118,7 @@ var Passport = {
    * @param {Function} next
    */
   beforeUpdate: function (passport, next) {
-    if (passport.hasOwnProperty('password')) {
+    if (passport.hasOwnProperty('password') && _.isString(passport.password)) {
       bcrypt.hash(passport.password, 10, function (err, hash) {
         passport.password = hash;
         next(err, passport);

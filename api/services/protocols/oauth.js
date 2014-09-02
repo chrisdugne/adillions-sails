@@ -18,7 +18,7 @@
  * @param {Function} next
  */
 
-var passport = require('../passport');
+var passport = require('passport');
 
 module.exports = function (req, token, tokenSecret, profile, next) {
   var query = {

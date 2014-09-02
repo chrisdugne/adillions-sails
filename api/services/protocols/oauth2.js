@@ -18,7 +18,7 @@
  * @param {Object}   profile
  * @param {Function} next
  */
-var passport = require('../passport');
+var passport = require('passport');
 
 module.exports = function (req, accessToken, refreshToken, profile, next) {
   var query = {
