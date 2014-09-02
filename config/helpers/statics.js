@@ -29,7 +29,8 @@ var validateOptions = function (opts) {
     mapping = JSON.parse(fs.readFileSync(options.mapping).toString());
   } else {
     mapping = {};
-    sails.log.warn('helpers#extUrl: options.aliases file not found!', options.mapping);
+    // production statics mapping
+    sails.log.warn('helpers#statics: options.mapping file not found!', options.mapping);
   }
 
 };
