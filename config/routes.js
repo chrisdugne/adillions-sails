@@ -21,11 +21,11 @@
 
 module.exports.routes = {
 
-  '/:lang/login': 'AuthController.login',
+  //'/:lang/login': 'AuthController.login',
   // '/logout': 'AuthController.logout',
   // '/register': 'AuthController.register',
 
-  'post /auth/callback': 'AuthController.callback',
+  // 'post /auth/callback': 'AuthController.callback',
   // 'post /auth/local/:action': 'AuthController.callback',
 
   // '/auth/:provider': 'AuthController.provider',
@@ -50,8 +50,14 @@ module.exports.routes = {
   '/:lang/about/terms': 'AboutController.terms',
   '/:lang/about/advertisers': 'AboutController.advertisers',
 
-  '/api/globals': 'APIController.globals',
-  'post /api/nextLottery': 'APIController.nextLottery'
+  '/api/globals': 'APIController.readGlobals',
+  '/api/nextLottery': 'APIController.readNextLottery'
+
+  // API Examples of how to naming controllers functions
+  // '/api/globals': 'APIController.readGlobals',
+  // 'post /api/globals': 'APIController.createGlobals',
+  // 'put /api/globals': 'APIController.updateGlobals',
+  // 'delete /api/globals': 'APIController.deleteGlobals'
 
   // If a request to a URL doesn't match any of the custom routes above, it is matched
   // against Sails route blueprints.  See `config/blueprints.js` for configuration options

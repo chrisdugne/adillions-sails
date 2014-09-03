@@ -14,10 +14,11 @@ module.exports = {
       usePopTitle: true,
       title: res.i18n('game_title'),
       bodyClass: 'game',
-      // layout: 'layout_light',
-      layout: 'layout_chris_snake', // --> pour dev en furtif..
-      // featureFliping of the new game app
-      featureEnabled: true
+      layout: 'layout_light',
+      featureEnabled: false
+
+      // layout: 'layout_chris_snake',
+      // featureEnabled: true
     });
   },
   results: function (req, res) {

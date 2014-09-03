@@ -9,7 +9,14 @@ Globals.prototype.fetch = function (next) {
       id: 'current'
     })
     .then(function (result) {
+      if (!result || !result.length) {
+        throw new Error('empty globals');
+      }
       next(null, result[0]);
+    })
+    .fail(function (err) {
+      sails.log.error('Globals#fetch Service: query fails', err);
+      next(err);
     });
 };
 
