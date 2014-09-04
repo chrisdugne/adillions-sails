@@ -44,7 +44,7 @@ module.exports.passport = {
     name: 'Facebook',
     protocol: 'oauth2',
     strategy: require('passport-facebook').Strategy,
-    scope: 'publish_stream, email, user_photos, user_location, user_likes, user_birthday, friends_birthday, publish_actions',
+    scope: ['publish_stream', 'email', 'user_photos', 'user_location', 'user_likes', 'user_birthday', 'friends_birthday', 'publish_actions'],
     options: {
       clientID: '170148346520274',
       clientSecret: '887e8f7abb9b1cb9238a097e06585ae2'

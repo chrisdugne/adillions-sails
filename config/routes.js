@@ -48,10 +48,12 @@ module.exports.routes = {
   '/:lang/about/jobs': 'AboutController.jobs',
   '/:lang/about/privacy': 'AboutController.privacy',
   '/:lang/about/terms': 'AboutController.terms',
-  '/:lang/about/advertisers': 'AboutController.advertisers'
+  '/:lang/about/advertisers': 'AboutController.advertisers',
 
   // If a request to a URL doesn't match any of the custom routes above, it is matched
   // against Sails route blueprints.  See `config/blueprints.js` for configuration options
   // and examples.
+
+  '/api/test': 'ApiController.index'
 
 };
