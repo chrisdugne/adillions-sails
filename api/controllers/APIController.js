@@ -15,8 +15,9 @@ var ApiController = module.exports = {
   //----------------------------------------------------------------------------
 
   readGlobals: function (req, res) {
-    var globals = new sails.services.globals();
-    globals.fetch(function (err, result) {
+    var PublicService = new sails.services.public();
+
+    PublicService.readGlobals(function (err, result) {
       if (err) {
         return res.serverError(err);
       }
@@ -24,6 +25,19 @@ var ApiController = module.exports = {
         serverTime: new Date().getTime(),
         global: result
       });
+    });
+  },
+
+  //----------------------------------------------------------------------------
+
+  readMobileSettings: function (req, res) {
+    var PublicService = new sails.services.public();
+
+    PublicService.readMobileSettings(function (err, result) {
+      if (err) {
+        return res.serverError(err);
+      }
+      res.json(result);
     });
   }
 };
