@@ -51,7 +51,6 @@ exports.register = function (req, res, next) {
       req.flash('error', 'Error.Passport.User.Exists');
       return next(err);
     }
-
     Passport.create({
       protocol: 'local',
       password: password,
@@ -84,7 +83,6 @@ exports.connect = function (req, res, next) {
     if (err) {
       return next(err);
     }
-
     if (!passport) {
       Passport.create({
         protocol: 'local',
@@ -151,37 +149,44 @@ exports.login = function (req, identifier, password, next) {
           if (err) {
             return next(err);
           }
-
           if (!res) {
             sails.log.info('Passport#service: wrong password');
             req.flash('error', 'Error.Passport.Password.Wrong');
             return next(null, false);
           } else {
+            sails.log.info('Passport#service: connect user that has a passport');
             return next(null, user);
           }
         });
       } else {
 
         if (user.secret) {
-          // legacy hash
+          // legacy user
           var hash = getHash(password);
           var secret = getHash(user.creation_date + hash);
 
           if (secret === user.secret) {
-            return next(null, user);
+            Passport.create({
+              protocol: 'local',
+              password: password,
+              user: user.uid
+            }, function (err, passport) {
+              sails.log.info('Passport#service: create a passport for a legacy user');
+              next(null, user);
+            });
           } else {
             sails.log.info('Passport#service: wrong legacy password');
             req.flash('error', 'Error.Passport.Password.Wrong');
             return next(null, false);
           }
 
+        } else {
+          sails.log.info('Passport#service: password not set');
+          req.flash('error', 'Error.Passport.Password.NotSet');
+          return next(null, false);
         }
 
-        sails.log.info('Passport#service: password not set');
-        req.flash('error', 'Error.Passport.Password.NotSet');
-        return next(null, false);
       }
     });
   });
 };
-

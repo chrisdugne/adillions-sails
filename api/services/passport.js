@@ -60,30 +60,22 @@ passport.protocols = require('./protocols');
  *
  * @param {Object}   req
  * @param {Object}   query
+ * @param {Object}   user
  * @param {Object}   profile
  * @param {Function} next
  */
-passport.connect = function (req, query, profile, next) {
+passport.connect = function (req, query, user, profile, next) {
   var strategies = sails.config.passport,
-    config = strategies[profile.provider],
-    user = {};
+    config = strategies[profile.provider];
 
   // Set the authentication provider.
-  query.provider = req.param('provider');
+  query.provider = profile.provider;
 
-  // If the profile object contains a list of emails, grab the first one and
-  // add it to the user.
-  if (profile.hasOwnProperty('emails')) {
-    user.email = profile.emails[0].value;
-  }
-  // If the profile object contains a username, add it to the user.
-  if (profile.hasOwnProperty('username') && _.isString('username')) {
-    user.username = profile.username;
-  }
-  // If the profile object contains a username, add it to the user.
-  if (profile.hasOwnProperty('name')) {
-    user.lastname = profile.name.familyName ? profile.name.familyName : null;
-    user.firstname = profile.name.givenName ? profile.name.givenName : null;
+  if (profile.provider === 'facebook') {
+    user.facebook_id = query.identifier.toString();
+  } else if (profile.provider === 'twitter') {
+    user.twitter_id = query.identifier.toString();
+    user.twitter_name = user.username;
   }
 
   // If neither an email or a username was available in the profile, we don't
@@ -106,11 +98,13 @@ passport.connect = function (req, query, profile, next) {
       //           authentication provider.
       // Action:   Create a new user and assign them a passport.
       if (!passport) {
-        User.create(user, function (err, user) {
+        User.findOrCreate({
+          email: user.email
+        }, user, function (err, user) {
           if (err) {
             return next(err);
           }
-          sails.log.info('user not connected, has not a passport : create a user', user);
+          sails.log.info('user not connected, has not a passport : find|create a user', user);
           query.user = user.uid;
 
           Passport.create(query, function (err, passport) {
@@ -119,7 +113,7 @@ passport.connect = function (req, query, profile, next) {
               return next(err);
             }
             sails.log.info('user not connected, has not a passport : create a passport', passport);
-            next(err, user);
+            next(null, user);
           });
         });
       }
@@ -282,7 +276,6 @@ passport.loadStrategies = function (req) {
       // Only load the local strategy if it's enabled in the config
       if (strategies.local) {
         Strategy = strategies[key].strategy;
-
         self.use(new Strategy(options, self.protocols.local.login));
       }
     } else {
