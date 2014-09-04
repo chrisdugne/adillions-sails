@@ -25,7 +25,7 @@ var Passport = {
   // migrate: 'alter', // adds and/or removes columns on changes to the schema
   // migrate: 'drop', // drops all your tables and then re-creates them. All data is deleted.
   // doesn't do anything on sails lift- for use in production.
-  migrate: 'safe',
+  migrate: 'alter',
 
   attributes: {
 
@@ -69,7 +69,9 @@ var Passport = {
     tokens: {
       type: 'json'
     },
-
+    profile: {
+      type: 'json'
+    },
     // Associations
     //
     // Associate every passport with one, and only one, user. This requires an

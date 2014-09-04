@@ -55,6 +55,9 @@ module.exports = {
       primaryKey: true
     },
 
+    // new
+    // photo: 'string',
+
     // legacy date way
     creation_date: 'integer',
     last_update: 'date',
@@ -141,8 +144,7 @@ module.exports = {
     },
 
     email: {
-      type: 'email',
-      unique: true
+      type: 'email'
     },
 
     firstname: {
@@ -201,6 +203,7 @@ module.exports = {
       via: 'user'
     },
 
+    // new
     passports: {
       collection: 'Passport',
       via: 'user'
