@@ -2,29 +2,24 @@ var ApiController = module.exports = {
 
   //----------------------------------------------------------------------------
 
-  nextLottery: function (req, res) {
-    console.log('reached ApiController.nextLottery');
-
+  readNextLottery: function (req, res) {
     var LotteryService = new sails.services.lottery();
-
-    async.parallel({
-      nextLottery: function (cb) {
-        LotteryService.getNextLottery(cb);
-      }
-    }, function (err, results) {
+    LotteryService.getNextLottery(function (err, result) {
       if (err) {
         return res.serverError(err);
       }
-
-      res.json(results);
+      res.json(result);
     });
   },
 
   //----------------------------------------------------------------------------
 
-  globals: function (req, res) {
+  readGlobals: function (req, res) {
     var globals = new sails.services.globals();
-    globals.fetch(function (error, result) {
+    globals.fetch(function (err, result) {
+      if (err) {
+        return res.serverError(err);
+      }
       res.json({
         serverTime: new Date().getTime(),
         global: result
