@@ -36,10 +36,10 @@ module.exports = {
       columnName: 'date'
     },
 
-    // last_update: {
-    //   type: 'date',
-    //   columnName: 'last_update'
-    // },
+    last_update: {
+      type: 'date',
+      columnName: 'last_update'
+    },
 
     numbers: {
       type: 'integer',
