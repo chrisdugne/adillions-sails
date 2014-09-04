@@ -8,8 +8,6 @@
  *
  */
 
-var bcrypt = require('bcrypt');
-
 module.exports = function (req, res, next) {
 
   var loginRoute = sails.config.route('auth.login', {
@@ -26,12 +24,10 @@ module.exports = function (req, res, next) {
     return next();
   }
 
+  // User is not allowed
+  // (default res.forbidden() behavior can be overridden in `config/403.js`)
   sails.log.info('User not authenticated try to reach a forbidden page', {
     path: req.path
   });
-
-  // User is not allowed
-  // (default res.forbidden() behavior can be overridden in `config/403.js`)
-
   return res.forbidden('You must be logged in, to view this page', loginRoute);
 };
