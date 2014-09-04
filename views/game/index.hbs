@@ -17,6 +17,18 @@
 {{else}}
   <h1 class="text-center mtxl mbxl">{{i18n 'coming_soon'}}</h1>
 
+  {{#if user}}
+    <h3 class="tac">
+      {{i18n 'hello'}}
+      {{#if user.username}}
+        {{user.username}}
+      {{else}}
+       {{user.firstname}} {{user.lastname}}
+      {{/if}}
+      !
+    </h3>
+  {{/if}}
+
   <p class="lead text-center">{{i18n 'coming_soon_game_desc'}}</p>
   <p class="lead text-center">{{i18n 'coming_soon_game_desc2'}}</p>
   <p class="lead text-center">{{i18n 'coming_soon_game_desc3'}}</p>
