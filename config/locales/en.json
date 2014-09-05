@@ -93,6 +93,8 @@
   "auth_field_email": "Email",
   "auth_field_password": "Password",
   "auth_field_username_or_email": "Username or email",
+  "auth_already_on": "Already on Adillions?",
+  "auth_not_member": "Not a member?",
 
   "_comment": "##### LANDING/index #####",
 
