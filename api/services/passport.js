@@ -66,14 +66,23 @@ passport.protocols = require('./protocols');
  */
 passport.connect = function (req, query, user, profile, next) {
   var strategies = sails.config.passport,
-    config = strategies[profile.provider];
+    config = strategies[profile.provider],
+    userQuery = {
+      secret: null
+    };
 
   // Set the authentication provider.
   query.provider = profile.provider;
 
   if (profile.provider === 'facebook') {
+    _.merge(userQuery, {
+      facebook_id: query.identifier.toString()
+    });
     user.facebook_id = query.identifier.toString();
   } else if (profile.provider === 'twitter') {
+    _.merge(userQuery, {
+      twitter_id: query.identifier.toString()
+    });
     user.twitter_id = query.identifier.toString();
     user.twitter_name = user.username;
   }
@@ -98,13 +107,11 @@ passport.connect = function (req, query, user, profile, next) {
       //           authentication provider.
       // Action:   Create a new user and assign them a passport.
       if (!passport) {
-        User.findOrCreate({
-          email: user.email
-        }, user, function (err, user) {
+        User.findOrCreate(userQuery, user, function (err, user) {
           if (err) {
             return next(err);
           }
-          sails.log.info('user not connected, has not a passport : find|create a user', user);
+          sails.log.info('user not connected, has not a passport : find|create a user', user.uid);
           query.user = user.uid;
 
           Passport.create(query, function (err, passport) {
@@ -112,7 +119,7 @@ passport.connect = function (req, query, user, profile, next) {
             if (err) {
               return next(err);
             }
-            sails.log.info('user not connected, has not a passport : create a passport', passport);
+            sails.log.info('user not connected, has not a passport : create a passport', passport.id);
             next(null, user);
           });
         });
@@ -131,7 +138,7 @@ passport.connect = function (req, query, user, profile, next) {
           if (err) {
             return next(err);
           }
-          sails.log.info('user not connected, has already a passport : update passport', passport.user.uid);
+          sails.log.info('user not connected, has already a passport : update passport', passport.id);
           // Fetch the user associated with the Passport
           User.findOne({
             uid: passport.user.uid
@@ -150,14 +157,14 @@ passport.connect = function (req, query, user, profile, next) {
             return next(err);
           }
 
-          sails.log.info('connected user, has not a passport, create a passport', req.user);
+          sails.log.info('connected user, has not a passport, create a passport', req.user.uid);
           next(err, req.user);
         });
       }
       // Scenario: The user is a nutjob or spammed the back-button.
       // Action:   Simply pass along the already established session.
       else {
-        sails.log.info('connected user: has already a passport', req.user);
+        sails.log.info('connected user: has already a passport', req.user.uid);
         next(null, req.user);
       }
     }

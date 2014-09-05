@@ -20,10 +20,8 @@ module.exports = {
     facebook: {
       options: {
         // legacy dev
-        // clientID: '534196239997712',
-        // clientSecret: '46383d827867d50ef5d87b66c81f1a8e'
-        clientID: '1485626205018543',
-        clientSecret: '44cf8a3cb8235821dec1fe5b0257968e'
+        clientID: '534196239997712',
+        clientSecret: '46383d827867d50ef5d87b66c81f1a8e'
       }
     }
   }

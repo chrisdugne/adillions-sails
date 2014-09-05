@@ -23,9 +23,6 @@ module.exports = {
 
   tableName: 'player',
 
-  autoCreatedAt: false,
-  autoUpdatedAt: false,
-
   // Set false to prevent creating id. By default id will be created as index with auto increment
   autoPK: false,
 
@@ -39,15 +36,20 @@ module.exports = {
 
   attributes: {
 
-    // new date way
-    // createdAt: {
-    //   type: 'datetime',
-    //   defaultsTo: function (){ return new Date(); }
-    // },
-    // updatedAt: {
-    //   type: 'datetime',
-    //   defaultsTo: function (){ return new Date(); }
-    // },
+    createdAt: {
+      type: 'datetime',
+      columnName: 'created_at',
+      defaultsTo: function () {
+        return new Date();
+      }
+    },
+    updatedAt: {
+      type: 'datetime',
+      columnName: 'updated_at',
+      defaultsTo: function () {
+        return new Date();
+      }
+    },
 
     uid: {
       type: 'string',
@@ -55,8 +57,10 @@ module.exports = {
       primaryKey: true
     },
 
-    // new
-    // photo: 'string',
+    photo: {
+      type: 'string',
+      columnName: 'photo_url'
+    },
 
     // legacy date way
     creation_date: 'integer',
@@ -105,7 +109,7 @@ module.exports = {
 
     available_tickets: {
       type: 'integer',
-      defaultsTo: 8
+      defaultsTo: 3
     },
     played_bonus_tickets: {
       type: 'integer',
@@ -136,6 +140,11 @@ module.exports = {
     idle_points: {
       type: 'integer',
       defaultsTo: 0
+    },
+
+    status: {
+      type: 'integer',
+      defaultsTo: 1
     },
 
     username: {
@@ -203,10 +212,8 @@ module.exports = {
       via: 'user'
     },
 
-    // new
-    passports: {
-      collection: 'Passport',
-      via: 'user'
+    passport: {
+      model: 'Passport'
     },
 
     /*

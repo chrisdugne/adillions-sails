@@ -25,9 +25,24 @@ var Passport = {
   // migrate: 'alter', // adds and/or removes columns on changes to the schema
   // migrate: 'drop', // drops all your tables and then re-creates them. All data is deleted.
   // doesn't do anything on sails lift- for use in production.
-  migrate: 'alter',
+  migrate: 'safe',
 
   attributes: {
+
+    createdAt: {
+      type: 'datetime',
+      columnName: 'created_at',
+      defaultsTo: function () {
+        return new Date();
+      }
+    },
+    updatedAt: {
+      type: 'datetime',
+      columnName: 'updated_at',
+      defaultsTo: function () {
+        return new Date();
+      }
+    },
 
     // Required field: Protocol
     //

@@ -51,6 +51,7 @@ exports.register = function (req, res, next) {
       req.flash('error', 'Error.Passport.User.Exists');
       return next(err);
     }
+    sails.log.info('Passport.register#service: create a local user', user.uid);
     Passport.create({
       protocol: 'local',
       password: password,

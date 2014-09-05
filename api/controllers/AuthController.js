@@ -146,13 +146,13 @@ var AuthController = {
   callback: function (req, res) {
     sails.services.passport.callback(req, res, function (err, user) {
       if (err) {
-        sails.log.info('authController#Callback err', err, user);
+        sails.log.warn('authController#Callback err', err, user);
       }
       req.login(user, function (err) {
         // If an error was thrown, redirect the user to the login which should
         // take care of rendering the error messages.
         if (err) {
-          sails.log.info('authController#Callback login failed', err);
+          sails.log.warn('authController#Callback login failed', err);
           var registerRoute = sails.config.route('auth.register', {
               hash: {
                 'lang': res.getLocale()
