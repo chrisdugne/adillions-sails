@@ -22,6 +22,22 @@ module.exports = {
 
   attributes: {
 
+    createdAt: {
+      type: 'datetime',
+      columnName: 'created_at',
+      defaultsTo: function () {
+        return new Date();
+      }
+    },
+
+    updatedAt: {
+      type: 'datetime',
+      columnName: 'updated_at',
+      defaultsTo: function () {
+        return new Date();
+      }
+    },
+
     uid: {
       type: 'string',
       unique: true,

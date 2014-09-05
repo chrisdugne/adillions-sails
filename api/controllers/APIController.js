@@ -31,9 +31,10 @@ var ApiController = module.exports = {
   //----------------------------------------------------------------------------
 
   readMobileSettings: function (req, res) {
-    var PublicService = new sails.services.public();
+    var PublicService = new sails.services.public(),
+        version = req.param('version');
 
-    PublicService.readMobileSettings(function (err, result) {
+    PublicService.readMobileSettings(version, function (err, result) {
       if (err) {
         return res.serverError(err);
       }

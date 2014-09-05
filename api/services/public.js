@@ -23,15 +23,15 @@ var PublicService = module.exports = function () {
 
     //--------------------------------------------------------------------------
 
-    readMobileSettings: function (next) {
+    readMobileSettings: function (version, next) {
       sails.models.mobilesettings
         .find()
         .where({
-          version: '1.5'
+          version: version
         })
         .then(function (result) {
           if (!result || !result.length) {
-            throw new Error('empty mobileSettings');
+            throw new Error('empty mobileSettings for version ' + version);
           }
           next(null, result[0]);
         })
