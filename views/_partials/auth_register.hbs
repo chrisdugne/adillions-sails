@@ -26,7 +26,7 @@
       <label>
         {{#set 'termsroute'}}{{route 'about.terms' lang=locale}}{{/set}}
         {{#set 'privacyroute'}}{{route 'about.privacy' lang=locale}}{{/set}}
-        <input type="checkbox">
+        <input type="checkbox" name="rules">
         {{{i18n 'auth_register_terms' termsroute privacyroute}}}
       </label>
     </div>
@@ -35,7 +35,7 @@
       <button type="submit" class="btn btn-lead btn-lg btn-block">{{i18n 'auth_register'}}</button>
     </div>
 
-    <p class="mts text-center">{{i18n 'auth_already_on'}} <a href="{{route 'auth.login' lang=locale}}">{{i18n 'auth_signin'}}</a></p>
+    <p class="mts mbn text-center">{{i18n 'auth_already_on'}} <a href="{{route 'auth.login' lang=locale}}">{{i18n 'auth_signin'}}</a></p>
 
   </div>
 
