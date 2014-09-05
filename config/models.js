@@ -14,6 +14,6 @@ module.exports.models = {
   // For production connection: see config/environments/production.js
   // For development connection: see config/environments/development.js
   // Default connection :
-  connection: 'localDiskDb',
+  connection: 'Postgresql',
   migrate: 'safe'
 };

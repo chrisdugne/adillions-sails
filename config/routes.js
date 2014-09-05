@@ -36,6 +36,8 @@ module.exports.routes = {
   '/:lang/game': 'GameController.index',
   '/:lang/results': 'GameController.results',
 
+  '/:lang/profile/:id': 'ProfileController.index',
+
   '/:lang/about': 'AboutController.index',
   '/:lang/about/winwinwin': 'AboutController.winwinwin',
   '/:lang/about/team': 'AboutController.team',
