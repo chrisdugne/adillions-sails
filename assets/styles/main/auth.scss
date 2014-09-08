@@ -1,4 +1,4 @@
-.auth-register-form,.auth-signin-form {
+.auth-register-form,.auth-login-form {
   margin-top: 60px;
   background: rgb(255,255,255);
   background: rgba(255,255,255,0.1);
@@ -22,18 +22,18 @@
       }
     }
   }
-  .form-group {
-    margin:0;
-    input {
-      height: 46px;
-    }
-  }
-  .username,.email,.identifier {
-    @include border-bottom-radius(0);
-  }
-  .email,.password {
-    border-top:0 none;
-    @include border-top-radius(0);
-  }
+  // .form-group {
+  //   margin:0;
+  //   input {
+  //     height: 46px;
+  //   }
+  // }
+  // .username,.email,.identifier {
+  //   @include border-bottom-radius(0);
+  // }
+  // .email,.password {
+  //   border-top:0 none;
+  //   @include border-top-radius(0);
+  // }
 }
 

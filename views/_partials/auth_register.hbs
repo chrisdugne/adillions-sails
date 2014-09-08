@@ -1,4 +1,4 @@
-<form role="form" action="{{route 'auth.callback' lang=locale}}/register" method="post" class='auth-register-form panel panel-default'>
+<form role="form form-horizontal" action="{{route 'auth.callback' lang=locale}}/register" method="post" class='auth-register-form panel panel-default'>
 
 {{!--   <div class="panel-heading">
     <h1 class="panel-title">{{i18n 'auth_register'}}</h1>
@@ -10,16 +10,22 @@
       {{> 'auth_providers'}}
     </div>
 
-    <div class="form-group">
+    <div class="form-group form-group-lg has-feedback" data-toggle="tooltip" data-placement="top">
+      <label class="control-label" for="username">{{i18n 'auth_field_username'}}</label>
       <input type="text" class="form-control username" name="username" placeholder="{{i18n 'auth_field_username'}}">
+      <span class="help-block"></span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group form-group-lg has-feedback" data-toggle="tooltip" data-placement="top">
+      <label class="control-label" for="email">{{i18n 'auth_field_email'}}</label>
       <input type="text" class="form-control email" name="email" placeholder="{{i18n 'auth_field_email'}}">
+      <span class="help-block"></span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group form-group-lg has-feedback" data-toggle="tooltip" data-placement="top">
+      <label class="control-label" for="password">{{i18n 'auth_field_password'}}</label>
       <input type="password" class="form-control password" name="password" placeholder="{{i18n 'auth_field_password'}}">
+      <span class="help-block"></span>
     </div>
 
     <div class="checkbox">
@@ -31,7 +37,7 @@
       </label>
     </div>
 
-    <div class="text-center">
+    <div class="text-center mtl">
       <button type="submit" class="btn btn-lead btn-lg btn-block">{{i18n 'auth_register'}}</button>
     </div>
 

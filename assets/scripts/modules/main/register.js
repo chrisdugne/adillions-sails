@@ -1,14 +1,15 @@
-import loginModel from 'main/models/login';
+import registerModel from 'main/models/register';
 
-var loginView = Backbone.View.extend({
+var registerView = Backbone.View.extend({
 
   el: '.auth',
 
-  model: new loginModel(),
+  model: new registerModel(),
   templateFeedback: Handlebars.partials['main/_partials/validation_feedback'],
+  templateAlerts: Handlebars.partials['main/_partials/validation_alerts'],
 
   events: {
-    'submit .auth-login-form': 'login'
+    'submit .auth-register-form': 'register'
   },
 
   initialize: function (options) {
@@ -20,8 +21,8 @@ var loginView = Backbone.View.extend({
     this.model.bind('validated:invalid', _.bind(this.showInvalid, this));
   },
 
-  login: function (type) {
-    var form = this.$el.find('.auth-login-form');
+  register: function (type) {
+    var form = this.$el.find('.auth-register-form');
 
     if (!form.length) {
       this.showError();
@@ -65,9 +66,9 @@ var loginView = Backbone.View.extend({
     }, this));
   },
   showSuccess: function (model) {
-    this.$el.find('.auth-login-form')[0].submit();
+    this.$el.find('.auth-register-form')[0].submit();
   }
 });
 
 export
-default loginView;
+default registerView;

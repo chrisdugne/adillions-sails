@@ -53,7 +53,7 @@ var AuthController = {
       providers: providers,
       errors: req.flash('error'),
       layout: 'layout_light',
-      bodyClass: 'auth'
+      bodyClass: 'auth auth_login'
     });
   },
 
@@ -113,7 +113,7 @@ var AuthController = {
       providers: providers,
       errors: req.flash('error'),
       layout: 'layout_light',
-      bodyClass: 'auth'
+      bodyClass: 'auth auth_register'
     });
   },
 
