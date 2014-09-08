@@ -39,7 +39,41 @@ var PublicService = module.exports = function () {
           sails.log.error('PublicService#readMobileSettings : query fails', err);
           next(err);
         });
-    }
+    },
+
+    //--------------------------------------------------------------------------
+
+    readCharityLevels: function (next) {
+      sails.models.charitylevels
+        .find()
+        .then(function (result) {
+          if (!result || !result.length) {
+            throw new Error('empty charitylevels');
+          }
+          next(null, result);
+        })
+        .fail(function (err) {
+          sails.log.error('PublicService#readCharityLevels : query fails', err);
+          next(err);
+        });
+    },
+
+    //--------------------------------------------------------------------------
+
+    readAmbassadorLevels: function (next) {
+      sails.models.ambassadorlevels
+        .find()
+        .then(function (result) {
+          if (!result || !result.length) {
+            throw new Error('empty ambassadorlevels');
+          }
+          next(null, result);
+        })
+        .fail(function (err) {
+          sails.log.error('PublicService#readAmbassadorLevels : query fails', err);
+          next(err);
+        });
+    },
 
     //--------------------------------------------------------------------------
 

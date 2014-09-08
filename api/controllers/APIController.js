@@ -30,6 +30,32 @@ var ApiController = module.exports = {
 
   //----------------------------------------------------------------------------
 
+  readCharityLevels: function (req, res) {
+    var PublicService = new sails.services.public();
+
+    PublicService.readCharityLevels(function (err, result) {
+      if (err) {
+        return res.serverError(err);
+      }
+      res.json(result);
+    });
+  },
+
+  //----------------------------------------------------------------------------
+
+  readAmbassadorLevels: function (req, res) {
+    var PublicService = new sails.services.public();
+
+    PublicService.readAmbassadorLevels(function (err, result) {
+      if (err) {
+        return res.serverError(err);
+      }
+      res.json(result);
+    });
+  },
+
+  //----------------------------------------------------------------------------
+
   readMobileSettings: function (req, res) {
     var PublicService = new sails.services.public(),
       version = req.param('version');

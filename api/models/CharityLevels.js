@@ -7,7 +7,7 @@
 
 module.exports = {
 
-  tableName: 'mobile_settings',
+  tableName: 'charity_levels',
 
   // Set false to prevent creating id. By default id will be created as index with auto increment
   autoPK: false,
@@ -44,14 +44,24 @@ module.exports = {
       }
     },
 
-    version: {
-      type: 'double',
-      columnName: 'version'
+    reach: {
+      type: 'integer',
+      columnName: 'reach'
     },
 
-    api: {
+    level: {
+      type: 'integer',
+      columnName: 'level'
+    },
+
+    bonus: {
+      type: 'integer',
+      columnName: 'bonus'
+    },
+
+    names: {
       type: 'json',
-      columnName: 'api'
+      columnName: 'names'
     }
 
   }

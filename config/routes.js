@@ -53,7 +53,9 @@ module.exports.routes = {
   '/api/globals': 'APIController.readGlobals',
   '/api/nextLottery': 'APIController.readNextLottery',
 
-  '/api/mobile/settings/:version': 'APIController.readMobileSettings'
+  '/api/mobile/settings/:version': 'APIController.readMobileSettings',
+  '/api/charity/levels': 'APIController.readCharityLevels',
+  '/api/ambassador/levels': 'APIController.readAmbassadorLevels'
 
   // API Examples of how to naming controllers functions
   // '/api/globals': 'APIController.readGlobals',
