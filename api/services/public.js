@@ -46,6 +46,7 @@ var PublicService = module.exports = function () {
     readCharityLevels: function (next) {
       sails.models.charitylevels
         .find()
+        .sort('level ASC')
         .then(function (result) {
           if (!result || !result.length) {
             throw new Error('empty charitylevels');
@@ -63,6 +64,7 @@ var PublicService = module.exports = function () {
     readAmbassadorLevels: function (next) {
       sails.models.ambassadorlevels
         .find()
+        .sort('level ASC')
         .then(function (result) {
           if (!result || !result.length) {
             throw new Error('empty ambassadorlevels');
