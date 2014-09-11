@@ -5,7 +5,9 @@ var registerModel = Backbone.Model.extend({
   defaults: {
     username: '',
     email: '',
-    password: ''
+    password: '',
+    passwordRepeat: '',
+    rules: false
   },
 
   validation: {
@@ -30,6 +32,10 @@ var registerModel = Backbone.Model.extend({
     passwordRepeat: {
       equalTo: 'password',
       msg: 'Please enter the same password'
+    },
+    rules: {
+      required: true,
+      msg: 'Please accepts term of use and policy'
     }
   }
 });

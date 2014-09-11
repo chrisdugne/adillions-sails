@@ -6,7 +6,6 @@ var registerView = Backbone.View.extend({
 
   model: new registerModel(),
   templateFeedback: Handlebars.partials['main/_partials/validation_feedback'],
-  templateAlerts: Handlebars.partials['main/_partials/validation_alerts'],
 
   events: {
     'submit .auth-register-form': 'register'
@@ -45,23 +44,31 @@ var registerView = Backbone.View.extend({
   },
   showInvalid: function (model, errors) {
     _.each(model.attributes, _.bind(function (value, key) {
-      var form_group = this.$el.find('input[name=' + key + ']').parent();
+      var form_group = this.$el.find('input[name=' + key + ']').parents('.form-group:first'),
+        feedback = {},
+        help_text = '';
+
       if (model.isValid(key)) {
-        form_group
-          .removeClass('has-error')
-          .addClass('has-success').append(this.templateFeedback({
-            success: true,
-            error: false
-          }));
-        form_group.find('.help-block').text('');
+        if (form_group.hasClass('has-error')) {
+          form_group
+            .removeClass('has-error')
+            .addClass('has-success')
+            .find('.help-block').text(help_text);
+          feedback = {
+            success: true
+          };
+        }
       } else {
         form_group
           .removeClass('has-success')
-          .addClass('has-error').append(this.templateFeedback({
-            success: false,
-            error: true
-          }));
-        form_group.find('.help-block').text(errors[key]);
+          .addClass('has-error')
+          .find('.help-block').text(errors[key]);
+        feedback = {
+          error: true
+        };
+      }
+      if (form_group.hasClass('has-feedback')) {
+        form_group.append(this.templateFeedback(feedback));
       }
     }, this));
   },

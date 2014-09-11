@@ -13,7 +13,7 @@ module.exports = {
   },
 
   models: {
-    connection: 'Postgresql'
+    connection: 'localDiskDb'
   },
 
   passport: {

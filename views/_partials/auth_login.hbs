@@ -6,6 +6,16 @@
 
   <div class="panel-body">
 
+  {{#if alert}}
+    <div class="alerts">
+      <div class="alert alert-info mbn" role="alert">
+        {{#mergeContexts parent=..}}
+          {{{i18n alert}}}
+        {{/mergeContexts}}
+      </div>
+    </div>
+  {{/if}}
+
     <div class="auth-social clearfix">
       {{> 'auth_providers'}}
     </div>

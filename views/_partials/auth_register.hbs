@@ -6,6 +6,16 @@
  --}}
   <div class="panel-body">
 
+  {{#if alert}}
+    <div class="alerts">
+      <div class="alert alert-info mbn" role="alert">
+        {{#mergeContexts parent=..}}
+          {{{i18n alert}}}
+        {{/mergeContexts}}
+      </div>
+    </div>
+  {{/if}}
+
     <div class="auth-social clearfix">
       {{> 'auth_providers'}}
     </div>
@@ -16,25 +26,34 @@
       <span class="help-block"></span>
     </div>
 
-    <div class="form-group form-group-lg has-feedback" data-toggle="tooltip" data-placement="top">
+    <div class="form-group form-group-lg has-feedback">
       <label class="control-label" for="email">{{i18n 'auth_field_email'}}</label>
       <input type="text" class="form-control email" name="email" placeholder="{{i18n 'auth_field_email'}}">
       <span class="help-block"></span>
     </div>
 
-    <div class="form-group form-group-lg has-feedback" data-toggle="tooltip" data-placement="top">
+    <div class="form-group form-group-lg has-feedback">
       <label class="control-label" for="password">{{i18n 'auth_field_password'}}</label>
       <input type="password" class="form-control password" name="password" placeholder="{{i18n 'auth_field_password'}}">
       <span class="help-block"></span>
     </div>
 
-    <div class="checkbox">
-      <label>
-        {{#set 'termsroute'}}{{route 'about.terms' lang=locale}}{{/set}}
-        {{#set 'privacyroute'}}{{route 'about.privacy' lang=locale}}{{/set}}
-        <input type="checkbox" name="rules">
-        {{{i18n 'auth_register_terms' termsroute privacyroute}}}
-      </label>
+    <div class="form-group form-group-lg has-feedback">
+      <label class="control-label" for="password">{{i18n 'auth_field_passwordRepeat'}}</label>
+      <input type="password" class="form-control password" name="passwordRepeat" placeholder="{{i18n 'auth_field_passwordRepeat'}}">
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group form-group-lg">
+      <div class="checkbox">
+        <label>
+          {{#set 'termsroute'}}{{route 'about.terms' lang=locale}}{{/set}}
+          {{#set 'privacyroute'}}{{route 'about.privacy' lang=locale}}{{/set}}
+          <input type="checkbox" name="rules">
+          {{{i18n 'auth_register_terms' termsroute privacyroute}}}
+          <span class="help-block"></span>
+        </label>
+      </div>
     </div>
 
     <div class="text-center mtl">

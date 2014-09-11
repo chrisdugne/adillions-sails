@@ -149,11 +149,13 @@ module.exports = {
 
     username: {
       type: 'string',
-      columnName: 'user_name'
+      columnName: 'user_name',
+      unique: true
     },
 
     email: {
-      type: 'email'
+      type: 'email',
+      unique: true
     },
 
     firstname: {

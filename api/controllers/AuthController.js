@@ -51,7 +51,7 @@ var AuthController = {
     res.view({
       providers_row: 12 / (Object.keys(strategies).length),
       providers: providers,
-      errors: req.flash('error'),
+      alert: req.flash('error')[0] || null,
       layout: 'layout_light',
       bodyClass: 'auth auth_login'
     });
@@ -111,7 +111,7 @@ var AuthController = {
     res.view({
       providers_row: 12 / (Object.keys(strategies).length),
       providers: providers,
-      errors: req.flash('error'),
+      alert: req.flash('error')[0] || null,
       layout: 'layout_light',
       bodyClass: 'auth auth_register'
     });
