@@ -112,8 +112,7 @@ passport.connect = function (req, query, user, profile, next) {
             if (err.code === 'E_VALIDATION') {
               if (err.invalidAttributes.email) {
                 req.flash('error', 'Error.Passport.Email.Exists');
-              }
-              else {
+              } else {
                 req.flash('error', 'Error.Passport.User.Exists');
               }
             }
@@ -334,21 +333,24 @@ passport.loadStrategies = function (req) {
  */
 passport.disconnect = function (req, res, next) {
 
-  var user     = req.user
-    , provider = req.param('provider');
+  var user = req.user,
+    provider = req.param('provider');
 
   Passport.findOne({
-      provider   : provider,
-      user       : user.id
-    }, function (err, passport) {
-      if (err) return next(err);
-      Passport.destroy(passport.id, function passportDestroyed(error) {
-        if (err) return next(err);
-        next(null, user);
-      });
+    provider: provider,
+    user: user.id
+  }, function (err, passport) {
+    if (err) {
+      return next(err);
+    }
+    Passport.destroy(passport.id, function passportDestroyed(error) {
+      if (err) {
+        return next(err);
+      }
+      next(null, user);
+    });
   });
 };
-
 
 passport.serializeUser(function (user, next) {
   next(null, user.uid);
