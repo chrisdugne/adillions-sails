@@ -9,7 +9,7 @@
   "Error.Passport.Password.NotSet": "Le champ mot de passe est vide",
   "Error.Passport.Username.NotFound": "Utilisateur introuvable",
   "Error.Passport.Email.NotFound": "Email introuvable",
-  "Error.Passport.User.Exists": "Ce pseudo ou email est dejà utilisé",
+  "Error.Passport.User.Exists": "Ce pseudo est dejà utilisé",
   "Error.Passport.Email.Missing": "Le champ email est vide",
   "Error.Passport.Email.Exists": "Cette email est dejà utilisé. Essayer de vous connecter",
   "Error.Passport.Username.Missing": "Le champ pseudo est vide",

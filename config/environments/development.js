@@ -13,13 +13,12 @@ module.exports = {
   },
 
   models: {
-    connection: 'localDiskDb'
+    connection: 'Postgresql'
   },
 
   passport: {
     facebook: {
       options: {
-        // legacy dev
         clientID: '534196239997712',
         clientSecret: '46383d827867d50ef5d87b66c81f1a8e'
       }

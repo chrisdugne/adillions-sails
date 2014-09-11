@@ -47,8 +47,13 @@ exports.register = function (req, res, next) {
     email: email
   }, function (err, user) {
     if (err) {
-      sails.log.error(err);
-      req.flash('error', 'Error.Passport.User.Exists');
+      if (err.code === 'E_VALIDATION') {
+        if (err.invalidAttributes.email) {
+          req.flash('error', 'Error.Passport.Email.Exists');
+        } else {
+          req.flash('error', 'Error.Passport.User.Exists');
+        }
+      }
       return next(err);
     }
     sails.log.info('Passport.register#service: create a local user', user.uid);
@@ -57,6 +62,15 @@ exports.register = function (req, res, next) {
       password: password,
       user: user.uid
     }, function (err, passport) {
+      if (err) {
+        if (err.code === 'E_VALIDATION') {
+          req.flash('error', 'Error.Passport.Password.Invalid');
+        }
+        return user.destroy(function (destroyErr) {
+          next(destroyErr || err);
+        });
+      }
+
       next(err, user);
     });
   });
@@ -132,10 +146,8 @@ exports.login = function (req, identifier, password, next) {
 
     if (!user) {
       if (isEmail) {
-        sails.log.info('Passport#service: email not found');
         req.flash('error', 'Error.Passport.Email.NotFound');
       } else {
-        sails.log.info('Passport#service: username not found');
         req.flash('error', 'Error.Passport.Username.NotFound');
       }
       return next(null, false);
@@ -151,7 +163,6 @@ exports.login = function (req, identifier, password, next) {
             return next(err);
           }
           if (!res) {
-            sails.log.info('Passport#service: wrong password');
             req.flash('error', 'Error.Passport.Password.Wrong');
             return next(null, false);
           } else {
