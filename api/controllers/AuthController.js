@@ -146,7 +146,7 @@ var AuthController = {
    * @param {Object} res
    */
   callback: function (req, res) {
-    var action = req.param('action');
+    var action = req.param('action'),
       registerRoute = sails.config.route('auth.register', {
         hash: {
           'lang': res.getLocale()
