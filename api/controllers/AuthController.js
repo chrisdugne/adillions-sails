@@ -51,7 +51,8 @@ var AuthController = {
     res.view({
       providers_row: 12 / (Object.keys(strategies).length),
       providers: providers,
-      alert: req.flash('error')[0] || null,
+      form: req.flash('form')[0],
+      alert: req.flash('error')[0],
       layout: 'layout_light',
       bodyClass: 'auth auth_login'
     });
@@ -111,7 +112,8 @@ var AuthController = {
     res.view({
       providers_row: 12 / (Object.keys(strategies).length),
       providers: providers,
-      alert: req.flash('error')[0] || null,
+      form: req.flash('form')[0],
+      alert: req.flash('error')[0],
       layout: 'layout_light',
       bodyClass: 'auth auth_register'
     });
@@ -144,30 +146,40 @@ var AuthController = {
    * @param {Object} res
    */
   callback: function (req, res) {
+    var action = req.param('action');
+      registerRoute = sails.config.route('auth.register', {
+        hash: {
+          'lang': res.getLocale()
+        }
+      }),
+      loginRoute = sails.config.route('auth.login', {
+        hash: {
+          'lang': res.getLocale()
+        }
+      });
+
     sails.services.passport.callback(req, res, function (err, user) {
-      if (err) {
-        sails.log.warn('authController#Callback err', err, user);
-      }
       req.login(user, function (err) {
         // If an error was thrown, redirect the user to the login which should
         // take care of rendering the error messages.
         if (err) {
           sails.log.warn('authController#Callback login failed', err);
-          var registerRoute = sails.config.route('auth.register', {
-              hash: {
-                'lang': res.getLocale()
-              }
-            }),
-            loginRoute = sails.config.route('auth.login', {
-              hash: {
-                'lang': res.getLocale()
-              }
-            });
-          res.redirect(req.param('action') === 'register' ? registerRoute : loginRoute);
-        }
-        // Upon successful login, send the user to the homepage were req.user
-        // will available.
-        else {
+          var flashError = req.flash('error')[0];
+          if (!flashError) {
+            req.flash('error', 'Error.Passport.Generic');
+          } else {
+            req.flash('error', flashError);
+          }
+          req.flash('form', req.body);
+
+          if (action === 'register') {
+            res.redirect(registerRoute);
+          } else if (action === 'disconnect') {
+            res.redirect('back');
+          } else {
+            res.redirect(loginRoute);
+          }
+        } else {
           res.redirect('/');
         }
       });
