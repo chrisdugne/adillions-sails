@@ -13,7 +13,6 @@ var _ = require('lodash');
  */
 
 var commonPolicies = ['passport', 'seoLang', 'initLanguages', 'formatDate', 'layout'],
-  // add a new policy betwenn passport(0) and seoLang (1)
   WebPolicies = ['passport', 'authenticatedBySession', 'seoLang', 'initLanguages', 'formatDate', 'layout'],
   ApiPolicies = ['passportToken', 'authenticatedByToken'];
 
@@ -25,8 +24,12 @@ module.exports.policies = {
 
   'gameController': {
     '*': commonPolicies,
-    // authenticated policy
     index: WebPolicies
+  },
+
+  'userController': {
+    profile: WebPolicies,
+    account: WebPolicies
   },
 
   'apiController': {
