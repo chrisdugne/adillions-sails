@@ -24,6 +24,7 @@ module.exports = function (req, res, next) {
     return next();
   }
 
+  req.flash('back', req.path);
   // User is not allowed
   // (default res.forbidden() behavior can be overridden in `config/403.js`)
   sails.log.info('User not authenticated try to reach a forbidden page', {

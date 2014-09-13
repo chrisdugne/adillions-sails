@@ -166,7 +166,6 @@ exports.login = function (req, identifier, password, next) {
             req.flash('error', 'Error.Passport.Password.Wrong');
             return next(null, false);
           } else {
-            sails.log.info('Passport#service: connect user that has a passport');
             return next(null, user);
           }
         });

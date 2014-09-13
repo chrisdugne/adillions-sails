@@ -180,7 +180,7 @@ var AuthController = {
             res.redirect(loginRoute);
           }
         } else {
-          res.redirect('/');
+          res.redirect(req.flash('back')[0] || '/');
         }
       });
     });
