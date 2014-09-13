@@ -10,11 +10,11 @@ var loginModel = Backbone.Model.extend({
   validation: {
     identifier: {
       required: true,
-      msg: 'Please enter an username or email'
+      msg: $.t('auth.empty_usernameOrEmail')
     },
     password: {
       required: true,
-      msg: 'Please enter a password'
+      msg: $.t('auth.empty_password')
     }
   }
 });

@@ -13,29 +13,34 @@ var registerModel = Backbone.Model.extend({
   validation: {
     username: {
       required: true,
-      msg: 'Please enter an username'
+      msg: $.t('auth.empty_username')
     },
     email: [{
       required: true,
-      msg: 'Please enter an email address'
+      msg: $.t('auth.empty_email')
     }, {
       pattern: 'email',
-      msg: 'Please enter a valid email'
+      msg: $.t('auth.valid_email')
     }],
     password: [{
       required: true,
-      msg: 'Please enter a password'
+      msg: $.t('auth.empty_password')
     }, {
       minLength: 6,
-      msg: 'Please enter a password with at least 6 characters'
+      msg: $.t('auth.min_password', {
+        count: 6
+      })
     }],
-    passwordRepeat: {
+    passwordRepeat: [{
+      required: true,
+      msg: $.t('auth.empty_passwordRepeat')
+    }, {
       equalTo: 'password',
-      msg: 'Please enter the same password'
-    },
+      msg: $.t('auth.same_password')
+    }],
     rules: {
       required: true,
-      msg: 'Please accepts term of use and policy'
+      msg: $.t('auth.accepts_policy')
     }
   }
 });

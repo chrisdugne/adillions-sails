@@ -6,6 +6,7 @@ var modules = {
     // main vendors
     'assets/bower_components/jquery/jquery.js',
     'assets/bower_components/handlebars/handlebars.js',
+    'assets/bower_components/i18next/i18next.js',
     'assets/bower_components/underscore/underscore.js',
     'assets/bower_components/amd-loadr/loadr.js',
     'assets/bower_components/backbone/backbone.js',
