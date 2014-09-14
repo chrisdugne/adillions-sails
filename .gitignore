@@ -39,7 +39,6 @@
 #
 ################################################
 
-config/environments/development.js
 config/assets.json
 
 

@@ -7,20 +7,28 @@
  * @docs        :: http://sailsjs.org/#!documentation/policies
  *
  */
+
 module.exports = function (req, res, next) {
+
+  var loginRoute = sails.config.route('auth.login', {
+    hash: {
+      'lang': res.getLocale()
+    }
+  });
 
   // User is allowed, proceed to the next policy,
   // or if this is the last policy, the controller
   // temp allow *
-  if (true) {
+
+  if (req.user || req.path === loginRoute) {
     return next();
   }
 
+  req.flash('back', req.path);
+  // User is not allowed
+  // (default res.forbidden() behavior can be overridden in `config/403.js`)
   sails.log.info('User not authenticated try to reach a forbidden page', {
     path: req.path
   });
-
-  // User is not allowed
-  // (default res.forbidden() behavior can be overridden in `config/403.js`)
-  return res.forbidden('You are not permitted to perform this action.');
+  return res.forbidden('You must be logged in, to view this page', loginRoute);
 };

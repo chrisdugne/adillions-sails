@@ -1,4 +1,5 @@
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt'),
+  _ = require('lodash');
 
 /**
  * Passport Model
@@ -16,7 +17,33 @@ var bcrypt = require('bcrypt');
  */
 var Passport = {
 
+  tableName: 'passport',
+  autoPK: true,
+
+  // Set schema true/false to only allow fields defined in attributes to be saved. Only for schemaless adapters.
+  schema: true,
+
+  // migrate: 'alter', // adds and/or removes columns on changes to the schema
+  // migrate: 'drop', // drops all your tables and then re-creates them. All data is deleted.
+  // doesn't do anything on sails lift- for use in production.
+  migrate: 'safe',
+
   attributes: {
+
+    createdAt: {
+      type: 'datetime',
+      columnName: 'created_at',
+      defaultsTo: function () {
+        return new Date();
+      }
+    },
+    updatedAt: {
+      type: 'datetime',
+      columnName: 'updated_at',
+      defaultsTo: function () {
+        return new Date();
+      }
+    },
 
     // Required field: Protocol
     //
@@ -58,7 +85,9 @@ var Passport = {
     tokens: {
       type: 'json'
     },
-
+    profile: {
+      type: 'json'
+    },
     // Associations
     //
     // Associate every passport with one, and only one, user. This requires an
@@ -107,7 +136,7 @@ var Passport = {
    * @param {Function} next
    */
   beforeUpdate: function (passport, next) {
-    if (passport.hasOwnProperty('password')) {
+    if (passport.hasOwnProperty('password') && _.isString(passport.password)) {
       bcrypt.hash(passport.password, 10, function (err, hash) {
         passport.password = hash;
         next(err, passport);

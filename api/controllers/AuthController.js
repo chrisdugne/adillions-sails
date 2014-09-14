@@ -32,15 +32,11 @@ var AuthController = {
    * @param {Object} res
    */
   login: function (req, res) {
-    var strategies = sails.config.passport,
+    var strategies = _.pick(sails.config.passport, 'facebook', 'twitter', 'google'),
       providers = {};
 
     // Get a list of available providers for use in your templates.
     Object.keys(strategies).forEach(function (key) {
-      if (key === 'local' || key === 'github') {
-        return;
-      }
-
       providers[key] = {
         name: strategies[key].name,
         slug: key,
@@ -53,11 +49,12 @@ var AuthController = {
 
     // Render the `auth/login.ext` view
     res.view({
+      providers_row: 12 / (Object.keys(strategies).length),
       providers: providers,
-      errors: req.flash('error'),
-      // layout: 'layout_light',
-      layout: 'layout_chris_snake', // --> pour dev en furtif..
-      bodyClass: 'auth'
+      form: req.flash('form')[0],
+      alert: req.flash('error')[0],
+      layout: 'layout_light',
+      bodyClass: 'auth auth_login'
     });
   },
 
@@ -76,6 +73,7 @@ var AuthController = {
    * @param {Object} res
    */
   logout: function (req, res) {
+    sails.log.info('logout user');
     req.logout();
     res.redirect('/');
   },
@@ -96,15 +94,11 @@ var AuthController = {
    * @param {Object} res
    */
   register: function (req, res) {
-    var strategies = sails.config.passport,
+    var strategies = _.pick(sails.config.passport, 'facebook', 'twitter', 'google'),
       providers = {};
 
     // Get a list of available providers for use in your templates.
     Object.keys(strategies).forEach(function (key) {
-      if (key === 'local' || key === 'github') {
-        return;
-      }
-
       providers[key] = {
         name: strategies[key].name,
         slug: key,
@@ -116,10 +110,12 @@ var AuthController = {
     });
 
     res.view({
+      providers_row: 12 / (Object.keys(strategies).length),
       providers: providers,
-      errors: req.flash('error'),
+      form: req.flash('form')[0],
+      alert: req.flash('error')[0],
       layout: 'layout_light',
-      bodyClass: 'auth'
+      bodyClass: 'auth auth_register'
     });
   },
 
@@ -150,17 +146,44 @@ var AuthController = {
    * @param {Object} res
    */
   callback: function (req, res) {
+    var action = req.param('action'),
+      registerRoute = sails.config.route('auth.register', {
+        hash: {
+          'lang': res.getLocale()
+        }
+      }),
+      loginRoute = sails.config.route('auth.login', {
+        hash: {
+          'lang': res.getLocale()
+        }
+      });
+
     sails.services.passport.callback(req, res, function (err, user) {
+      if (err) {
+        sails.log.error('authController#Callback service error:', err);
+      }
       req.login(user, function (err) {
         // If an error was thrown, redirect the user to the login which should
         // take care of rendering the error messages.
         if (err) {
-          res.redirect(req.param('action') === 'register' ? '/register' : '/login');
-        }
-        // Upon successful login, send the user to the homepage were req.user
-        // will available.
-        else {
-          res.redirect('/');
+          sails.log.warn('authController#Callback login failed', err);
+          var flashError = req.flash('error')[0];
+          if (!flashError) {
+            req.flash('error', 'Error.Passport.Generic');
+          } else {
+            req.flash('error', flashError);
+          }
+          req.flash('form', req.body);
+
+          if (action === 'register') {
+            res.redirect(registerRoute);
+          } else if (action === 'disconnect') {
+            res.redirect('back');
+          } else {
+            res.redirect(loginRoute);
+          }
+        } else {
+          res.redirect(req.flash('back')[0] || '/');
         }
       });
     });

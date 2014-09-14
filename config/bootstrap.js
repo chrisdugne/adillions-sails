@@ -35,6 +35,9 @@ module.exports.bootstrap = function (cb) {
   helpers.route.register(hbs, {
     routes: sails.config.routes
   });
+  sails.config.route = helpers.route.getRouteHelper({
+    routes: sails.config.routes
+  });
 
   helpers.extUrl.register(hbs, {
     aliases: __dirname + '/urlAliases.json'

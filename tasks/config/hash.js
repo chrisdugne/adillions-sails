@@ -24,6 +24,10 @@ module.exports = function (grunt) {
     styles: {
       src: '.tmp/public/styles/*.css',
       dest: '.tmp/public/styles'
+    },
+    trad: {
+      src: '.tmp/public/scripts/locales/translation.js',
+      dest: '.tmp/public/scripts/locales'
     }
   });
 

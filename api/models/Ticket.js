@@ -9,6 +9,9 @@ module.exports = {
 
   tableName: 'lottery_ticket',
 
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
+
   // Set false to prevent creating id. By default id will be created as index with auto increment
   autoPK: false,
 

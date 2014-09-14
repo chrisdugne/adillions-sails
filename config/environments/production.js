@@ -23,12 +23,6 @@ module.exports = {
         consumerSecret: 'wIj7zjxPTwc8Mt2uAyf8azKmSgPEDwYpvpxdtQwic'
       }
     },
-    github: {
-      options: {
-        clientID: 'your-consumer-key',
-        clientSecret: 'your-consumer-secret'
-      }
-    },
     facebook: {
       options: {
         clientID: '170148346520274',

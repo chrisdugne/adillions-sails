@@ -1,12 +1,16 @@
-.auth-register-form,.auth-signin-form {
-  margin-top: 75px;
-  background: $blue;
-  border: 0 none;
+.auth-register-form,.auth-login-form {
+  margin-top: 60px;
+  background: rgb(255,255,255);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
-  .auth-social {
+  @media (max-width: $screen-xs-max) {
+    margin-top: 20px;
+  }
+  .auth-social,.alerts {
     padding-bottom: 15px;
     margin-bottom: 15px;
-    border-bottom: 1px solid lighten($gray, 10%);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
     li {
       @media (max-width: $screen-xs-max) {
         margin-bottom: 15px;
@@ -18,18 +22,18 @@
       }
     }
   }
-  .form-group {
-    margin:0;
-    input {
-      height: 46px;
-    }
-  }
-  .username,.email,.identifier {
-    @include border-bottom-radius(0);
-  }
-  .email,.password {
-    border-top:0 none;
-    @include border-top-radius(0);
-  }
+  // .form-group {
+  //   margin:0;
+  //   input {
+  //     height: 46px;
+  //   }
+  // }
+  // .username,.email,.identifier {
+  //   @include border-bottom-radius(0);
+  // }
+  // .email,.password {
+  //   border-top:0 none;
+  //   @include border-top-radius(0);
+  // }
 }
 

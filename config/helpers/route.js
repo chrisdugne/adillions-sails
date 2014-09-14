@@ -122,6 +122,12 @@ module.exports = {
     hbs.registerHelper('route', function () {
       return _this.route.apply(_this, arguments);
     });
-  }
+  },
+
+  getRouteHelper: function (options) {
+    // sanity check on options
+    validateOptions(options);
+    return this.route.bind(this);
+  },
 
 };

@@ -1,3 +1,4 @@
+var _ = require('lodash');
 /**
  * Policy mappings (ACL)
  *
@@ -11,15 +12,29 @@
  * http://sailsjs.org/#documentation
  */
 
+var commonPolicies = ['passport', 'seoLang', 'initLanguages', 'formatDate', 'layout'],
+  WebPolicies = ['passport', 'authenticatedBySession', 'seoLang', 'initLanguages', 'formatDate', 'layout'],
+  ApiPolicies = ['passportToken', 'authenticatedByToken'];
+
 module.exports.policies = {
 
   // Default policy for all controllers and actions
   // (`true` allows public access)
+  '*': commonPolicies,
 
-  '*': ['passport', 'seoLang', 'initLanguages', 'formatDate', 'layout'],
+  'gameController': {
+    '*': commonPolicies,
+    index: WebPolicies
+  },
 
-  ApiController: {
+  'userController': {
+    profile: WebPolicies,
+    account: WebPolicies
+  },
+
+  'apiController': {
     '*': true
+    // '*': ApiPolicies // to restric access by a token authentification
   }
 
   /*

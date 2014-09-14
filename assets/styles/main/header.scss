@@ -8,14 +8,19 @@
     line-height:$navbar-height;
     img {
       vertical-align: middle;
-      height:floor(($navbar-height / 2));
     }
   }
   .navbar-nav {
-    font-size:16px;
-  }
-  .navbar-right {
-    line-height:$navbar-height;
+    .avatar-link {
+      padding-bottom: $navbar-padding-vertical/2;
+      .media {
+        overflow: visible;
+        .avatar {
+          position: relative;
+          top:-10px;
+        }
+      }
+    }
   }
 }
 
@@ -28,22 +33,50 @@
 
 
 @media screen and (max-width: $grid-float-breakpoint) {
-  .navbar-right {
-    .btn {
-      @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
-      display: block;
-      width: 100%;
-      padding-left: 0;
-      padding-right: 0;
-      margin-bottom: floor(($navbar-padding-vertical / 2));
+  .site-header {
+    .navbar-nav {
+      margin-left:0;
+      margin-right:0;
+      .avatar-link {
+        padding-bottom: 10px;
+        .media {
+          .avatar {
+            top:0;
+            width: 40px;
+          }
+          .media-body{
+            line-height: 40px;
+          }
+        }
+      }
+    }
+    .navbar-right {
+      .btn {
+        @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+        display: block;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: floor(($navbar-padding-vertical / 2));
+      }
+    }
+    .navbar-btn {
+      .btn-group {
+        display:block;
+        > .btn {
+          float: none;
+        }
+      }
     }
   }
 }
 
 @media screen and (min-width: $grid-float-breakpoint) {
-  .navbar-right {
-    .btn {
-      margin-left: 5px;
+  .site-header {
+    .navbar-right {
+      .btn-lead {
+        margin-left: 10px;
+      }
     }
   }
 }

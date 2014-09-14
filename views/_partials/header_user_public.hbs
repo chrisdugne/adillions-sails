@@ -1,6 +1,8 @@
-<div class="navbar-right">
-{{!--   <a href="/register" onclick="ga('send', 'event', 'button.register', 'click', 'navbar-buttons');" class="btn btn-primary">{{i18n 'ui_register'}}</a>
-  <a href="/login" onclick="ga('send', 'event', 'button.signin', 'click', 'navbar-buttons');" class="btn btn-default">{{i18n 'ui_signin'}}</a> --}}
+<div class="navbar-btn navbar-right tac">
+  <span class="btn-group">
+    <a href="{{route 'auth.register' lang=locale}}" onclick="ga('send', 'event', 'button.register', 'click', 'navbar-buttons');" class="btn btn-primary">{{i18n 'ui_register'}}</a>
+    <a href="{{route 'auth.login' lang=locale}}" onclick="ga('send', 'event', 'button.signin', 'click', 'navbar-buttons');" class="btn btn-primary">{{i18n 'ui_signin'}}</a>
+  </span>
   <a href="{{route 'game.index' lang=locale}}" class="btn btn-lead">
   {{{i18n 'play'}}}
   </a>

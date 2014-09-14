@@ -21,20 +21,22 @@
 
 module.exports.routes = {
 
-  //'/:lang/login': 'AuthController.login',
-  // '/logout': 'AuthController.logout',
-  // '/register': 'AuthController.register',
+  '/:lang/login': 'AuthController.login',
+  '/:lang/logout': 'AuthController.logout',
+  '/:lang/register': 'AuthController.register',
+  'post /:lang/auth/local': 'AuthController.callback',
+  'post /:lang/auth/local/:action': 'AuthController.callback',
 
-  // 'post /auth/callback': 'AuthController.callback',
-  // 'post /auth/local/:action': 'AuthController.callback',
-
-  // '/auth/:provider': 'AuthController.provider',
-  // '/auth/:provider/callback': 'AuthController.callback',
+  '/:lang/auth/:provider': 'AuthController.provider',
+  '/:lang/auth/:provider/callback': 'AuthController.callback',
 
   '/:lang?': 'HomeController.index',
 
   '/:lang/game': 'GameController.index',
   '/:lang/results': 'GameController.results',
+
+  '/:lang/profile/:id?': 'UserController.profile',
+  '/:lang/account/:id?': 'UserController.account',
 
   '/:lang/about': 'AboutController.index',
   '/:lang/about/winwinwin': 'AboutController.winwinwin',

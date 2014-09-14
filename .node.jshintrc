@@ -22,6 +22,8 @@
   "quotmark": "single",
   "-W015": false,
   "-W098": false,
+  "-W059": false,
+  "-W083": false,
   "globals": {
     "_": true,
     "async": true,
