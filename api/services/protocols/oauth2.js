@@ -45,7 +45,7 @@ module.exports = function (req, accessToken, refreshToken, profile, next) {
     user.photo = profile.photos[0].value;
   } else {
     if (profile.provider === 'facebook' && profile.username) {
-      user.photo = 'http://graph.facebook.com/'+ profile.username +'/picture?type=large';
+      user.photo = 'http://graph.facebook.com/' + profile.username + '/picture?type=large';
     }
   }
 
