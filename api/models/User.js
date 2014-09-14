@@ -215,7 +215,8 @@ module.exports = {
     },
 
     passport: {
-      model: 'Passport'
+      collection: 'passport',
+      via: 'user'
     },
 
     /*

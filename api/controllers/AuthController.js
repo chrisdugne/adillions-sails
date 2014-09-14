@@ -159,6 +159,9 @@ var AuthController = {
       });
 
     sails.services.passport.callback(req, res, function (err, user) {
+      if (err) {
+        sails.log.error('authController#Callback service error:', err);
+      }
       req.login(user, function (err) {
         // If an error was thrown, redirect the user to the login which should
         // take care of rendering the error messages.

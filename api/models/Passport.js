@@ -18,6 +18,7 @@ var bcrypt = require('bcrypt'),
 var Passport = {
 
   tableName: 'passport',
+  autoPK: true,
 
   // Set schema true/false to only allow fields defined in attributes to be saved. Only for schemaless adapters.
   schema: true,
