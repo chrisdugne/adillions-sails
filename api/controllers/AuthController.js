@@ -32,7 +32,7 @@ var AuthController = {
    * @param {Object} res
    */
   login: function (req, res) {
-    var strategies = _.pick(sails.config.passport, 'facebook'),
+    var strategies = _.pick(sails.config.passport, 'facebook', 'twitter', 'google'),
       providers = {};
 
     // Get a list of available providers for use in your templates.
@@ -94,7 +94,7 @@ var AuthController = {
    * @param {Object} res
    */
   register: function (req, res) {
-    var strategies = _.pick(sails.config.passport, 'facebook'),
+    var strategies = _.pick(sails.config.passport, 'facebook', 'twitter', 'google'),
       providers = {};
 
     // Get a list of available providers for use in your templates.

@@ -40,8 +40,13 @@ module.exports = function (req, accessToken, refreshToken, profile, next) {
 
   // If the profile object contains a list of photos, grab the first one and
   // add it to the user.
+
   if (_.has(profile, 'photos') && _.isObject(profile.photos)) {
     user.photo = profile.photos[0].value;
+  } else {
+    if (profile.provider === 'facebook' && profile.username) {
+      user.photo = 'http://graph.facebook.com/'+ profile.username +'/picture?type=large';
+    }
   }
 
   // If the profile object contains a username, add it to the user.
