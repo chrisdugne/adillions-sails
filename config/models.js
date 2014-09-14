@@ -8,12 +8,23 @@
 
 module.exports.models = {
 
-  // Your app's default connection.
-  // i.e. the name of one of your app's connections (see `config/connections.js`)
+  /***************************************************************************
+   *                                                                          *
+   * Your app's default connection. i.e. the name of one of your app's        *
+   * connections (see `config/connections.js`)                                *
+   *                                                                          *
+   ***************************************************************************/
 
-  // For production connection: see config/environments/production.js
-  // For development connection: see config/environments/development.js
-  // Default connection :
   connection: 'Postgresql',
+
+  /***************************************************************************
+   *                                                                          *
+   * How and whether Sails will attempt to automatically rebuild the          *
+   * tables/collections/etc. in your schema.                                  *
+   *                                                                          *
+   * See http://sailsjs.org/#/documentation/concepts/ORM/model-settings.html  *
+   *                                                                          *
+   ***************************************************************************/
+
   migrate: 'safe'
 };
