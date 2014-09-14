@@ -23,15 +23,15 @@ var PublicService = module.exports = function () {
 
     //--------------------------------------------------------------------------
 
-    readMobileSettings: function (next) {
+    readMobileSettings: function (version, next) {
       sails.models.mobilesettings
         .find()
         .where({
-          version: '1.5'
+          version: version
         })
         .then(function (result) {
           if (!result || !result.length) {
-            throw new Error('empty mobileSettings');
+            throw new Error('empty mobileSettings for version ' + version);
           }
           next(null, result[0]);
         })
@@ -39,7 +39,43 @@ var PublicService = module.exports = function () {
           sails.log.error('PublicService#readMobileSettings : query fails', err);
           next(err);
         });
-    }
+    },
+
+    //--------------------------------------------------------------------------
+
+    readCharityLevels: function (next) {
+      sails.models.charitylevels
+        .find()
+        .sort('level ASC')
+        .then(function (result) {
+          if (!result || !result.length) {
+            throw new Error('empty charitylevels');
+          }
+          next(null, result);
+        })
+        .fail(function (err) {
+          sails.log.error('PublicService#readCharityLevels : query fails', err);
+          next(err);
+        });
+    },
+
+    //--------------------------------------------------------------------------
+
+    readAmbassadorLevels: function (next) {
+      sails.models.ambassadorlevels
+        .find()
+        .sort('level ASC')
+        .then(function (result) {
+          if (!result || !result.length) {
+            throw new Error('empty ambassadorlevels');
+          }
+          next(null, result);
+        })
+        .fail(function (err) {
+          sails.log.error('PublicService#readAmbassadorLevels : query fails', err);
+          next(err);
+        });
+    },
 
     //--------------------------------------------------------------------------
 
