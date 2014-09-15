@@ -90,25 +90,17 @@ exports.connect = function (req, res, next) {
   var user = req.user,
     password = req.param('password');
 
-  Passport.findOne({
+  Passport.findOrCreate({
     protocol: 'local',
     user: user.uid
-  }, function (err, passport) {
-    if (err) {
-      return next(err);
-    }
-    if (!passport) {
-      Passport.create({
-        protocol: 'local',
-        password: password,
-        user: user.uid
-      }, function (err, passport) {
-        next(err, user);
-      });
-    } else {
-      next(null, user);
-    }
-  });
+  }, {
+    protocol: 'local',
+    password: password,
+    user: user.uid
+  }).then(function (passport) {
+    sails.log.info('Passport.local.connect#service: find|create a passport for a connected user', passport.id);
+    next(null, user);
+  }).fail(next);
 };
 
 /**
