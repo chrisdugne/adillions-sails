@@ -45,34 +45,33 @@ exports.register = function (req, res, next) {
   User.create({
     username: username,
     email: email
-  }, function (err, user) {
-    if (err) {
-      if (err.code === 'E_VALIDATION') {
-        if (err.invalidAttributes.email) {
-          req.flash('error', 'Error.Passport.Email.Exists');
-        } else {
-          req.flash('error', 'Error.Passport.User.Exists');
-        }
-      }
-      return next(err);
-    }
+  }).then(function (user) {
     sails.log.info('Passport.register#service: create a local user', user.uid);
     Passport.create({
       protocol: 'local',
       password: password,
       user: user.uid
-    }, function (err, passport) {
-      if (err) {
-        if (err.code === 'E_VALIDATION') {
-          req.flash('error', 'Error.Passport.Password.Invalid');
-        }
-        return user.destroy(function (destroyErr) {
-          next(destroyErr || err);
-        });
+    }).then(function (passport) {
+      sails.log.info('Passport.register#service: create a local passport', passport.id);
+      next(null, user);
+    }).fail(function (err) {
+      if (err.code === 'E_VALIDATION') {
+        req.flash('error', 'Error.Passport.Password.Invalid');
       }
-
-      next(err, user);
+      user.destroy().then(function () {
+        sails.log.warn('Passport.register#service: destroy a user, because a passport failed');
+        next(err);
+      }).fail(next);
     });
+  }).fail(function (err) {
+    if (err.code === 'E_VALIDATION') {
+      if (err.invalidAttributes.email) {
+        req.flash('error', 'Error.Passport.Email.Exists');
+      } else {
+        req.flash('error', 'Error.Passport.User.Exists');
+      }
+    }
+    next(err);
   });
 };
 
