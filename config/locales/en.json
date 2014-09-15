@@ -7,6 +7,7 @@
   "adillions_meta_title": "Adillions : Innovative sweepstake",
   "adillions_meta_desc": "Funded by ads, a global, free and responsible sweepstake with real cash prizes ! -Web & mobile game of chance available on the App Store & Google Play",
 
+  "Error.Passport.Password.Invalid": "The provided password is invalid!",
   "Error.Passport.Password.Wrong": "That password wasn't quite right!",
   "Error.Passport.Password.NotSet": "You haven't set a password yet!",
   "Error.Passport.Username.NotFound": "What's your name again?",

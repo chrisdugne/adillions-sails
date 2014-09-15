@@ -7,6 +7,7 @@
   "adillions_meta_title": "Adillions: Une loterie innovante",
   "adillions_meta_desc": "Loterie gratuite et responsable avec des gains d'argent réel financés par la publicité - Jeu web et mobile disponible sur l'App Store et le Google Play",
 
+  "Error.Passport.Password.Invalid": "Le mot de passe est invalide.",
   "Error.Passport.Password.Wrong": "Le champ mot de passe est incorrect.",
   "Error.Passport.Password.NotSet": "Le champ mot de passe est vide.",
   "Error.Passport.Username.NotFound": "Cet Utilisateur est introuvable.",
