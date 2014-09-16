@@ -69,10 +69,21 @@ passport.connect = function (req, query, user, profile, next) {
     config = strategies[profile.provider],
     userQuery = {
       secret: null
-    };
+    },
+    provider;
 
-  // Set the authentication provider.
-  query.provider = profile.provider;
+  // Get the authentication provider from the query.
+  query.provider = req.param('provider');
+
+  // Use profile.provider or fallback to the query.provider if it is undefined
+  // as is the case for OpenID, for example
+  provider = profile.provider || query.provider;
+
+  // If the provider cannot be identified we cannot match it to a passport so
+  // throw an error and let whoever's next in line take care of it.
+  if (!provider) {
+    return next(new Error('No authentication provider was identified.'));
+  }
 
   if (profile.provider === 'facebook') {
     _.merge(userQuery, {
@@ -95,7 +106,7 @@ passport.connect = function (req, query, user, profile, next) {
   }
 
   Passport.findOne({
-    provider: profile.provider,
+    provider: provider,
     identifier: query.identifier.toString()
   }, function (err, passport) {
     if (err) {
@@ -233,18 +244,24 @@ passport.callback = function (req, res, next) {
       this.protocols.local.register(req, res, next);
     } else if (action === 'connect' && req.user) {
       this.protocols.local.connect(req, res, next);
+    } else if (action === 'disconnect' && req.user) {
+      this.protocols.local.disconnect(req, res, next);
     } else {
       next(new Error('Invalid action'));
     }
   } else {
-    // Load authentication strategies
-    this.loadStrategies(req);
+    if (action === 'disconnect' && req.user) {
+      this.disconnect(req, res, next);
+    } else {
+      // Load authentication strategies
+      this.loadStrategies(req);
 
-    // The provider will redirect the user to this URL after approval. Finish
-    // the authentication process by attempting to obtain an access token. If
-    // access was granted, the user will be logged in. Otherwise, authentication
-    // has failed.
-    this.authenticate(provider, next)(req, res, req.next);
+      // The provider will redirect the user to this URL after approval. Finish
+      // the authentication process by attempting to obtain an access token. If
+      // access was granted, the user will be logged in. Otherwise, authentication
+      // has failed.
+      this.authenticate(provider, next)(req, res, req.next);
+    }
   }
 };
 
