@@ -8,30 +8,7 @@
  *
  */
 
-var passport = require('passport'),
-  BearerStrategy = require('passport-http-bearer').Strategy;
-
 module.exports = function (req, res, next) {
-
-  // Load authentication strategies
-  passport.use(new BearerStrategy({},
-    function (token, done) {
-      User.findOne({
-        auth_token: token
-      }, function (err, user) {
-        if (err) {
-          return done(err);
-        }
-        if (!user) {
-          return done(null, false);
-        }
-        return done(null, user);
-      });
-    }
-  ));
-
-  passport.authenticate('bearer', {
-    session: false
-  })(req, res, next);
-
+  req.param('provider', 'bearer');
+  sails.services.passport.endpoint(req, res);
 };

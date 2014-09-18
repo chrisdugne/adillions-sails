@@ -20,6 +20,14 @@ module.exports.passport = {
     strategy: require('passport-local').Strategy
   },
 
+  bearer: {
+    strategy: require('passport-http-bearer').Strategy,
+    protocol: 'bearer',
+    options: {
+      session: false
+    }
+  },
+
   twitter: {
     name: 'Twitter',
     protocol: 'oauth',

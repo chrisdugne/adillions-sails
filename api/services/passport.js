@@ -214,9 +214,6 @@ passport.endpoint = function (req, res) {
     options.scope = strategies[provider].scope;
   }
 
-  // Load authentication strategies
-  this.loadStrategies(req);
-
   // Redirect the user to the provider for authentication. When complete,
   // the provider will redirect the user back to the application at
   //     /auth/:provider/callback
@@ -253,9 +250,6 @@ passport.callback = function (req, res, next) {
     if (action === 'disconnect' && req.user) {
       this.disconnect(req, res, next);
     } else {
-      // Load authentication strategies
-      this.loadStrategies(req);
-
       // The provider will redirect the user to this URL after approval. Finish
       // the authentication process by attempting to obtain an access token. If
       // access was granted, the user will be logged in. Otherwise, authentication
@@ -295,6 +289,7 @@ passport.loadStrategies = function (req) {
     var options = {
         passReqToCallback: true
       },
+      baseUrl = sails.getBaseurl(),
       Strategy;
 
     if (key === 'local') {
@@ -314,7 +309,11 @@ passport.loadStrategies = function (req) {
         callback = strategies[key].callback;
 
       if (!callback) {
-        callback = path.join(req.getLocale() + '/auth', key, 'callback');
+        callback = sails.config.route('auth.login', {
+          hash: {
+            'provider': key
+          }
+        });
       }
 
       Strategy = strategies[key].strategy;
@@ -322,12 +321,12 @@ passport.loadStrategies = function (req) {
       switch (protocol) {
       case 'oauth':
       case 'oauth2':
-        options.callbackURL = url.resolve(req.baseUrl, callback);
+        options.callbackURL = url.resolve(baseUrl, callback);
         break;
 
       case 'openid':
-        options.returnURL = url.resolve(req.baseUrl, callback);
-        options.realm = req.baseUrl;
+        options.returnURL = url.resolve(baseUrl, callback);
+        options.realm = baseUrl;
         options.profile = true;
         break;
       }

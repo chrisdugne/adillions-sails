@@ -60,6 +60,11 @@ module.exports.policies = {
     account: WebPolicies
   },
 
+  'authController': {
+    callback: true,
+    provider: true
+  },
+
   'apiController': {
     '*': true
     // '*': ApiPolicies // to restric access by a token authentification
