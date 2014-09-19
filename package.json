@@ -51,7 +51,7 @@
     "passport-local": "~1.0.0",
     "passport-twitter": "~1.0.2",
     "rc": "~0.3.3",
-    "sails": "v0.10.2",
+    "sails": "v0.10.5",
     "sails-postgresql": "0.10.9",
     "time-grunt": "~0.3.1",
     "validator": "~3.11.0"
