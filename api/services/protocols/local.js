@@ -163,16 +163,15 @@ exports.login = function (req, identifier, password, next) {
               protocol: 'local',
               password: password,
               user: user.uid
-            }).then(function () {
+            }).then(function handleLegacyUser(passport) {
               sails.log.info('Passport.local.login#service: create a passport for a legacy user');
-              return next(null, user);
+              return passport;
             });
           } else {
             sails.log.info('Passport.local.login#service: wrong legacy password');
             req.flash('error', 'Error.Passport.Password.Wrong');
             return next(null, false);
           }
-
         } else {
           sails.log.info('Passport.local.login#service: password not set');
           req.flash('error', 'Error.Passport.Password.NotSet');

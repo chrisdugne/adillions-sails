@@ -8,6 +8,8 @@ module.exports = function (token, next) {
     if (!user) {
       return next(null, false);
     }
-    return next(null, user);
+    return next(null, user, {
+      scope: 'all'
+    });
   });
 };

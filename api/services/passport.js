@@ -174,9 +174,8 @@ passport.connect = function (req, query, user, profile, next) {
           if (err) {
             return next(err);
           }
-
           sails.log.info('connected user, has not a passport, create a passport', req.user.uid);
-          next(err, req.user);
+          next(null, req.user);
         });
       }
       // Scenario: The user is a nutjob or spammed the back-button.
@@ -200,18 +199,30 @@ passport.connect = function (req, query, user, profile, next) {
  */
 passport.endpoint = function (req, res) {
   var strategies = sails.config.passport,
-    provider = req.param('provider'),
-    options = {};
+    // TODO: when bearer strategy, try a way to set the param provider
+    provider = req.param('provider') || req._provider,
+    options = {},
+    loginRoute = sails.config.route('auth.login', {
+      hash: {
+        'lang': res.getLocale()
+      }
+    });
 
   // If a provider doesn't exist for this endpoint, send the user back to the
   // login page
   if (!strategies.hasOwnProperty(provider)) {
-    return res.redirect('/login');
+    req.flash('error', 'Error.Passport.Generic');
+    return res.redirect(loginRoute);
   }
 
   // Attach scope if it has been set in the config
   if (strategies[provider].hasOwnProperty('scope')) {
     options.scope = strategies[provider].scope;
+  }
+
+  // handle a specific case for bearer authentification
+  if (provider === 'bearer' && strategies[provider].hasOwnProperty('options')) {
+    options = strategies[provider].options;
   }
 
   // Redirect the user to the provider for authentication. When complete,
@@ -290,7 +301,7 @@ passport.loadStrategies = function (req) {
         passReqToCallback: true
       },
       baseUrl = sails.getBaseurl(),
-      Strategy;
+      Strategy = strategies[key].strategy;
 
     if (key === 'local') {
       // Since we need to allow users to login using both usernames as well as
@@ -299,24 +310,19 @@ passport.loadStrategies = function (req) {
         usernameField: 'identifier'
       });
 
-      // Only load the local strategy if it's enabled in the config
-      if (strategies.local) {
-        Strategy = strategies[key].strategy;
-        self.use(new Strategy(options, self.protocols.local.login));
-      }
+      self.use(new Strategy(options, self.protocols.local.login));
+
     } else {
       var protocol = strategies[key].protocol,
         callback = strategies[key].callback;
 
-      if (!callback) {
-        callback = sails.config.route('auth.login', {
-          hash: {
-            'provider': key
-          }
-        });
+      if (key === 'bearer') {
+        return self.use(new Strategy(self.protocols[protocol]));
       }
 
-      Strategy = strategies[key].strategy;
+      if (!callback) {
+        callback = 'auth/' + key + '/callback';
+      }
 
       switch (protocol) {
       case 'oauth':
@@ -354,18 +360,12 @@ passport.disconnect = function (req, res, next) {
 
   Passport.findOne({
     provider: provider,
-    user: user.id
-  }, function (err, passport) {
-    if (err) {
-      return next(err);
-    }
-    Passport.destroy(passport.id, function passportDestroyed(error) {
-      if (err) {
-        return next(err);
-      }
+    user: user.uid
+  }).then(function (passport) {
+    Passport.destroy(passport.id).then(function () {
       next(null, user);
-    });
-  });
+    }).fail(next);
+  }).fail(next);
 };
 
 passport.serializeUser(function (user, next) {
