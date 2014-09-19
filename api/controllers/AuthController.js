@@ -159,22 +159,15 @@ var AuthController = {
       });
 
     sails.services.passport.callback(req, res, function (err, user) {
-      if (err) {
-        sails.log.error('authController#Callback service error:', err);
+      if (err && err.code !== 'E_VALIDATION') {
+        sails.log.error(err);
       }
       req.login(user, function (err) {
         // If an error was thrown, redirect the user to the login which should
         // take care of rendering the error messages.
         if (err) {
-          sails.log.warn('authController#Callback login failed', err);
-          var flashError = req.flash('error')[0];
-          if (!flashError) {
-            req.flash('error', 'Error.Passport.Generic');
-          } else {
-            req.flash('error', flashError);
-          }
+          req.flash('error', req.flash('error')[0] || 'Error.Passport.Generic');
           req.flash('form', req.body);
-
           if (action === 'register') {
             res.redirect(registerRoute);
           } else if (action === 'disconnect') {
