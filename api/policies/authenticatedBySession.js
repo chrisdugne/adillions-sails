@@ -25,6 +25,7 @@ module.exports = function (req, res, next) {
   }
 
   req.flash('back', req.path);
+  req.flash('error', 'Error.Passport.auth.forbidden');
   // User is not allowed
   // (default res.forbidden() behavior can be overridden in `config/403.js`)
   sails.log.info('User not authenticated try to reach a forbidden page', {
