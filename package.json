@@ -70,7 +70,8 @@
     "url": "https://github.com/LukeParis/adillions-next.git"
   },
   "engines": {
-    "node": "~0.10.20"
+    "node": "~0.10.20",
+    "npm": "~1.4.0"
   },
   "author": "Duvillier Antoine",
   "license": ""
