@@ -61,8 +61,8 @@ module.exports.policies = {
   },
 
   'authController': {
-    callback: true,
-    provider: true
+    callback: 'passport',
+    provider: 'passport'
   },
 
   'apiController': {
