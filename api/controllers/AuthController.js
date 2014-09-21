@@ -176,6 +176,7 @@ var AuthController = {
             res.redirect(loginRoute);
           }
         } else {
+          console.log('----->', req, res);
           res.redirect(req.flash('back')[0] || '/');
         }
       });

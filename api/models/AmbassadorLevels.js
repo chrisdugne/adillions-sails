@@ -1,6 +1,4 @@
 /**
- * MobileSettings.js
- *
  * @description ::
  * @docs        ::
  */
