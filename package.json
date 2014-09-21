@@ -50,6 +50,7 @@
     "passport-http-bearer": "^1.0.1",
     "passport-local": "~1.0.0",
     "passport-twitter": "~1.0.2",
+    "q": "~1.0.1",
     "rc": "~0.3.3",
     "sails": "v0.10.5",
     "sails-postgresql": "0.10.9",
