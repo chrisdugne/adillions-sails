@@ -1,6 +1,24 @@
 var bcrypt = require('bcrypt'),
   _ = require('lodash'),
-  Q = require('Q');
+  Q = require('q');
+
+/**
+ * Hash a passport password.
+ *
+ * @param {Object}   password
+ * @param {Function} next
+ */
+
+function hashPassword(passport, next) {
+  if (passport.password && _.isString(passport.password)) {
+    bcrypt.hash(passport.password, 10, function (err, hash) {
+      passport.password = hash;
+      next(err, passport);
+    });
+  } else {
+    next(null, passport);
+  }
+}
 
 /**
  * Passport Model
@@ -120,16 +138,7 @@ var Passport = {
    * @param {Object}   passport The soon-to-be-created Passport
    * @param {Function} next
    */
-  beforeCreate: function (passport, next) {
-    if (passport.hasOwnProperty('password')) {
-      bcrypt.hash(passport.password, 10, function (err, hash) {
-        passport.password = hash;
-        next(err, passport);
-      });
-    } else {
-      next(null, passport);
-    }
-  },
+  beforeCreate: hashPassword,
 
   /**
    * Callback to be run before updating a Passport.
@@ -137,16 +146,7 @@ var Passport = {
    * @param {Object}   passport Values to be updated
    * @param {Function} next
    */
-  beforeUpdate: function (passport, next) {
-    if (passport.hasOwnProperty('password') && _.isString(passport.password)) {
-      bcrypt.hash(passport.password, 10, function (err, hash) {
-        passport.password = hash;
-        next(err, passport);
-      });
-    } else {
-      next(null, passport);
-    }
-  }
+  beforeUpdate: hashPassword
 };
 
 module.exports = Passport;
