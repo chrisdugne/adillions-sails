@@ -1,5 +1,6 @@
 var bcrypt = require('bcrypt'),
-  _ = require('lodash');
+  _ = require('lodash'),
+  Q = require('Q');
 
 /**
  * Passport Model
@@ -61,8 +62,7 @@ var Passport = {
     // When the local strategy is employed, a password will be used as the
     // means of authentication along with either a username or an email.
     password: {
-      type: 'string',
-      minLength: 6
+      type: 'string'
     },
 
     // Provider fields: Provider, identifer and tokens
@@ -106,8 +106,10 @@ var Passport = {
      * @param {string}   password The password to validate
      * @param {Function} next
      */
-    validatePassword: function (password, next) {
-      bcrypt.compare(password, this.password, next);
+    validatePassword: function (password) {
+      // Promisify: Adapting Node
+      return Q.nfapply(bcrypt.compare, [password, this.password]);
+      // bcrypt.compare(password, this.password, next);
     }
 
   },
