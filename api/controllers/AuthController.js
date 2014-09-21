@@ -159,7 +159,7 @@ var AuthController = {
       });
 
     sails.services.passport.callback(req, res, function (err, user) {
-      if (err && err.code !== 'E_VALIDATION') {
+      if (err && err.code !== 'E_VALIDATION' && err.message !== 'abort') {
         sails.log.error(err);
       }
       req.login(user, function (err) {
