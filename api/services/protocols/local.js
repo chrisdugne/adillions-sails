@@ -187,7 +187,7 @@ exports.login = function (req, identifier, password, next) {
         throw Error('abort');
       }
       return user;
-    }).then(function (user) {
+    }).then(function loginUser(user) {
       sails.log.info('Passport.local.login#service: success login for user', user.uid);
       next(null, user);
     })

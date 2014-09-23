@@ -64,9 +64,10 @@ passport.protocols = require('./protocols');
  * @param {Object}   profile
  * @param {Function} next
  */
-passport.connect = function (req, query, user, profile, next) {
+passport.connect = function (req, query, userObj, profile, next) {
   var strategies = sails.config.passport,
     config = strategies[profile.provider],
+    identifier = query.identifier.toString(),
     userQuery = {
       secret: null
     },
@@ -85,107 +86,100 @@ passport.connect = function (req, query, user, profile, next) {
     return next(new Error('No authentication provider was identified.'));
   }
 
-  if (profile.provider === 'facebook') {
+  if (provider === 'facebook') {
     _.merge(userQuery, {
-      facebook_id: query.identifier.toString()
+      facebook_id: identifier
     });
-    user.facebook_id = query.identifier.toString();
-  } else if (profile.provider === 'twitter') {
+    userObj.facebook_id = identifier;
+  } else if (provider === 'twitter') {
     _.merge(userQuery, {
-      twitter_id: query.identifier.toString()
+      twitter_id: identifier
     });
-    user.twitter_id = query.identifier.toString();
-    user.twitter_name = user.username;
+    userObj.twitter_id = identifier;
+    userObj.twitter_name = userObj.username;
   }
 
   // If neither an email or a username was available in the profile, we don't
   // have a way of identifying the user in the future. Throw an error and let
   // whoever's next in the line take care of it.
-  if (!user.username && !user.email) {
+  if (!userObj.username && !userObj.email) {
     return next(new Error('Neither a username or email was available', null));
   }
 
   Passport.findOne({
     provider: provider,
-    identifier: query.identifier.toString()
-  }, function (err, passport) {
-    if (err) {
-      return next(err);
-    }
-
-    if (!req.user) {
-      // Scenario: A new user is attempting to sign up using a third-party
-      //           authentication provider.
-      // Action:   Create a new user and assign them a passport.
-      if (!passport) {
-        User.findOrCreate(userQuery, user, function (err, user) {
-          if (err) {
-            if (err.code === 'E_VALIDATION') {
-              if (err.invalidAttributes.email) {
-                req.flash('error', 'Error.Passport.Email.Exists');
-              } else {
-                req.flash('error', 'Error.Passport.User.Exists');
-              }
-            }
-            return next(err);
-          }
-          sails.log.info('user not connected, has not a passport : find|create a user', user.uid);
-          query.user = user.uid;
-
-          Passport.create(query, function (err, passport) {
-            // If a passport wasn't created, bail out
-            if (err) {
-              return next(err);
-            }
-            sails.log.info('user not connected, has not a passport : create a passport', passport.id);
-            next(null, user);
+    identifier: identifier
+  })
+    .then(function getUser(passport) {
+      var _user;
+      if (!req.user) {
+        if (!passport) {
+          _user = User.findOrCreate(userQuery, userObj).then(function (user) {
+            sails.log.info('Passport.connect#service: find|create a user', user.uid);
+            return user;
           });
-        });
-      }
-      // Scenario: An existing user is trying to log in using an already
-      //           connected passport.
-      // Action:   Get the user associated with the passport.
-      else {
-        // If the tokens have changed since the last session, update them
-        if (query.hasOwnProperty('tokens') && query.tokens !== passport.tokens) {
-          passport.tokens = query.tokens;
+        } else {
+          _user = User.findOne({
+            uid: passport.user
+          }).then(function (user) {
+            sails.log.info('Passport.connect#service: find user', user.uid);
+            return user;
+          });
         }
-
-        // Save any updates to the Passport before moving on
-        passport.save(function (err, passport) {
-          if (err) {
-            return next(err);
-          }
-          sails.log.info('user not connected, has already a passport : update passport', passport.id);
-          // Fetch the user associated with the Passport
-          User.findOne({
-            uid: passport.user.uid
-          }, next);
-        });
+      } else {
+        sails.log.info('Passport.connect#service: connect user', req.user.uid);
+        _user = req.user;
       }
-    } else {
-      // Scenario: A user is currently logged in and trying to connect a new
-      //           passport.
-      // Action:   Create and assign a new passport to the user.
+      return [_user, passport];
+    })
+    .spread(function getPassport(user, passport) {
       if (!passport) {
-        query.user = req.user.uid;
-        Passport.create(query, function (err, passport) {
-          // If a passport wasn't created, bail out
-          if (err) {
-            return next(err);
-          }
-          sails.log.info('connected user, has not a passport, create a passport', req.user.uid);
-          next(null, req.user);
+        query.user = user.uid;
+        passport = Passport.create(query).then(function (passport) {
+          sails.log.info('Passport.connect#service: create a passport', passport.id);
+          return passport;
         });
       }
-      // Scenario: The user is a nutjob or spammed the back-button.
-      // Action:   Simply pass along the already established session.
-      else {
-        sails.log.info('connected user: has already a passport', req.user.uid);
-        next(null, req.user);
+      return [user, passport];
+    })
+    .spread(function updatePassport(user, passport) {
+      // If the tokens have changed since the last session, update them
+      if (query.hasOwnProperty('tokens') && query.tokens !== passport.tokens) {
+        passport.tokens = query.tokens;
+        passport = passport.save().then(function (passport) {
+          sails.log.info('Passport.connect#service: update passport', passport.id);
+          return passport;
+        });
       }
-    }
-  });
+      return [user, passport];
+    })
+    .spread(function updateUser(user, passport) {
+      // If properties are missing, try to update user.
+      Object.keys(userObj).forEach(function (key) {
+        if (!user[key] && userObj[key]) {
+          user[key] = userObj[key];
+        }
+      });
+      user = user.save().then(function (user) {
+        sails.log.info('Passport.connect#service: update user', user.uid);
+        return user;
+      });
+      return [user, passport];
+    })
+    .spread(function loginUser(user, passport) {
+      sails.log.info('Passport.connect#service: login user', user.uid);
+      next(null, user);
+    })
+    .fail(function handleValiationErrors(err) {
+      if (err.code === 'E_VALIDATION') {
+        if (err.invalidAttributes.email) {
+          req.flash('error', 'Error.Passport.Email.Exists');
+        } else {
+          req.flash('error', 'Error.Passport.User.Exists');
+        }
+      }
+      next(err);
+    });
 };
 
 /**

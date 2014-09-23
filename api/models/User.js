@@ -214,7 +214,7 @@ module.exports = {
       via: 'user'
     },
 
-    passport: {
+    passports: {
       collection: 'passport',
       via: 'user'
     },
