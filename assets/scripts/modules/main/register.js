@@ -38,10 +38,6 @@ var registerView = Backbone.View.extend({
 
     return false;
   },
-
-  showError: function () {
-
-  },
   showInvalid: function (model, errors) {
     _.each(model.attributes, _.bind(function (value, key) {
       var form_group = this.$el.find('input[name=' + key + ']').parents('.form-group:first'),
@@ -73,6 +69,7 @@ var registerView = Backbone.View.extend({
     }, this));
   },
   showSuccess: function (model) {
+    this.$el.find('.auth-register-form [type=submit]').button('loading');
     this.$el.find('.auth-register-form')[0].submit();
   }
 });
