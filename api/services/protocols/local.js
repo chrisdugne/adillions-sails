@@ -187,7 +187,16 @@ exports.login = function (req, identifier, password, next) {
         throw Error('abort');
       }
       return user;
-    }).then(function loginUser(user) {
+    })
+    .then(function generateToken(user) {
+      user.auth_token = user.generateToken();
+      user = user.save().then(function (user) {
+        sails.log.info('Passport.local.login#service: generate token for user', user.uid);
+        return user;
+      });
+      return user;
+    })
+    .then(function loginUser(user) {
       sails.log.info('Passport.local.login#service: success login for user', user.uid);
       next(null, user);
     })

@@ -22,9 +22,19 @@
 
 module.exports.routes = {
 
+  '/:lang/:mobile/login': 'AuthController.login',
+  '/:lang/:mobile/register': 'AuthController.register',
+  'post /m/auth/local': 'AuthController.callbackMobile',
+  'post /m/auth/local/:action': 'AuthController.callbackMobile',
+  '/m/auth/:provider': 'AuthController.providerMobile',
+  '/m/auth/:provider/callback': 'AuthController.callbackMobile',
+
+  '/m/loggedin': 'AuthController.loggedinMobile',
+
   '/:lang/login': 'AuthController.login',
   '/:lang/logout': 'AuthController.logout',
   '/:lang/register': 'AuthController.register',
+
   'post /auth/local': 'AuthController.callback',
   'post /auth/local/:action': 'AuthController.callback',
 

@@ -142,7 +142,7 @@ passport.connect = function (req, query, userObj, profile, next) {
       }
       return [user, passport];
     })
-    .spread(function updatePassport(user, passport) {
+    .spread(function updatePassportAndUser(user, passport) {
       // If the tokens have changed since the last session, update them
       if (query.hasOwnProperty('tokens') && query.tokens !== passport.tokens) {
         passport.tokens = query.tokens;
@@ -151,15 +151,13 @@ passport.connect = function (req, query, userObj, profile, next) {
           return passport;
         });
       }
-      return [user, passport];
-    })
-    .spread(function updateUser(user, passport) {
       // If properties are missing, try to update user.
       Object.keys(userObj).forEach(function (key) {
         if (!user[key] && userObj[key]) {
           user[key] = userObj[key];
         }
       });
+      user.auth_token = user.generateToken();
       user = user.save().then(function (user) {
         sails.log.info('Passport.connect#service: update user', user.uid);
         return user;
@@ -169,6 +167,12 @@ passport.connect = function (req, query, userObj, profile, next) {
     .spread(function loginUser(user, passport) {
       sails.log.info('Passport.connect#service: login user', user.uid);
       next(null, user);
+      return [user, passport];
+    })
+    .spread(function sendMail(user, passport) {
+      setTimeout(function () {
+        console.log('send mail');
+      }, 5000);
     })
     .fail(function handleValiationErrors(err) {
       if (err.code === 'E_VALIDATION') {
@@ -200,13 +204,19 @@ passport.endpoint = function (req, res) {
       hash: {
         'lang': res.getLocale()
       }
-    });
+    }),
+    loginRouteMobile = sails.config.route('auth.login', {
+      hash: {
+        'lang': res.getLocale(),
+        'mobile': 'm'
+      }
+    });;
 
   // If a provider doesn't exist for this endpoint, send the user back to the
   // login page
   if (!strategies.hasOwnProperty(provider)) {
     req.flash('error', 'Error.Passport.Generic');
-    return res.redirect(loginRoute);
+    return res.redirect(res.locals.isMobile ? loginRouteMobile : loginRoute);
   }
 
   // Attach scope if it has been set in the config

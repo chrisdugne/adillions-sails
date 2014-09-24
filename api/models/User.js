@@ -12,6 +12,10 @@ var generate_sponsorCode = function () {
   return code;
 };
 
+var generate_token = function () {
+  return uuid.v4();
+};
+
 /**
  * User.js
  *
@@ -227,6 +231,10 @@ module.exports = {
       return this.firstname + ' ' + this.lastname;
     },
 
+    generateToken: function () {
+      return generate_token();
+    },
+
     charity_status: function () {
       var status = [{
         tickets: 1,
@@ -255,6 +263,8 @@ module.exports = {
     user.last_update = new Date();
     // generate sponsor code
     user.sponsorcode = generate_sponsorCode();
+    // generate token
+    user.auth_token = generate_token();
     // generare uid
     user.uid = uuid.v4();
     next(null, user);

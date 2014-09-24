@@ -4,4 +4,7 @@ body.layout_light {
   .navbar {
     background: transparent;
   }
+  &.layout_mobile {
+    background: $blue;
+  }
 }
