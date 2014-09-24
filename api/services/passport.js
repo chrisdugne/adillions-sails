@@ -210,7 +210,7 @@ passport.endpoint = function (req, res) {
         'lang': res.getLocale(),
         'mobile': 'm'
       }
-    });;
+    });
 
   // If a provider doesn't exist for this endpoint, send the user back to the
   // login page
