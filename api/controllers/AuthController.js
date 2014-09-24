@@ -7,6 +7,13 @@
  */
 
 var AuthController = {
+
+  loggedinMobile: function (req, res) {
+    res.view({
+      layout: false
+    });
+  },
+
   /**
    * Render the login page
    *
@@ -33,7 +40,8 @@ var AuthController = {
    */
   login: function (req, res) {
     var strategies = _.pick(sails.config.passport, 'facebook', 'twitter', 'google'),
-      providers = {};
+      providers = {},
+      isMobile = req.param('mobile') === 'm';
 
     // Get a list of available providers for use in your templates.
     Object.keys(strategies).forEach(function (key) {
@@ -53,8 +61,9 @@ var AuthController = {
       providers: providers,
       form: req.flash('form')[0],
       alert: req.flash('error')[0],
-      layout: 'layout_light',
-      bodyClass: 'auth auth_login'
+      layout: isMobile ? 'layout_mobile' : 'layout_light',
+      bodyClass: 'auth auth_login ' + (isMobile ? 'layout_light' : ''),
+      isMobile: isMobile
     });
   },
 
@@ -95,7 +104,8 @@ var AuthController = {
    */
   register: function (req, res) {
     var strategies = _.pick(sails.config.passport, 'facebook', 'twitter', 'google'),
-      providers = {};
+      providers = {},
+      isMobile = req.param('mobile') === 'm';
 
     // Get a list of available providers for use in your templates.
     Object.keys(strategies).forEach(function (key) {
@@ -114,8 +124,9 @@ var AuthController = {
       providers: providers,
       form: req.flash('form')[0],
       alert: req.flash('error')[0],
-      layout: 'layout_light',
-      bodyClass: 'auth auth_register'
+      layout: isMobile ? 'layout_mobile' : 'layout_light',
+      bodyClass: 'auth auth_register ' + (isMobile ? 'layout_light' : ''),
+      isMobile: isMobile
     });
   },
 
@@ -128,7 +139,10 @@ var AuthController = {
   provider: function (req, res) {
     sails.services.passport.endpoint(req, res);
   },
-
+  providerMobile: function (req, res) {
+    res.locals.isMobile = true;
+    sails.services.passport.endpoint(req, res);
+  },
   /**
    * Create a authentication callback endpoint
    *
@@ -181,7 +195,47 @@ var AuthController = {
         }
       });
     });
+  },
+
+  callbackMobile: function (req, res) {
+    var action = req.param('action'),
+      registerRoute = sails.config.route('auth.register', {
+        hash: {
+          'lang': res.getLocale(),
+          'mobile': 'm'
+        }
+      }),
+      loginRoute = sails.config.route('auth.login', {
+        hash: {
+          'lang': res.getLocale(),
+          'mobile': 'm'
+        }
+      });
+
+    sails.services.passport.callback(req, res, function (err, user) {
+      if (err && err.code !== 'E_VALIDATION' && err.message !== 'abort') {
+        sails.log.error(err);
+      }
+      req.login(user, function (err) {
+        // If an error was thrown, redirect the user to the login which should
+        // take care of rendering the error messages.
+        if (err) {
+          req.flash('error', req.flash('error')[0] || 'Error.Passport.Generic');
+          req.flash('form', req.body);
+          if (action === 'register') {
+            res.redirect(registerRoute);
+          } else if (action === 'disconnect') {
+            res.redirect('back');
+          } else {
+            res.redirect(loginRoute);
+          }
+        } else {
+          res.redirect('/m/loggedin?auth_token=' + user.auth_token);
+        }
+      });
+    });
   }
+
 };
 
 module.exports = AuthController;

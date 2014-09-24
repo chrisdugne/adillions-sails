@@ -10,7 +10,7 @@ var bcrypt = require('bcrypt'),
  */
 
 function hashPassword(passport, next) {
-  if (passport.password && _.isString(passport.password)) {
+  if (passport.password) {
     bcrypt.hash(passport.password, 10, function (err, hash) {
       passport.password = hash;
       next(err, passport);
@@ -114,7 +114,7 @@ var Passport = {
     // For more information on associations in Waterline, check out:
     // https://github.com/balderdashy/waterline
     user: {
-      model: 'User',
+      model: 'user',
       required: true
     },
 

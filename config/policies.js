@@ -62,6 +62,8 @@ module.exports.policies = {
 
   'authController': {
     callback: 'passport',
+    callbackMobile: 'passport',
+    loggedinMobile: 'passport',
     provider: 'passport'
   },
 
