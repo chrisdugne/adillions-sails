@@ -8,7 +8,8 @@ var registerView = Backbone.View.extend({
   templateFeedback: Handlebars.partials['main/_partials/validation_feedback'],
 
   events: {
-    'submit .auth-register-form': 'register'
+    'submit .auth-register-form': 'register',
+    'click .auth-social a': 'connect'
   },
 
   initialize: function (options) {
@@ -71,6 +72,9 @@ var registerView = Backbone.View.extend({
   showSuccess: function (model) {
     this.$el.find('.auth-register-form [type=submit]').button('loading');
     this.$el.find('.auth-register-form')[0].submit();
+  },
+  connect: function (evt) {
+    $(evt.currentTarget).find('.text').button('loading');
   }
 });
 
