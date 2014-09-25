@@ -22,6 +22,10 @@
 
 module.exports.routes = {
 
+  //----------------------------------------------------------------------------
+  // Web routes
+  //----------------------------------------------------------------------------
+
   '/:lang/:mobile/login': 'AuthController.login',
   '/:lang/:mobile/register': 'AuthController.register',
   'post /m/auth/local': 'AuthController.callbackMobile',
@@ -63,12 +67,18 @@ module.exports.routes = {
   '/:lang/about/terms': 'AboutController.terms',
   '/:lang/about/advertisers': 'AboutController.advertisers',
 
-  '/api/globals': 'APIController.readGlobals',
-  '/api/nextLottery': 'APIController.readNextLottery',
+  //----------------------------------------------------------------------------
+  // API routes
+  //----------------------------------------------------------------------------
 
-  '/api/mobile/settings/:version': 'APIController.readMobileSettings',
-  '/api/charity/levels': 'APIController.readCharityLevels',
-  '/api/ambassador/levels': 'APIController.readAmbassadorLevels'
+  '/api/globals': 'ApiController.readGlobals',
+  '/api/nextLottery': 'ApiController.readNextLottery',
+
+  '/api/mobile/settings/:version': 'ApiController.readMobileSettings',
+  '/api/charity/levels': 'ApiController.readCharityLevels',
+  '/api/ambassador/levels': 'ApiController.readAmbassadorLevels',
+
+  '/api/user': 'EndpointUserController.read'
 
   // API Examples of how to naming controllers functions
   // '/api/globals': 'APIController.readGlobals',

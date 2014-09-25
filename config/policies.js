@@ -67,6 +67,11 @@ module.exports.policies = {
     provider: 'passport'
   },
 
+  'endpointUserController': {
+    '*': true
+    // '*': ApiPolicies // to restric access by a token authentification
+  },
+
   'apiController': {
     '*': true
     // '*': ApiPolicies // to restric access by a token authentification

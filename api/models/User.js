@@ -127,6 +127,11 @@ module.exports = {
       type: 'integer',
       defaultsTo: 0
     },
+    extra_tickets: {
+      type: 'integer',
+      defaultsTo: 0
+    },
+
 
     current_lottery_uid: {
       type: 'string',
@@ -208,6 +213,12 @@ module.exports = {
       type: 'string',
       columnName: 'referrer_id'
     },
+
+    gift_to_referrer: {
+      type: 'boolean',
+      defaultsTo: false
+    },
+
 
     /*
      * One-to-Many association
