@@ -22,13 +22,5 @@ module.exports = {
       bodyClass: 'account',
       layout: 'layout'
     });
-  },
-
-  endpoints: function(){
-      return {
-        read: function (req, res) {
-          console.log('------------------> NEW FETCH USER');
-        }
-      }
   }
 };

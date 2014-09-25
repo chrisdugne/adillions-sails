@@ -132,7 +132,6 @@ module.exports = {
       defaultsTo: 0
     },
 
-
     current_lottery_uid: {
       type: 'string',
       defaultsTo: '-'
@@ -218,7 +217,6 @@ module.exports = {
       type: 'boolean',
       defaultsTo: false
     },
-
 
     /*
      * One-to-Many association
