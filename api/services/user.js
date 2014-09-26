@@ -3,38 +3,26 @@ var UserService = module.exports = function () {
 
     //--------------------------------------------------------------------------
 
-    read: function (token, next) {
-      console.log(token);
+    read: function (uid, next) {
+
+      if (!_.isFunction(next)) {
+        throw new Error('User#read Service: the callback function is mandatory');
+      }
+
+      if (!_.isString(uid)) {
+        throw new Error('User#read Service: the uid param is mandatory and should be a string');
+      }
+
       User
-        .findOne()
-        .where({
-          auth_token: token
-        })
-        .then(function updateUser(user) {
-          console.log(user.uid);
-          user.username = 'popi333';
-          return user.save();
-        }).then(function findTicket(user) {
-          console.log(user.username);
-          return [user, sails.models.ticket
-            .find()
-            .limit(30)
-            .where({
-              player_uid: user.uid
-            })
-          ];
-        }).spread(function updateUserTickets(user, tickets) {
-          user.lotteryTickets = tickets;
-          return user;
-        })
+        .findOne({uid: uid})
+        .populate('tickets')
         .then(function done(user) {
           next(null, user);
         })
         .fail(function (err) {
-          sails.log.error('Lottery#getNextLottery Service: query fails', err);
+          sails.log.error('User#read Service: query fails', err);
           next(err);
         });
-
     },
 
     //--------------------------------------------------------------------------

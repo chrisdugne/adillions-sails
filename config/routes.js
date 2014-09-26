@@ -78,7 +78,7 @@ module.exports.routes = {
   '/api/charity/levels': 'ApiController.readCharityLevels',
   '/api/ambassador/levels': 'ApiController.readAmbassadorLevels',
 
-  '/api/user': 'EndpointUserController.read'
+  'get /api/user/:uid?': 'EndpointUserController.read'
 
   // API Examples of how to naming controllers functions
   // '/api/globals': 'APIController.readGlobals',

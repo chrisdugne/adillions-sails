@@ -3,9 +3,9 @@ var User = module.exports = {
   //----------------------------------------------------------------------------
 
   read: function (req, res) {
-    var authToken = req.headers.authorization.split('Bearer ')[1];
-    var UserService = new sails.services.user();
-    UserService.read(authToken, function (err, result) {
+    var UserService = new sails.services.user(),
+      uid = req.user ? req.user.uid : req.param('uid');
+    UserService.read(uid, function (err, result) {
       if (err) {
         return res.serverError(err);
       }

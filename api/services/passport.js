@@ -232,7 +232,7 @@ passport.endpoint = function (req, res, next) {
   // Redirect the user to the provider for authentication. When complete,
   // the provider will redirect the user back to the application at
   //     /auth/:provider/callback
-  this.authenticate(provider, options)(req, res, (next||req.next));
+  this.authenticate(provider, options)(req, res, (next || req.next));
 };
 
 /**

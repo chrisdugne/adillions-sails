@@ -68,7 +68,7 @@ module.exports.policies = {
   },
 
   'endpointUserController': {
-    '*': true
+    '*': ApiPolicies
     // '*': ApiPolicies // to restric access by a token authentification
   },
 
