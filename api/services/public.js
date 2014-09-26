@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 var PublicService = module.exports = function () {
   return {
 

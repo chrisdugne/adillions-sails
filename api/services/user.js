@@ -1,7 +1,7 @@
+var _ = require('lodash');
+
 var UserService = module.exports = function () {
   return {
-
-    //--------------------------------------------------------------------------
 
     read: function (uid, next) {
 
@@ -14,7 +14,9 @@ var UserService = module.exports = function () {
       }
 
       User
-        .findOne({uid: uid})
+        .findOne({
+          uid: uid
+        })
         .populate('tickets')
         .then(function done(user) {
           next(null, user);
@@ -23,7 +25,7 @@ var UserService = module.exports = function () {
           sails.log.error('User#read Service: query fails', err);
           next(err);
         });
-    },
+    }
 
     //--------------------------------------------------------------------------
 
