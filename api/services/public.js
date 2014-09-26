@@ -4,6 +4,11 @@ var PublicService = module.exports = function () {
     //--------------------------------------------------------------------------
 
     readGlobals: function (next) {
+
+      if (!_.isFunction(next)) {
+        throw new Error('readGlobals Service: the callback function is mandatory');
+      }
+
       sails.models.global
         .find()
         .where({
@@ -24,6 +29,15 @@ var PublicService = module.exports = function () {
     //--------------------------------------------------------------------------
 
     readMobileSettings: function (version, next) {
+
+      if (!_.isFunction(next)) {
+        throw new Error('readMobileSettings Service: the callback function is mandatory');
+      }
+
+      if (!_.isString(version)) {
+        return next(new Error('readMobileSettings Service: version is mandatory'));
+      }
+
       sails.models.mobilesettings
         .find()
         .where({
@@ -44,6 +58,11 @@ var PublicService = module.exports = function () {
     //--------------------------------------------------------------------------
 
     readCharityLevels: function (next) {
+
+      if (!_.isFunction(next)) {
+        throw new Error('readCharityLevels Service: the callback function is mandatory');
+      }
+
       sails.models.charitylevels
         .find()
         .sort('level ASC')
@@ -62,6 +81,11 @@ var PublicService = module.exports = function () {
     //--------------------------------------------------------------------------
 
     readAmbassadorLevels: function (next) {
+
+      if (!_.isFunction(next)) {
+        throw new Error('readAmbassadorLevels Service: the callback function is mandatory');
+      }
+
       sails.models.ambassadorlevels
         .find()
         .sort('level ASC')
