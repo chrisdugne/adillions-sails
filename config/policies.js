@@ -73,7 +73,7 @@ module.exports.policies = {
   },
 
   'apiController': {
-    '*': true
+    '*': ApiPolicies
     // '*': ApiPolicies // to restric access by a token authentification
   }
 

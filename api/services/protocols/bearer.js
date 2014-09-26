@@ -1,6 +1,6 @@
-module.exports = function (token, next) {
+module.exports = function (accessToken, next) {
   User.findOne({
-    auth_token: token
+    auth_token: accessToken
   }, function (err, user) {
     if (err) {
       return next(err);
@@ -9,7 +9,7 @@ module.exports = function (token, next) {
       return next(null, false);
     }
     next(null, user, {
-      scope: 'all'
+      scope: '*'
     });
   });
 };

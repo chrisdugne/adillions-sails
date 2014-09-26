@@ -195,7 +195,7 @@ passport.connect = function (req, query, userObj, profile, next) {
  * @param  {Object} req
  * @param  {Object} res
  */
-passport.endpoint = function (req, res) {
+passport.endpoint = function (req, res, next) {
   var strategies = sails.config.passport,
     // TODO: when bearer strategy, try a way to set the param provider
     provider = req.param('provider') || req._provider,
@@ -232,7 +232,7 @@ passport.endpoint = function (req, res) {
   // Redirect the user to the provider for authentication. When complete,
   // the provider will redirect the user back to the application at
   //     /auth/:provider/callback
-  this.authenticate(provider, options)(req, res, req.next);
+  this.authenticate(provider, options)(req, res, (next||req.next));
 };
 
 /**

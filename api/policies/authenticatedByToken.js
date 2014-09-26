@@ -10,5 +10,5 @@
 
 module.exports = function (req, res, next) {
   req._provider = 'bearer';
-  sails.services.passport.endpoint(req, res);
+  sails.services.passport.endpoint(req, res, next);
 };
