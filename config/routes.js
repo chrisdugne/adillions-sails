@@ -71,12 +71,12 @@ module.exports.routes = {
   // API routes
   //----------------------------------------------------------------------------
 
-  '/api/globals': 'ApiController.readGlobals',
-  '/api/nextLottery': 'ApiController.readNextLottery',
+  '/api/globals': 'PublicController.readGlobals',
+  '/api/nextLottery': 'PublicController.readNextLottery',
 
-  '/api/mobile/settings/:version': 'ApiController.readMobileSettings',
-  '/api/charity/levels': 'ApiController.readCharityLevels',
-  '/api/ambassador/levels': 'ApiController.readAmbassadorLevels',
+  '/api/mobile/settings/:version': 'PublicController.readMobileSettings',
+  '/api/charity/levels': 'PublicController.readCharityLevels',
+  '/api/ambassador/levels': 'PublicController.readAmbassadorLevels',
 
   'get /api/user/:uid?': 'EndpointUserController.read'
 
