@@ -169,17 +169,19 @@ Lottery.prototype.getNextDrawing = function (currentLanguage, next) {
   }
 
   sails.models.lottery
-    .findOne()
+    .find()
     .where({
       timestamp: {
         '>': new Date().getTime()
       }
     })
-    .then(function (lottery) {
-      if (!lottery) {
+    .sort('timestamp ASC')
+    .then(function (result) {
+      if (!result || !result.length) {
         throw new Error('Lottery#getNextDrawing Service: no next drawing found');
       }
-      return normalizeAttributes(lottery);
+      // get the next drawing (the first one);
+      return normalizeAttributes(result[0]);
     })
     .then(function (lottery) {
       var theme = lottery.theme;
@@ -193,9 +195,7 @@ Lottery.prototype.getNextDrawing = function (currentLanguage, next) {
         prize: lottery.min_price || lottery.final_price
       });
     })
-    .fail(function (err) {
-      next(err);
-    });
+    .fail(next);
 
 };
 
