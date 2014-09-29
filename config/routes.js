@@ -78,7 +78,7 @@ module.exports.routes = {
   '/api/globals': 'PublicController.readGlobals',
   '/api/nextLottery': 'PublicController.readNextLottery',
 
-  '/api/mobile/settings/:version': 'PublicController.readMobileSettings',
+  '/api/mobile/settings/:id': 'PublicController.readMobileSettings',
   '/api/charity/levels': 'PublicController.readCharityLevels',
   '/api/ambassador/levels': 'PublicController.readAmbassadorLevels',
 

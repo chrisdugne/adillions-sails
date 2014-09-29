@@ -30,24 +30,24 @@ var PublicService = module.exports = function () {
 
     //--------------------------------------------------------------------------
 
-    readMobileSettings: function (version, next) {
+    readMobileSettings: function (id, next) {
 
       if (!_.isFunction(next)) {
         throw new Error('readMobileSettings Service: the callback function is mandatory');
       }
 
-      if (!_.isString(version)) {
-        return next(new Error('readMobileSettings Service: version is mandatory'));
+      if (!_.isString(id)) {
+        return next(new Error('readMobileSettings Service: id is mandatory'));
       }
 
       sails.models.mobilesettings
         .find()
         .where({
-          version: version
+          id: id
         })
         .then(function (result) {
           if (!result || !result.length) {
-            throw new Error('empty mobileSettings for version ' + version);
+            throw new Error('empty mobileSettings for id ' + id);
           }
           next(null, result[0]);
         })
