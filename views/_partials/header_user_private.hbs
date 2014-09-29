@@ -5,7 +5,7 @@
       <a href="#" class="dropdown-toggle clearfix avatar-link" data-toggle="dropdown">
         <div class="media">
           <span class="pull-left avatar" href="#">
-            <img class="media-object" src="/images/avatar/avatar-s-60x60.png" width="36" />
+            <img class="media-object" src="{{#if user.photo}}{{user.photo}}{{else}}/images/avatar/avatar-s-60x60.png{{/if}}" width="36" />
           </span>
           <div class="media-body text-left">
             {{#if user.username}}
