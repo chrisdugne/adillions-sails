@@ -312,7 +312,7 @@ passport.loadStrategies = function (req) {
     var options = {
         passReqToCallback: true
       },
-      baseUrl = sails.getBaseurl(),
+      baseUrl = req ? req.baseUrl : sails.getBaseurl(),
       Strategy = strategies[key].strategy;
 
     if (key === 'local') {
