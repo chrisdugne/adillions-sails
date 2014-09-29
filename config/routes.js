@@ -23,27 +23,31 @@
 module.exports.routes = {
 
   //----------------------------------------------------------------------------
+  // Web mobile routes
+  //----------------------------------------------------------------------------
+
+  'get /:lang/:mobile/login': 'AuthController.login',
+  'get /:lang/:mobile/register': 'AuthController.register',
+  'post /m/auth/local': 'AuthController.callbackMobile',
+  'post /m/auth/local/:action': 'AuthController.callbackMobile',
+  'get /m/auth/:provider': 'AuthController.providerMobile',
+  'get /m/auth/:provider/callback': 'AuthController.callbackMobile',
+
+  'get /m/loggedin': 'AuthController.loggedinMobile',
+
+  //----------------------------------------------------------------------------
   // Web routes
   //----------------------------------------------------------------------------
 
-  '/:lang/:mobile/login': 'AuthController.login',
-  '/:lang/:mobile/register': 'AuthController.register',
-  'post /m/auth/local': 'AuthController.callbackMobile',
-  'post /m/auth/local/:action': 'AuthController.callbackMobile',
-  '/m/auth/:provider': 'AuthController.providerMobile',
-  '/m/auth/:provider/callback': 'AuthController.callbackMobile',
-
-  '/m/loggedin': 'AuthController.loggedinMobile',
-
-  '/:lang/login': 'AuthController.login',
-  '/:lang/logout': 'AuthController.logout',
-  '/:lang/register': 'AuthController.register',
+  'get /:lang/login': 'AuthController.login',
+  'get /:lang/logout': 'AuthController.logout',
+  'get /:lang/register': 'AuthController.register',
 
   'post /auth/local': 'AuthController.callback',
   'post /auth/local/:action': 'AuthController.callback',
 
-  '/auth/:provider': 'AuthController.provider',
-  '/auth/:provider/callback': 'AuthController.callback',
+  'get /auth/:provider': 'AuthController.provider',
+  'get /auth/:provider/callback': 'AuthController.callback',
 
   '/:lang?': 'HomeController.index',
 
@@ -79,12 +83,6 @@ module.exports.routes = {
   '/api/ambassador/levels': 'PublicController.readAmbassadorLevels',
 
   'get /api/user/:uid?': 'EndpointUserController.read'
-
-  // API Examples of how to naming controllers functions
-  // '/api/globals': 'APIController.readGlobals',
-  // 'post /api/globals': 'APIController.createGlobals',
-  // 'put /api/globals': 'APIController.updateGlobals',
-  // 'delete /api/globals': 'APIController.deleteGlobals'
 
   /***************************************************************************
    *                                                                          *

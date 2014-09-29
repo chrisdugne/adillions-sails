@@ -216,7 +216,7 @@ passport.endpoint = function (req, res, next) {
   // login page
   if (!strategies.hasOwnProperty(provider)) {
     req.flash('error', 'Error.Passport.Generic');
-    return res.redirect(res.locals.isMobile ? loginRouteMobile : loginRoute);
+    return res.redirect(req._isMobile ? loginRouteMobile : loginRoute);
   }
 
   // Attach scope if it has been set in the config
@@ -229,6 +229,10 @@ passport.endpoint = function (req, res, next) {
     options = strategies[provider].options;
   }
 
+  if (req._isMobile) {
+    // refresh loadStrategies to upate mobile callbackUrl
+    this.loadStrategies(req);
+  }
   // Redirect the user to the provider for authentication. When complete,
   // the provider will redirect the user back to the application at
   //     /auth/:provider/callback
@@ -265,6 +269,10 @@ passport.callback = function (req, res, next) {
     if (action === 'disconnect' && req.user) {
       this.disconnect(req, res, next);
     } else {
+      if (req._isMobile) {
+        // refresh loadStrategies to upate mobile callbackUrl
+        this.loadStrategies(req);
+      }
       // The provider will redirect the user to this URL after approval. Finish
       // the authentication process by attempting to obtain an access token. If
       // access was granted, the user will be logged in. Otherwise, authentication
@@ -325,7 +333,7 @@ passport.loadStrategies = function (req) {
       }
 
       if (!callback) {
-        callback = 'auth/' + key + '/callback';
+        callback = req && req._isMobile ? '/m/auth/' + key + '/callback' : 'auth/' + key + '/callback';
       }
 
       switch (protocol) {

@@ -61,10 +61,9 @@ module.exports.policies = {
   },
 
   'authController': {
-    callback: 'passport',
-    callbackMobile: 'passport',
-    loggedinMobile: 'passport',
-    provider: 'passport'
+    '*': 'passport',
+    login: commonPolicies,
+    register: commonPolicies
   },
 
   'endpointUserController': {

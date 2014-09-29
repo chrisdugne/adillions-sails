@@ -140,7 +140,7 @@ var AuthController = {
     sails.services.passport.endpoint(req, res);
   },
   providerMobile: function (req, res) {
-    res.locals.isMobile = true;
+    req._isMobile = true;
     sails.services.passport.endpoint(req, res);
   },
   /**
@@ -190,7 +190,6 @@ var AuthController = {
             res.redirect(loginRoute);
           }
         } else {
-          console.log('----->', req, res);
           res.redirect(req.flash('back')[0] || '/');
         }
       });
@@ -213,6 +212,7 @@ var AuthController = {
       });
 
     sails.services.passport.callback(req, res, function (err, user) {
+      req._isMobile = true;
       if (err && err.code !== 'E_VALIDATION' && err.message !== 'abort') {
         sails.log.error(err);
       }
