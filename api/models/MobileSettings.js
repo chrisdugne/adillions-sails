@@ -52,7 +52,17 @@ module.exports = {
     api: {
       type: 'json',
       columnName: 'api'
-    }
+    },
+
+    facebookAppId: {
+      type: 'string',
+      columnName: 'facebook_app_id'
+    },
+
+    facebookApiSecret: {
+      type: 'string',
+      columnName: 'facebook_api_secret'
+    },
 
   }
 
