@@ -8,11 +8,11 @@ var UserService = module.exports = function () {
     read: function (uid, next) {
 
       if (!_.isFunction(next)) {
-        throw new Error('User#read Service: the callback function is mandatory');
+        throw new Error('UserService #read : the callback function is mandatory');
       }
 
       if (!_.isString(uid)) {
-        throw new Error('User#read Service: the uid param is mandatory and should be a string');
+        throw new Error('UserService #read : the uid param is mandatory and should be a string');
       }
 
       User
@@ -23,7 +23,7 @@ var UserService = module.exports = function () {
           next(null, user);
         })
         .fail(function (err) {
-          sails.log.error('User#read Service: query fails', err);
+          sails.log.error('UserService #read : query fails', err);
           next(err);
         });
     },
@@ -33,19 +33,19 @@ var UserService = module.exports = function () {
     fetch: function (uid, country, mobileVersion, next) {
 
       if (!_.isFunction(next)) {
-        throw new Error('User#fetch Service: the callback function is mandatory');
+        throw new Error('UserService #fetch: the callback function is mandatory');
       }
 
       if (!_.isString(uid)) {
-        throw new Error('User#fetch Service: the uid param is mandatory and should be a string');
+        throw new Error('UserService #fetch: the uid param is mandatory and should be a string');
       }
 
       if (!_.isString(country)) {
-        throw new Error('User#fetch Service: the country param is mandatory and should be a string');
+        throw new Error('UserService #fetch: the country param is mandatory and should be a string');
       }
 
       if (!mobileVersion) {
-        throw new Error('User#fetch Service: the mobileVersion param is mandatory');
+        throw new Error('UserService #fetch: the mobileVersion param is mandatory');
       }
 
       User
@@ -70,26 +70,35 @@ var UserService = module.exports = function () {
         })
         .then(function notifyMoneyPrizes(user) {
           var Ticket = sails.models.ticket;
+          user.prizes = 0;
+          user.prizesUSD = 0;
+
           return Ticket
             .find()
+            .populate('lottery')
             .where({
               player_uid: user.uid,
               status: Ticket.UNSEEN
             })
             .then(function (tickets) {
               tickets.forEach(function (ticket) {
-                ticket.status = Ticket.BONUS3;
+                ticket.status = Ticket.BLOCKED;
                 ticket.save();
+                user.prizes +=  ticket.euros;
+                user.prizesUSD += ticket.euros * ticket.lottery.rateToUSD;
               });
-              user.tickets = tickets;
               return user;
             });
+        })
+        .then(function roundMoney(user) {
+          user.prizesUSD = parseFloat(user.prizesUSD.toFixed(1));
+          return user;
         })
         .then(function done(user) {
           next(null, user);
         })
         .fail(function (err) {
-          sails.log.error('User#read Service: query fails', err);
+          sails.log.error('UserService#fetch : query fails', err);
           next(err);
         });
     },

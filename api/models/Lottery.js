@@ -98,6 +98,11 @@ module.exports = {
       type: 'float'
     },
 
+    rateToUSD: {
+      type: 'float',
+      columnName: 'rate_usdto_eur'
+    },
+
     nb_winners: function () {
       var prizes = this.prizes,
         winners = 0;
