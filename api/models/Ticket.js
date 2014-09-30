@@ -5,7 +5,7 @@
  * @docs        ::
  */
 
-module.exports = {
+var Ticket = module.exports = {
 
   UNSEEN: 0, // set as winning ticket, before notification
   BLOCKED: 1, // set as winning ticket, notification/popup read, cashout blocked (<10)
@@ -97,17 +97,11 @@ module.exports = {
     // public static final int INSTANT_TICKET         = 2;
     type: {
       type: 'integer',
-      emun: [1, 2]
+      enum: [1, 2]
     },
 
-    // public static final int unseen      = 0; // set as winning ticket, before notification
-    // public static final int blocked     = 1; // set as winning ticket, notification/popup read, cashout blocked (<10)
-    // public static final int pending     = 2; // cashout requested
-    // public static final int payed       = 3; // to set manually when paiement is done
-    // public static final int gift        = 4; // gift to charity
     status: {
-      type: 'integer',
-      emun: [0, 1, 2, 3, 4]
+      type: 'integer'
     }
 
   }

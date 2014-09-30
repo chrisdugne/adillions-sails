@@ -1,5 +1,4 @@
-var _ = require('lodash'),
-  Ticket = require('../models/Ticket');
+var _ = require('lodash');
 
 var UserService = module.exports = function () {
   return {
@@ -70,6 +69,7 @@ var UserService = module.exports = function () {
             });
         })
         .then(function notifyMoneyPrizes(user) {
+          var Ticket = sails.models.ticket;
           return Ticket
             .find()
             .where({
@@ -78,8 +78,7 @@ var UserService = module.exports = function () {
             })
             .then(function (tickets) {
               tickets.forEach(function (ticket) {
-                ticket.status = Ticket.BLOCKED;
-                console.log(ticket);
+                ticket.status = Ticket.BONUS3;
                 ticket.save();
               });
               user.tickets = tickets;
