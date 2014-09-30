@@ -7,6 +7,22 @@
 
 module.exports = {
 
+  UNSEEN: 0, // set as winning ticket, before notification
+  BLOCKED: 1, // set as winning ticket, notification/popup read, cashout blocked (<10)
+  PENDING: 2, // cashout requested
+  PAYED: 3, // to set manually when paiement is done
+  GIFT: 4, // gift to charity
+
+  BONUS1: 11, // rang 7
+  BONUS2: 12, // rang 8
+  BONUS3: 13, // rang 9
+  BONUS4: 14, // rang 10
+
+  VALIDATED_BONUS1: 111, // rang 7 converted
+  VALIDATED_BONUS2: 112, // rang 8 converted
+  VALIDATED_BONUS3: 113, // rang 9 converted
+  VALIDATED_BONUS4: 114, // rang 10 converted
+
   tableName: 'lottery_ticket',
 
   autoCreatedAt: false,

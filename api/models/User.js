@@ -218,6 +218,12 @@ module.exports = {
       defaultsTo: false
     },
 
+    mobileVersion: {
+      type: 'float',
+      columnName: 'mobile_version',
+      defaultsTo: 0.9
+    },
+
     /*
      * One-to-Many association
      */
