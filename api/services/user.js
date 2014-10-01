@@ -55,7 +55,8 @@ var UserService = module.exports = function () {
         .then(function updateUser(user) {
           user.country = country;
           user.mobileVersion = mobileVersion;
-          return user.save();
+          user.save();
+          return user;
         })
         .then(function getGodChildren(user) {
           return User
@@ -68,7 +69,7 @@ var UserService = module.exports = function () {
               return user;
             });
         })
-        .then(function notifyMoneyPrizes(user) {
+        .then(function refreshPrizes(user) {
           var Ticket = sails.models.ticket;
           user.prizes = 0;
           user.prizesUSD = 0;
@@ -84,14 +85,60 @@ var UserService = module.exports = function () {
               tickets.forEach(function (ticket) {
                 ticket.status = Ticket.BLOCKED;
                 ticket.save();
-                user.prizes +=  ticket.euros;
+                user.prizes += ticket.euros;
                 user.prizesUSD += ticket.euros * ticket.lottery.rateToUSD;
               });
               return user;
             });
         })
-        .then(function roundMoney(user) {
+        .then(function refreshBonus(user) {
+          var Ticket = sails.models.ticket;
+          user.stocks = 0;
+          user.timers = 0;
+
+          return Ticket
+            .find()
+            .where({
+              player_uid: user.uid,
+              status: [
+                Ticket.BONUS1,
+                Ticket.BONUS2,
+                Ticket.BONUS3,
+                Ticket.BONUS4
+              ]
+            })
+            .then(function (tickets) {
+              tickets.forEach(function (ticket) {
+                var now = new Date().getTime();
+                ticket.status = ticket.status + 100;
+                ticket.save();
+
+                user.timers += parseInt(ticket.bonus.instants);
+
+                if (now < ticket.bonus.maxTime) {
+                  user.stocks += parseInt(ticket.bonus.stocks);
+                }
+              });
+
+              user.extraTickets += user.timers;
+              user.temporaryBonusTickets += user.stocks;
+              user.save();
+
+              return user;
+            });
+        })
+        .then(function roundPrizes(user) {
           user.prizesUSD = parseFloat(user.prizesUSD.toFixed(1));
+          user.prizes = parseFloat(user.prizes.toFixed(1));
+          return user;
+        })
+        .then(function setNotifications(user) {
+          user.notifications = {
+            instants: user.timers,
+            stocks: user.stocks,
+            prizes: user.prizes,
+            prizesUSD: user.prizesUSD
+          };
           return user;
         })
         .then(function done(user) {

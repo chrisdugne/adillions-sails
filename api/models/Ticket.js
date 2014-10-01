@@ -63,6 +63,9 @@ var Ticket = module.exports = {
       }
     },
 
+    bonus: {
+      type: 'json'
+    },
     /*
      * One-to-one association
      */
