@@ -127,7 +127,13 @@ module.exports = {
       type: 'integer',
       defaultsTo: 0
     },
-    extra_tickets: {
+    extraTickets: {
+      columnName: 'extra_tickets',
+      type: 'integer',
+      defaultsTo: 0
+    },
+    temporaryBonusTickets: {
+      columnName: 'temporary_bonus_tickets',
       type: 'integer',
       defaultsTo: 0
     },
@@ -216,6 +222,12 @@ module.exports = {
     gift_to_referrer: {
       type: 'boolean',
       defaultsTo: false
+    },
+
+    mobileVersion: {
+      type: 'float',
+      columnName: 'mobile_version',
+      defaultsTo: 0.9
     },
 
     /*

@@ -82,7 +82,8 @@ module.exports.routes = {
   '/api/charity/levels': 'PublicController.readCharityLevels',
   '/api/ambassador/levels': 'PublicController.readAmbassadorLevels',
 
-  'get /api/user/:uid?': 'EndpointUserController.read'
+  'get /api/user/:uid?': 'EndpointUserController.read',
+  'put /api/user/': 'EndpointUserController.fetch'
 
   /***************************************************************************
    *                                                                          *

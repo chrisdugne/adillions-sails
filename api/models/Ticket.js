@@ -5,7 +5,23 @@
  * @docs        ::
  */
 
-module.exports = {
+var Ticket = module.exports = {
+
+  UNSEEN: 0, // set as winning ticket, before notification
+  BLOCKED: 1, // set as winning ticket, notification/popup read, cashout blocked (<10)
+  PENDING: 2, // cashout requested
+  PAYED: 3, // to set manually when paiement is done
+  GIFT: 4, // gift to charity
+
+  BONUS1: 11, // rang 7
+  BONUS2: 12, // rang 8
+  BONUS3: 13, // rang 9
+  BONUS4: 14, // rang 10
+
+  VALIDATED_BONUS1: 111, // rang 7 converted
+  VALIDATED_BONUS2: 112, // rang 8 converted
+  VALIDATED_BONUS3: 113, // rang 9 converted
+  VALIDATED_BONUS4: 114, // rang 10 converted
 
   tableName: 'lottery_ticket',
 
@@ -47,6 +63,9 @@ module.exports = {
       }
     },
 
+    bonus: {
+      type: 'json'
+    },
     /*
      * One-to-one association
      */
@@ -81,17 +100,11 @@ module.exports = {
     // public static final int INSTANT_TICKET         = 2;
     type: {
       type: 'integer',
-      emun: [1, 2]
+      enum: [1, 2]
     },
 
-    // public static final int unseen      = 0; // set as winning ticket, before notification
-    // public static final int blocked     = 1; // set as winning ticket, notification/popup read, cashout blocked (<10)
-    // public static final int pending     = 2; // cashout requested
-    // public static final int payed       = 3; // to set manually when paiement is done
-    // public static final int gift        = 4; // gift to charity
     status: {
-      type: 'integer',
-      emun: [0, 1, 2, 3, 4]
+      type: 'integer'
     }
 
   }
