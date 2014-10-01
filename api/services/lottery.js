@@ -245,7 +245,7 @@ Lottery.prototype.getWinners = function (total, offset, next) {
           charity_rang = 1;
 
         _.forEach(charity_status, function (charity) {
-          if (user.playedtickets >= charity.tickets) {
+          if (user.playedTickets >= charity.tickets) {
             charity.active = true;
             charity_rang = charity.rang;
           }

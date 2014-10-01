@@ -130,10 +130,6 @@ module.exports = {
       type: 'integer',
       defaultsTo: 0
     },
-    total_played_tickets: {
-      type: 'integer',
-      defaultsTo: 0
-    },
     total_paid_tickets: {
       type: 'integer',
       defaultsTo: 0
@@ -202,7 +198,7 @@ module.exports = {
       defaultsTo: 'en'
     },
 
-    playedtickets: {
+    playedTickets: {
       type: 'integer',
       columnName: 'total_played_tickets',
       defaultsTo: 0
