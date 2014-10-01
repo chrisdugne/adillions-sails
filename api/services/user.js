@@ -55,6 +55,7 @@ var UserService = module.exports = function () {
         .findOne({
           uid: uid
         })
+        .populate('passports')
         .then(function updateUser(user) {
           user.country = country;
           user.mobileVersion = mobileVersion;
@@ -157,7 +158,7 @@ var UserService = module.exports = function () {
                 '>': 0
               }
             })
-            .then(function (tickets) {
+            .then(function shareValuesOut (tickets) {
               tickets.forEach(function (ticket) {
 
                 var value = utils.countryPrice(ticket.euros, user.country, ticket.lottery.rateToUSD);
