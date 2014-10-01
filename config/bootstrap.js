@@ -46,7 +46,7 @@ module.exports.bootstrap = function (done) {
     aliases: __dirname + '/urlAliases.json'
   });
 
-  sails.services.passport.loadStrategies();
+  // sails.services.passport.loadStrategies();
 
   done();
 };

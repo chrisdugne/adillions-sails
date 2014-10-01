@@ -210,9 +210,9 @@ var AuthController = {
           'mobile': 'm'
         }
       });
+    req._isMobile = true;
 
     sails.services.passport.callback(req, res, function (err, user) {
-      req._isMobile = true;
       if (err && err.code !== 'E_VALIDATION' && err.message !== 'abort') {
         sails.log.error(err);
       }

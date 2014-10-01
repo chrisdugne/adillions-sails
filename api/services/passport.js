@@ -229,10 +229,8 @@ passport.endpoint = function (req, res, next) {
     options = strategies[provider].options;
   }
 
-  if (req._isMobile) {
-    // refresh loadStrategies to upate mobile callbackUrl
-    this.loadStrategies(req);
-  }
+  this.loadStrategies(req);
+
   // Redirect the user to the provider for authentication. When complete,
   // the provider will redirect the user back to the application at
   //     /auth/:provider/callback
@@ -269,10 +267,8 @@ passport.callback = function (req, res, next) {
     if (action === 'disconnect' && req.user) {
       this.disconnect(req, res, next);
     } else {
-      if (req._isMobile) {
-        // refresh loadStrategies to upate mobile callbackUrl
-        this.loadStrategies(req);
-      }
+      this.loadStrategies(req);
+
       // The provider will redirect the user to this URL after approval. Finish
       // the authentication process by attempting to obtain an access token. If
       // access was granted, the user will be logged in. Otherwise, authentication
@@ -312,7 +308,10 @@ passport.loadStrategies = function (req) {
     var options = {
         passReqToCallback: true
       },
-      baseUrl = req ? req.baseUrl : sails.getBaseurl(),
+      baseUrl = require('url').format({
+        protocol: req.protocol,
+        host: req.headers.host
+      }),
       Strategy = strategies[key].strategy;
 
     if (key === 'local') {
@@ -335,6 +334,8 @@ passport.loadStrategies = function (req) {
       if (!callback) {
         callback = req && req._isMobile ? '/m/auth/' + key + '/callback' : 'auth/' + key + '/callback';
       }
+
+      sails.log.info('loadStrategies callbackurl', url.resolve(baseUrl, callback));
 
       switch (protocol) {
       case 'oauth':
