@@ -62,6 +62,33 @@ var UserService = module.exports = function () {
           user.save();
           return user;
         })
+        .then(function findNextDrawing(user) {
+          return sails.models.lottery
+            .findOne()
+            .where({
+              timestamp: {
+                '>': new Date().getTime()
+              }
+            })
+            .then(function prepareToNewDrawing(lottery) {
+              if (lottery.uid !== user.currentLotteryUID) {
+                console.log('---> prepareToNewDrawing');
+                user.currentLotteryUID = lottery.uid;
+                user.availableTickets = lottery.startTickets;
+                user.playedBonusTickets = 0;
+                user.temporaryBonusTickets = 0;
+
+                user.tweet = false;
+                user.tweetTheme = false;
+                user.postOnFacebook = false;
+                user.postThemeOnFacebook = false;
+                user.invitedOnFacebook = false;
+                user.save();
+              }
+
+              return user;
+            });
+        })
         .then(function getGodChildren(user) {
           return User
             .count()
@@ -158,7 +185,7 @@ var UserService = module.exports = function () {
                 '>': 0
               }
             })
-            .then(function shareValuesOut (tickets) {
+            .then(function shareValuesOut(tickets) {
               tickets.forEach(function (ticket) {
 
                 var value = utils.countryPrice(ticket.euros, user.country, ticket.lottery.rateToUSD);

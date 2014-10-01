@@ -81,23 +81,33 @@ module.exports = {
       defaultsTo: true
     },
 
-    has_tweet: {
+    tweet: {
+      columnName: 'has_tweet',
       type: 'boolean',
       defaultsTo: false
     },
-    has_tweet_theme: {
+    tweetTheme: {
+      columnName: 'has_tweet_theme',
       type: 'boolean',
       defaultsTo: false
     },
-    has_post_on_facebook: {
+    postOnFacebook: {
+      columnName: 'has_post_on_facebook',
       type: 'boolean',
       defaultsTo: false
     },
-    has_tweet_an_invite: {
+    postThemeOnFacebook: {
+      columnName: 'has_post_theme_on_facebook',
       type: 'boolean',
       defaultsTo: false
     },
-    has_invited_on_facebook: {
+    tweetAnInvite: {
+      columnName: 'has_tweet_an_invite',
+      type: 'boolean',
+      defaultsTo: false
+    },
+    invitedOnFacebook: {
+      columnName: 'has_invited_on_facebook',
       type: 'boolean',
       defaultsTo: false
     },
@@ -115,7 +125,8 @@ module.exports = {
       type: 'integer',
       defaultsTo: 3
     },
-    played_bonus_tickets: {
+    playedBonusTickets: {
+      columnName: 'played_bonus_tickets',
       type: 'integer',
       defaultsTo: 0
     },
@@ -138,20 +149,14 @@ module.exports = {
       defaultsTo: 0
     },
 
-    current_lottery_uid: {
+    currentLotteryUID: {
+      columnName: 'current_lottery_uid',
       type: 'string',
       defaultsTo: '-'
     },
 
-    current_points: {
-      type: 'integer',
-      defaultsTo: 0
-    },
-    total_points: {
-      type: 'integer',
-      defaultsTo: 0
-    },
-    idle_points: {
+    idlePoints: {
+      columnName: 'idle_points',
       type: 'integer',
       defaultsTo: 0
     },
@@ -203,7 +208,7 @@ module.exports = {
       defaultsTo: 0
     },
 
-    nbavailabletickets: {
+    availableTickets: {
       type: 'integer',
       columnName: 'available_tickets',
       defaultsTo: 8
