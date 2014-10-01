@@ -324,9 +324,12 @@ Lottery.prototype.getLotteries = function (total, offset, next) {
 
 Lottery.prototype.getNextLottery = function (next) {
   sails.models.lottery
-    .find()
-    .limit(2)
-    .sort('timestamp DESC')
+    .findOne()
+    .where({
+      timestamp: {
+        '>': new Date().getTime()
+      }
+    })
     .then(function (lotteries) {
       next(null, lotteries);
     })

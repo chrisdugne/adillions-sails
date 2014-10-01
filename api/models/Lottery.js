@@ -66,6 +66,11 @@ module.exports = {
       type: 'integer'
     },
 
+    startTickets: {
+      columnName: 'start_tickets',
+      type: 'integer'
+    },
+
     theme: {
       type: 'json'
     },
