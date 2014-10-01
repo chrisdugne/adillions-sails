@@ -1,4 +1,5 @@
-var _ = require('lodash');
+var _ = require('lodash'),
+  utils = require('../utils.js');
 
 var UserService = module.exports = function () {
   return {
@@ -48,6 +49,8 @@ var UserService = module.exports = function () {
         throw new Error('UserService #fetch: the mobileVersion param is mandatory');
       }
 
+      var Ticket = sails.models.ticket;
+
       User
         .findOne({
           uid: uid
@@ -69,8 +72,7 @@ var UserService = module.exports = function () {
               return user;
             });
         })
-        .then(function refreshPrizes(user) {
-          var Ticket = sails.models.ticket;
+        .then(function refreshNewPrizes(user) {
           user.prizes = 0;
           user.prizesUSD = 0;
 
@@ -88,10 +90,13 @@ var UserService = module.exports = function () {
                 user.prizes += ticket.euros;
                 user.prizesUSD += ticket.euros * ticket.lottery.rateToUSD;
               });
+
+              user.prizesUSD = parseFloat(user.prizesUSD.toFixed(1));
+              user.prizes = parseFloat(user.prizes.toFixed(1));
               return user;
             });
         })
-        .then(function refreshBonus(user) {
+        .then(function refreshNewBonus(user) {
           var Ticket = sails.models.ticket;
           user.stocks = 0;
           user.timers = 0;
@@ -127,11 +132,6 @@ var UserService = module.exports = function () {
               return user;
             });
         })
-        .then(function roundPrizes(user) {
-          user.prizesUSD = parseFloat(user.prizesUSD.toFixed(1));
-          user.prizes = parseFloat(user.prizes.toFixed(1));
-          return user;
-        })
         .then(function setNotifications(user) {
           user.notifications = {
             instants: user.timers,
@@ -140,6 +140,47 @@ var UserService = module.exports = function () {
             prizesUSD: user.prizesUSD
           };
           return user;
+        })
+        .then(function sumWinnings(user) {
+          user.totalWinnings = 0;
+          user.balance = 0;
+          user.totalGift = 0;
+          user.pendingWinnings = 0;
+          user.receivedWinnings = 0;
+
+          return Ticket
+            .find()
+            .populate('lottery')
+            .where({
+              player_uid: user.uid,
+              euros: {
+                '>': 0
+              }
+            })
+            .then(function (tickets) {
+              tickets.forEach(function (ticket) {
+
+                var value = utils.countryPrice(ticket.euros, user.country, ticket.lottery.rateToUSD);
+
+                switch (ticket.status) {
+                case Ticket.BLOCKED:
+                  user.balance += value;
+                  break;
+                case Ticket.PENDING:
+                  user.pendingWinnings += value;
+                  break;
+                case Ticket.GIFT:
+                  user.totalGift += value;
+                  break;
+                default:
+                  user.receivedWinnings += value;
+                  break;
+                }
+              });
+
+              return user;
+            });
+
         })
         .then(function done(user) {
           next(null, user);
