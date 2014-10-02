@@ -43,7 +43,7 @@ exports.register = function (req, res, next) {
   }
 
   User.create({
-    username: username,
+    userName: username,
     email: email
   }).then(function createPassport(user) {
     sails.log.info('Passport.local.register#service: create a local user', user.uid);
@@ -127,7 +127,7 @@ exports.login = function (req, identifier, password, next) {
   if (isEmail) {
     query.email = identifier;
   } else {
-    query.username = identifier;
+    query.userName = identifier;
   }
 
   User

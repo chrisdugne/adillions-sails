@@ -162,7 +162,7 @@ module.exports = {
       defaultsTo: 1
     },
 
-    username: {
+    userName: {
       type: 'string',
       columnName: 'user_name',
       unique: true
@@ -173,12 +173,12 @@ module.exports = {
       unique: true
     },
 
-    firstname: {
+    firstName: {
       type: 'string',
       columnName: 'first_name'
     },
 
-    lastname: {
+    lastName: {
       type: 'string',
       columnName: 'last_name'
     },
@@ -250,7 +250,7 @@ module.exports = {
      */
 
     fullname: function () {
-      return this.firstname + ' ' + this.lastname;
+      return this.firstName + ' ' + this.lastName;
     },
 
     generateToken: function () {

@@ -96,13 +96,13 @@ passport.connect = function (req, query, userObj, profile, next) {
       twitter_id: identifier
     });
     userObj.twitter_id = identifier;
-    userObj.twitter_name = userObj.username;
+    userObj.twitter_name = userObj.userName;
   }
 
   // If neither an email or a username was available in the profile, we don't
   // have a way of identifying the user in the future. Throw an error and let
   // whoever's next in the line take care of it.
-  if (!userObj.username && !userObj.email) {
+  if (!userObj.userName && !userObj.email) {
     return next(new Error('Neither a username or email was available', null));
   }
 
@@ -168,11 +168,6 @@ passport.connect = function (req, query, userObj, profile, next) {
       sails.log.info('Passport.connect#service: login user', user.uid);
       next(null, user);
       return [user, passport];
-    })
-    .spread(function sendMail(user, passport) {
-      setTimeout(function () {
-        console.log('send mail');
-      }, 5000);
     })
     .fail(function handleValiationErrors(err) {
       if (err.code === 'E_VALIDATION') {
@@ -334,8 +329,6 @@ passport.loadStrategies = function (req) {
       if (!callback) {
         callback = req && req._isMobile ? '/m/auth/' + key + '/callback' : 'auth/' + key + '/callback';
       }
-
-      sails.log.info('loadStrategies callbackurl', url.resolve(baseUrl, callback));
 
       switch (protocol) {
       case 'oauth':

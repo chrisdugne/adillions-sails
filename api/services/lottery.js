@@ -252,8 +252,8 @@ Lottery.prototype.getWinners = function (total, offset, next) {
         });
 
         winners.push({
-          firstname: user.firstname,
-          lastname: user.lastname,
+          firstName: user.firstName,
+          lastName: user.lastName,
           country: user.country,
           prize: ticket.euros,
           charityStatus: charity_status,

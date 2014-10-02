@@ -46,15 +46,15 @@ module.exports = function (req, token, tokenSecret, profile, next) {
   // If the profile object contains a username, add it to the user.
   if (_.has(profile, 'displayName') && _.isString(profile.displayName)) {
     var displayName = profile.displayName.split(' ');
-    user.firstname = displayName[0];
-    user.lastname = displayName[displayName.length - 1];
+    user.firstName = displayName[0];
+    user.lastName = displayName[displayName.length - 1];
   }
 
   // If the profile object contains a username, add it to the user.
   if (_.has(profile, 'username') && _.isString(profile.username)) {
-    user.username = profile.username;
-  } else if (user.firstname && user.lastname) {
-    user.username = user.firstname + ' ' + user.lastname;
+    user.userName = profile.username;
+  } else if (user.firstName && user.lastName) {
+    user.userName = user.firstName + ' ' + user.lastName;
   }
 
   if (tokenSecret !== undefined) {

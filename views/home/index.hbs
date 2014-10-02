@@ -220,14 +220,14 @@ window.onload = loadScript;
     {{#if lastWinners}}
     <ul id="js-global-players" class="global-players list-inline row mtxl">
       {{#each lastWinners}}
-      <li class="global-player col-sm-4 col-xs-12" data-country="{{country}}" data-title="{{firstname}} {{truncate lastname 1}}">
+      <li class="global-player col-sm-4 col-xs-12" data-country="{{country}}" data-title="{{firstName}} {{truncate lastName 1}}">
         <div class="media">
           <span class="pull-left avatar" href="#">
             <img class="media-object" src="/images/avatar/avatar-s-60x60.png" width="60">
           </span>
           <div class="media-body text-left">
             <p class="mtxs mbxs">
-            {{firstname}} {{truncate lastname 1}}
+            {{firstName}} {{truncate lastName 1}}
             {{#if country}}
               ({{country}})
             {{/if}}
