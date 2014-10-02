@@ -26,20 +26,25 @@ var TicketService = module.exports = function () {
         .find({
           player_uid: user
         })
-        .limit(100)
+        .limit(35)
+        .sort('timestamp DESC')
         .skip(skip)
-        .then(function fetch(tickets) {
+        .then(function fetchTickets(tickets) {
+          tickets = _.sortBy(tickets, 'timestamp').reverse();
           var uids = _.union(_.map(tickets, 'lottery'));
+          var lastLottery = uids.pop();
+          tickets = _.reject(tickets, {'lottery' : lastLottery});
+
           return Lottery
             .find()
             .where({
               'uid': uids
             })
-            .then(function done(lotteries) {
-              var themes = _.map(lotteries, 'uid');
+            .then(function fetchLinkedLotteries(lotteries) {
+              lotteries = _.sortBy(lotteries, 'timestamp').reverse();
               next(null, {
-                tickets: [],
-                themes: themes
+                tickets: tickets,
+                lotteries: lotteries
               });
             });
         })
