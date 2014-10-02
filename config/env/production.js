@@ -10,6 +10,41 @@
  *
  */
 
+var prods_env = {
+  'prod': {
+    passport: {
+      facebook: {
+        options: {
+          clientID: '170148346520274',
+          clientSecret: '887e8f7abb9b1cb9238a097e06585ae2'
+        }
+      }
+    }
+  },
+  'stage': {
+    passport: {
+      facebook: {
+        options: {
+          clientID: '293490820852692',
+          clientSecret: '1ec4fb849a52132737e0402ee007a978'
+        }
+      }
+    }
+  },
+  'dev': {
+    passport: {
+      facebook: {
+        options: {
+          clientID: '293490260852748',
+          clientSecret: '734afab21e3dcab63d7faf0e757187bc'
+        }
+      }
+    }
+  }
+};
+
+sails.log.info('facebook prod conf', prods_env[process.env.APP_NAME || 'prod'].passport.facebook);
+
 module.exports = {
 
   log: {
@@ -35,16 +70,11 @@ module.exports = {
         consumerSecret: 'wIj7zjxPTwc8Mt2uAyf8azKmSgPEDwYpvpxdtQwic'
       }
     },
-    facebook: {
-      options: {
-        clientID: '170148346520274',
-        clientSecret: '887e8f7abb9b1cb9238a097e06585ae2'
-      }
-    },
+    facebook: prods_env[process.env.APP_NAME || 'prod'].passport.facebook,
     google: {
       options: {
-        clientID: '15010835152-hl0igh3otmqki6qd5u3imvis5atqqn34.apps.googleusercontent.com',
-        clientSecret: '2fQvTXdrFvXPiRsoD009OXFF'
+        clientID: '78678402894-mchcph0itjhbkd727qdm4d8f7epbcatv.apps.googleusercontent.com',
+        clientSecret: 'Ob0ZMAXEPkVJ6cdUSmH3-V5i'
       }
     }
   },

@@ -42,8 +42,8 @@ module.exports = {
     },
     google: {
       options: {
-        clientID: '15010835152-22296lnffj5b7rlq1r53qg284moc7adu.apps.googleusercontent.com',
-        clientSecret: '3VcdTUPkpbsdHWYZKaDOcQzP'
+        clientID: '78678402894-mkqub7ia6ma25lk8m9tclr122o1nrbpd.apps.googleusercontent.com',
+        clientSecret: 'U88H8rTYUMv71T6XOum3YpjD'
       }
     }
   },
