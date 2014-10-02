@@ -83,7 +83,9 @@ module.exports.routes = {
   '/api/ambassador/levels': 'PublicController.readAmbassadorLevels',
 
   'get /api/user/:uid?': 'EndpointUserController.read',
-  'put /api/user/': 'EndpointUserController.fetch'
+  'put /api/user/': 'EndpointUserController.fetch',
+
+  'get /api/ticket/:skip?': 'EndpointTicketController.read',
 
   /***************************************************************************
    *                                                                          *

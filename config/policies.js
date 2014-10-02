@@ -67,8 +67,11 @@ module.exports.policies = {
   },
 
   'endpointUserController': {
-    '*': ApiPolicies
-    // '*': ApiPolicies // to restric access by a token authentification
+    '*': ApiPolicies // to restric access by a token authentification
+  },
+
+  'endpointTicketController': {
+    '*': ApiPolicies // to restric access by a token authentification
   },
 
   'publicController': {
