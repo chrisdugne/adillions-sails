@@ -43,6 +43,11 @@ module.exports = function (req, token, tokenSecret, profile, next) {
     user.photo = profile.photos[0].value;
   }
 
+  if (_.has(profile, '_json') && _.isObject(profile._json)) {
+    if (_.has(profile._json, 'lang')) {
+      user.lang = profile._json.lang;
+    }
+  }
   // If the profile object contains a username, add it to the user.
   if (_.has(profile, 'displayName') && _.isString(profile.displayName)) {
     var displayName = profile.displayName.split(' ');

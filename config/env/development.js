@@ -39,6 +39,12 @@ module.exports = {
         clientID: '534196239997712',
         clientSecret: '46383d827867d50ef5d87b66c81f1a8e'
       }
+    },
+    google: {
+      options: {
+        clientID: '15010835152-22296lnffj5b7rlq1r53qg284moc7adu.apps.googleusercontent.com',
+        clientSecret: '3VcdTUPkpbsdHWYZKaDOcQzP'
+      }
     }
   },
 

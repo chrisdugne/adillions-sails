@@ -114,10 +114,17 @@ passport.connect = function (req, query, userObj, profile, next) {
       var _user;
       if (!req.user) {
         if (!passport) {
-          _user = User.findOrCreate(userQuery, userObj).then(function (user) {
-            sails.log.info('Passport.connect#service: find|create a user', user.uid);
-            return user;
-          });
+          if (provider === 'google') {
+            _user = User.create(userObj).then(function (user) {
+              sails.log.info('Passport.connect#service: create a user', user.uid);
+              return user;
+            });
+          } else {
+            _user = User.findOrCreate(userQuery, userObj).then(function (user) {
+              sails.log.info('Passport.connect#service: find|create a user', user.uid);
+              return user;
+            });
+          }
         } else {
           _user = User.findOne({
             uid: passport.user
@@ -167,7 +174,6 @@ passport.connect = function (req, query, userObj, profile, next) {
     .spread(function loginUser(user, passport) {
       sails.log.info('Passport.connect#service: login user', user.uid);
       next(null, user);
-      return [user, passport];
     })
     .fail(function handleValiationErrors(err) {
       if (err.code === 'E_VALIDATION') {

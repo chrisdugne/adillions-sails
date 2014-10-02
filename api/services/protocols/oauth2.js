@@ -46,6 +46,25 @@ module.exports = function (req, accessToken, refreshToken, profile, next) {
   } else {
     if (profile.provider === 'facebook' && profile.username) {
       user.photo = 'http://graph.facebook.com/' + profile.username + '/picture?type=large';
+    } else if (profile.provider === 'google') {
+      user.photo = profile._json.picture;
+    }
+  }
+
+  if (_.has(profile, '_json') && _.isObject(profile._json)) {
+    if (_.has(profile._json, 'birthday')) {
+      user.birthday = profile._json.birthday;
+    }
+    if (_.has(profile._json, 'locale')) {
+      var locale = profile._json.locale.split('_'),
+        lang = _.isObject(locale) ? locale[0] : locale,
+        country = _.isObject(locale) ? locale[1] : locale;
+      if (lang) {
+        user.lang = lang;
+      }
+      if (country) {
+        user.country = country;
+      }
     }
   }
 
