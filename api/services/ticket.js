@@ -33,7 +33,9 @@ var TicketService = module.exports = function () {
           tickets = _.sortBy(tickets, 'timestamp').reverse();
           var uids = _.union(_.map(tickets, 'lottery'));
           var lastLottery = uids.pop();
-          tickets = _.reject(tickets, {'lottery' : lastLottery});
+          tickets = _.reject(tickets, {
+            'lottery': lastLottery
+          });
 
           return Lottery
             .find()

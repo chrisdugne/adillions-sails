@@ -43,8 +43,6 @@ var prods_env = {
   }
 };
 
-sails.log.info('facebook prod conf', prods_env[process.env.APP_NAME || 'prod'].passport.facebook);
-
 module.exports = {
 
   log: {
