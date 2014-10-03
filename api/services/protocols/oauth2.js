@@ -53,7 +53,7 @@ module.exports = function (req, accessToken, refreshToken, profile, next) {
 
   if (_.has(profile, '_json') && _.isObject(profile._json)) {
     if (_.has(profile._json, 'birthday')) {
-      user.birthday = profile._json.birthday;
+      user.birthdate = profile._json.birthday;
     }
     if (_.has(profile._json, 'locale')) {
       var locale = profile._json.locale.split('_'),
