@@ -68,9 +68,7 @@ passport.connect = function (req, query, userObj, profile, next) {
   var strategies = sails.config.passport,
     config = strategies[profile.provider],
     identifier = query.identifier.toString(),
-    userQuery = {
-      secret: null
-    },
+    userQuery = {},
     provider;
 
   // Get the authentication provider from the query.
@@ -95,6 +93,7 @@ passport.connect = function (req, query, userObj, profile, next) {
     _.merge(userQuery, {
       twitter_id: identifier
     });
+    userObj.email = '';
     userObj.twitter_id = identifier;
     userObj.twitter_name = userObj.userName;
   }
