@@ -238,8 +238,8 @@ var UserService = module.exports = function () {
         .update({
           uid: uid
         }, newData)
-        .then(function done(user) {
-          next(null, user);
+        .then(function done(users) {
+          next(null, users[0]);
         })
         .fail(function (err) {
           sails.log.error('UserService #update : query fails', err);
