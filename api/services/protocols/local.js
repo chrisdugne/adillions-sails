@@ -44,7 +44,7 @@ exports.register = function (req, res, next) {
 
   User.create({
     userName: username,
-    email: email
+    email: email.toLowerCase()
   }).then(function createPassport(user) {
     sails.log.info('Passport.local.register#service: create a local user', user.uid);
     Passport.create({
