@@ -59,7 +59,6 @@ var UserService = module.exports = function () {
         .then(function updateUser(user) {
           user.country = country;
           user.mobileVersion = mobileVersion;
-          user.save();
           return user;
         })
         .then(function findNextDrawing(user) {
@@ -83,7 +82,6 @@ var UserService = module.exports = function () {
                 user.postOnFacebook = false;
                 user.postThemeOnFacebook = false;
                 user.invitedOnFacebook = false;
-                user.save();
               }
 
               return user;
@@ -127,7 +125,7 @@ var UserService = module.exports = function () {
         .then(function refreshNewBonus(user) {
           var Ticket = sails.models.ticket;
           user.stocks = 0;
-          user.timers = 0;
+          user.timers = user.idlePoints;
 
           return Ticket
             .find()
@@ -155,7 +153,7 @@ var UserService = module.exports = function () {
 
               user.extraTickets += user.timers;
               user.temporaryBonusTickets += user.stocks;
-              user.save();
+              user.idlePoints = 0;
 
               return user;
             });
@@ -211,6 +209,7 @@ var UserService = module.exports = function () {
 
         })
         .then(function done(user) {
+          user.save();
           next(null, user);
         })
         .fail(function (err) {

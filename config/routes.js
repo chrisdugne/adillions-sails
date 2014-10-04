@@ -72,15 +72,21 @@ module.exports.routes = {
   '/:lang/about/advertisers': 'AboutController.advertisers',
 
   //----------------------------------------------------------------------------
-  // API routes
+  // API : public endpoints
   //----------------------------------------------------------------------------
 
   '/api/globals': 'PublicController.readGlobals',
-  '/api/nextLottery': 'PublicController.readNextLottery',
+
+  '/api/lottery/next': 'PublicController.readNextLottery',
+  '/api/lottery/status': 'PublicController.readLotteryStatus', // TODO : old /nextLottery
 
   '/api/mobile/settings/:id': 'PublicController.readMobileSettings',
   '/api/charity/levels': 'PublicController.readCharityLevels',
   '/api/ambassador/levels': 'PublicController.readAmbassadorLevels',
+
+  //----------------------------------------------------------------------------
+  // API : authorized endpoints
+  //----------------------------------------------------------------------------
 
   'get /api/user/:uid?': 'EndpointUserController.read',
   'put /api/user/': 'EndpointUserController.fetch',
