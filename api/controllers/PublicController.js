@@ -1,4 +1,4 @@
-var ApiController = module.exports = {
+var PublicController = module.exports = {
 
   //----------------------------------------------------------------------------
 
@@ -10,6 +10,12 @@ var ApiController = module.exports = {
       }
       res.json(result);
     });
+  },
+
+  //----------------------------------------------------------------------------
+
+  readLotteryStatus: function (req, res) {
+    var LotteryService = new sails.services.lottery();
   },
 
   //----------------------------------------------------------------------------

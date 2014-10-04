@@ -89,7 +89,8 @@ module.exports.routes = {
   //----------------------------------------------------------------------------
 
   'get /api/user/:uid?': 'EndpointUserController.read',
-  'put /api/user/': 'EndpointUserController.fetch',
+  'put /api/user/fetch': 'EndpointUserController.fetch',
+  'put /api/user/update': 'EndpointUserController.update',
 
   'get /api/ticket/:skip?': 'EndpointTicketController.read',
 

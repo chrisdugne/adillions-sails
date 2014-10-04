@@ -27,6 +27,21 @@ var EndpointUser = module.exports = {
       }
       res.json(result);
     });
+  },
+
+  //----------------------------------------------------------------------------
+
+  update: function (req, res) {
+    var UserService = new sails.services.user(),
+      uid = req.user ? req.user.uid : req.param('uid'),
+      user = req.param('user');
+
+    UserService.update(uid, user, function (err, result) {
+      if (err) {
+        return res.serverError(err);
+      }
+      res.json(result);
+    });
   }
 
   //----------------------------------------------------------------------------

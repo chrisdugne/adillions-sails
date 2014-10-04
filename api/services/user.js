@@ -220,6 +220,33 @@ var UserService = module.exports = function () {
 
     //--------------------------------------------------------------------------
 
+    update: function (uid, newData, next) {
+
+      if (!_.isFunction(next)) {
+        throw new Error('UserService #update : the callback function is mandatory');
+      }
+
+      if (!_.isString(uid)) {
+        throw new Error('UserService #update : the uid param is mandatory and should be a string');
+      }
+
+      if (!_.isObject(newData)) {
+        throw new Error('UserService #update : the newData param is mandatory');
+      }
+
+      User
+        .update({
+          uid: uid
+        }, newData)
+        .then(function done(user) {
+          next(null, user);
+        })
+        .fail(function (err) {
+          sails.log.error('UserService #update : query fails', err);
+          next(err);
+        });
+    }
+
   };
 
 };
