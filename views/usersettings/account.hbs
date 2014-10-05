@@ -7,17 +7,7 @@
 
 <div class="row mtxl">
 
-  <div class="col-xs-12">
-    {{#if alert}}
-      <div class="alerts mbl">
-        <div class="alert alert-{{alert.type}} mbn" role="alert">
-          {{#mergeContexts parent=..}}
-            {{{i18n alert.message}}}
-          {{/mergeContexts}}
-        </div>
-      </div>
-    {{/if}}
-  </div>
+  {{> 'alerts'}}
 
   <div class="col-xs-12 col-sm-3 hidden-xs">
     {{> 'settings_nav'}}
@@ -43,7 +33,7 @@
         {{{i18n 'profile'}}} {{user.username}}
       </div>
       <div class="panel-body">
-        <form role="form form-horizontal" action="{{route 'user.updateAccount' lang=locale uid=user.uid}}" method="post" class='settings-account-form'>
+        <form role="form form-horizontal" action="{{route 'userSettings.updateAccount' lang=locale uid=user.uid}}" method="post" class='settings-account-form'>
 
           <input type="hidden" name="_method" value="put">
 

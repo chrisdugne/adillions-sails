@@ -55,7 +55,7 @@ module.exports.policies = {
     index: WebPolicies
   },
 
-  'userController': {
+  'userSettingsController': {
     '*': WebPolicies
   },
 
