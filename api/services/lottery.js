@@ -190,7 +190,7 @@ Lottery.prototype.getNextDrawing = function (currentLanguage, next) {
           balls: theme.balls[currentLanguage]
         },
         timestamp: lottery.timestamp / 1000, // turn milliseconds to seconds
-        prize: lottery.min_price || lottery.final_price
+        prize: lottery.euros || lottery.final_price
       });
     })
     .fail(function (err) {

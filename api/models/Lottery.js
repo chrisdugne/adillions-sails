@@ -91,14 +91,9 @@ module.exports = {
       columnName: 'prizes'
     },
 
-    min_price: {
+    euros: {
       type: 'integer',
       columnName: 'min_price'
-    },
-
-    max_price: {
-      type: 'integer',
-      columnName: 'max_price'
     },
 
     result: {
