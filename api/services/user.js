@@ -97,7 +97,6 @@ var UserService = module.exports = function () {
             })
             .then(function prepareToNewDrawing(lottery) {
               if (lottery.uid !== user.currentLotteryUID) {
-                console.log('---> prepareToNewDrawing');
                 user.currentLotteryUID = lottery.uid;
                 user.availableTickets = lottery.startTickets;
                 user.playedBonusTickets = 0;
@@ -121,6 +120,18 @@ var UserService = module.exports = function () {
             })
             .then(function (nbGodChildren) {
               user.godChildren = nbGodChildren;
+              return user;
+            });
+        })
+        .then(function getLastTicketTime(user) {
+          return Ticket
+            .findOne()
+            .where({
+              player_uid: user.uid
+            })
+            .sort('creationDate DESC')
+            .then(function (ticket) {
+              user.lastTicketTime = ticket.creationDate;
               return user;
             });
         })
