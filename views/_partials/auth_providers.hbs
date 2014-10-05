@@ -60,7 +60,11 @@
           {{/if}}
         </span>
         <span class="text" data-loading-text="{{#mergeContexts parent=..}}{{i18n 'ui_loading'}}{{/mergeContexts}}">
-          {{name}}
+          {{#if isLinked}}
+            {{#mergeContexts parent=../..}}{{i18n 'ui_linked_provider' name}}{{/mergeContexts}}
+          {{else}}
+            {{name}}
+          {{/if}}
         </span>
       </a>
     </li>

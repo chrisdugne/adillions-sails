@@ -59,6 +59,7 @@
   "ui_day": "day",
   "ui_days": "days",
   "ui_languages": "Languages",
+  "ui_linked_provider": "%s account linked",
 
   "coming_soon": "Coming soon",
   "contact_us": "Contact us",
@@ -110,6 +111,7 @@
   "auth_already_on": "Already on Adillions?",
   "auth_not_member": "Not a member?",
 
+  "account_update" : "Update Account",
   "account_updated" : "Account updated successfully",
 
   "_comment": "##### LANDING/index #####",

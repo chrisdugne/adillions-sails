@@ -81,7 +81,7 @@
               <div class="col-sm-8">
                 <div class="form-group form-group-lg has-feedback" data-toggle="tooltip" data-placement="top">
                   <label class="control-label" for="username">{{i18n 'ui_birthdate'}}</label>
-                  <input type="text" class="form-control username" name="user[birthDate]" placeholder="mm/dd/yyyy" value="{{user.birthDate}}">
+                  <input type="text" class="form-control username" name="user[birthDate]" placeholder="yyyy/mm/dd" value="{{user.birthDate}}">
                   <span class="help-block"></span>
                 </div>
               </div>
@@ -91,14 +91,14 @@
               <div class="col-sm-8">
                 <div class="form-group form-group-lg has-feedback">
                   <label class="control-label" for="email">{{i18n 'ui_email'}}</label>
-                  <input type="email" class="form-control email" name="user[email]" placeholder="{{i18n 'ui_email'}}" value="{{user.email}}">
+                  <input type="email" class="form-control email" name="user[email]" placeholder="{{i18n 'ui_email'}}" value="{{user.email}}" {{#if user.email}}readonly{{/if}}>
                   <span class="help-block"></span>
                 </div>
               </div>
             </div>
 
             <div class="mtl">
-              <button type="submit" class="btn btn-lead" data-loading-text="{{i18n 'ui_loading'}}">{{i18n 'settings_update'}}</button>
+              <button type="submit" class="btn btn-lead" data-loading-text="{{i18n 'ui_loading'}}">{{i18n 'account_update'}}</button>
             </div>
         </form>
 

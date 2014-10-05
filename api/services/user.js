@@ -31,6 +31,32 @@ var UserService = module.exports = function () {
 
     //--------------------------------------------------------------------------
 
+    readPassports: function (uid, next) {
+
+      if (!_.isFunction(next)) {
+        throw new Error('UserService #readPassports : the callback function is mandatory');
+      }
+
+      if (!_.isString(uid)) {
+        throw new Error('UserService #readPassports : the uid param is mandatory and should be a string');
+      }
+
+      User
+        .findOne({
+          uid: uid
+        })
+        .populate('passports')
+        .then(function done(user) {
+          next(null, user.passports);
+        })
+        .fail(function (err) {
+          sails.log.error('UserService #readPassports : query fails', err);
+          next(err);
+        });
+    },
+
+    //--------------------------------------------------------------------------
+
     fetch: function (uid, country, mobileVersion, next) {
 
       if (!_.isFunction(next)) {

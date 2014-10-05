@@ -59,6 +59,7 @@
   "ui_day": "jour",
   "ui_days": "jours",
   "ui_languages": "Langues",
+  "ui_linked_provider": "Compte %s lié",
 
   "coming_soon": "À venir",
   "contact_us": "Contactez-nous",
@@ -110,6 +111,7 @@
   "auth_already_on": "Déja sur Adillions?",
   "auth_not_member": "Pas encore membre?",
 
+  "account_update" : "Enregister",
   "account_updated" : "Votre compte a été mis à jour",
 
   "_comment": "##### LANDING/index #####",
