@@ -64,6 +64,7 @@ var loginView = Backbone.View.extend({
         };
       }
       if (form_group.hasClass('has-feedback')) {
+        form_group.find('.form-control-feedback').remove();
         form_group.append(this.templateFeedback(feedback));
       }
     }, this));

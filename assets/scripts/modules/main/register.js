@@ -52,7 +52,8 @@ var registerView = Backbone.View.extend({
             .addClass('has-success')
             .find('.help-block').text(help_text);
           feedback = {
-            success: true
+            success: true,
+            error: false
           };
         }
       } else {
@@ -61,10 +62,12 @@ var registerView = Backbone.View.extend({
           .addClass('has-error')
           .find('.help-block').text(errors[key]);
         feedback = {
-          error: true
+          error: true,
+          success: false
         };
       }
       if (form_group.hasClass('has-feedback')) {
+        form_group.find('.form-control-feedback').remove();
         form_group.append(this.templateFeedback(feedback));
       }
     }, this));
