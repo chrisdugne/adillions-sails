@@ -126,6 +126,11 @@ var Passport = {
      */
     validatePassword: function (password) {
       // Promisify: Adapting Node
+
+      console.log('validatePassword');
+      console.log(password);
+      console.log(this.password);
+      console.log('--------');
       return Q.nfapply(bcrypt.compare, [password, this.password]);
       // bcrypt.compare(password, this.password, next);
     }

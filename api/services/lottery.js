@@ -322,21 +322,4 @@ Lottery.prototype.getLotteries = function (total, offset, next) {
     });
 };
 
-Lottery.prototype.getNextLottery = function (next) {
-  sails.models.lottery
-    .findOne()
-    .where({
-      timestamp: {
-        '>': new Date().getTime()
-      }
-    })
-    .then(function (lotteries) {
-      next(null, lotteries);
-    })
-    .fail(function (err) {
-      sails.log.error('Lottery#getNextLottery Service: query fails', err);
-      next(err);
-    });
-};
-
 module.exports = Lottery;

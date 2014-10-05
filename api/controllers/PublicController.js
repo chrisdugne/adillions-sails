@@ -2,36 +2,29 @@ var PublicController = module.exports = {
 
   //----------------------------------------------------------------------------
 
-  readNextLottery: function (req, res) {
-    var LotteryService = new sails.services.lottery();
-    LotteryService.getNextLottery(function (err, result) {
-      if (err) {
+  readGlobals: function (req, res) {
+    new sails.services.public().readGlobals()
+      .then(function (globals) {
+        res.json({
+          serverTime: new Date().getTime(),
+          globals: globals
+        });
+      })
+      .fail(function (err){
         return res.serverError(err);
-      }
-      res.json(result);
-    });
+      });
   },
 
   //----------------------------------------------------------------------------
 
   readLotteryStatus: function (req, res) {
-    var LotteryService = new sails.services.lottery();
-  },
-
-  //----------------------------------------------------------------------------
-
-  readGlobals: function (req, res) {
-    var PublicService = new sails.services.public();
-
-    PublicService.readGlobals(function (err, result) {
-      if (err) {
+    new sails.services.public().readLotteryStatus()
+      .then(function (result) {
+        res.json(result);
+      })
+      .fail(function (err){
         return res.serverError(err);
-      }
-      res.json({
-        serverTime: new Date().getTime(),
-        global: result
       });
-    });
   },
 
   //----------------------------------------------------------------------------

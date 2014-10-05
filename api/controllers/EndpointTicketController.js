@@ -17,4 +17,19 @@ var EndpointTicket = module.exports = {
 
   //----------------------------------------------------------------------------
 
+  create: function (req, res) {
+    var TicketService = new sails.services.ticket(),
+      user = req.user.uid,
+      numbers = req.body.numbers;
+
+    TicketService.create(user, numbers, function (err, result) {
+      if (err) {
+        return res.serverError(err);
+      }
+      res.json(result);
+    });
+  }
+
+  //----------------------------------------------------------------------------
+
 };

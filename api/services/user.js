@@ -129,9 +129,9 @@ var UserService = module.exports = function () {
             .where({
               player_uid: user.uid
             })
-            .sort('creationDate DESC')
+            .sort('timestamp DESC')
             .then(function (ticket) {
-              user.lastTicketTime = ticket.creationDate;
+              user.lastTicketTime = ticket.timestamp;
               return user;
             });
         })

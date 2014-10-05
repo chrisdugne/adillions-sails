@@ -79,8 +79,8 @@ module.exports.routes = {
 
   '/api/globals': 'PublicController.readGlobals',
 
-  '/api/lottery/next': 'PublicController.readNextLottery',
-  '/api/lottery/status': 'PublicController.readLotteryStatus', // TODO : old /nextLottery
+  '/api/lottery/status': 'PublicController.readLotteryStatus',
+  '/api/checkAppStatus/status': 'PublicController.readAppStatus', // TODO : old /checkAppStatus
 
   '/api/mobile/settings/:id': 'PublicController.readMobileSettings',
   '/api/charity/levels': 'PublicController.readCharityLevels',
@@ -95,6 +95,7 @@ module.exports.routes = {
   'put /api/user/update': 'EndpointUserController.update',
 
   'get /api/ticket/:skip?': 'EndpointTicketController.read',
+  'post /api/ticket/': 'EndpointTicketController.create',
 
   /***************************************************************************
    *                                                                          *

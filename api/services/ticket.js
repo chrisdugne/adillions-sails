@@ -58,5 +58,62 @@ var TicketService = module.exports = function () {
     },
 
     //--------------------------------------------------------------------------
+
+    create: function (user, numbers, next) {
+
+      if (!_.isFunction(next)) {
+        throw new Error('TicketService #create : the callback function is mandatory');
+      }
+
+      if (!_.isString(user)) {
+        throw new Error('TicketService #create : the user param is mandatory and should be a string');
+      }
+
+      if (!_.isArray(numbers)) {
+        throw new Error('TicketService #create : the skip param is mandatory and should be a number');
+      }
+
+      console.log('create --> ', numbers);
+      var Ticket = sails.models.ticket;
+
+      sails.services.public().readGlobals(function (err, globals) {
+        if (globals.appStatus.state !== 1) {
+          next(null, 'too late');
+        }
+      });
+
+      // Ticket
+      //   .create({
+      //     player_uid: user
+      //   })
+      //   .then(function fetchTickets(tickets) {
+      //     tickets = _.sortBy(tickets, 'timestamp').reverse();
+      //     var uids = _.union(_.map(tickets, 'lottery'));
+      //     var lastLottery = uids.pop();
+      //     tickets = _.reject(tickets, {
+      //       'lottery': lastLottery
+      //     });
+
+      //     return Lottery
+      //       .find()
+      //       .where({
+      //         'uid': uids
+      //       })
+      //       .then(function fetchLinkedLotteries(lotteries) {
+      //         lotteries = _.sortBy(lotteries, 'timestamp').reverse();
+      //         next(null, {
+      //           tickets: tickets,
+      //           lotteries: lotteries
+      //         });
+      //       });
+      //   })
+      //   .fail(function (err) {
+      //     sails.log.error('TicketService #create : query fails', err);
+      //     next(err);
+      //   });
+
+    },
+
+    //--------------------------------------------------------------------------
   };
 };

@@ -153,6 +153,7 @@ exports.login = function (req, identifier, password, next) {
     .spread(function checkPassportExistsForLegacyUser(user, passport) {
       // legacy user (secret hash property) with no passport yet
       if (!passport && user.secret) {
+
         var hash = getHash(password),
           secret = getHash(user.creation_date + hash);
 
@@ -181,16 +182,21 @@ exports.login = function (req, identifier, password, next) {
     })
     .spread(function validatePassword(user, passport) {
       var valid = passport.validatePassword(password);
+      console.log('valid --> ', valid);
       return [user, valid];
     }).spread(function (user, valid) {
       if (!valid) {
+        console.log('!valid --> ', valid);
         req.flash('error', 'Error.Passport.Password.Wrong');
         throw Error('abort');
       }
+
+      console.log('valid --> ', valid);
       return user;
     })
     .then(function generateToken(user) {
       user.auth_token = user.generateToken();
+      console.log('save token --> ', user.auth_token);
       user = user.save().then(function (user) {
         sails.log.info('Passport.local.login#service: generate token for user', user.uid);
         return user;

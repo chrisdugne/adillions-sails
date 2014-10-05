@@ -62,7 +62,13 @@ module.exports = {
       columnName: 'max_numbers'
     },
 
-    nb_players: {
+    nbPlayers: {
+      columnName: 'nb_players',
+      type: 'integer'
+    },
+
+    thresholdPlayers: {
+      columnName: 'tool_players',
       type: 'integer'
     },
 

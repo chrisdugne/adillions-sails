@@ -5,26 +5,60 @@ var PublicService = module.exports = function () {
 
     //--------------------------------------------------------------------------
 
-    readGlobals: function (next) {
-
-      if (!_.isFunction(next)) {
-        throw new Error('readGlobals Service: the callback function is mandatory');
-      }
-
-      sails.models.global
-        .find()
+    readGlobals: function() {
+      return sails.models.globals
+        .findOne()
         .where({
           id: 'current'
         })
-        .then(function (result) {
-          if (!result || !result.length) {
-            throw new Error('empty globals');
-          }
-          next(null, result[0]);
+        .then(function (globals) {
+          return globals;
         })
         .fail(function (err) {
           sails.log.error('PublicService#readGlobals : query fails', err);
-          next(err);
+        });
+    },
+
+    //--------------------------------------------------------------------------
+
+    readLotteryStatus: function () {
+      return this.readGlobals()
+        .then(function initResult (globals) {
+          return {
+            globals: globals
+          };
+        })
+        .then(function getNextDrawing(result) {
+          return sails.models.lottery
+            .findOne()
+            .where({
+              timestamp: {
+                '>': new Date().getTime()
+              }
+            })
+            .then(function (nextDrawing) {
+              result.nextDrawing = nextDrawing;
+              return result;
+            });
+        })
+        .then(function getNextPlayableDrawing(result) {
+          return sails.models.lottery
+            .findOne()
+            .where({
+              timestamp: {
+                '>': new Date().getTime() + 2 * 60 * 60 * 1000
+              }
+            })
+            .then(function (nextLottery) {
+              result.nextLottery = nextLottery;
+              return result;
+            });
+        })
+        .then(function done(result) {
+          return result;
+        })
+        .fail(function (err) {
+          sails.log.error('PublicService#readLotteryStatus : query fails', err);
         });
     },
 
@@ -33,11 +67,11 @@ var PublicService = module.exports = function () {
     readMobileSettings: function (id, next) {
 
       if (!_.isFunction(next)) {
-        throw new Error('readMobileSettings Service: the callback function is mandatory');
+        throw new Error('PublicService#readMobileSettings Service: the callback function is mandatory');
       }
 
       if (!_.isString(id)) {
-        return next(new Error('readMobileSettings Service: id is mandatory'));
+        return next(new Error('PublicService#readMobileSettings Service: id is mandatory'));
       }
 
       sails.models.mobilesettings
@@ -62,7 +96,7 @@ var PublicService = module.exports = function () {
     readCharityLevels: function (next) {
 
       if (!_.isFunction(next)) {
-        throw new Error('readCharityLevels Service: the callback function is mandatory');
+        throw new Error('PublicService#readCharityLevels Service: the callback function is mandatory');
       }
 
       sails.models.charitylevels
@@ -85,7 +119,7 @@ var PublicService = module.exports = function () {
     readAmbassadorLevels: function (next) {
 
       if (!_.isFunction(next)) {
-        throw new Error('readAmbassadorLevels Service: the callback function is mandatory');
+        throw new Error('PublicService#readAmbassadorLevels Service: the callback function is mandatory');
       }
 
       sails.models.ambassadorlevels
