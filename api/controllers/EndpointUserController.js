@@ -34,7 +34,7 @@ var EndpointUser = module.exports = {
   update: function (req, res) {
     var UserService = new sails.services.user(),
       uid = req.user ? req.user.uid : req.param('uid'),
-      user = req.param('user');
+      user = req.body.user;
 
     UserService.update(uid, user, function (err, result) {
       if (err) {

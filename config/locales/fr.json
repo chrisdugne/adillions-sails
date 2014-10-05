@@ -110,6 +110,8 @@
   "auth_already_on": "Déja sur Adillions?",
   "auth_not_member": "Pas encore membre?",
 
+  "account_updated" : "Votre compte a été mis à jour",
+
   "_comment": "##### LANDING/index #####",
 
   "landing_title": "Loterie gratuite avec des gains d'argent réel",

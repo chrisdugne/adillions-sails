@@ -39,7 +39,7 @@ module.exports = {
       providers_row: 12 / (Object.keys(strategies).length),
       providers: providers,
       isAccount: true,
-      alert: req.flash('error')[0],
+      alert: req.flash('alert')[0],
       usePopTitle: true,
       bodyClass: 'account',
       layout: 'layout_about'
@@ -47,14 +47,25 @@ module.exports = {
   },
 
   updateAccount: function (req, res) {
-    var params = req.body,
+    var user = req.body.user,
+      UserService = new sails.services.user(),
+      uid = req.user ? req.user.uid : null,
       accountRoute = sails.config.route('user.account', {
         hash: {
           'lang': res.getLocale()
         }
       });
 
-    res.redirect(accountRoute);
+    UserService.update(uid, user, function (err, result) {
+      if (err) {
+        return res.serverError(err);
+      }
+      req.flash('alert', {
+        type: 'success',
+        message: res.i18n('account_updated')
+      })
+      res.redirect(accountRoute);
+    });
   }
 
 };

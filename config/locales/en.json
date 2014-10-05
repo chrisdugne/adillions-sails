@@ -110,6 +110,8 @@
   "auth_already_on": "Already on Adillions?",
   "auth_not_member": "Not a member?",
 
+  "account_updated" : "Account updated successfully",
+
   "_comment": "##### LANDING/index #####",
 
   "landing_title": "Free sweepstake with real cash prizes",

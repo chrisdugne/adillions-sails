@@ -183,7 +183,7 @@ module.exports = {
       columnName: 'last_name'
     },
 
-    birthdate: {
+    birthDate: {
       type: 'string', //1984-08-22 (should be DATE)
       columnName: 'birth_date'
     },
