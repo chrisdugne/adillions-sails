@@ -62,6 +62,11 @@ module.exports = {
       columnName: 'max_numbers'
     },
 
+    picks: {
+      type: 'integer',
+      columnName: 'max_picks'
+    },
+
     nbPlayers: {
       columnName: 'nb_players',
       type: 'integer'
@@ -107,6 +112,11 @@ module.exports = {
     rateToUSD: {
       type: 'float',
       columnName: 'rate_usdto_eur'
+    },
+
+    ticketTimer: {
+      type: 'integer',
+      columnName: 'ticket_timer'
     },
 
     nbWinners: function () {

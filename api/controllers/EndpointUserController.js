@@ -25,6 +25,9 @@ var EndpointUser = module.exports = {
       if (err) {
         return res.serverError(err);
       }
+
+      console.log('--> passports : ', result.passports);
+      console.log('--> titi : ', result.titi);
       res.json(result);
     });
   },

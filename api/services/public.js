@@ -5,7 +5,7 @@ var PublicService = module.exports = function () {
 
     //--------------------------------------------------------------------------
 
-    readGlobals: function() {
+    readGlobals: function () {
       return sails.models.globals
         .findOne()
         .where({
@@ -21,7 +21,7 @@ var PublicService = module.exports = function () {
 
     //--------------------------------------------------------------------------
 
-    readArchivedLotteries: function(limit) {
+    readArchivedLotteries: function (limit) {
       return sails.models.lottery
         .find()
         .where({
@@ -33,7 +33,6 @@ var PublicService = module.exports = function () {
         .sort('timestamp DESC')
         .then(function (lotteries) {
           _.forEach(lotteries, function (lottery) {
-            console.log(lottery);
             lottery.nbWinners = lottery.nbWinners();
           });
           return lotteries;
@@ -47,7 +46,7 @@ var PublicService = module.exports = function () {
 
     readStatus: function () {
       return this.readGlobals()
-        .then(function initResult (globals) {
+        .then(function initResult(globals) {
           return {
             globals: globals
           };

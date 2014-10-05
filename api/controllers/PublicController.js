@@ -10,7 +10,7 @@ var PublicController = module.exports = {
           globals: globals
         });
       })
-      .fail(function (err){
+      .fail(function (err) {
         return res.serverError(err);
       });
   },
@@ -22,7 +22,7 @@ var PublicController = module.exports = {
       .then(function (result) {
         res.json(result);
       })
-      .fail(function (err){
+      .fail(function (err) {
         return res.serverError(err);
       });
   },
@@ -34,7 +34,7 @@ var PublicController = module.exports = {
       .then(function (lotteries) {
         res.json(lotteries);
       })
-      .fail(function (err){
+      .fail(function (err) {
         return res.serverError(err);
       });
   },

@@ -59,11 +59,7 @@ var TicketService = module.exports = function () {
 
     //--------------------------------------------------------------------------
 
-    create: function (user, numbers, next) {
-
-      if (!_.isFunction(next)) {
-        throw new Error('TicketService #create : the callback function is mandatory');
-      }
+    create: function (user, numbers) {
 
       if (!_.isString(user)) {
         throw new Error('TicketService #create : the user param is mandatory and should be a string');
@@ -76,11 +72,32 @@ var TicketService = module.exports = function () {
       console.log('create --> ', numbers);
       var Ticket = sails.models.ticket;
 
-      sails.services.public().readGlobals(function (err, globals) {
-        if (globals.appStatus.state !== 1) {
-          next(null, 'too late');
-        }
-      });
+      return sails.services.public().readStatus()
+        .then(function checkDrawingAvailability (result) {
+          if (result.globals.appStatus.state !== 1) {
+            throw 'too late';
+          }
+          return result.nextDrawing;
+        })
+        .then(function incrementNbPlayers(nextDrawing) {
+          return Ticket
+            .findOne()
+            .where({
+              player_uid: user
+            })
+            .sort('timestamp DESC')
+            .then(function (ticket) {
+              if(ticket.lottery !== nextDrawing.uid){
+                nextDrawing.nbPlayers += 1;
+                nextDrawing.save();
+              }
+              return;
+            });
+        })
+        .then(function checkReferring() {
+          console.log('--> checkReferring');
+          console.log(user);
+        })
 
       // Ticket
       //   .create({
