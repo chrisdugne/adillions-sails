@@ -20,9 +20,9 @@ module.exports = {
   },
 
   account: function (req, res) {
-    var strategies = _.pick(sails.config.passport, 'facebook', 'twitter', 'google')
-    UserService = new sails.services.user(),
-    providers = {};
+    var strategies = _.pick(sails.config.passport, 'facebook', 'twitter', 'google'),
+      UserService = new sails.services.user(),
+      providers = {};
 
     UserService.readPassports(req.user.uid, function (err, passports) {
       if (err) {
