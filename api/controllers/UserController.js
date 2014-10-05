@@ -63,7 +63,7 @@ module.exports = {
       req.flash('alert', {
         type: 'success',
         message: res.i18n('account_updated')
-      })
+      });
       res.redirect(accountRoute);
     });
   }
