@@ -12,7 +12,7 @@ var registerModel = Backbone.Model.extend({
 
   validation: {
     username: {
-      required: true,
+      required: false,
       msg: $.t('auth.empty_username')
     },
     email: [{

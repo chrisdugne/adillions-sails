@@ -33,8 +33,9 @@ exports.register = function (req, res, next) {
   }
 
   if (!username) {
-    req.flash('error', 'Error.Passport.Username.Missing');
-    return next(new Error('No username was entered.'));
+    // req.flash('error', 'Error.Passport.Username.Missing');
+    // return next(new Error('No username was entered.'));
+    username = '';
   }
 
   if (!password) {
