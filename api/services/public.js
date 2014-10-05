@@ -21,7 +21,31 @@ var PublicService = module.exports = function () {
 
     //--------------------------------------------------------------------------
 
-    readLotteryStatus: function () {
+    readArchivedLotteries: function(limit) {
+      return sails.models.lottery
+        .find()
+        .where({
+          result: {
+            '!': null
+          }
+        })
+        .limit(limit || 1000)
+        .sort('timestamp DESC')
+        .then(function (lotteries) {
+          _.forEach(lotteries, function (lottery) {
+            console.log(lottery);
+            lottery.nbWinners = lottery.nbWinners();
+          });
+          return lotteries;
+        })
+        .fail(function (err) {
+          sails.log.error('PublicService#readArchivedLotteries : query fails', err);
+        });
+    },
+
+    //--------------------------------------------------------------------------
+
+    readStatus: function () {
       return this.readGlobals()
         .then(function initResult (globals) {
           return {
@@ -58,7 +82,7 @@ var PublicService = module.exports = function () {
           return result;
         })
         .fail(function (err) {
-          sails.log.error('PublicService#readLotteryStatus : query fails', err);
+          sails.log.error('PublicService#readStatus : query fails', err);
         });
     },
 

@@ -13,7 +13,7 @@ var normalizeAttributes = function (lottery) {
   // rangs bugs beacause of useless comma at the end of array
   //lottery.rangs = _.isObject(lottery.rangs) ? lottery.rangs : JSON.parse(lottery.rangs);
   lottery.timestamp = _.isNumber(lottery.timestamp) ? lottery.timestamp : Number(lottery.timestamp);
-  lottery.nb_winners = lottery.nb_winners();
+  lottery.nbWinners = lottery.nbWinners();
   return lottery;
 };
 
@@ -309,6 +309,8 @@ Lottery.prototype.getLotteries = function (total, offset, next) {
     .sort('timestamp DESC')
     .then(function (lotteries) {
       _.forEach(lotteries, function (lottery) {
+
+            console.log(lottery);
         return normalizeAttributes(lottery);
       });
       return lotteries;

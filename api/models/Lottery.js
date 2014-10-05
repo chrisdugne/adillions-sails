@@ -109,7 +109,7 @@ module.exports = {
       columnName: 'rate_usdto_eur'
     },
 
-    nb_winners: function () {
+    nbWinners: function () {
       var prizes = this.prizes,
         winners = 0;
       _.forEach(prizes, function (prize) {

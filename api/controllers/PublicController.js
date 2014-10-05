@@ -17,10 +17,22 @@ var PublicController = module.exports = {
 
   //----------------------------------------------------------------------------
 
-  readLotteryStatus: function (req, res) {
-    new sails.services.public().readLotteryStatus()
+  readStatus: function (req, res) {
+    new sails.services.public().readStatus()
       .then(function (result) {
         res.json(result);
+      })
+      .fail(function (err){
+        return res.serverError(err);
+      });
+  },
+
+  //----------------------------------------------------------------------------
+
+  readArchivedLotteries: function (req, res) {
+    new sails.services.public().readArchivedLotteries(req.param('limit'))
+      .then(function (lotteries) {
+        res.json(lotteries);
       })
       .fail(function (err){
         return res.serverError(err);

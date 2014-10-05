@@ -79,8 +79,8 @@ module.exports.routes = {
 
   '/api/globals': 'PublicController.readGlobals',
 
-  '/api/lottery/status': 'PublicController.readLotteryStatus',
-  '/api/checkAppStatus/status': 'PublicController.readAppStatus', // TODO : old /checkAppStatus
+  '/api/status': 'PublicController.readStatus',
+  '/api/lottery/archive/:limit?': 'PublicController.readArchivedLotteries',
 
   '/api/mobile/settings/:id': 'PublicController.readMobileSettings',
   '/api/charity/levels': 'PublicController.readCharityLevels',
