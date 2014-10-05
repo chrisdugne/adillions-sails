@@ -56,8 +56,7 @@ module.exports.policies = {
   },
 
   'userController': {
-    profile: WebPolicies,
-    account: WebPolicies
+    '*': WebPolicies
   },
 
   'authController': {

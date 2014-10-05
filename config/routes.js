@@ -54,8 +54,8 @@ module.exports.routes = {
   '/:lang/game': 'GameController.index',
   '/:lang/results': 'GameController.results',
 
-  '/:lang/profile/:id?': 'UserController.profile',
-  '/:lang/account/:id?': 'UserController.account',
+  'get /:lang/settings/profile': 'UserController.profile',
+  'get /:lang/settings/account': 'UserController.account',
 
   '/:lang/about': 'AboutController.index',
   '/:lang/about/winwinwin': 'AboutController.winwinwin',
@@ -70,6 +70,8 @@ module.exports.routes = {
   '/:lang/about/privacy': 'AboutController.privacy',
   '/:lang/about/terms': 'AboutController.terms',
   '/:lang/about/advertisers': 'AboutController.advertisers',
+
+  'put /:lang/user/': 'UserController.updateAccount',
 
   //----------------------------------------------------------------------------
   // API : public endpoints
