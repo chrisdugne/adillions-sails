@@ -244,20 +244,20 @@ var UserService = module.exports = function () {
             });
 
         })
-        .then(function saveChanges (user) {
+        .then(function saveChanges(user) {
           user.save();
           return user;
         })
-        .then(function addPassports (user) {
+        .then(function addPassports(user) {
           return Passport
             .find({
-              user:user.uid
+              user: user.uid
             })
-            .then(function(passports){
+            .then(function (passports) {
               user = _.extend({}, user);
               user.passports = passports;
               return user;
-            })
+            });
         })
         .then(function done(user) {
           next(null, user);

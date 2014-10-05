@@ -73,7 +73,7 @@ var TicketService = module.exports = function () {
       var Ticket = sails.models.ticket;
 
       return sails.services.public().readStatus()
-        .then(function checkDrawingAvailability (result) {
+        .then(function checkDrawingAvailability(result) {
           if (result.globals.appStatus.state !== 1) {
             throw 'too late';
           }
@@ -87,7 +87,7 @@ var TicketService = module.exports = function () {
             })
             .sort('timestamp DESC')
             .then(function (ticket) {
-              if(ticket.lottery !== nextDrawing.uid){
+              if (ticket.lottery !== nextDrawing.uid) {
                 nextDrawing.nbPlayers += 1;
                 nextDrawing.save();
               }
@@ -97,38 +97,7 @@ var TicketService = module.exports = function () {
         .then(function checkReferring() {
           console.log('--> checkReferring');
           console.log(user);
-        })
-
-      // Ticket
-      //   .create({
-      //     player_uid: user
-      //   })
-      //   .then(function fetchTickets(tickets) {
-      //     tickets = _.sortBy(tickets, 'timestamp').reverse();
-      //     var uids = _.union(_.map(tickets, 'lottery'));
-      //     var lastLottery = uids.pop();
-      //     tickets = _.reject(tickets, {
-      //       'lottery': lastLottery
-      //     });
-
-      //     return Lottery
-      //       .find()
-      //       .where({
-      //         'uid': uids
-      //       })
-      //       .then(function fetchLinkedLotteries(lotteries) {
-      //         lotteries = _.sortBy(lotteries, 'timestamp').reverse();
-      //         next(null, {
-      //           tickets: tickets,
-      //           lotteries: lotteries
-      //         });
-      //       });
-      //   })
-      //   .fail(function (err) {
-      //     sails.log.error('TicketService #create : query fails', err);
-      //     next(err);
-      //   });
-
+        });
     },
 
     //--------------------------------------------------------------------------

@@ -10,11 +10,9 @@ var bcrypt = require('bcrypt'),
  */
 
 function hashPassword(passport, next) {
-  console.log('------> hashPassword ', passport);
   if (passport.password) {
     bcrypt.hash(passport.password, 10, function (err, hash) {
       passport.password = hash;
-      console.log('------> new hash  ', hash);
       next(err, passport);
     });
   } else {
@@ -128,11 +126,6 @@ var Passport = {
      */
     validatePassword: function (password) {
       // Promisify: Adapting Node
-
-      console.log('validatePassword');
-      console.log(password);
-      console.log(this.password);
-      console.log('--------');
       return Q.nfapply(bcrypt.compare, [password, this.password]);
       // bcrypt.compare(password, this.password, next);
     }

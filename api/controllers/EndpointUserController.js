@@ -2,6 +2,7 @@ var EndpointUser = module.exports = {
 
   //----------------------------------------------------------------------------
 
+  // TODO : promisify
   read: function (req, res) {
     var UserService = new sails.services.user(),
       uid = req.user ? req.user.uid : req.param('uid');
@@ -15,6 +16,7 @@ var EndpointUser = module.exports = {
 
   //----------------------------------------------------------------------------
 
+  // TODO : promisify
   fetch: function (req, res) {
     var UserService = new sails.services.user(),
       uid = req.user ? req.user.uid : req.param('uid'),
@@ -25,15 +27,13 @@ var EndpointUser = module.exports = {
       if (err) {
         return res.serverError(err);
       }
-
-      console.log('--> passports : ', result.passports);
-      console.log('--> titi : ', result.titi);
       res.json(result);
     });
   },
 
   //----------------------------------------------------------------------------
 
+  // TODO : promisify
   update: function (req, res) {
     var UserService = new sails.services.user(),
       uid = req.user ? req.user.uid : req.param('uid'),

@@ -2,6 +2,7 @@ var EndpointTicket = module.exports = {
 
   //----------------------------------------------------------------------------
 
+  // TODO : promisify
   read: function (req, res) {
     var TicketService = new sails.services.ticket(),
       user = req.user.uid,
@@ -21,12 +22,11 @@ var EndpointTicket = module.exports = {
     var user = req.user.uid,
       numbers = req.body.numbers;
 
-     new sails.services.ticket().create(user, numbers)
+    new sails.services.ticket().create(user, numbers)
       .then(function (ticket) {
         res.json(ticket);
       })
       .fail(function (err) {
-        console.log(err);
         res.json(err);
       });
   }

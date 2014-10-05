@@ -41,6 +41,7 @@ var PublicController = module.exports = {
 
   //----------------------------------------------------------------------------
 
+  // TODO : promisify
   readCharityLevels: function (req, res) {
     var PublicService = new sails.services.public();
 
@@ -54,6 +55,7 @@ var PublicController = module.exports = {
 
   //----------------------------------------------------------------------------
 
+  // TODO : promisify
   readAmbassadorLevels: function (req, res) {
     var PublicService = new sails.services.public();
 
@@ -67,6 +69,7 @@ var PublicController = module.exports = {
 
   //----------------------------------------------------------------------------
 
+  // TODO : promisify
   readMobileSettings: function (req, res) {
     var PublicService = new sails.services.public(),
       id = req.param('id');
