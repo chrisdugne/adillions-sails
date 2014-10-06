@@ -51,17 +51,16 @@ var TicketService = module.exports = function () {
         })
         .fail(function (err) {
           sails.log.error('TicketService #read : query fails', err);
-          next(err);
         });
 
     },
 
     //--------------------------------------------------------------------------
 
-    create: function (user, numbers) {
+    create: function (userUID, numbers) {
 
-      if (!_.isString(user)) {
-        throw new Error('TicketService #create : the user param is mandatory and should be a string');
+      if (!_.isString(userUID)) {
+        throw new Error('TicketService #create : the userUID param is mandatory and should be a string');
       }
 
       if (!_.isArray(numbers)) {
@@ -82,7 +81,7 @@ var TicketService = module.exports = function () {
           return Ticket
             .findOne()
             .where({
-              player_uid: user
+              player_uid: userUID
             })
             .sort('timestamp DESC')
             .then(function (ticket) {
@@ -95,7 +94,7 @@ var TicketService = module.exports = function () {
         })
         .then(function checkReferring() {
           console.log('--> checkReferring');
-          console.log(user);
+          console.log(userUID);
         });
     },
 
