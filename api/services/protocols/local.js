@@ -182,16 +182,13 @@ exports.login = function (req, identifier, password, next) {
     })
     .spread(function validatePassword(user, passport) {
       var valid = passport.validatePassword(password);
-      console.log('valid --> ', valid);
       return [user, valid];
     }).spread(function (user, valid) {
       if (!valid) {
-        console.log('!valid --> ', valid);
         req.flash('error', 'Error.Passport.Password.Wrong');
         throw Error('abort');
       }
 
-      console.log('valid --> ', valid);
       return user;
     })
     .then(function generateToken(user) {

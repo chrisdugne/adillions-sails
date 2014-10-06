@@ -86,7 +86,7 @@ module.exports = {
       type: 'json'
     },
 
-    final_price: {
+    finalPrice: {
       type: 'float',
       columnName: 'final_price'
     },

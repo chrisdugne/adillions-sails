@@ -5,11 +5,7 @@ var TicketService = module.exports = function () {
 
     //--------------------------------------------------------------------------
 
-    read: function (user, skip, next) {
-
-      if (!_.isFunction(next)) {
-        throw new Error('TicketService #read : the callback function is mandatory');
-      }
+    read: function (user, skip) {
 
       if (!_.isString(user)) {
         throw new Error('TicketService #read : the user param is mandatory and should be a string');
@@ -22,7 +18,7 @@ var TicketService = module.exports = function () {
       var Lottery = sails.models.lottery;
       var Ticket = sails.models.ticket;
 
-      Ticket
+      return Ticket
         .find({
           player_uid: user
         })
@@ -37,17 +33,20 @@ var TicketService = module.exports = function () {
             'lottery': lastLottery
           });
 
+          return [tickets, uids];
+        })
+        .spread(function fetchLinkedLotteries(tickets, uids) {
           return Lottery
             .find()
             .where({
               'uid': uids
             })
-            .then(function fetchLinkedLotteries(lotteries) {
+            .then(function (lotteries) {
               lotteries = _.sortBy(lotteries, 'timestamp').reverse();
-              next(null, {
+              return {
                 tickets: tickets,
                 lotteries: lotteries
-              });
+              };
             });
         })
         .fail(function (err) {
