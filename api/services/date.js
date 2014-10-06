@@ -28,7 +28,7 @@ exports.getDays = function () {
  *
  *  @summary Synchrone method service to get a list of months
  *
-*  @param months {array} : months from moment
+ *  @param months {array} : months from moment
  *
  *  @return {object}
  */
