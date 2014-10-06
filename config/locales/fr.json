@@ -25,6 +25,7 @@
   "ui_next": "Suivant",
   "ui_back": "Retour",
   "ui_save": "Enregistrer",
+  "ui_next": "Suivant",
   "ui_cancel": "Annuler",
   "ui_submit": "Répondre",
   "ui_create": "Créer",
@@ -56,6 +57,7 @@
   "ui_signin": "Se connecter",
   "ui_register": "S'inscrire",
   "ui_error" : "Une erreur est survenue",
+  "ui_connect": "Connecter",
   "ui_day": "jour",
   "ui_days": "jours",
   "ui_languages": "Langues",
@@ -111,8 +113,11 @@
   "auth_already_on": "Déja sur Adillions?",
   "auth_not_member": "Pas encore membre?",
 
-  "account_update" : "Enregister",
+  "account_update" : "Enregistrer",
   "account_updated" : "Votre compte a été mis à jour",
+  "account_connect_desc" : "Connectez-vous grâce à vos réseaux sociaux.",
+
+  "Error.Account.birtDate.invalid" : "La date de naissance n'est pas valide",
 
   "_comment": "##### LANDING/index #####",
 

@@ -56,6 +56,7 @@
   "ui_signin": "Sign in",
   "ui_register": "Register",
   "ui_error": "An error occurred",
+  "ui_connect": "Connect",
   "ui_day": "day",
   "ui_days": "days",
   "ui_languages": "Languages",
@@ -113,6 +114,9 @@
 
   "account_update" : "Update Account",
   "account_updated" : "Account updated successfully",
+  "account_connect_desc" : "Connect your social media account.",
+
+  "Error.Account.birtDate.invalid" : "The supplied birth date is not valid",
 
   "_comment": "##### LANDING/index #####",
 
