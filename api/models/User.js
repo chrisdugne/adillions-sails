@@ -86,66 +86,56 @@ module.exports = {
       type: 'boolean',
       defaultsTo: false
     },
+
     tweetTheme: {
       columnName: 'has_tweet_theme',
       type: 'boolean',
       defaultsTo: false
     },
+
     postOnFacebook: {
       columnName: 'has_post_on_facebook',
       type: 'boolean',
       defaultsTo: false
     },
+
     postThemeOnFacebook: {
       columnName: 'has_post_theme_on_facebook',
       type: 'boolean',
       defaultsTo: false
     },
+
     tweetAnInvite: {
       columnName: 'has_tweet_an_invite',
       type: 'boolean',
       defaultsTo: false
     },
+
     invitedOnFacebook: {
       columnName: 'has_invited_on_facebook',
       type: 'boolean',
       defaultsTo: false
     },
 
-    is_twitter_fan: {
-      type: 'boolean',
-      defaultsTo: false
-    },
-    is_facebook_fan: {
-      type: 'boolean',
-      defaultsTo: false
-    },
-
-    available_tickets: {
-      type: 'integer',
-      defaultsTo: 3
-    },
     playedBonusTickets: {
       columnName: 'played_bonus_tickets',
       type: 'integer',
       defaultsTo: 0
     },
-    total_paid_tickets: {
-      type: 'integer',
-      defaultsTo: 0
-    },
+
     extraTickets: {
       columnName: 'extra_tickets',
       type: 'integer',
       defaultsTo: 0
     },
+
     temporaryBonusTickets: {
       columnName: 'temporary_bonus_tickets',
       type: 'integer',
       defaultsTo: 0
     },
 
-    currentLotteryUID: {
+    currentLottery: {
       columnName: 'current_lottery_uid',
       type: 'string',
       defaultsTo: '-'
@@ -207,7 +197,7 @@ module.exports = {
     availableTickets: {
       type: 'integer',
       columnName: 'available_tickets',
-      defaultsTo: 8
+      defaultsTo: 0
     },
 
     sponsorcode: {
@@ -215,12 +205,13 @@ module.exports = {
       columnName: 'sponsor_code'
     },
 
-    referrer_id: {
+    referrerId: {
       type: 'string',
       columnName: 'referrer_id'
     },
 
-    gift_to_referrer: {
+    giftToReferrer: {
+      columnName: 'gift_to_referrer',
       type: 'boolean',
       defaultsTo: false
     },

@@ -89,7 +89,8 @@ var Ticket = module.exports = {
 
     euros: {
       type: 'float',
-      columnName: 'price'
+      columnName: 'price',
+      defaultsTo: null
     },
 
     numbers: {
@@ -104,7 +105,8 @@ var Ticket = module.exports = {
     },
 
     status: {
-      type: 'integer'
+      type: 'integer',
+      defaultsTo: null
     }
 
   }

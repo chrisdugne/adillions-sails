@@ -9,7 +9,8 @@ var UserService = module.exports = function () {
     read: function (uid) {
 
       if (!_.isString(uid)) {
-        throw new Error('UserService #read : the uid param is mandatory and should be a string');
+        throw new Error('UserService #read : the uid param \
+          is mandatory and should be a string');
       }
 
       return User
@@ -29,11 +30,13 @@ var UserService = module.exports = function () {
     readPassports: function (uid, next) {
 
       if (!_.isFunction(next)) {
-        throw new Error('UserService #readPassports : the callback function is mandatory');
+        throw new Error('UserService #readPassports : \
+          the callback function is mandatory');
       }
 
       if (!_.isString(uid)) {
-        throw new Error('UserService #readPassports : the uid param is mandatory and should be a string');
+        throw new Error('UserService #readPassports : \
+          the uid param is mandatory and should be a string');
       }
 
       Passport
@@ -54,15 +57,18 @@ var UserService = module.exports = function () {
     fetch: function (uid, country, mobileVersion) {
 
       if (!_.isString(uid)) {
-        throw new Error('UserService #fetch: the uid param is mandatory and should be a string');
+        throw new Error('UserService #fetch: the uid param \
+          is mandatory and should be a string');
       }
 
       if (!_.isString(country)) {
-        throw new Error('UserService #fetch: the country param is mandatory and should be a string');
+        throw new Error('UserService #fetch: the country param \
+          is mandatory and should be a string');
       }
 
       if (!mobileVersion) {
-        throw new Error('UserService #fetch: the mobileVersion param is mandatory');
+        throw new Error('UserService #fetch: the mobileVersion param \
+          is mandatory');
       }
 
       var Ticket = sails.models.ticket;
@@ -85,8 +91,8 @@ var UserService = module.exports = function () {
               }
             })
             .then(function prepareToNewDrawing(lottery) {
-              if (lottery.uid !== user.currentLotteryUID) {
-                user.currentLotteryUID = lottery.uid;
+              if (lottery.uid !== user.currentLottery) {
+                user.currentLottery = lottery.uid;
                 user.availableTickets = lottery.startTickets;
                 user.playedBonusTickets = 0;
                 user.temporaryBonusTickets = 0;
@@ -105,7 +111,7 @@ var UserService = module.exports = function () {
           return User
             .count()
             .where({
-              referrer_id: user.sponsorcode
+              referrerId: user.sponsorcode
             })
             .then(function (nbGodChildren) {
               user.godChildren = nbGodChildren;
@@ -212,7 +218,11 @@ var UserService = module.exports = function () {
             .then(function shareValuesOut(tickets) {
               tickets.forEach(function (ticket) {
 
-                var value = utils.countryPrice(ticket.euros, user.country, ticket.lottery.rateToUSD);
+                var value = utils.countryPrice(
+                  ticket.euros,
+                  user.country,
+                  ticket.lottery.rateToUSD
+                );
 
                 switch (ticket.status) {
                 case Ticket.BLOCKED:
@@ -244,6 +254,7 @@ var UserService = module.exports = function () {
               user: user.uid
             })
             .then(function (passports) {
+              // trick : clone user to get user.passports client-side
               user = _.extend({}, user);
               user.passports = passports;
               return user;
@@ -262,11 +273,13 @@ var UserService = module.exports = function () {
     update: function (uid, newData) {
 
       if (!_.isString(uid)) {
-        throw new Error('UserService #update : the uid param is mandatory and should be a string');
+        throw new Error('UserService #update : the uid param \
+          is mandatory and should be a string');
       }
 
       if (!_.isObject(newData)) {
-        throw new Error('UserService #update : the newData param is mandatory');
+        throw new Error('UserService #update : the newData param \
+          is mandatory');
       }
 
       return User
