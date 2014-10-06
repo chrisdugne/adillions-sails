@@ -1,7 +1,5 @@
 var registerModel = Backbone.Model.extend({
 
-  url: '/fr/auth/local/register',
-
   defaults: {
     username: '',
     email: '',

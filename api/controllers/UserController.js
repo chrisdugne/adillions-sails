@@ -10,13 +10,4 @@ var _ = require('lodash'),
 
 module.exports = {
 
-  profile: function (req, res) {
-    res.view({
-      isProfile: true,
-      usePopTitle: true,
-      bodyClass: 'profile',
-      layout: 'layout'
-    });
-  }
-
 };

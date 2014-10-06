@@ -1,5 +1,5 @@
 var _ = require('lodash'),
-  url = require('url');
+  moment = require('moment');
 
 /**
  * AccountController.js
@@ -20,33 +20,22 @@ module.exports = {
   },
 
   account: function (req, res) {
-    var strategies = _.pick(sails.config.passport, 'facebook', 'twitter', 'google'),
-      UserService = new sails.services.user(),
-      providers = {};
+    var UserService = new sails.services.user(),
+      AuthService = new sails.services.auth(),
+      AccountService = new sails.services.account(),
+      form = AccountService.getFormData(req.user, req.format_date);
 
     UserService.readPassports(req.user.uid, function (err, passports) {
       if (err) {
         return res.serverError(err);
       }
 
-      // Get a list of available providers for use in your templates.
-      Object.keys(strategies).forEach(function (key) {
-        providers[key] = {
-          name: strategies[key].name,
-          slug: key,
-          isLinked: !_.isEmpty(_.where(passports, {
-            'provider': key
-          })),
-          isFacebook: key === 'facebook',
-          isGoogle: key === 'google',
-          isTwitter: key === 'twitter',
-          isGithub: key === 'github'
-        };
-      });
+      var providers = AuthService.getProviders(passports);
 
       res.view({
-        providers_row: 12 / (Object.keys(strategies).length),
+        providers_row: 12 / (_.size(providers)),
         providers: providers,
+        form: form,
         isAccount: true,
         alert: req.flash('alert')[0],
         usePopTitle: true,
@@ -67,6 +56,22 @@ module.exports = {
           'lang': res.getLocale()
         }
       });
+
+    var birthDateFormated = req.format_date()
+      .set('date', userData.birthDate.day)
+      .set('month', Number(userData.birthDate.month) - 1)
+      .set('year', userData.birthDate.year)
+      .format('YYYY-MM-DD');
+
+    if (!req.format_date(birthDateFormated).isValid()) {
+      req.flash('alert', {
+        type: 'danger',
+        message: res.i18n('Error.Account.birtDate.invalid')
+      });
+      return res.redirect(accountRoute);
+    }
+
+    userData.birthDate = birthDateFormated;
 
     UserService.update(uid, userData, function (err, result) {
       if (err) {

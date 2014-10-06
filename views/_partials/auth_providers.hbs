@@ -1,7 +1,7 @@
 {{#if providers}}
   <ul class="rrssb-buttons list-unstyled">
   {{#each providers}}
-    <li class="{{slug}}{{#if isGoogle}}plus{{/if}} col-xs-12 col-sm-{{../providers_row}}">
+    <li class="{{slug}}{{#if isGoogle}}plus{{/if}} {{#if isLinked}}linked{{/if}} col-xs-12 col-sm-{{../providers_row}}">
       <a href="{{#if ../isMobile}}{{route 'auth.providerMobile' provider=slug}}{{else}}{{route 'auth.provider' lang=../locale provider=slug}}{{/if}}">
         <span class="icon">
           {{#if isFacebook}}

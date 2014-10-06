@@ -170,6 +170,11 @@ var AuthController = {
         hash: {
           'lang': res.getLocale()
         }
+      }),
+      accountRoute = sails.config.route('userSettings.account', {
+        hash: {
+          'lang': res.getLocale()
+        }
       });
 
     sails.services.passport.callback(req, res, function (err, user) {
@@ -190,7 +195,7 @@ var AuthController = {
             res.redirect(loginRoute);
           }
         } else {
-          res.redirect(req.flash('back')[0] || '/');
+          res.redirect(req.flash('back')[0] || accountRoute);
         }
       });
     });

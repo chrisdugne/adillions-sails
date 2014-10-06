@@ -9,19 +9,20 @@
 
   {{> 'alerts'}}
 
-  <div class="col-xs-12 col-sm-3 hidden-xs">
+{{!--   <div class="col-xs-12 col-sm-3 hidden-xs">
     {{> 'settings_nav'}}
-  </div>
+  </div> --}}
 
-  <div class="col-xs-12 col-sm-9">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
 
 
     <div class="panel panel-default">
       <div class="panel-heading">
-       Connect
+        {{i18n 'ui_connect'}}
       </div>
       <div class="panel-body">
-        <div class="auth-social clearfix">
+        <div class="account-providers clearfix">
+        <p class="text-muted text-center">{{i18n 'account_connect_desc'}}</p>
         {{> 'auth_providers'}}
         </div>
       </div>
@@ -38,57 +39,79 @@
           <input type="hidden" name="_method" value="put">
 
             <div class="row">
-              <div class="col-sm-8">
+              <div class="col-sm-12">
                 <div class="form-group form-group-lg has-feedback" data-toggle="tooltip" data-placement="top">
                   <label class="control-label" for="username">{{i18n 'ui_username'}}</label>
-                  <input type="text" class="form-control username" name="user[userName]" placeholder="{{i18n 'ui_username'}}" value="{{user.userName}}">
+                  <input type="text" class="form-control username" name="user[userName]" placeholder="{{i18n 'ui_username'}}" value="{{form.userName}}">
                   <span class="help-block"></span>
                 </div>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-sm-8">
+              <div class="col-sm-12">
                 <div class="form-group form-group-lg has-feedback" data-toggle="tooltip" data-placement="top">
                   <label class="control-label" for="username">{{i18n 'ui_firstname'}}</label>
-                  <input type="text" class="form-control username" name="user[firstName]" placeholder="{{i18n 'ui_firstname'}}" value="{{user.firstName}}">
+                  <input type="text" class="form-control username" name="user[firstName]" placeholder="{{i18n 'ui_firstname'}}" value="{{form.firstName}}">
                   <span class="help-block"></span>
                 </div>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-sm-8">
+              <div class="col-sm-12">
                 <div class="form-group form-group-lg has-feedback" data-toggle="tooltip" data-placement="top">
                   <label class="control-label" for="username">{{i18n 'ui_lastname'}}</label>
-                  <input type="text" class="form-control username" name="user[lastName]" placeholder="{{i18n 'ui_lastname'}}" value="{{user.lastName}}">
+                  <input type="text" class="form-control username" name="user[lastName]" placeholder="{{i18n 'ui_lastname'}}" value="{{form.lastName}}">
                   <span class="help-block"></span>
                 </div>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-sm-8">
+              <div class="col-sm-12">
                 <div class="form-group form-group-lg has-feedback" data-toggle="tooltip" data-placement="top">
                   <label class="control-label" for="username">{{i18n 'ui_birthdate'}}</label>
-                  <input type="text" class="form-control username" name="user[birthDate]" placeholder="yyyy/mm/dd" value="{{user.birthDate}}">
+                  <div class="row">
+                    <div class="col-xs-4 col-sm-3">
+                      <select name="user[birthDate][day]" class="form-control">
+                        {{#each form.days}}
+                        <option value="{{@key}}" {{#eq ../form.birthDate_day this}}selected="selected"{{/eq}}>{{this}}</option>
+                        {{/each}}
+                      </select>
+                    </div>
+                    <div class="col-xs-4 col-sm-6">
+                      <select name="user[birthDate][month]" class="form-control">
+                        {{#each form.months}}
+                        <option value="{{@key}}" {{#eq ../form.birthDate_month this}}selected="selected"{{/eq}}>{{this}}</option>
+                        {{/each}}
+                      </select>
+                    </div>
+                    <div class="col-xs-4 col-sm-3">
+                      <select name="user[birthDate][year]" class="form-control">
+                        {{#each form.years}}
+                        <option value="{{this}}" {{#eq ../form.birthDate_year this}}selected="selected"{{/eq}}>{{this}}</option>
+                        {{/each}}
+                      </select>
+                    </div>
+                  </div>
                   <span class="help-block"></span>
                 </div>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-sm-8">
+              <div class="col-sm-12">
                 <div class="form-group form-group-lg has-feedback">
                   <label class="control-label" for="email">{{i18n 'ui_email'}}</label>
-                  <input type="email" class="form-control email" name="user[email]" placeholder="{{i18n 'ui_email'}}" value="{{user.email}}" {{#if user.email}}readonly{{/if}}>
+                  <input type="email" class="form-control email" name="user[email]" placeholder="{{i18n 'ui_email'}}" value="{{form.email}}">
                   <span class="help-block"></span>
                 </div>
               </div>
             </div>
 
             <div class="mtl">
-              <button type="submit" class="btn btn-lead" data-loading-text="{{i18n 'ui_loading'}}">{{i18n 'account_update'}}</button>
+              <button type="submit" class="btn btn-lead btn-block btn-lg" data-loading-text="{{i18n 'ui_loading'}}" data-loading-text="{{i18n 'ui_loading'}}">{{i18n 'account_update'}}</button>
             </div>
         </form>
 
