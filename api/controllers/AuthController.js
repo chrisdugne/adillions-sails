@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 /**
  * Authentication Controller
  *
@@ -40,24 +42,12 @@ var AuthController = {
    */
   login: function (req, res) {
     var strategies = _.pick(sails.config.passport, 'facebook', 'twitter', 'google'),
-      providers = {},
+      providers = (new sails.services.auth()).getProviders(),
       isMobile = req.param('mobile') === 'm';
-
-    // Get a list of available providers for use in your templates.
-    Object.keys(strategies).forEach(function (key) {
-      providers[key] = {
-        name: strategies[key].name,
-        slug: key,
-        isFacebook: key === 'facebook',
-        isGoogle: key === 'google',
-        isTwitter: key === 'twitter',
-        isGithub: key === 'github'
-      };
-    });
 
     // Render the `auth/login.ext` view
     res.view({
-      providers_row: 12 / (Object.keys(strategies).length),
+      providers_row: 12 / _.size(providers),
       providers: providers,
       form: req.flash('form')[0],
       alert: req.flash('error')[0],
@@ -82,7 +72,6 @@ var AuthController = {
    * @param {Object} res
    */
   logout: function (req, res) {
-    sails.log.info('logout user');
     req.logout();
     res.redirect('/');
   },
@@ -104,23 +93,11 @@ var AuthController = {
    */
   register: function (req, res) {
     var strategies = _.pick(sails.config.passport, 'facebook', 'twitter', 'google'),
-      providers = {},
+      providers = (new sails.services.auth()).getProviders(),
       isMobile = req.param('mobile') === 'm';
 
-    // Get a list of available providers for use in your templates.
-    Object.keys(strategies).forEach(function (key) {
-      providers[key] = {
-        name: strategies[key].name,
-        slug: key,
-        isFacebook: key === 'facebook',
-        isGoogle: key === 'google',
-        isTwitter: key === 'twitter',
-        isGithub: key === 'github'
-      };
-    });
-
     res.view({
-      providers_row: 12 / (Object.keys(strategies).length),
+      providers_row: 12 / _.size(providers),
       providers: providers,
       form: req.flash('form')[0],
       alert: req.flash('error')[0],
