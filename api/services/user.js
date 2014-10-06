@@ -41,13 +41,12 @@ var UserService = module.exports = function () {
         throw new Error('UserService #readPassports : the uid param is mandatory and should be a string');
       }
 
-      User
-        .findOne({
-          uid: uid
+      Passport
+        .find({
+          user: uid
         })
-        .populate('passports')
-        .then(function done(user) {
-          next(null, user.passports);
+        .then(function done(passports) {
+          next(null, passports);
         })
         .fail(function (err) {
           sails.log.error('UserService #readPassports : query fails', err);
