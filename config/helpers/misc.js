@@ -151,6 +151,36 @@ var helpers = {
   },
 
   /**
+   *  'eq'
+   *  ===============
+   *
+   *  Description
+   *  -----------
+   *
+   *  compare an equality
+   *
+   *  Usage
+   *  -----
+   *
+   *  {{#eq stringvariable 'string'}}
+   *     do something
+        {{else}}
+        do something else
+   *  {{/eq}}
+   *
+   */
+
+  eq: function (lvalue, rvalue, options) {
+    if (arguments.length < 3) {
+      throw new Error('Handlebars Helper equal needs 2 parameters');
+    }
+    if (lvalue === rvalue) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  },
+
+  /**
    *  'numeral'
    *  ===============
    *
