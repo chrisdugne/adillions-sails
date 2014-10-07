@@ -53,19 +53,19 @@ exports.register = function (req, res, next) {
       password: password,
       user: user.uid
     })
-    .then(function done(passport) {
-      sails.log.info('Passport.local.register#service: create a local passport', passport.id);
-      next(null, user);
-    })
-    .fail(function (err) {
-      if (err.code === 'E_VALIDATION') {
-        req.flash('error', 'Error.Passport.Password.Invalid');
-      }
-      user.destroy().then(function () {
-        sails.log.warn('Passport.local.register#service: destroy a user, because a passport failed');
-        next(err);
-      }).fail(next);
-    });
+      .then(function done(passport) {
+        sails.log.info('Passport.local.register#service: create a local passport', passport.id);
+        next(null, user);
+      })
+      .fail(function (err) {
+        if (err.code === 'E_VALIDATION') {
+          req.flash('error', 'Error.Passport.Password.Invalid');
+        }
+        user.destroy().then(function () {
+          sails.log.warn('Passport.local.register#service: destroy a user, because a passport failed');
+          next(err);
+        }).fail(next);
+      });
   }).fail(function (err) {
     if (err.code === 'E_VALIDATION') {
       if (err.invalidAttributes.email) {
