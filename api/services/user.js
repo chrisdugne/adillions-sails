@@ -4,8 +4,11 @@ var _ = require('lodash'),
 
 var UserService = module.exports = function () {
 
-  var fillNetworks = function (user) {
+  //----------------------------------------------------------------------------
+  // Private tools
+  //----------------------------------------------------------------------------
 
+  var fillNetworks = function (user) {
     return Q.fcall(function prepare() {
         user.networks = {};
         return user;
@@ -25,9 +28,11 @@ var UserService = module.exports = function () {
       });
   };
 
-  return {
+  //----------------------------------------------------------------------------
+  // EXPOSE
+  //----------------------------------------------------------------------------
 
-    //--------------------------------------------------------------------------
+  return {
 
     read: function (uid) {
 
@@ -41,7 +46,7 @@ var UserService = module.exports = function () {
           uid: uid
         })
         .populate('passports')
-        .then(function s(user) {
+        .then(function fill(user) {
           return fillNetworks(user);
         })
         .then(function done(user) {
@@ -286,6 +291,9 @@ var UserService = module.exports = function () {
               user.passports = passports;
               return user;
             });
+        })
+        .then(function fill(user) {
+          return fillNetworks(user);
         })
         .then(function done(user) {
           return user;

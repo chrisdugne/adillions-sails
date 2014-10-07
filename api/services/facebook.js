@@ -18,7 +18,7 @@ var Facebook = module.exports = function () {
         var accessToken = facebookPassport.tokens.accessToken;
         var url = 'https://graph.facebook.com/me/likes/379432705492888?access_token=' + accessToken;
 
-        request.get(url, function (error, response, body) {
+        request.get(url, function (err, response, body) {
           if (err) {
             return deferred.reject(err);
           }
