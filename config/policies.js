@@ -73,6 +73,10 @@ module.exports.policies = {
     '*': ApiPolicies // to restric access by a token authentification
   },
 
+  'endpointFacebookController': {
+    '*': ApiPolicies // to restric access by a token authentification
+  },
+
   'publicController': {
     '*': true
   }

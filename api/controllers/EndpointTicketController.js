@@ -1,4 +1,4 @@
-var EndpointTicket = module.exports = {
+var Ticket = module.exports = {
 
   //----------------------------------------------------------------------------
 

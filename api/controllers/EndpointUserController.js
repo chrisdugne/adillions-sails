@@ -1,4 +1,4 @@
-var EndpointUser = module.exports = {
+var User = module.exports = {
 
   //----------------------------------------------------------------------------
 

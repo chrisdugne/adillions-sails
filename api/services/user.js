@@ -1,7 +1,30 @@
 var _ = require('lodash'),
-  utils = require('../utils.js');
+  utils = require('../utils.js'),
+  Q = require('q');
 
 var UserService = module.exports = function () {
+
+  var fillNetworks = function (user) {
+
+    return Q.fcall(function prepare() {
+        user.networks = {};
+        return user;
+      })
+      .then(function checkFacebook(user) {
+        user.networks.connectedToFacebook = _.find(user.passports, {
+          'provider': 'facebook'
+        }) !== undefined;
+        return user;
+      })
+      .then(function checkFan(user) {
+        return sails.services.facebook().isFan(user.passports)
+          .then(function (isFan) {
+            user.networks.isFan = isFan;
+            return user;
+          });
+      });
+  };
+
   return {
 
     //--------------------------------------------------------------------------
@@ -16,6 +39,10 @@ var UserService = module.exports = function () {
       return User
         .findOne({
           uid: uid
+        })
+        .populate('passports')
+        .then(function s(user) {
+          return fillNetworks(user);
         })
         .then(function done(user) {
           return user;

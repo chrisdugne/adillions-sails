@@ -54,6 +54,7 @@
     "passport-twitter": "~1.0.2",
     "q": "~1.0.1",
     "rc": "~0.3.3",
+    "request": "^2.45.0",
     "sails": "v0.10.5",
     "sails-postgresql": "0.10.9",
     "time-grunt": "~0.3.1",
