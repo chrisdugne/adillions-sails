@@ -1,6 +1,5 @@
 var _ = require('lodash'),
   Q = require('q'),
-  path = require('path'),
   nodemailer = require('nodemailer'),
   smtpTransport = require('nodemailer-smtp-transport');
 
@@ -18,18 +17,18 @@ function Mail(res) {
       pass: 'snoiDILLA2013'
     }
   };
-  this.defaultsOptions = {
+  this.defaultsMailOptions = {
     from: 'Adillions <support@adillions.com>'
   };
 }
 
 Mail.prototype._sendHtmlMail = function (viewPath, data, options) {
   var smtpTransportOptions = this.smtpTransportOptions,
-    defaultsOptions = this.defaultsOptions,
-    templateData = _.merge({
+    defaultsMailOptions = this.defaultsMailOptions,
+    templateData = _.defaults({
       layout: 'layout_mail'
     }, data),
-    mailOptions = _.merge(defaultsOptions, options);
+    mailOptions = _.merge(defaultsMailOptions, options);
 
   return Q.npost(this.res, 'render', [viewPath, templateData]).then(function (html) {
     mailOptions.html = html;
@@ -43,25 +42,6 @@ Mail.prototype._sendHtmlMail = function (viewPath, data, options) {
           resolve(info.response);
         });
     });
-  });
-};
-
-Mail.prototype._sendTextMail = function (text, options) {
-  var smtpTransportOptions = this.smtpTransportOptions,
-    defaultsOptions = this.defaultsOptions,
-    mailOptions = _.merge(defaultsOptions, options);
-
-  mailOptions.text = text;
-
-  return Q.Promise(function (resolve, reject, notify) {
-    nodemailer
-      .createTransport(smtpTransport(smtpTransportOptions))
-      .sendMail(mailOptions, function (err, info) {
-        if (err) {
-          return reject(err);
-        }
-        resolve(info.response);
-      });
   });
 };
 
