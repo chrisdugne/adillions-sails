@@ -283,6 +283,12 @@ module.exports = {
     next(null, user);
   },
 
+  afterCreate : function (user, next) {
+    // send mail
+    // (new sails.services.mail(res)).registration(user.username, user.email);
+    next(null, user);
+  },
+
   beforeUpdate: function (user, next) {
     // Handle legacy date
     user.last_update = new Date();

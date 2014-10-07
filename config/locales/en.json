@@ -118,6 +118,21 @@
 
   "Error.Account.birtDate.invalid" : "The supplied birth date is not valid",
 
+  "_comment": "##### MAIL/registration #####",
+
+  "mail.registration.subject": "Bienvenue sur Adillions",
+  "mail.registration.hi": "Hi, <strong>%s</strong> !",
+  "mail.registration.title": "Welcome to Adillions, the free lottery with real cash prizes funded by advertising !",
+  "mail.registration.desc": "Congratulations! You have now joined our international community of players. You can now play Adillions on your smartphone (<a href='%s'>iOS</a> and <a href='%s'>Android</a>) on the web at <a href='http://www.adillions.com'>www.adillions.com</a>.",
+  "mail.registration.step.desc": "Each week on Adillions, it is:",
+  "mail.registration.step.ticket": "Several lottery tickets to fill out",
+  "mail.registration.step.theme": "A new theme to discover",
+  "mail.registration.step.youtube": "Draw results live on Youtube",
+  "mail.registration.step.prize": "Prizes to win",
+  "mail.registration.invite": "Invite your friends to increase the jackpot !",
+  "mail.registration.luck": "Good luck,",
+  "mail.registration.team": "The Adillions Team.",
+
   "_comment": "##### LANDING/index #####",
 
   "landing_title": "Free sweepstake with real cash prizes",

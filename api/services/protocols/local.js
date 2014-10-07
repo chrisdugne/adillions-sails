@@ -52,10 +52,12 @@ exports.register = function (req, res, next) {
       protocol: 'local',
       password: password,
       user: user.uid
-    }).then(function (passport) {
+    })
+    .then(function done(passport) {
       sails.log.info('Passport.local.register#service: create a local passport', passport.id);
       next(null, user);
-    }).fail(function (err) {
+    })
+    .fail(function (err) {
       if (err.code === 'E_VALIDATION') {
         req.flash('error', 'Error.Passport.Password.Invalid');
       }

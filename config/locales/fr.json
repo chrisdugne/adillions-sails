@@ -119,6 +119,21 @@
 
   "Error.Account.birtDate.invalid" : "La date de naissance n'est pas valide",
 
+  "_comment": "##### MAIL/registration #####",
+
+  "mail.registration.subject": "Bienvenue sur Adillions",
+  "mail.registration.hi": "Bonjour, <strong>%s</strong> !",
+  "mail.registration.title": "Bienvenue sur Adillions, la loterie gratuite avec des gains d’argent réel financés par la publicité !",
+  "mail.registration.desc": "Félicitations ! Vous venez de rejoindre notre communauté internationale de joueurs, vous pouvez dorénavant jouer à Adillions sur votre smartphone (<a href='%s'>iOS</a> et <a href='%s'>Android</a>) ou sur internet <a href='http://www.adillions.com'>www.adillions.com</a>.",
+  "mail.registration.step.desc": "Chaque semaine sur Adillions, ce sont:",
+  "mail.registration.step.ticket": "plusieurs tickets de loterie à remplir",
+  "mail.registration.step.theme": "un nouveau thème à découvrir",
+  "mail.registration.step.youtube": "un tirage en direct sur Youtube",
+  "mail.registration.step.prize": "des gains d'argent réel à gagner",
+  "mail.registration.invite": "Invitez vos amis pour faire augmenter la cagnotte !",
+  "mail.registration.luck": "Bonne chance,",
+  "mail.registration.team": "L’équipe d’Adillions",
+
   "_comment": "##### LANDING/index #####",
 
   "landing_title": "Loterie gratuite avec des gains d'argent réel",
