@@ -51,33 +51,46 @@ var Facebook = module.exports = function () {
       });
 
       if (facebook) {
-        var accessToken = facebook.tokens.accessToken;
-        console.log(facebook);
-
-        //local url = "https://graph.facebook.com/"..userManager.user.facebookId .."/feed?method=post&message="..utils.urlEncode(message).."&link="..utils.urlEncode("http://www.adillions.com").."&access_token=" .. GLOBALS.savedData.facebookAccessToken
-        //print (url)
+        var accessToken = facebook.tokens.accessToken,
+          facebookId = facebook.identifier;
 
         var url = require('url').format({
           protocol: 'https',
           host: 'graph.facebook.com',
-          pathname: 'me/likes/379432705492888',
+          pathname: facebookId + '/feed',
           query: {
+            method: 'post',
+            message: text,
+            link: 'http://www.adillions.com',
             access_token: accessToken
           }
         });
 
-        // request.get(url, function (err, response, body) {
-        //   if (err) {
-        //     return deferred.reject(err);
-        //   }
-        //   var fan = JSON.parse(body).data.length === 1;
-        //   deferred.resolve(fan);
-        // });
+        console.log(url);
 
-        deferred.resolve('imp');
+        request.get(url, function (err, response, body) {
+          if (err) {
+            return deferred.reject(err);
+          }
+
+          var result = JSON.parse(body);
+
+          console.log('-------');
+          console.log(result);
+          console.log(result.id);
+          console.log(result["id"]);
+
+          if (result.id) {
+            console.log('ok');
+            deferred.resolve(true);
+          } else {
+            console.log('error');
+            deferred.resolve(false);
+          }
+        });
 
       } else {
-        deferred.resolve(false);
+        return deferred.reject('#postOnWall : no passport');
       }
 
       return deferred.promise;

@@ -18,7 +18,7 @@ var Facebook = module.exports = {
   //----------------------------------------------------------------------------
 
   postOnWall: function (req, res) {
-    console.log('postOnWall');
+    console.log('----->  postOnWall');
     var text = req.body;
     console.log(text);
     return Passport
