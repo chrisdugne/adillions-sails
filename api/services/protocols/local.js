@@ -55,6 +55,7 @@ exports.register = function (req, res, next) {
     })
       .then(function done(passport) {
         sails.log.info('Passport.local.register#service: create a local passport', passport.id);
+        req._registered = true;
         next(null, user);
       })
       .fail(function (err) {

@@ -1,5 +1,7 @@
 var _ = require('lodash'),
+  url = require('url'),
   Q = require('q'),
+  juice = require('juice'),
   nodemailer = require('nodemailer'),
   smtpTransport = require('nodemailer-smtp-transport');
 
@@ -31,21 +33,27 @@ Mail.prototype._sendHtmlMail = function (viewPath, data, options) {
     mailOptions = _.merge(defaultsMailOptions, options);
 
   return Q.npost(this.res, 'render', [viewPath, templateData]).then(function (html) {
-    mailOptions.html = html;
-    return Q.Promise(function (resolve, reject, notify) {
-      nodemailer
-        .createTransport(smtpTransport(smtpTransportOptions))
-        .sendMail(mailOptions, function (err, info) {
-          if (err) {
-            return reject(err);
-          }
-          resolve(info.response);
-        });
+    return Q.npost(juice, 'juiceContent', [html, {
+      removeStyleTags: false,
+      url: 'http://www.adillions.com'
+    }]).then(function (inlinedHtml) {
+      console.log(inlinedHtml);
+      mailOptions.html = inlinedHtml;
+      return Q.Promise(function (resolve, reject, notify) {
+        nodemailer
+          .createTransport(smtpTransport(smtpTransportOptions))
+          .sendMail(mailOptions, function (err, info) {
+            if (err) {
+              return reject(err);
+            }
+            resolve(info.response);
+          });
+      });
     });
   });
 };
 
-Mail.prototype.registration = function (name, email) {
+Mail.prototype.registration = function (firstName, userName, email) {
 
   /**
    *  'registration'
@@ -58,14 +66,21 @@ Mail.prototype.registration = function (name, email) {
    *  @return {promise}
    */
 
-  if (!_.isString(name)) {
-    name = '';
+  var name = '';
+
+  if (_.isString(firstName)) {
+    name = firstName;
+  }
+
+  if (_.isString(userName) && !_.isString(name)) {
+    name = userName;
   }
 
   if (!_.isString(email) || _.isEmpty(email)) {
     throw new Error('MailService #registration : the email param is mandatory and should not be empty');
   }
 
+  // 'mail/registration' inlined to 'mail/registration_inlined' thanks to http://templates.mailchimp.com/resources/inline-css/
   return this._sendHtmlMail('mail/registration', {
     name: name,
     appIosUrl: sails.config.extUrl('app_ios'),

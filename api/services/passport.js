@@ -89,6 +89,10 @@ passport.connect = function (req, query, userObj, profile, next) {
       facebook_id: identifier
     });
     userObj.facebook_id = identifier;
+  } else if (provider === 'google') {
+    _.merge(userQuery, {
+      google_id: identifier
+    });
   } else if (provider === 'twitter') {
     _.merge(userQuery, {
       twitter_id: identifier
@@ -113,32 +117,28 @@ passport.connect = function (req, query, userObj, profile, next) {
       var _user;
       if (!req.user) {
         if (!passport) {
-          if (provider === 'google') {
-            _user = User.create(userObj).then(function (user) {
-              sails.log.info('Passport.connect#service: create a user', user.uid);
-              return user;
-            });
-          } else {
-            _user = User.findOrCreate(userQuery, userObj).then(function (user) {
-              sails.log.info('Passport.connect#service: find|create a user', user.uid);
-              return user;
-            });
-          }
+          _user = User.findOne(userQuery);
         } else {
           _user = User.findOne({
             uid: passport.user
-          }).then(function (user) {
-            sails.log.info('Passport.connect#service: find user', user.uid);
-            return user;
           });
         }
       } else {
-        sails.log.info('Passport.connect#service: connect user', req.user.uid);
         _user = req.user;
       }
       return [_user, passport];
     })
-    .spread(function getPassport(user, passport) {
+    .spread(function createUser(user, passport) {
+      if (!user) {
+        user = User.create(userObj).then(function (user) {
+          sails.log.info('Passport.connect#service: create a user', user.uid);
+          req._registered = true;
+          return user;
+        });
+      }
+      return [user, passport];
+    })
+    .spread(function createPassport(user, passport) {
       if (!passport) {
         query.user = user.uid;
         passport = Passport.create(query).then(function (passport) {

@@ -1,20 +1,295 @@
-<h1>{{{i18n 'mail.registration.hi' name}}}</h1>
+{{#push "title"}}
+<title>{{i18n 'mail.registration.subject'}}</title>
+{{/push}}
+{{#push "styles"}}
+  {{> 'mail_style'}}
+  <style type="text/css">
 
-<p>{{{i18n 'mail.registration.title'}}}</p>
+    table.facebook td {
+      background: #3b5998;
+      border-color: #2d4473;
+    }
 
-<p>{{{i18n 'mail.registration.desc' appIosUrl appAndroidUrl}}}</p>
+    table.facebook:hover td {
+      background: #2d4473 !important;
+    }
 
-<p>{{{i18n 'mail.registration.step.desc'}}}</p>
+    table.twitter td {
+      background: #00acee;
+      border-color: #0087bb;
+    }
 
-<ul>
-  <li>{{{i18n 'mail.registration.step.ticket'}}}</li>
-  <li>{{{i18n 'mail.registration.step.theme'}}}</li>
-  <li>{{{i18n 'mail.registration.step.youtube'}}}</li>
-  <li>{{{i18n 'mail.registration.step.prize'}}}</li>
-</ul>
+    table.twitter:hover td {
+      background: #0087bb !important;
+    }
 
-<p>{{{i18n 'mail.registration.invite'}}}</p>
+    table.google-plus td {
+      background-color: #DB4A39;
+      border-color: #CC0000;
+    }
 
-<p>{{{i18n 'mail.registration.luck'}}}</p>
+    table.google-plus:hover td {
+      background: #CC0000 !important;
+    }
 
-<p>{{{i18n 'mail.registration.team'}}}</p>
+    .template-label {
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 11px;
+    }
+
+    .callout .panel {
+      background: #FAFAFA;
+      border-color: #ECECEC;
+    }
+
+    .header {
+      background: #0f262e;
+    }
+
+    .footer .wrapper {
+    }
+
+    .footer h5 {
+      padding-bottom: 10px;
+    }
+
+    table.columns .text-pad {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    table.columns .left-text-pad {
+      padding-left: 10px;
+    }
+
+    table.columns .right-text-pad {
+      padding-right: 10px;
+    }
+
+    @media only screen and (max-width: 600px) {
+
+      table[class="body"] .right-text-pad {
+        padding-left: 10px !important;
+      }
+
+      table[class="body"] .left-text-pad {
+        padding-right: 10px !important;
+      }
+    }
+
+  </style>
+{{/push}}
+
+  <table class="body">
+      <tr>
+        <td class="center" align="center" valign="top">
+          <center>
+
+            <table class="row header">
+              <tr>
+                <td class="wrapper last center" align="center">
+                  <center>
+                  <table class="five columns">
+                    <tr>
+                      <td class="seven">
+
+                        <table class="">
+                          <tr>
+                            <td class="">
+                              <a href="http://www.adillions.com">
+                                <img src="http://www.adillions.com/images/logos/adillions-inverse.png" width="230" height="47" style="display:block"  border="0">
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+
+                      </td>
+                      <td class="expander"></td>
+                    </tr>
+                  </table>
+                  </center>
+                </td>
+              </tr>
+            </table>
+          <br>
+
+          <table class="container">
+            <tr>
+              <td>
+
+                <!-- content start -->
+                <table class="row">
+                  <tr>
+                    <td class="wrapper last">
+
+                      <table class="twelve columns">
+                        <tr>
+                          <td>
+
+                            <h2 class="center">{{{i18n 'mail.registration.hi' name}}}</h2>
+
+                          </td>
+                          <td class="expander"></td>
+                        </tr>
+                      </table>
+
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- content start -->
+                <table class="row">
+                  <tr>
+                    <td class="wrapper last">
+
+                      <table class="twelve columns">
+                        <tr>
+                          <td>
+
+                            <p class="lead center">{{{i18n 'mail.registration.title'}}}</p>
+
+                          </td>
+                          <td class="expander"></td>
+                        </tr>
+                      </table>
+
+                    </td>
+                  </tr>
+                </table>
+
+
+                <table class="row callout">
+                  <tr>
+                    <td class="wrapper last">
+
+                      <table class="twelve columns">
+                        <tr>
+                          <td class="panel">
+
+                            <p>{{{i18n 'mail.registration.desc' appIosUrl appAndroidUrl}}}</p>
+
+                            <p>{{{i18n 'mail.registration.step.desc'}}}</p>
+
+                            <ul>
+                              <li>{{{i18n 'mail.registration.step.ticket'}}}</li>
+                              <li>{{{i18n 'mail.registration.step.theme'}}}</li>
+                              <li>{{{i18n 'mail.registration.step.prize'}}}</li>
+                            </ul>
+
+                            <p>{{{i18n 'mail.registration.invite'}}}</p>
+
+                          </td>
+                          <td class="expander"></td>
+                        </tr>
+                      </table>
+
+                    </td>
+                  </tr>
+                </table>
+
+
+                <table class="row">
+                  <tr>
+                    <td class="wrapper last center" align="center">
+                      <center>
+                      <table class="six columns">
+                        <tr>
+                          <td>
+
+                          </td>
+                          <td class="expander"></td>
+                        </tr>
+                      </table>
+                      </center>
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="row">
+                  <tr>
+                    <td class="wrapper last center" align="center">
+                      <center>
+                      <table class="ten columns">
+                        <tr>
+                          <td class="right-text-pad">
+
+                            <table class="button medium-button secondary">
+                              <tr>
+                                <td class="right-text-pad left-text-pad">
+                                  <a href="http://www.adillions.com{{route 'userSettings.account' lang=locale}}">{{i18n 'mail.registration.seeAccount'}}</a>
+                                </td>
+                              </tr>
+                            </table>
+
+                          </td>
+                          <td>
+
+                            <table class="button medium-button">
+                              <tr>
+                                <td class="right-text-pad left-text-pad">
+                                  <a href="http://www.adillions.com{{route 'game.index' lang=locale}}">{{i18n 'mail.registration.play'}}</a>
+                                </td>
+                              </tr>
+                            </table>
+
+                          </td>
+                        </tr>
+                      </table>
+                      </center>
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="row">
+                  <tr>
+                    <td class="wrapper last">
+
+                      <table class="twelve columns">
+                        <tr>
+                          <td>
+
+                            <hr />
+                            <br>
+
+                            <p>
+                              {{{i18n 'mail.registration.luck'}}}
+                              <br>
+                              {{{i18n 'mail.registration.team'}}}
+                            </p>
+                          </td>
+                          <td class="expander"></td>
+                        </tr>
+                      </table>
+
+                    </td>
+                  </tr>
+
+                <table class="row footer">
+                  <tr>
+                    <td class="wrapper last center" align="center">
+                      <center>
+                      <table class="twelve columns">
+                        <tr>
+                          <td align="center">
+                            <center>
+                              <p style="text-align:center;"><a href="http://www.adillions.com{{route 'about.terms' lang=locale}}" class="right-text-pad">{{{i18n 'terms'}}}</a> <img src="http://www.adillions.com/images/logos/adillions-ball.png" style="display:inline;float:none" width="48" height="48" border="0" alt="adillions"> <a href="http://www.adillions.com{{route 'about.privacy' lang=locale}}" class="left-text-pad">{{{i18n 'privacy'}}}</a></p>
+                            </center>
+                          </td>
+                          <td class="expander"></td>
+                        </tr>
+                      </table>
+                    </center>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- container end below -->
+              </td>
+            </tr>
+          </table>
+
+        </center>
+      </td>
+    </tr>
+  </table>

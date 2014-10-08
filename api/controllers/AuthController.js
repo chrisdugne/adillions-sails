@@ -45,7 +45,6 @@ var AuthController = {
       providers = (new sails.services.auth()).getProviders(),
       isMobile = req.param('mobile') === 'm';
 
-    // Render the `auth/login.ext` view
     res.view({
       providers_row: 12 / _.size(providers),
       providers: providers,
@@ -172,6 +171,9 @@ var AuthController = {
             res.redirect(loginRoute);
           }
         } else {
+          if (req._registered === true) {
+            (new sails.services.mail(res)).registration(user.firstName, user.userName, user.email);
+          }
           res.redirect(req.flash('back')[0] || accountRoute);
         }
       });
@@ -212,6 +214,9 @@ var AuthController = {
             res.redirect(loginRoute);
           }
         } else {
+          if (req._registered === true) {
+            (new sails.services.mail(res)).registration(user.firstName, user.userName, user.email);
+          }
           res.redirect('/m/loggedin?auth_token=' + user.auth_token);
         }
       });
