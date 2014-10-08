@@ -151,7 +151,6 @@ var UserService = module.exports = function () {
             });
         })
         .then(function getLastTicketTime(user) {
-          console.log('getLastTicketTime ' + user.uid);
           return Ticket
             .findOne()
             .where({
@@ -159,7 +158,6 @@ var UserService = module.exports = function () {
             })
             .sort('timestamp DESC')
             .then(function (ticket) {
-              console.log(ticket);
               user.lastTicketTime = ticket ? ticket.timestamp : 0;
               return user;
             });

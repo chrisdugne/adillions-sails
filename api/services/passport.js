@@ -113,7 +113,7 @@ passport.connect = function (req, query, userObj, profile, next) {
       var _user;
       if (!req.user) {
         if (!passport) {
-          if(userQuery) {
+          if (userQuery) {
             _user = User.findOne(userQuery);
           }
         } else {

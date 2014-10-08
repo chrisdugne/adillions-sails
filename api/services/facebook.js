@@ -66,8 +66,6 @@ var Facebook = module.exports = function () {
           }
         });
 
-        console.log(url);
-
         request.get(url, function (err, response, body) {
           if (err) {
             return deferred.reject(err);
@@ -75,16 +73,9 @@ var Facebook = module.exports = function () {
 
           var result = JSON.parse(body);
 
-          console.log('-------');
-          console.log(result);
-          console.log(result.id);
-          console.log(result["id"]);
-
           if (result.id) {
-            console.log('ok');
             deferred.resolve(true);
           } else {
-            console.log('error');
             deferred.resolve(false);
           }
         });
