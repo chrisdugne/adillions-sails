@@ -33,7 +33,7 @@ Mail.prototype._sendHtmlMail = function (viewPath, data, options) {
     mailOptions = _.merge(defaultsMailOptions, options);
 
   return Q.npost(this.res, 'render', [viewPath, templateData]).then(function (html) {
-    return Q.npost(juice, 'juiceContent', [html, {
+    return Q.nfapply(juice.juiceContent, [html, {
       removeStyleTags: false,
       url: 'http://www.adillions.com'
     }]).then(function (inlinedHtml) {
@@ -88,10 +88,10 @@ Mail.prototype.registration = function (firstName, userName, email) {
     to: email,
     subject: this.res.i18n('mail.registration.subject')
   }).then(function (response) {
-    sails.log.info('mail.registration#service : Message sent' + response);
+    sails.log.info('mail.registration#service : Message sent to email:' + email + ', ' + response);
     return response;
   }).fail(function (err) {
-    sails.log.error('mail.registration#service : failed', err);
+    sails.log.error('mail.registration#service : failed to email:' + email, err);
     throw err;
   });
 
