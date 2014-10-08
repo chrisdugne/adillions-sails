@@ -128,7 +128,7 @@ exports.login = function (req, identifier, password, next) {
     query = {};
 
   if (isEmail) {
-    query.email = identifier;
+    query.email = identifier.toLowerCase();
   } else {
     query.userName = identifier;
   }
