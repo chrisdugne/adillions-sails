@@ -158,7 +158,7 @@ var UserService = module.exports = function () {
             })
             .sort('timestamp DESC')
             .then(function (ticket) {
-              user.lastTicketTime = ticket.timestamp;
+              user.lastTicketTime = ticket ? ticket.timestamp : 0;
               return user;
             });
         })
