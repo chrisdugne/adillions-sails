@@ -68,7 +68,7 @@ passport.connect = function (req, query, userObj, profile, next) {
   var strategies = sails.config.passport,
     config = strategies[profile.provider],
     identifier = query.identifier.toString(),
-    userQuery = {},
+    userQuery,
     provider;
 
   // Get the authentication provider from the query.
@@ -85,18 +85,14 @@ passport.connect = function (req, query, userObj, profile, next) {
   }
 
   if (provider === 'facebook') {
-    _.merge(userQuery, {
+    userQuery = {
       facebook_id: identifier
-    });
+    };
     userObj.facebook_id = identifier;
-  } else if (provider === 'google') {
-    _.merge(userQuery, {
-      google_id: identifier
-    });
   } else if (provider === 'twitter') {
-    _.merge(userQuery, {
+    userQuery = {
       twitter_id: identifier
-    });
+    };
     userObj.email = '';
     userObj.twitter_id = identifier;
     userObj.twitter_name = userObj.userName;
@@ -117,7 +113,9 @@ passport.connect = function (req, query, userObj, profile, next) {
       var _user;
       if (!req.user) {
         if (!passport) {
-          _user = User.findOne(userQuery);
+          if(userQuery) {
+            _user = User.findOne(userQuery);
+          }
         } else {
           _user = User.findOne({
             uid: passport.user

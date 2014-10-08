@@ -37,7 +37,6 @@ Mail.prototype._sendHtmlMail = function (viewPath, data, options) {
       removeStyleTags: false,
       url: 'http://www.adillions.com'
     }]).then(function (inlinedHtml) {
-      console.log(inlinedHtml);
       mailOptions.html = inlinedHtml;
       return Q.Promise(function (resolve, reject, notify) {
         nodemailer
