@@ -22,9 +22,9 @@ var Twitter = module.exports = function () {
 
       if (twitter) {
         var T = new Twit({
-          consumer_key:        CONSUMER_KEY,
-          consumer_secret:     CONSUMER_SECRET,
-          access_token:        twitter.tokens.token,
+          consumer_key: CONSUMER_KEY,
+          consumer_secret: CONSUMER_SECRET,
+          access_token: twitter.tokens.token,
           access_token_secret: twitter.tokens.tokenSecret
         });
 
@@ -34,8 +34,7 @@ var Twitter = module.exports = function () {
         }, function (err, data, response) {
           if (err) {
             deferred.reject(err);
-          }
-          else{
+          } else {
             deferred.resolve(data.relationship.source.following);
           }
         });
@@ -58,9 +57,9 @@ var Twitter = module.exports = function () {
 
       if (twitter) {
         var T = new Twit({
-          consumer_key:        CONSUMER_KEY,
-          consumer_secret:     CONSUMER_SECRET,
-          access_token:        twitter.tokens.token,
+          consumer_key: CONSUMER_KEY,
+          consumer_secret: CONSUMER_SECRET,
+          access_token: twitter.tokens.token,
           access_token_secret: twitter.tokens.tokenSecret
         });
 
@@ -69,8 +68,7 @@ var Twitter = module.exports = function () {
         }, function (err, data, response) {
           if (err) {
             deferred.reject(err);
-          }
-          else{
+          } else {
             deferred.resolve(true);
           }
         });
@@ -94,9 +92,9 @@ var Twitter = module.exports = function () {
 
       if (twitter) {
         var T = new Twit({
-          consumer_key:        CONSUMER_KEY,
-          consumer_secret:     CONSUMER_SECRET,
-          access_token:        twitter.tokens.token,
+          consumer_key: CONSUMER_KEY,
+          consumer_secret: CONSUMER_SECRET,
+          access_token: twitter.tokens.token,
           access_token_secret: twitter.tokens.tokenSecret
         });
 
@@ -106,8 +104,7 @@ var Twitter = module.exports = function () {
         }, function (err, data, response) {
           if (err) {
             deferred.reject(err);
-          }
-          else{
+          } else {
             deferred.resolve(true);
           }
         });
