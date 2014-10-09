@@ -83,12 +83,12 @@ module.exports = {
       if (err.code === 'E_VALIDATION') {
         if (err.invalidAttributes.email) {
           req.flash('alert', {
-            type: 'warning',
+            type: 'danger',
             message: res.i18n('Error.Passport.Email.Exists')
           });
         } else {
           req.flash('alert', {
-            type: 'warning',
+            type: 'danger',
             message: res.i18n('Error.Passport.User.Exists')
           });
         }
