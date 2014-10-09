@@ -71,10 +71,12 @@ module.exports = {
   },
 
   faq: function (req, res) {
+    console.log(req);
+    console.log(req.params['m']);
     return res.view({
       usePopTitle: true,
       title: res.i18n('faq'),
-      layout: 'layout_about'
+      layout: req.params['m'] === 'm' ? 'layout_about_mobile' : 'layout_about'
     });
   },
 
@@ -90,7 +92,7 @@ module.exports = {
     return res.view({
       usePopTitle: true,
       title: res.i18n('keyrules'),
-      layout: 'layout_about'
+      layout: req.params['m'] === 'm' ? 'layout_about_mobile' : 'layout_about'
     });
   },
 
@@ -106,7 +108,7 @@ module.exports = {
     return res.view({
       usePopTitle: true,
       title: res.i18n('privacy'),
-      layout: 'layout_about'
+      layout: req.params['m'] === 'm' ? 'layout_about_mobile' : 'layout_about'
     });
   },
 
@@ -135,7 +137,7 @@ module.exports = {
         usePopTitle: true,
         title: res.i18n('terms'),
         articles: articles,
-        layout: 'layout_about'
+        layout: req.params['m'] === 'm' ? 'layout_about_mobile' : 'layout_about'
       });
     });
 
