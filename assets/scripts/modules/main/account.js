@@ -32,7 +32,7 @@ var accountView = Backbone.View.extend({
     delete fields._method;
 
     _.each(fields, _.bind(function (field) {
-      if(field.name === 'user[email]') {
+      if (field.name === 'user[email]') {
         field.name = 'user.email';
       }
       this.model.set(field.name, field.value);
@@ -45,9 +45,9 @@ var accountView = Backbone.View.extend({
   showInvalid: function (model, errors) {
     _.each(model.attributes, _.bind(function (value, deepKey) {
       var key = deepKey.split('.')[1],
-        form_group = this.$el.find('#account_'+ key).parents('.form-group:first'),
-          feedback = {},
-          help_text = '';
+        form_group = this.$el.find('#account_' + key).parents('.form-group:first'),
+        feedback = {},
+        help_text = '';
 
       if (model.isValid(deepKey)) {
         if (form_group.hasClass('has-error')) {
