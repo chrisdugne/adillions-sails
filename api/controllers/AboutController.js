@@ -71,12 +71,12 @@ module.exports = {
   },
 
   faq: function (req, res) {
-    console.log(req);
-    console.log(req.params['m']);
+    var isMobile = req.param('mobile') === 'm';
+    console.log(isMobile);
     return res.view({
       usePopTitle: true,
       title: res.i18n('faq'),
-      layout: req.params['m'] === 'm' ? 'layout_about_mobile' : 'layout_about'
+      layout: isMobile ? 'layout_about_mobile' : 'layout_about'
     });
   },
 
@@ -89,10 +89,11 @@ module.exports = {
   },
 
   rules: function (req, res) {
+    var isMobile = req.param('mobile') === 'm';
     return res.view({
       usePopTitle: true,
       title: res.i18n('keyrules'),
-      layout: req.params['m'] === 'm' ? 'layout_about_mobile' : 'layout_about'
+      layout: isMobile ? 'layout_about_mobile' : 'layout_about'
     });
   },
 
@@ -105,14 +106,16 @@ module.exports = {
   },
 
   privacy: function (req, res) {
+    var isMobile = req.param('mobile') === 'm';
     return res.view({
       usePopTitle: true,
       title: res.i18n('privacy'),
-      layout: req.params['m'] === 'm' ? 'layout_about_mobile' : 'layout_about'
+      layout: isMobile ? 'layout_about_mobile' : 'layout_about'
     });
   },
 
   terms: function (req, res) {
+    var isMobile = req.param('mobile') === 'm';
     var articles = {},
       locale = res.getLocale(),
       translations = require(path.resolve('config', 'locales/' + locale)),
@@ -137,7 +140,7 @@ module.exports = {
         usePopTitle: true,
         title: res.i18n('terms'),
         articles: articles,
-        layout: req.params['m'] === 'm' ? 'layout_about_mobile' : 'layout_about'
+        layout: isMobile ? 'layout_about_mobile' : 'layout_about'
       });
     });
 
