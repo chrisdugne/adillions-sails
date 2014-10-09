@@ -73,7 +73,7 @@ module.exports.policies = {
     '*': ApiPolicies // to restric access by a token authentification
   },
 
-  'endpointFacebookController': {
+  'endpointSocialController': {
     '*': ApiPolicies // to restric access by a token authentification
   },
 

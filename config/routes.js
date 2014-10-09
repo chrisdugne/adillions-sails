@@ -93,8 +93,12 @@ module.exports.routes = {
   'put /api/user/fetch': 'EndpointUserController.fetch',
   'put /api/user/update': 'EndpointUserController.update',
 
-  'post /api/facebook': 'EndpointFacebookController.postOnWall',
-  'get /api/facebook/fan': 'EndpointFacebookController.isFan',
+  'post /api/facebook': 'EndpointSocialController.postOnWall',
+  'get /api/facebook/fan': 'EndpointSocialController.isFan',
+
+  'post /api/twitter': 'EndpointSocialController.tweet',
+  'get /api/twitter/follow': 'EndpointSocialController.isFollower',
+  'post /api/twitter/follow': 'EndpointSocialController.follow',
 
   'get /api/ticket/:skip?': 'EndpointTicketController.read',
   'post /api/ticket/': 'EndpointTicketController.create',
