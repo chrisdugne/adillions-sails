@@ -300,6 +300,7 @@ var UserService = module.exports = function () {
         })
         .fail(function (err) {
           sails.log.error('UserService#fetch : query fails', err);
+          throw err;
         });
     },
 
@@ -317,17 +318,23 @@ var UserService = module.exports = function () {
           is mandatory');
       }
 
-      console.log('update : ', newData);
-
       return User
         .update({
           uid: uid
         }, newData)
         .then(function done(users) {
+          if (!users.length) {
+            throw new Error('UserService #update : user not found', uid);
+          }
           return users[0];
         })
         .fail(function (err) {
-          sails.log.error('UserService #update : query fails', err);
+          // E_VALIDATION = validation of shema type like unique, require fileds
+          // do not poluate the console with those kind of errors
+          if (err.code !== 'E_VALIDATION') {
+            sails.log.error('UserService #update : query fails', err);
+          }
+          throw err;
         });
     }
 

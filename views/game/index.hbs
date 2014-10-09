@@ -23,7 +23,7 @@
       {{#if user.userName}}
         {{user.userName}}
       {{else}}
-       {{user.firstName}} {{user.lastName}}
+       {{user.firstName}}
       {{/if}}
       !
     </h3>
@@ -45,4 +45,15 @@
       </a>
     </li>
   </ul>
+
+  {{#if user}}
+    <ul class="list-unstyled row mtxl">
+      <li class="text-center">
+        <a href="{{route 'userSettings.account' lang=locale}}" class="btn btn-default">
+          {{i18n 'game_view_account'}}
+        </a>
+      </li>
+    </ul>
+  {{/if}}
+
 {{/if}}

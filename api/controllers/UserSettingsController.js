@@ -73,14 +73,31 @@ module.exports = {
 
     userData.birthDate = birthDateFormated;
 
-    UserService.update(uid, userData, function (err, result) {
-      if (err) {
-        return res.serverError(err);
-      }
+    UserService.update(uid, userData).then(function (result) {
       req.flash('alert', {
         type: 'success',
         message: res.i18n('account_updated')
       });
+      res.redirect(accountRoute);
+    }).fail(function (err) {
+      if (err.code === 'E_VALIDATION') {
+        if (err.invalidAttributes.email) {
+          req.flash('alert', {
+            type: 'info',
+            message: res.i18n('Error.Passport.Email.Exists')
+          });
+        } else {
+          req.flash('alert', {
+            type: 'info',
+            message: res.i18n('Error.Passport.User.Exists')
+          });
+        }
+      } else {
+        req.flash('alert', {
+          type: 'danger',
+          message: res.i18n('ui_error')
+        });
+      }
       res.redirect(accountRoute);
     });
   }
