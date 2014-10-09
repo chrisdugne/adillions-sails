@@ -24,9 +24,12 @@ $icon-font-name: 'glyphicons-regular';
 //** Element ID within SVG icon file.
 $icon-font-svg-id: 'glyphiconsregular';
 
-$state-danger-text: #F84B15;
-$state-warning-text: $orange-lighter;
+$state-danger-text: #F75731;
+$state-warning-text: $orange-dark;
 $state-success-text: $green-lighter;
+
+$alert-warning-bg: lighten($orange-lighter, 25%);
+$alert-danger-bg: lighten($state-danger-text, 37%);
 
 $brand-lead: #F7B62F;
 $brand-primary: #13262E;
