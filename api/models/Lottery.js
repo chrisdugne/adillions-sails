@@ -86,6 +86,10 @@ module.exports = {
       type: 'json'
     },
 
+    rangs: {
+      type: 'json'
+    },
+
     finalPrice: {
       type: 'float',
       columnName: 'final_price'
