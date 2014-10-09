@@ -4,6 +4,22 @@
   background: rgba(255,255,255,0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
+
+  .checkbox {
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+  }
+
+  .has-error {
+   .checkbox {
+      a {
+        color: $state-danger-text;
+      }
+    }
+  }
+
   @media (max-width: $screen-xs-max) {
     margin-top: 20px;
   }

@@ -35,6 +35,8 @@ var registerView = Backbone.View.extend({
       this.model.set(field.name, field.value);
     }, this));
 
+    this.model.set('rules', this.$el.find('#register_rules:checked').length === 1);
+
     this.model.validate();
 
     return false;
@@ -55,6 +57,10 @@ var registerView = Backbone.View.extend({
             success: true,
             error: false
           };
+        }
+        if (key === 'rules') {
+          form_group
+            .removeClass('has-success');
         }
       } else {
         form_group

@@ -29,8 +29,12 @@ var accountView = Backbone.View.extend({
     }
 
     var fields = $(form).serializeArray();
+    delete fields._method;
 
     _.each(fields, _.bind(function (field) {
+      if(field.name === 'user[email]') {
+        field.name = 'user.email';
+      }
       this.model.set(field.name, field.value);
     }, this));
 
@@ -39,12 +43,13 @@ var accountView = Backbone.View.extend({
     return false;
   },
   showInvalid: function (model, errors) {
-    _.each(model.attributes, _.bind(function (value, key) {
-      var form_group = this.$el.find('input[name=' + key + ']').parents('.form-group:first'),
-        feedback = {},
-        help_text = '';
+    _.each(model.attributes, _.bind(function (value, deepKey) {
+      var key = deepKey.split('.')[1],
+        form_group = this.$el.find('#account_'+ key).parents('.form-group:first'),
+          feedback = {},
+          help_text = '';
 
-      if (model.isValid(key)) {
+      if (model.isValid(deepKey)) {
         if (form_group.hasClass('has-error')) {
           form_group
             .removeClass('has-error')
@@ -58,7 +63,7 @@ var accountView = Backbone.View.extend({
         form_group
           .removeClass('has-success')
           .addClass('has-error')
-          .find('.help-block').text(errors[key]);
+          .find('.help-block').text(errors[deepKey]);
         feedback = {
           error: true
         };

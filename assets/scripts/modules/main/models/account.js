@@ -1,23 +1,23 @@
 var accountModel = Backbone.Model.extend({
 
   validation: {
-    userName: {
+    'user.userName': {
       required: false,
       msg: $.t('auth.empty_username')
     },
-    firstName: {
+    'user.firstName': {
       required: false,
       msg: $.t('auth.empty_username')
     },
-    lastName: {
+    'user.lastName': {
       required: false,
       msg: $.t('auth.empty_username')
     },
-    birthDate: {
+    'user.birthDate': {
       required: false,
       msg: $.t('auth.empty_username')
     },
-    email: [{
+    'user.email': [{
       required: true,
       msg: $.t('auth.empty_email')
     }, {

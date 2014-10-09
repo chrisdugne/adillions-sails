@@ -37,7 +37,7 @@ var registerModel = Backbone.Model.extend({
       msg: $.t('auth.same_password')
     }],
     rules: {
-      required: true,
+      acceptance: true,
       msg: $.t('auth.accepts_policy')
     }
   }
