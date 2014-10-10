@@ -25,6 +25,19 @@ var UserService = module.exports = function () {
             user.networks.isFan = isFan;
             return user;
           });
+      })
+      .then(function checkTwitter(user) {
+        user.networks.connectedToTwitter = _.find(user.passports, {
+          'provider': 'twitter'
+        }) !== undefined;
+        return user;
+      })
+      .then(function checkFollower(user) {
+        return sails.services.facebook().isFollower(user.passports)
+          .then(function (isFollower) {
+            user.networks.isFollower = isFollower;
+            return user;
+          });
       });
   };
 
