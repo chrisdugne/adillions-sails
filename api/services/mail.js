@@ -87,10 +87,10 @@ Mail.prototype.registration = function (firstName, userName, email) {
   }
 
   if (!_.isString(email) || _.isEmpty(email)) {
-    return sails.log.error('MailService #registration : the email param is mandatory and should not be empty', name);
+    // do not trow an error, just log it
+    sails.log.error('MailService #registration : the email param is mandatory and should not be empty', name);
   }
 
-  // 'mail/registration' inlined to 'mail/registration_inlined' thanks to http://templates.mailchimp.com/resources/inline-css/
   return this._sendHtmlMail('mail/registration', {
     name: name,
     appIosUrl: sails.config.extUrl('app_ios'),
