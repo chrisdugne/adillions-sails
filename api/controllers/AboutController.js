@@ -72,7 +72,6 @@ module.exports = {
 
   faq: function (req, res) {
     var isMobile = req.param('mobile') === 'm';
-    console.log(isMobile);
     return res.view({
       usePopTitle: true,
       title: res.i18n('faq'),
@@ -115,8 +114,8 @@ module.exports = {
   },
 
   terms: function (req, res) {
-    var isMobile = req.param('mobile') === 'm';
-    var articles = {},
+    var isMobile = req.param('mobile') === 'm',
+      articles = {},
       locale = res.getLocale(),
       translations = require(path.resolve('config', 'locales/' + locale)),
       terms_regexx = /terms_([\d]+)-?([\d]+)?-?([\d]+)?/i;
