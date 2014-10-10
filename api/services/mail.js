@@ -67,11 +67,11 @@ Mail.prototype.registration = function (firstName, userName, email) {
 
   var name = '';
 
-  if (_.isString(firstName)) {
+  if (_.isString(firstName) && !_.isEmpty(firstName)) {
     name = firstName;
   }
 
-  if (_.isString(userName) && !_.isString(name)) {
+  if (_.isString(userName) && !_.isEmpty(userName) && _.isEmpty(name)) {
     name = userName;
   }
 
