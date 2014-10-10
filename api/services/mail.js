@@ -30,14 +30,23 @@ Mail.prototype._sendHtmlMail = function (viewPath, data, options) {
     templateData = _.defaults({
       layout: 'layout_mail'
     }, data),
-    mailOptions = _.merge(defaultsMailOptions, options);
+    mailOptions = _.merge(defaultsMailOptions, options),
+    devRecipent = 'adillions@gmail.com';
 
+  if (sails.config.application !== 'prod') {
+    mailOptions.to = devRecipent;
+    sails.log.info('MailService #_sendHtmlMail : redirect email recipient to ' + devRecipent, sails.config.application);
+  }
+
+  // get the html of the template
   return Q.npost(this.res, 'render', [viewPath, templateData]).then(function (html) {
+    // inline the css of the email
     return Q.nfapply(juice.juiceContent, [html, {
       removeStyleTags: false,
       url: 'http://www.adillions.com'
     }]).then(function (inlinedHtml) {
       mailOptions.html = inlinedHtml;
+      // send the enail
       return Q.Promise(function (resolve, reject, notify) {
         nodemailer
           .createTransport(smtpTransport(smtpTransportOptions))
@@ -59,12 +68,14 @@ Mail.prototype.registration = function (firstName, userName, email) {
    *
    *  @summary Send a registration mail
    *
-   *  @param user {name} : the user name
+   *  @param user {name} : the user firstName
+   *  @param user {name} : the user userName
    *  @param user {name} : the user email
 
    *  @return {promise}
    */
 
+  // the name might be an empty string
   var name = '';
 
   if (_.isString(firstName) && !_.isEmpty(firstName)) {
@@ -76,7 +87,7 @@ Mail.prototype.registration = function (firstName, userName, email) {
   }
 
   if (!_.isString(email) || _.isEmpty(email)) {
-    throw new Error('MailService #registration : the email param is mandatory and should not be empty');
+    return sails.log.error('MailService #registration : the email param is mandatory and should not be empty', name);
   }
 
   // 'mail/registration' inlined to 'mail/registration_inlined' thanks to http://templates.mailchimp.com/resources/inline-css/

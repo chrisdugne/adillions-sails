@@ -80,6 +80,20 @@ module.exports = {
    * 'development' environment.                                              *
    ***************************************************************************/
 
-  // environment: process.env.NODE_ENV || 'development'
+  /*
+   * production
+   * development
+   */
+
+  environment: process.env.NODE_ENV || 'development',
+
+  /*
+   * prod (production)
+   * stage (master)
+   * dev (develop)
+   * local
+   */
+
+  application: process.env.APP_NAME || 'local'
 
 };
