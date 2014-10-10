@@ -15,6 +15,7 @@
 
     {{> 'alerts'}}
 
+    {{#unless isMobile}}
     <div class="panel panel-default">
       <div class="panel-heading">
         {{i18n 'ui_connect'}}
@@ -26,6 +27,7 @@
         </div>
       </div>
     </div>
+    {{/unless}}
 
 
     <div class="panel panel-default">
@@ -33,9 +35,12 @@
         {{{i18n 'profile'}}} {{user.username}}
       </div>
       <div class="panel-body">
-        <form role="form form-horizontal" action="{{route 'userSettings.updateAccount' lang=locale uid=user.uid}}" method="post" class='settings-account-form'>
+        <form role="form form-horizontal" action="{{#if isMobile}}{{route 'userSettings.updateAccountMobile' lang=locale}}{{else}}{{route 'userSettings.updateAccount' lang=locale}}{{/if}}" method="post" class='settings-account-form'>
 
           <input type="hidden" name="_method" value="put">
+          {{#if isMobile}}
+          <input type="hidden" name="access_token" value="{{user.auth_token}}">
+          {{/if}}
 
             <div class="row">
               <div class="col-sm-12">

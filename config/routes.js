@@ -35,10 +35,13 @@ module.exports.routes = {
 
   'get /m/loggedin': 'AuthController.loggedinMobile',
 
-  '/:lang/:mobile/terms': 'AboutController.terms',
-  '/:lang/:mobile/rules': 'AboutController.rules',
-  '/:lang/:mobile/privacy': 'AboutController.privacy',
+  '/:lang/:mobile/about/terms': 'AboutController.terms',
+  '/:lang/:mobile/about/rules': 'AboutController.rules',
+  '/:lang/:mobile/about/privacy': 'AboutController.privacy',
   '/:lang/:mobile/faq': 'AboutController.faq',
+
+  'get /:lang/m/account': 'UserSettingsController.accountMobile',
+  'put /:lang/m/account': 'UserSettingsController.updateAccountMobile',
 
   //----------------------------------------------------------------------------
   // Web routes

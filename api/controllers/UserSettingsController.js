@@ -47,10 +47,42 @@ module.exports = {
 
   },
 
+  accountMobile: function (req, res) {
+    var UserService = new sails.services.user(),
+      AuthService = new sails.services.auth(),
+      AccountService = new sails.services.account(),
+      form = AccountService.getFormData(req.user, req.format_date),
+      user = req.user;
+
+    res.locals.user = req.user;
+
+    UserService.readPassports(user.uid, function (err, passports) {
+      if (err) {
+        return res.serverError(err);
+      }
+
+      var providers = AuthService.getProviders(passports);
+
+      res.view('usersettings/account', {
+        providers_row: 12 / (_.size(providers)),
+        providers: providers,
+        form: form,
+        isAccount: true,
+        alert: req.flash('alert')[0],
+        usePopTitle: true,
+        bodyClass: 'account',
+        isMobile: true,
+        layout: 'layout_about_mobile'
+      });
+
+    });
+
+  },
+
   updateAccount: function (req, res) {
     var userData = _.pick(req.body.user, 'userName', 'firstName', 'lastName', 'birthDate', 'email'),
       UserService = new sails.services.user(),
-      uid = req.user.uid,
+      uid = req.user ? req.user.uid : null,
       accountRoute = sails.config.route('userSettings.account', {
         hash: {
           'lang': res.getLocale()
@@ -80,6 +112,7 @@ module.exports = {
       });
       res.redirect(accountRoute);
     }).fail(function (err) {
+      console.log(uid, err);
       if (err.code === 'E_VALIDATION') {
         if (err.invalidAttributes.email) {
           req.flash('alert', {
@@ -100,6 +133,63 @@ module.exports = {
       }
       res.redirect(accountRoute);
     });
-  }
+  },
+
+  updateAccountMobile: function (req, res) {
+    var userData = _.pick(req.body.user, 'userName', 'firstName', 'lastName', 'birthDate', 'email'),
+      UserService = new sails.services.user(),
+      uid = req.user ? req.user.uid : null,
+      accountMobileRoute = sails.config.route('userSettings.updateAccountMobile', {
+        hash: {
+          'lang': res.getLocale()
+        }
+      }),
+      redirectRoute = accountMobileRoute + '?access_token=' + req.user.auth_token;
+
+    var birthDateFormated = req.format_date()
+      .set('date', userData.birthDate.day)
+      .set('month', Number(userData.birthDate.month) - 1)
+      .set('year', userData.birthDate.year)
+      .format('YYYY-MM-DD');
+
+    if (!req.format_date(birthDateFormated).isValid()) {
+      req.flash('alert', {
+        type: 'danger',
+        message: res.i18n('Error.Account.birtDate.invalid')
+      });
+      return res.redirect(redirectRoute);
+    }
+
+    userData.birthDate = birthDateFormated;
+
+    UserService.update(uid, userData).then(function (result) {
+      req.flash('alert', {
+        type: 'success',
+        message: res.i18n('account_updated')
+      });
+      res.redirect(redirectRoute);
+    }).fail(function (err) {
+      console.log(uid, err);
+      if (err.code === 'E_VALIDATION') {
+        if (err.invalidAttributes.email) {
+          req.flash('alert', {
+            type: 'danger',
+            message: res.i18n('Error.Passport.Email.Exists')
+          });
+        } else {
+          req.flash('alert', {
+            type: 'danger',
+            message: res.i18n('Error.Passport.User.Exists')
+          });
+        }
+      } else {
+        req.flash('alert', {
+          type: 'danger',
+          message: res.i18n('ui_error')
+        });
+      }
+      res.redirect(redirectRoute);
+    });
+  },
 
 };

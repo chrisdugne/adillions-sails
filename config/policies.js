@@ -14,6 +14,7 @@ var _ = require('lodash');
 
 var commonPolicies = ['passport', 'seoLang', 'initLanguages', 'formatDate', 'layout'],
   WebPolicies = ['passport', 'authenticatedBySession', 'seoLang', 'initLanguages', 'formatDate', 'layout'],
+  WebMobilePolicies = ['passportToken', 'authenticatedByToken', 'seoLang', 'initLanguages', 'formatDate', 'layout'],
   ApiPolicies = ['passportToken', 'authenticatedByToken'];
 
 module.exports.policies = {
@@ -56,7 +57,12 @@ module.exports.policies = {
   },
 
   'userSettingsController': {
-    '*': WebPolicies
+    '*': false,
+    profile: WebPolicies,
+    account: WebPolicies,
+    updateAccount: WebPolicies,
+    accountMobile: WebMobilePolicies,
+    updateAccountMobile: WebMobilePolicies
   },
 
   'authController': {

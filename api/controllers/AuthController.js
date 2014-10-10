@@ -200,26 +200,22 @@ var AuthController = {
       if (err && err.code !== 'E_VALIDATION' && err.message !== 'abort') {
         sails.log.error(err);
       }
-      req.login(user, function (err) {
-        // If an error was thrown, redirect the user to the login which should
-        // take care of rendering the error messages.
-        if (err) {
-          req.flash('error', req.flash('error')[0] || 'Error.Passport.Generic');
-          req.flash('form', req.body);
-          if (action === 'register') {
-            res.redirect(registerRoute);
-          } else if (action === 'disconnect') {
-            res.redirect('back');
-          } else {
-            res.redirect(loginRoute);
-          }
+      if (err) {
+        req.flash('error', req.flash('error')[0] || 'Error.Passport.Generic');
+        req.flash('form', req.body);
+        if (action === 'register') {
+          res.redirect(registerRoute);
+        } else if (action === 'disconnect') {
+          res.redirect('back');
         } else {
-          if (req._registered === true) {
-            (new sails.services.mail(res)).registration(user.firstName, user.userName, user.email);
-          }
-          res.redirect('/m/loggedin?auth_token=' + user.auth_token);
+          res.redirect(loginRoute);
         }
-      });
+      } else {
+        if (req._registered === true) {
+          (new sails.services.mail(res)).registration(user.firstName, user.userName, user.email);
+        }
+        res.redirect('/m/loggedin?auth_token=' + user.auth_token);
+      }
     });
   }
 
