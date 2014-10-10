@@ -104,6 +104,7 @@
   "auth_register": "Register",
   "auth_register_terms": "I agree to the <a href=\"%s\">Terms of Use</a> and <a href=\"%s\">Privacy Policy</a>",
   "auth_field_username": "Username",
+  "auth_field_username_label": "You may pick a username",
   "auth_field_email": "Email Address",
   "auth_field_password": "Password",
   "auth_field_passwordRepeat": "Confirm password",

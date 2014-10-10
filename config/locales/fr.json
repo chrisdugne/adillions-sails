@@ -105,6 +105,7 @@
   "auth_register": "S'enregistrer",
   "auth_register_terms": "J'accepte <a href=\"%s\">les Conditions d'utilisation</a> et la <a href=\"%s\">Politique de confidentialité</a>",
   "auth_field_username": "Pseudo",
+  "auth_field_username_label": "Vous pouvez choisir un pseudo",
   "auth_field_email": "Adresse Email",
   "auth_field_password": "Mot de passe",
   "auth_field_passwordRepeat": "Confirmer votre mot de passe",

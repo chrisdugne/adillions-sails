@@ -20,12 +20,6 @@
       {{> 'auth_providers'}}
     </div>
 
-    <div class="form-group form-group-lg has-feedback" data-toggle="tooltip" data-placement="top">
-      <label class="control-label" for="username">{{i18n 'auth_field_username'}}</label>
-      <input type="text" class="form-control username" name="username" placeholder="{{i18n 'auth_field_username'}}" value="{{form.username}}">
-      <span class="help-block"></span>
-    </div>
-
     <div class="form-group form-group-lg has-feedback">
       <label class="control-label" for="email">{{i18n 'auth_field_email'}} <span class="text-warning">*</span></label>
       <input type="email" class="form-control email" name="email" placeholder="{{i18n 'auth_field_email'}}" value="{{form.email}}">
@@ -41,6 +35,12 @@
     <div class="form-group form-group-lg has-feedback">
       <label class="control-label" for="password">{{i18n 'auth_field_passwordRepeat'}} <span class="text-warning">*</span></label>
       <input type="password" class="form-control password" name="passwordRepeat" placeholder="{{i18n 'auth_field_passwordRepeat'}}" value="{{form.passwordRepeat}}">
+      <span class="help-block"></span>
+    </div>
+
+    <div class="form-group form-group-lg has-feedback from-group-username" data-toggle="tooltip" data-placement="top">
+      <label class="control-label" for="username">{{i18n 'auth_field_username_label'}}</label>
+      <input type="text" class="form-control username" name="username" placeholder="{{i18n 'auth_field_username'}}" value="{{form.username}}">
       <span class="help-block"></span>
     </div>
 
