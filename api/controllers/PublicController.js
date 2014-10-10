@@ -29,6 +29,18 @@ var PublicController = module.exports = {
 
   //----------------------------------------------------------------------------
 
+  readNextDrawing: function (req, res) {
+    new sails.services.public().readNextDrawing()
+      .then(function (result) {
+        res.json(result);
+      })
+      .fail(function (err) {
+        return res.serverError(err);
+      });
+  },
+
+  //----------------------------------------------------------------------------
+
   readArchivedLotteries: function (req, res) {
     new sails.services.public().readArchivedLotteries(req.param('limit'))
       .then(function (lotteries) {

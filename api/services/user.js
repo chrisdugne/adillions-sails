@@ -33,7 +33,7 @@ var UserService = module.exports = function () {
         return user;
       })
       .then(function checkFollower(user) {
-        return sails.services.facebook().isFollower(user.passports)
+        return sails.services.twitter().isFollower(user.passports)
           .then(function (isFollower) {
             user.networks.isFollower = isFollower;
             return user;

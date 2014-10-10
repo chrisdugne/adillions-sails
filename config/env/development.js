@@ -36,8 +36,13 @@ module.exports = {
   passport: {
     facebook: {
       options: {
-        clientID: '534196239997712',
-        clientSecret: '46383d827867d50ef5d87b66c81f1a8e'
+        // FB app with canvas = http://localhost:1337/
+        // clientID: '534196239997712',
+        // clientSecret: '46383d827867d50ef5d87b66c81f1a8e'
+
+        // FB app with canvas = http://192.168.0.9:1337/
+        clientID: '293489340852840',
+        clientSecret: '3aa23c8b8176c84791b19d8778cf3974'
       }
     },
     google: {

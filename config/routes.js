@@ -85,8 +85,9 @@ module.exports.routes = {
   //----------------------------------------------------------------------------
 
   '/api/globals': 'PublicController.readGlobals',
-
   '/api/status': 'PublicController.readStatus',
+
+  '/api/lottery/next': 'PublicController.readNextDrawing',
   '/api/lottery/archive/:limit?': 'PublicController.readArchivedLotteries',
 
   '/api/mobile/settings/:id': 'PublicController.readMobileSettings',

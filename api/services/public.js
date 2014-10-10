@@ -44,6 +44,21 @@ var PublicService = module.exports = function () {
 
     //--------------------------------------------------------------------------
 
+    readNextDrawing: function () {
+      return sails.models.lottery
+        .findOne()
+        .where({
+          timestamp: {
+            '>': new Date().getTime()
+          }
+        })
+        .then(function (nextDrawing) {
+          return nextDrawing;
+        });
+    },
+
+    //--------------------------------------------------------------------------
+
     readStatus: function () {
       return this.readGlobals()
         .then(function initResult(globals) {
@@ -52,18 +67,12 @@ var PublicService = module.exports = function () {
           };
         })
         .then(function getNextDrawing(result) {
-          return sails.models.lottery
-            .findOne()
-            .where({
-              timestamp: {
-                '>': new Date().getTime()
-              }
-            })
+          return this.readNextDrawing()
             .then(function (nextDrawing) {
               result.nextDrawing = nextDrawing;
               return result;
             });
-        })
+        }.bind(this))
         .then(function getNextPlayableDrawing(result) {
           return sails.models.lottery
             .findOne()
