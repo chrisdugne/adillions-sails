@@ -18,8 +18,8 @@ var User = module.exports = {
 
   fetch: function (req, res) {
     var uid = req.user ? req.user.uid : req.param('uid'),
-      country = req.param('country'),
-      mobileVersion = req.param('mobileVersion');
+      country = req.body.country,
+      mobileVersion = req.body.mobileVersion;
 
     new sails.services.user().fetch(uid, country, mobileVersion)
       .then(function (result) {
