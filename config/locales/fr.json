@@ -125,7 +125,7 @@
   "mail.registration.subject": "Bienvenue sur Adillions",
   "mail.registration.hi": "Bonjour <b style='color:#0d6161;'>%s</b> !",
   "mail.registration.title": "Bienvenue sur <b>Adillions</b>, <b>la loterie gratuite</b> avec des <b>gains d’argent réel</b> financés par la publicité !",
-  "mail.registration.desc": "Félicitations ! Vous venez de rejoindre notre communauté internationale de joueurs, vous pouvez dorénavant jouer à Adillions sur votre smartphone et votre tablette (<a href='%s' style='color: #2685c5;text-decoration: none;'>iOS</a> et <a href='%s' style='color: #2685c5;text-decoration: none;'>Android</a>) et sur internet <a href='http://www.adillions.com' style='color: #2685c5;text-decoration: none;'>http://www.adillions.com</a>.",
+  "mail.registration.desc": "Félicitations ! Vous venez de rejoindre notre communauté internationale de joueurs.<br> vous pouvez dorénavant jouer à Adillions sur votre smartphone et votre tablette (<a href='%s' style='color: #2685c5;text-decoration: none;'>iOS</a> et <a href='%s' style='color: #2685c5;text-decoration: none;'>Android</a>) et sur internet <a href='http://www.adillions.com' style='color: #2685c5;text-decoration: none;'>http://www.adillions.com</a>.",
   "mail.registration.step.desc": "A chaque tirage d'Adillions, ce sont :",
   "mail.registration.step.ticket": "Plusieurs tickets de loterie disponibles à remplir",
   "mail.registration.step.theme": "Un nouveau thème à découvrir",
