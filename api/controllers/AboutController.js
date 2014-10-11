@@ -46,19 +46,23 @@ module.exports = {
   },
 
   reward: function (req, res) {
+    var isMobile = req.param('mobile') === 'm';
     return res.view({
       usePopTitle: true,
       title: res.i18n('reward'),
-      layout: 'layout_about'
+      isMobile: isMobile,
+      layout: isMobile ? 'layout_about_mobile' : 'layout_about'
     });
   },
 
   prizes: function (req, res) {
+    var isMobile = req.param('mobile') === 'm';
     return res.view({
       usePopTitle: true,
       title: res.i18n('prizes'),
       bodyClass: 'prizes',
-      layout: 'layout_about'
+      isMobile: isMobile,
+      layout: isMobile ? 'layout_about_mobile' : 'layout_about'
     });
   },
 
@@ -75,6 +79,7 @@ module.exports = {
     return res.view({
       usePopTitle: true,
       title: res.i18n('faq'),
+      isMobile: isMobile,
       layout: isMobile ? 'layout_about_mobile' : 'layout_about'
     });
   },
@@ -92,6 +97,7 @@ module.exports = {
     return res.view({
       usePopTitle: true,
       title: res.i18n('keyrules'),
+      isMobile: isMobile,
       layout: isMobile ? 'layout_about_mobile' : 'layout_about'
     });
   },
@@ -109,6 +115,7 @@ module.exports = {
     return res.view({
       usePopTitle: true,
       title: res.i18n('privacy'),
+      isMobile: isMobile,
       layout: isMobile ? 'layout_about_mobile' : 'layout_about'
     });
   },
@@ -139,6 +146,7 @@ module.exports = {
         usePopTitle: true,
         title: res.i18n('terms'),
         articles: articles,
+        isMobile: isMobile,
         layout: isMobile ? 'layout_about_mobile' : 'layout_about'
       });
     });

@@ -39,6 +39,8 @@ module.exports.routes = {
   '/:lang/:mobile/about/rules': 'AboutController.rules',
   '/:lang/:mobile/about/privacy': 'AboutController.privacy',
   '/:lang/:mobile/about/faq': 'AboutController.faq',
+  '/:lang/:mobile/about/reward': 'AboutController.reward',
+  '/:lang/:mobile/about/prizes': 'AboutController.prizes',
 
   'get /:lang/m/account': 'UserSettingsController.accountMobile',
   'put /:lang/m/account': 'UserSettingsController.updateAccountMobile',
