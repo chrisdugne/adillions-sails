@@ -1,4 +1,3 @@
-var _ = require('lodash');
 /**
  * Policy mappings (ACL)
  *
@@ -12,42 +11,16 @@ var _ = require('lodash');
  * http://sailsjs.org/#documentation
  */
 
-var commonPolicies = ['passport', 'seoLang', 'initLanguages', 'formatDate', 'layout'],
-  WebPolicies = ['passport', 'authenticatedBySession', 'seoLang', 'initLanguages', 'formatDate', 'layout'],
-  WebMobilePolicies = ['passportToken', 'authenticatedByToken', 'seoLang', 'initLanguages', 'formatDate', 'layout'],
+const AUTHORIZED = true;
+const UNAUTHORIZED = false;
+
+var filters = ['middl_seoLang', 'middl_initLanguages', 'middl_helpers', 'middl_layout'],
+  commonPolicies = filters.concat(['passport']),
+  WebPolicies = filters.concat(['passport', 'authenticatedBySession']),
+  WebMobilePolicies = filters.concat(['passportToken', 'authenticatedByToken']),
   ApiPolicies = ['passportToken', 'authenticatedByToken'];
 
 module.exports.policies = {
-
-  /***************************************************************************
-   *                                                                          *
-   * Default policy for all controllers and actions (`true` allows public     *
-   * access)                                                                  *
-   *                                                                          *
-   ***************************************************************************/
-
-  // '*': true,
-
-  /***************************************************************************
-   *                                                                          *
-   * Here's an example of mapping some policies to run before a controller    *
-   * and its actions                                                          *
-   *                                                                          *
-   ***************************************************************************/
-  // RabbitController: {
-
-  // Apply the `false` policy as the default for all of RabbitController's actions
-  // (`false` prevents all access, which ensures that nothing bad happens to our rabbits)
-  // '*': false,
-
-  // For the action `nurture`, apply the 'isRabbitMother' policy
-  // (this overrides `false` above)
-  // nurture  : 'isRabbitMother',
-
-  // Apply the `isNiceToAnimals` AND `hasRabbitFood` policies
-  // before letting any users feed our rabbits
-  // feed : ['isNiceToAnimals', 'hasRabbitFood']
-  // }
 
   '*': commonPolicies,
 
@@ -57,7 +30,7 @@ module.exports.policies = {
   },
 
   'userSettingsController': {
-    '*': false,
+    '*': UNAUTHORIZED,
     profile: WebPolicies,
     account: WebPolicies,
     updateAccount: WebPolicies,
@@ -66,7 +39,7 @@ module.exports.policies = {
   },
 
   'authController': {
-    '*': 'passport',
+    '*': ['middl_helpers', 'passport'],
     login: commonPolicies,
     register: commonPolicies
   },
@@ -84,7 +57,7 @@ module.exports.policies = {
   },
 
   'publicController': {
-    '*': true
+    '*': AUTHORIZED
   }
 
 };
