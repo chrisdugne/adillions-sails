@@ -95,39 +95,24 @@ module.exports = {
       .format('YYYY-MM-DD');
 
     if (!req.format_date(birthDateFormated).isValid()) {
-      req.flash('alert', {
-        type: 'danger',
-        message: res.i18n('Error.Account.birtDate.invalid')
-      });
+      req.flash_alert('danger', 'Error.Account.birtDate.invalid');
       return res.redirect(accountRoute);
     }
 
     userData.birthDate = birthDateFormated;
 
     UserService.update(uid, userData).then(function (result) {
-      req.flash('alert', {
-        type: 'success',
-        message: res.i18n('account_updated')
-      });
+      req.flash_alert('success', 'account_updated');
       res.redirect(accountRoute);
     }).fail(function (err) {
       if (err.code === 'E_VALIDATION') {
         if (err.invalidAttributes.email) {
-          req.flash('alert', {
-            type: 'danger',
-            message: res.i18n('Error.Passport.Email.Exists')
-          });
+          req.flash_alert('danger', 'Error.Passport.Email.Exists');
         } else {
-          req.flash('alert', {
-            type: 'danger',
-            message: res.i18n('Error.Passport.User.Exists')
-          });
+          req.flash_alert('danger', 'Error.Passport.User.Exists');
         }
       } else {
-        req.flash('alert', {
-          type: 'danger',
-          message: res.i18n('ui_error')
-        });
+        req.flash_alert('danger', 'ui_error');
       }
       res.redirect(accountRoute);
     });
@@ -151,40 +136,24 @@ module.exports = {
       .format('YYYY-MM-DD');
 
     if (!req.format_date(birthDateFormated).isValid()) {
-      req.flash('alert', {
-        type: 'danger',
-        message: res.i18n('Error.Account.birtDate.invalid')
-      });
+      req.flash_alert('danger', 'Error.Account.birtDate.invalid');
       return res.redirect(redirectRoute);
     }
 
     userData.birthDate = birthDateFormated;
 
     UserService.update(uid, userData).then(function (result) {
-      req.flash('alert', {
-        type: 'success',
-        message: res.i18n('account_updated')
-      });
+      req.flash_alert('success', 'account_updated');
       res.redirect(redirectRoute);
     }).fail(function (err) {
-      console.log(uid, err);
       if (err.code === 'E_VALIDATION') {
         if (err.invalidAttributes.email) {
-          req.flash('alert', {
-            type: 'danger',
-            message: res.i18n('Error.Passport.Email.Exists')
-          });
+          req.flash_alert('danger', 'Error.Passport.Email.Exists');
         } else {
-          req.flash('alert', {
-            type: 'danger',
-            message: res.i18n('Error.Passport.User.Exists')
-          });
+          req.flash_alert('danger', 'Error.Passport.User.Exists');
         }
       } else {
-        req.flash('alert', {
-          type: 'danger',
-          message: res.i18n('ui_error')
-        });
+        req.flash_alert('danger', 'ui_error');
       }
       res.redirect(redirectRoute);
     });
