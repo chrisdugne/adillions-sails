@@ -31,14 +31,13 @@ module.exports = {
       }
 
       var providers = AuthService.getProviders(passports);
-
       res.view({
         providers_row: 12 / (_.size(providers)),
         providers: providers,
         form: form,
         isAccount: true,
-        alert: req.flash('alert')[0],
         usePopTitle: true,
+        alert: req.flash_alert(),
         bodyClass: 'account',
         layout: 'layout_about'
       });
@@ -67,11 +66,11 @@ module.exports = {
         providers_row: 12 / (_.size(providers)),
         providers: providers,
         form: form,
-        isAccount: true,
-        alert: req.flash('alert')[0],
-        usePopTitle: true,
-        bodyClass: 'account',
         isMobile: true,
+        isAccount: true,
+        usePopTitle: true,
+        alert: req.flash_alert(),
+        bodyClass: 'account',
         layout: 'layout_about_mobile'
       });
 
@@ -112,7 +111,6 @@ module.exports = {
       });
       res.redirect(accountRoute);
     }).fail(function (err) {
-      console.log(uid, err);
       if (err.code === 'E_VALIDATION') {
         if (err.invalidAttributes.email) {
           req.flash('alert', {

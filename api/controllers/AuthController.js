@@ -49,7 +49,7 @@ var AuthController = {
       providers_row: 12 / _.size(providers),
       providers: providers,
       form: req.flash('form')[0],
-      alert: req.flash('error')[0],
+      alert: req.flash_alert(),
       layout: isMobile ? 'layout_mobile' : 'layout_light',
       bodyClass: 'auth auth_login ' + (isMobile ? 'layout_light' : ''),
       isMobile: isMobile
@@ -99,7 +99,7 @@ var AuthController = {
       providers_row: 12 / _.size(providers),
       providers: providers,
       form: req.flash('form')[0],
-      alert: req.flash('error')[0],
+      alert: req.flash_alert(),
       layout: isMobile ? 'layout_mobile' : 'layout_light',
       bodyClass: 'auth auth_register ' + (isMobile ? 'layout_light' : ''),
       isMobile: isMobile
@@ -161,7 +161,7 @@ var AuthController = {
         // If an error was thrown, redirect the user to the login which should
         // take care of rendering the error messages.
         if (err) {
-          req.flash('error', req.flash('error')[0] || 'Error.Passport.Generic');
+          req.flash('alert', req.flash_alert() || req.flash_alert('danger', 'Error.Passport.Generic'));
           req.flash('form', req.body);
           if (action === 'register') {
             res.redirect(registerRoute);
@@ -200,8 +200,9 @@ var AuthController = {
       if (err && err.code !== 'E_VALIDATION' && err.message !== 'abort') {
         sails.log.error(err);
       }
-      if (err) {
-        req.flash('error', req.flash('error')[0] || 'Error.Passport.Generic');
+
+      if (err || !user) {
+        req.flash('alert', req.flash_alert() || req.flash_alert('danger', 'Error.Passport.Generic'));
         req.flash('form', req.body);
         if (action === 'register') {
           res.redirect(registerRoute);

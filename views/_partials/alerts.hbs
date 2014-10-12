@@ -1,15 +1,13 @@
-<div class="row">
-
-  <div class="col-xs-12">
-    {{#if alert}}
-      <div class="alerts mbl">
-        <div class="alert alert-{{alert.type}} mbn" role="alert">
-          {{#mergeContexts parent=..}}
-            {{{i18n alert.message}}}
-          {{/mergeContexts}}
+{{#if alert}}
+  <div class="row">
+    <div class="col-xs-12">
+      {{#with alert}}
+        <div class="alerts mbl">
+          <div class="alert alert-{{type}} mbn" role="alert">
+            {{{message}}}
+          </div>
         </div>
-      </div>
-    {{/if}}
+      {{/with}}
+    </div>
   </div>
-
-</div>
+{{/if}}

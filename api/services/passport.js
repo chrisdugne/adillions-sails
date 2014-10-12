@@ -175,9 +175,9 @@ passport.connect = function (req, query, userObj, profile, next) {
     .fail(function handleValiationErrors(err) {
       if (err.code === 'E_VALIDATION') {
         if (err.invalidAttributes.email) {
-          req.flash('error', 'Error.Passport.Email.Exists');
+          req.flash_alert('danger', 'Error.Passport.Email.Exists');
         } else {
-          req.flash('error', 'Error.Passport.User.Exists');
+          req.flash_alert('danger', 'Error.Passport.User.Exists');
         }
       }
       next(err);
@@ -213,7 +213,7 @@ passport.endpoint = function (req, res, next) {
   // If a provider doesn't exist for this endpoint, send the user back to the
   // login page
   if (!strategies.hasOwnProperty(provider)) {
-    req.flash('error', 'Error.Passport.Generic');
+    req.flash_alert('danger', 'Error.Passport.Generic');
     return res.redirect(req._isMobile ? loginRouteMobile : loginRoute);
   }
 
