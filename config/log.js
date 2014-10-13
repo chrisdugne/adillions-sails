@@ -9,7 +9,7 @@
  * http://sailsjs.org/#documentation
  */
 
-module.exports = {
+module.exports.log = {
 
   /***************************************************************************
    *                                                                          *
@@ -23,8 +23,6 @@ module.exports = {
    *                                                                          *
    ***************************************************************************/
 
-  log: {
-    level: 'verbose'
-  }
+  level: 'verbose'
 
 };

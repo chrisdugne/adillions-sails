@@ -28,6 +28,10 @@ module.exports = function (req, res, next) {
     user = res.locals.user,
     pathname;
 
+  if (req.path === '/favicon.ico' || req.path === '/robots.txt') {
+    return next();
+  }
+
   if (req.path === '/') {
     if (setLng) {
       sails.log.info('Home page with, trying to change the language through the setLgn param', {
