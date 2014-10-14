@@ -10,7 +10,7 @@
   "Error.Passport.auth.forbidden": "<strong>Veuillez vous connecter</strong>, pour accéder à cette page.",
   "Error.Passport.Password.Invalid": "Le mot de passe est invalide.",
   "Error.Passport.Password.Wrong": "Le champ mot de passe est incorrect.",
-  "Error.Passport.Password.NotSet": "Le champ mot de passe est vide.",
+  "Error.Passport.Password.NotSet": "L'adresse email et le mot de passe ne correspondent pas. Essayez de vous connecter avec votre compte Facebook, Twitter ou Google.",
   "Error.Passport.Username.NotFound": "Cet Utilisateur est introuvable.",
   "Error.Passport.Email.NotFound": "Cet Email est introuvable.",
   "Error.Passport.User.Exists": "Ce pseudo est dejà utilisé.",

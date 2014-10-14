@@ -10,7 +10,7 @@
   "Error.Passport.auth.forbidden": "<strong>You must be logged in</strong>, to view this page",
   "Error.Passport.Password.Invalid": "The provided password is invalid!",
   "Error.Passport.Password.Wrong": "That password wasn't quite right!",
-  "Error.Passport.Password.NotSet": "You haven't set a password yet!",
+  "Error.Passport.Password.NotSet": "The email address and password do not match. So try to connect to Facebook, Twitter or Google.",
   "Error.Passport.Username.NotFound": "What's your name again?",
   "Error.Passport.Email.NotFound": "That email doesn't seem right",
   "Error.Passport.User.Exists": "This username is already taken.",
