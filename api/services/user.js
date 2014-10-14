@@ -142,6 +142,7 @@ var UserService = module.exports = function () {
                 user.playedBonusTickets = 0;
                 user.temporaryBonusTickets = 0;
 
+                user.newDrawing = true;
                 user.tweet = false;
                 user.tweetTheme = false;
                 user.postOnFacebook = false;
