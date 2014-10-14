@@ -10,39 +10,6 @@
  *
  */
 
-var prods_env = {
-  'prod': {
-    passport: {
-      facebook: {
-        options: {
-          clientID: '170148346520274',
-          clientSecret: '887e8f7abb9b1cb9238a097e06585ae2'
-        }
-      }
-    }
-  },
-  'stage': {
-    passport: {
-      facebook: {
-        options: {
-          clientID: '293490820852692',
-          clientSecret: '1ec4fb849a52132737e0402ee007a978'
-        }
-      }
-    }
-  },
-  'dev': {
-    passport: {
-      facebook: {
-        options: {
-          clientID: '293490260852748',
-          clientSecret: '734afab21e3dcab63d7faf0e757187bc'
-        }
-      }
-    }
-  }
-};
-
 module.exports = {
 
   log: {
@@ -61,18 +28,30 @@ module.exports = {
     connection: 'Postgresql'
   },
 
+  session: {
+    adapter: 'redis',
+    url: process.env.REDISCLOUD_URL,
+    db: 0,
+    prefix: 'sess:'
+  },
+
   passport: {
     twitter: {
       options: {
-        consumerKey: 'mkJn1v9zVyKHnU7S6yLCg',
-        consumerSecret: 'wIj7zjxPTwc8Mt2uAyf8azKmSgPEDwYpvpxdtQwic'
+        consumerKey: process.env.TWITTER_CLIENT_ID,
+        consumerSecret: process.env.TWITTER_CLIENT_SECRET
       }
     },
-    facebook: prods_env[process.env.APP_NAME || 'prod'].passport.facebook,
+    facebook: {
+      options: {
+        clientID: process.env.FACEBOOK_CLIENT_ID,
+        clientSecret: process.env.FACEBOOK_CLIENT_SECRET
+      }
+    },
     google: {
       options: {
-        clientID: '78678402894-mchcph0itjhbkd727qdm4d8f7epbcatv.apps.googleusercontent.com',
-        clientSecret: 'Ob0ZMAXEPkVJ6cdUSmH3-V5i'
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET
       }
     }
   },

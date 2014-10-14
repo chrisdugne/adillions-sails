@@ -25,13 +25,13 @@ module.exports.session = {
   /***************************************************************************
    *                                                                          *
    * Set the session cookie expire time The maxAge is set by milliseconds,    *
-   * the example below is for 24 hours                                        *
+   * the example below is for 48 hours                                        *
    *                                                                          *
    ***************************************************************************/
 
   cookie: {
-    maxAge: 7 * 24 * 60 * 60 * 1000
-  }
+    maxAge: 2 * 24 * 60 * 60 * 1000
+  },
 
   /***************************************************************************
    *                                                                          *
@@ -50,12 +50,11 @@ module.exports.session = {
    *                                                                          *
    ***************************************************************************/
 
-  // host: 'localhost',
-  // port: 6379,
-  // ttl: <redis session TTL in seconds>,
+  // host: '',
+  // port: 16540,
   // db: 0,
-  // pass: <redis auth password>
-  // prefix: 'sess:'
+  // pass: '',
+  // prefix: 'sess:',
 
   /***************************************************************************
    *                                                                          *

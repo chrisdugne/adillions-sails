@@ -309,8 +309,6 @@ Lottery.prototype.getLotteries = function (total, offset, next) {
     .sort('timestamp DESC')
     .then(function (lotteries) {
       _.forEach(lotteries, function (lottery) {
-
-        console.log(lottery);
         return normalizeAttributes(lottery);
       });
       return lotteries;
