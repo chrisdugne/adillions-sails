@@ -160,7 +160,8 @@ module.exports = {
 
     email: {
       type: 'email',
-      unique: true
+      unique: true,
+      required: false
     },
 
     firstName: {

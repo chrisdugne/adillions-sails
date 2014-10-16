@@ -93,7 +93,7 @@ passport.connect = function (req, query, userObj, profile, next) {
     userQuery = {
       twitter_id: identifier
     };
-    userObj.email = '';
+    // force email creation to avoid not null email contraint
     userObj.twitter_id = identifier;
     userObj.twitter_name = userObj.userName;
   }
