@@ -82,6 +82,9 @@ module.exports = {
     var userData = _.pick(req.body.user, 'userName', 'firstName', 'lastName', 'birthDate', 'email'),
       UserService = new sails.services.user(),
       uid = req.user ? req.user.uid : null,
+      birthDate_day = userData.birthDate.day,
+      birthDate_month = userData.birthDate.month,
+      birthDate_year = userData.birthDate.year,
       accountRoute = sails.config.route('userSettings.account', {
         hash: {
           'lang': res.getLocale()
@@ -89,9 +92,9 @@ module.exports = {
       });
 
     var birthDateFormated = req.format_date()
-      .set('date', userData.birthDate.day)
-      .set('month', Number(userData.birthDate.month) - 1)
-      .set('year', userData.birthDate.year)
+      .set('date', birthDate_day)
+      .set('month', Number(birthDate_month) - 1)
+      .set('year', birthDate_year)
       .format('YYYY-MM-DD');
 
     if (!req.format_date(birthDateFormated).isValid()) {
@@ -99,7 +102,11 @@ module.exports = {
       return res.redirect(accountRoute);
     }
 
-    userData.birthDate = birthDateFormated;
+    if (!_.isEmpty(birthDate_day) && !_.isEmpty(birthDate_month) && !_.isEmpty(birthDate_year)) {
+      userData.birthDate = birthDateFormated;
+    } else {
+      delete userData.birthDate;
+    }
 
     UserService.update(uid, userData).then(function (result) {
       req.flash_alert('success', 'account_updated');
@@ -122,6 +129,9 @@ module.exports = {
     var userData = _.pick(req.body.user, 'userName', 'firstName', 'lastName', 'birthDate', 'email'),
       UserService = new sails.services.user(),
       uid = req.user ? req.user.uid : null,
+      birthDate_day = userData.birthDate.day,
+      birthDate_month = userData.birthDate.month,
+      birthDate_year = userData.birthDate.year,
       accountMobileRoute = sails.config.route('userSettings.updateAccountMobile', {
         hash: {
           'lang': res.getLocale()
@@ -130,9 +140,9 @@ module.exports = {
       redirectRoute = accountMobileRoute + '?access_token=' + req.user.auth_token;
 
     var birthDateFormated = req.format_date()
-      .set('date', userData.birthDate.day)
-      .set('month', Number(userData.birthDate.month) - 1)
-      .set('year', userData.birthDate.year)
+      .set('date', birthDate_day)
+      .set('month', Number(birthDate_month) - 1)
+      .set('year', birthDate_year)
       .format('YYYY-MM-DD');
 
     if (!req.format_date(birthDateFormated).isValid()) {
@@ -140,7 +150,11 @@ module.exports = {
       return res.redirect(redirectRoute);
     }
 
-    userData.birthDate = birthDateFormated;
+    if (!_.isEmpty(birthDate_day) && !_.isEmpty(birthDate_month) && !_.isEmpty(birthDate_year)) {
+      userData.birthDate = birthDateFormated;
+    } else {
+      delete userData.birthDate;
+    }
 
     UserService.update(uid, userData).then(function (result) {
       req.flash_alert('success', 'account_updated');

@@ -338,12 +338,6 @@ passport.loadStrategies = function (req) {
       case 'oauth2':
         options.callbackURL = url.resolve(baseUrl, callback);
         break;
-
-      case 'openid':
-        options.returnURL = url.resolve(baseUrl, callback);
-        options.realm = baseUrl;
-        options.profile = true;
-        break;
       }
 
       // Merge the default options with any options defined in the config. All

@@ -61,7 +61,7 @@
     "validator": "~3.11.0"
   },
   "devDependencies": {
-    "sails-disk": "~0.10.0"
+    "sails-disk": "~0.10.3"
   },
   "scripts": {
     "postinstall": "node_modules/.bin/bower install",

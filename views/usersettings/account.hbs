@@ -79,6 +79,7 @@
                   <div class="row">
                     <div class="col-xs-4 col-sm-3">
                       <select name="user[birthDate][day]" class="form-control">
+                        <option value="">...</option>
                         {{#each form.days}}
                         <option value="{{@key}}" {{#eq ../form.birthDate_day this}}selected="selected"{{/eq}}>{{this}}</option>
                         {{/each}}
@@ -86,6 +87,7 @@
                     </div>
                     <div class="col-xs-4 col-sm-6">
                       <select name="user[birthDate][month]" class="form-control">
+                        <option value="">...</option>
                         {{#each form.months}}
                         <option value="{{@key}}" {{#eq ../form.birthDate_month this}}selected="selected"{{/eq}}>{{this}}</option>
                         {{/each}}
@@ -93,6 +95,7 @@
                     </div>
                     <div class="col-xs-4 col-sm-3">
                       <select name="user[birthDate][year]" class="form-control">
+                        <option value="">...</option>
                         {{#each form.years}}
                         <option value="{{this}}" {{#eq ../form.birthDate_year this}}selected="selected"{{/eq}}>{{this}}</option>
                         {{/each}}
