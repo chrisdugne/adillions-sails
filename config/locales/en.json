@@ -135,6 +135,12 @@
   "mail.registration.seeAccount": "View my account",
   "mail.registration.play": "Try your luck",
 
+  "_comment": "##### MAIL/cashout-request #####",
+
+  "mail.cashout.confirmation.subject": "[Adillions - Cashout confirmation]",
+  "mail.cashout.confirmation.success": "Your cash out request of %s has been successfully sent.",
+  "mail.cashout.confirmation.congratulations": "Congratulations !",
+
   "_comment": "##### LANDING/index #####",
 
   "landing_title": "Free sweepstake with real cash prizes",

@@ -136,6 +136,12 @@
   "mail.registration.seeAccount": "Voir mon compte",
   "mail.registration.play": "Tentez votre chance",
 
+  "_comment": "##### MAIL/cashout-request #####",
+
+  "mail.cashout.confirmation.subject": "[Adillions - Demande de paiement]",
+  "mail.cashout.confirmation.success": "Votre demande de paiement de %s a été reçue avec succès.",
+  "mail.cashout.confirmation.congratulations": "Félicitations !",
+
   "_comment": "##### LANDING/index #####",
 
   "landing_title": "Loterie gratuite avec des gains d'argent réel",

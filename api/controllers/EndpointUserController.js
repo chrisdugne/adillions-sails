@@ -33,9 +33,10 @@ var User = module.exports = {
   //----------------------------------------------------------------------------
 
   cashout: function (req, res) {
-    var uid = req.user ? req.user.uid : req.param('uid');
+    var uid = req.user ? req.user.uid : req.param('uid'),
+      mailer = (new sails.services.mail(res));
 
-    new sails.services.user().cashout(uid)
+    new sails.services.user().cashout(uid, mailer)
       .then(function (result) {
         res.json(result);
       })

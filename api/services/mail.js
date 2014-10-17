@@ -108,49 +108,81 @@ Mail.prototype.registration = function (firstName, userName, email) {
 
 };
 
-
-Mail.prototype.cashoutRequest = function (firstName, userName, email) {
+Mail.prototype.cashoutRequest = function (data) {
 
   /**
-   *  'registration'
+   *  'cashoutRequest'
    *
-   *  @summary Send a registration mail
+   *  @summary Send a cashout request + summary to winners@adillions.com
    *
-   *  @param user {name} : the user firstName
-   *  @param user {name} : the user userName
-   *  @param user {name} : the user email
-
+   *  @data :
+   *    date
+   *    user
+   *    email
+   *    firstName
+   *    lastName
+   *    birthdate
+   *    country
+   *    lang
+   *    amount
+   *    currency
+   *    tickets
+   *
    *  @return {promise}
    */
 
-  // the name might be an empty string
-  var name = '';
-
-  if (_.isString(firstName) && !_.isEmpty(firstName)) {
-    name = firstName;
-  }
-
-  if (_.isString(userName) && !_.isEmpty(userName) && _.isEmpty(name)) {
-    name = userName;
-  }
-
-  if (!_.isString(email) || _.isEmpty(email)) {
-    // do not trow an error, just log it
-    sails.log.error('MailService #registration : the email param is mandatory and should not be empty', name);
-  }
-
-  return this._sendHtmlMail('mail/registration', {
-    name: name,
-    appIosUrl: sails.config.extUrl('app_ios'),
-    appAndroidUrl: sails.config.extUrl('app_android')
-  }, {
-    to: email,
-    subject: this.res.i18n('mail.registration.subject')
+  return this._sendHtmlMail('mail/cashout-request', data, {
+    to: 'winners@adillions.com',
+    subject: '[Adillions - Cashout request]'
   }).then(function (response) {
-    sails.log.info('mail.registration#service : Message sent to email:' + email + ', ' + response);
+    sails.log.info('\
+      mail.registration# service: \
+      Message sent to winners@adillions.com, ' + response);
     return response;
   }).fail(function (err) {
-    sails.log.error('mail.registration#service : failed to email:' + email, err);
+    sails.log.error('\
+      mail.registration# service: failed to write\
+      to winners@adillions.com', err);
+    throw err;
+  });
+
+};
+
+Mail.prototype.cashoutConfirmation = function (data) {
+
+  /**
+   *  'cashoutConfirmation'
+   *
+   *  @summary Send a cashout confirmation to the user (data.email)
+   *
+   *  @data :
+   *    date
+   *    user
+   *    email
+   *    firstName
+   *    lastName
+   *    birthdate
+   *    country
+   *    lang
+   *    amount
+   *    currency
+   *    tickets
+   *
+   *  @return {promise}
+   */
+
+  return this._sendHtmlMail('mail/cashout-confirmation', data, {
+    to: data.email,
+    subject: this.res.i18n('mail.cashout.confirmation.subject')
+  }).then(function (response) {
+    sails.log.info('\
+      mail.registration# service: \
+      Message sent to winners@adillions.com, ' + response);
+    return response;
+  }).fail(function (err) {
+    sails.log.error('\
+      mail.registration# service: failed to write\
+      to winners@adillions.com', err);
     throw err;
   });
 
