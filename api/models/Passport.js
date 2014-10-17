@@ -138,7 +138,7 @@ var Passport = {
    * @param {Object}   passport The soon-to-be-created Passport
    * @param {Function} next
    */
-  beforeCreate: hashPassword,
+  beforeCreate: hashPassword
 
   /**
    * Callback to be run before updating a Passport.
@@ -146,7 +146,7 @@ var Passport = {
    * @param {Object}   passport Values to be updated
    * @param {Function} next
    */
-  beforeUpdate: hashPassword
+  // beforeUpdate: hashPassword
 };
 
 module.exports = Passport;
