@@ -70,6 +70,83 @@ var UserService = module.exports = function () {
         });
     },
 
+    cashout: function (uid) {
+
+console.log('------> cashout');
+      if (!_.isString(uid)) {
+        throw new Error('UserService #read : the uid param \
+          is mandatory and should be a string');
+      }
+
+      var Ticket = sails.models.ticket;
+
+      return User
+        .findOne({
+          uid: uid
+        })
+        .then(function findWinningTickets(user) {
+          return Ticket
+            .find()
+            .where({
+              player_uid: user.uid,
+              euros: {
+                '>': 0
+              },
+              status: Ticket.BLOCKED
+            })
+            .then(function sumUpCashout(tickets) {
+              var ticketUIDs = [],
+                euros = 0,
+                usd = 0,
+                price = 0,
+                currency = 0;
+
+              tickets.forEach(function (ticket) {
+                ticket.status = ticket.PENDING;
+                ticket.save();
+
+                euros += ticket.euros;
+                usd += utils.countryPrice(
+                  ticket.euros,
+                  'US',
+                  ticket.lottery.rateToUSD
+                );
+
+                ticketUIDs.push(ticket.uid + ', ');
+
+              });
+
+              if (utils.isEuroCountry(user.country)) {
+                price = utils.displayPrice(euros, user.country);
+                currency = 'Euros';
+              } else {
+                price = utils.displayPrice(usd, user.country);
+                currency = 'USD';
+              }
+
+              return {
+                date: new Date().getTime(),
+                user: user.uid,
+                email: user.email,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                birthdate: user.birthdate,
+                country: user.country,
+                lang: user.lang,
+                amount: price,
+                currency: currency,
+                tickets: ticketUIDs
+              };
+            });
+        })
+        .then(function done(data) {
+          return data;
+        })
+        .fail(function (err) {
+          sails.log.error('UserService #read : query fails', err);
+        });
+    },
+
     //--------------------------------------------------------------------------
 
     readPassports: function (uid, next) {

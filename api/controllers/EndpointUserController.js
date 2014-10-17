@@ -32,6 +32,20 @@ var User = module.exports = {
 
   //----------------------------------------------------------------------------
 
+  cashout: function (req, res) {
+    var uid = req.user ? req.user.uid : req.param('uid');
+
+    new sails.services.user().cashout(uid)
+      .then(function (result) {
+        res.json(result);
+      })
+      .fail(function (err) {
+        return res.serverError(err);
+      });
+  },
+
+  //----------------------------------------------------------------------------
+
   update: function (req, res) {
     var uid = req.user ? req.user.uid : req.param('uid'),
       user = req.body.user;

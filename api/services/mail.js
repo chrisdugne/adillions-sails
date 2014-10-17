@@ -108,4 +108,52 @@ Mail.prototype.registration = function (firstName, userName, email) {
 
 };
 
+
+Mail.prototype.cashoutRequest = function (firstName, userName, email) {
+
+  /**
+   *  'registration'
+   *
+   *  @summary Send a registration mail
+   *
+   *  @param user {name} : the user firstName
+   *  @param user {name} : the user userName
+   *  @param user {name} : the user email
+
+   *  @return {promise}
+   */
+
+  // the name might be an empty string
+  var name = '';
+
+  if (_.isString(firstName) && !_.isEmpty(firstName)) {
+    name = firstName;
+  }
+
+  if (_.isString(userName) && !_.isEmpty(userName) && _.isEmpty(name)) {
+    name = userName;
+  }
+
+  if (!_.isString(email) || _.isEmpty(email)) {
+    // do not trow an error, just log it
+    sails.log.error('MailService #registration : the email param is mandatory and should not be empty', name);
+  }
+
+  return this._sendHtmlMail('mail/registration', {
+    name: name,
+    appIosUrl: sails.config.extUrl('app_ios'),
+    appAndroidUrl: sails.config.extUrl('app_android')
+  }, {
+    to: email,
+    subject: this.res.i18n('mail.registration.subject')
+  }).then(function (response) {
+    sails.log.info('mail.registration#service : Message sent to email:' + email + ', ' + response);
+    return response;
+  }).fail(function (err) {
+    sails.log.error('mail.registration#service : failed to email:' + email, err);
+    throw err;
+  });
+
+};
+
 module.exports = Mail;
