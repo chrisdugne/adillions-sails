@@ -1,5 +1,6 @@
 /**
- * Routes
+ * Route Mappings
+ * (sails.config.routes)
  *
  * Your routes map URLs to views and controllers.
  *
@@ -9,32 +10,63 @@
  * might match an image file: `/assets/images/foo.jpg`
  *
  * Finally, if those don't match either, the default 404 handler is triggered.
- * See `config/404.js` to adjust your app's 404 logic.
+ * See `api/responses/notFound.js` to adjust your app's 404 logic.
  *
  * Note: Sails doesn't ACTUALLY serve stuff from `assets`-- the default Gruntfile in Sails copies
  * flat files from `assets` to `.tmp/public`.  This allows you to do things like compile LESS or
  * CoffeeScript for the front-end.
  *
- * For more information on routes, check out:
- * http://sailsjs.org/#documentation
+ * For more information on configuring custom routes, check out:
+ * http://sailsjs.org/#/documentation/concepts/Routes/RouteTargetSyntax.html
  */
 
 module.exports.routes = {
 
-  //'/:lang/login': 'AuthController.login',
-  // '/logout': 'AuthController.logout',
-  // '/register': 'AuthController.register',
+  //----------------------------------------------------------------------------
+  // Web mobile routes
+  //----------------------------------------------------------------------------
 
-  // 'post /auth/callback': 'AuthController.callback',
-  // 'post /auth/local/:action': 'AuthController.callback',
+  'get /:lang/:mobile/login': 'AuthController.login',
+  'get /:lang/:mobile/register': 'AuthController.register',
+  'post /m/auth/local': 'AuthController.callbackMobile',
+  'post /m/auth/local/:action': 'AuthController.callbackMobile',
+  'get /m/auth/:provider': 'AuthController.providerMobile',
+  'get /m/auth/:provider/callback': 'AuthController.callbackMobile',
 
-  // '/auth/:provider': 'AuthController.provider',
-  // '/auth/:provider/callback': 'AuthController.callback',
+  'get /m/loggedin': 'AuthController.loggedinMobile',
+
+  '/:lang/:mobile/about/terms': 'AboutController.terms',
+  '/:lang/:mobile/about/rules': 'AboutController.rules',
+  '/:lang/:mobile/about/privacy': 'AboutController.privacy',
+  '/:lang/:mobile/about/faq': 'AboutController.faq',
+  '/:lang/:mobile/about/reward': 'AboutController.reward',
+  '/:lang/:mobile/about/prizes': 'AboutController.prizes',
+
+  'get /:lang/m/account': 'UserSettingsController.accountMobile',
+  'put /:lang/m/account': 'UserSettingsController.updateAccountMobile',
+
+  //----------------------------------------------------------------------------
+  // Web routes
+  //----------------------------------------------------------------------------
+
+  'get /:lang/login': 'AuthController.login',
+  'get /:lang/logout': 'AuthController.logout',
+  'get /:lang/register': 'AuthController.register',
+
+  'post /auth/local': 'AuthController.callback',
+  'post /auth/local/:action': 'AuthController.callback',
+
+  'get /auth/:provider': 'AuthController.provider',
+  'get /auth/:provider/callback': 'AuthController.callback',
 
   '/:lang?': 'HomeController.index',
 
   '/:lang/game': 'GameController.index',
   '/:lang/results': 'GameController.results',
+
+  'get /:lang/settings/profile': 'UserSettingsController.profile',
+  'get /:lang/settings/account': 'UserSettingsController.account',
+  'put /:lang/settings/account': 'UserSettingsController.updateAccount',
 
   '/:lang/about': 'AboutController.index',
   '/:lang/about/winwinwin': 'AboutController.winwinwin',
@@ -50,17 +82,47 @@ module.exports.routes = {
   '/:lang/about/terms': 'AboutController.terms',
   '/:lang/about/advertisers': 'AboutController.advertisers',
 
-  '/api/globals': 'APIController.readGlobals',
-  '/api/nextLottery': 'APIController.readNextLottery'
+  //----------------------------------------------------------------------------
+  // API : public endpoints
+  //----------------------------------------------------------------------------
 
-  // API Examples of how to naming controllers functions
-  // '/api/globals': 'APIController.readGlobals',
-  // 'post /api/globals': 'APIController.createGlobals',
-  // 'put /api/globals': 'APIController.updateGlobals',
-  // 'delete /api/globals': 'APIController.deleteGlobals'
+  '/api/globals': 'PublicController.readGlobals',
+  '/api/status': 'PublicController.readStatus',
 
-  // If a request to a URL doesn't match any of the custom routes above, it is matched
-  // against Sails route blueprints.  See `config/blueprints.js` for configuration options
-  // and examples.
+  '/api/lottery/next': 'PublicController.readNextDrawing',
+  '/api/lottery/archive/:limit?': 'PublicController.readArchivedLotteries',
+
+  '/api/mobile/settings/:id': 'PublicController.readMobileSettings',
+  '/api/charity/levels': 'PublicController.readCharityLevels',
+  '/api/ambassador/levels': 'PublicController.readAmbassadorLevels',
+
+  //----------------------------------------------------------------------------
+  // API : authorized endpoints
+  //----------------------------------------------------------------------------
+
+  'get /api/user/:uid?': 'EndpointUserController.read',
+  'put /api/user/fetch': 'EndpointUserController.fetch',
+  'put /api/user/update': 'EndpointUserController.update',
+  'put /api/user/cashout': 'EndpointUserController.cashout',
+
+  'post /api/facebook': 'EndpointSocialController.postOnWall',
+  'get /api/facebook/fan': 'EndpointSocialController.isFan',
+
+  'post /api/twitter': 'EndpointSocialController.tweet',
+  'get /api/twitter/follow': 'EndpointSocialController.isFollower',
+  'post /api/twitter/follow': 'EndpointSocialController.follow',
+
+  'get /api/ticket/:skip?': 'EndpointTicketController.read',
+  'post /api/ticket/': 'EndpointTicketController.create',
+
+  /***************************************************************************
+   *                                                                          *
+   * Custom routes here...                                                    *
+   *                                                                          *
+   *  If a request to a URL doesn't match any of the custom routes above, it  *
+   * is matched against Sails route blueprints. See `config/blueprints.js`    *
+   * for configuration options and examples.                                  *
+   *                                                                          *
+   ***************************************************************************/
 
 };

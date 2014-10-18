@@ -20,6 +20,8 @@
     <meta name="robots" content="{{robots}}">
     {{/unless}}
 
+    <meta name="csrf-token" content="{{_csrf}}">
+
     {{#if usePopTitle}}
      {{#pop "title"}}{{/pop}}
     {{else}}
@@ -41,12 +43,14 @@
     {{> 'analytics'}}
   </head>
   <body class="{{bodyClass}}{{#unless user}} public-view{{/unless}}">
+    {{> 'google_tag_manager'}}
     {{> 'header_inverse'}}
     <main class="site-content">
       {{> 'flash'}}
       {{{body}}}
     </main>
     {{> 'footer'}}
+    <script src="{{statics '/scripts/locales/translation.js'}}"></script>
     <script src="{{statics '/scripts/main.js'}}"></script>
     <script>require('app');</script>
     {{#pop "scripts"}}{{/pop}}

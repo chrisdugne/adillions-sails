@@ -1,4 +1,4 @@
-<form role="form" action="{{route 'auth.callback'}}/register" method="post" class='auth-register-form panel panel-default'>
+<form role="form form-horizontal" action="{{#if isMobile}}{{route 'auth.callbackMobile'}}{{else}}{{route 'auth.callback'}}{{/if}}/register" method="post" class='auth-register-form panel panel-default'>
 
 {{!--   <div class="panel-heading">
     <h1 class="panel-title">{{i18n 'auth_register'}}</h1>
@@ -6,34 +6,58 @@
  --}}
   <div class="panel-body">
 
+  {{> 'alerts'}}
+
     <div class="auth-social clearfix">
       {{> 'auth_providers'}}
     </div>
 
-    <div class="form-group">
-      <input type="text" class="form-control username" name="username" placeholder="{{i18n 'auth_field_username'}}">
+    <div class="form-group form-group-lg has-feedback">
+      <label class="control-label" for="email">{{i18n 'auth_field_email'}} <span class="text-warning">*</span></label>
+      <input type="email" class="form-control email" name="email" placeholder="{{i18n 'auth_field_email'}}" value="{{form.email}}">
+      <span class="help-block"></span>
     </div>
 
-    <div class="form-group">
-      <input type="text" class="form-control email" name="email" placeholder="{{i18n 'auth_field_email'}}">
+    <div class="form-group form-group-lg has-feedback">
+      <label class="control-label" for="password">{{i18n 'auth_field_password'}} <span class="text-warning">*</span></label>
+      <input type="password" class="form-control password" name="password" placeholder="{{i18n 'auth_field_password'}}" value="{{form.password}}">
+      <span class="help-block"></span>
     </div>
 
-    <div class="form-group">
-      <input type="password" class="form-control password" name="password" placeholder="{{i18n 'auth_field_password'}}">
+    <div class="form-group form-group-lg has-feedback">
+      <label class="control-label" for="password">{{i18n 'auth_field_passwordRepeat'}} <span class="text-warning">*</span></label>
+      <input type="password" class="form-control password" name="passwordRepeat" placeholder="{{i18n 'auth_field_passwordRepeat'}}" value="{{form.passwordRepeat}}">
+      <span class="help-block"></span>
     </div>
 
-    <div class="checkbox">
-      <label>
-        {{#set 'termsroute'}}{{route 'about.terms' lang=locale}}{{/set}}
-        {{#set 'privacyroute'}}{{route 'about.privacy' lang=locale}}{{/set}}
-        <input type="checkbox">
-        {{{i18n 'auth_register_terms' termsroute privacyroute}}}
-      </label>
+    <div class="form-group form-group-lg has-feedback from-group-username" data-toggle="tooltip" data-placement="top">
+      <label class="control-label" for="username">{{i18n 'auth_field_username_label'}}</label>
+      <input type="text" class="form-control username" name="username" placeholder="{{i18n 'auth_field_username'}}" value="{{form.username}}">
+      <span class="help-block"></span>
     </div>
 
-    <div class="text-center">
-      <button type="submit" class="btn btn-lead btn-lg btn-block">{{i18n 'auth_register'}}</button>
+    <div class="form-group form-group-lg">
+      <div class="checkbox">
+        <label for="register_rules">
+          {{#set 'termsroute'}}{{route 'about.terms' lang=locale}}{{/set}}
+          {{#set 'privacyroute'}}{{route 'about.privacy' lang=locale}}{{/set}}
+          <input type="checkbox" name="rules" id="register_rules">
+          {{{i18n 'auth_register_terms' termsroute privacyroute}}}
+          <span class="help-block"></span>
+        </label>
+      </div>
     </div>
+
+    <div class="text-center mtl">
+      <button type="submit" class="btn btn-lead btn-lg btn-block" data-loading-text="{{i18n 'ui_loading'}}">{{i18n 'auth_register'}}</button>
+    </div>
+
+    <p class="mts mbn text-center">
+      {{i18n 'auth_already_on'}}
+      <a href="{{#if isMobile}}{{route 'auth.login' lang=locale mobile='m'}}{{else}}{{route 'auth.login' lang=locale}}{{/if}}">
+        {{i18n 'auth_signin'}}
+      </a>
+    </p>
 
   </div>
 

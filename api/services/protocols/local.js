@@ -1,5 +1,4 @@
 var validator = require('validator');
-
 /**
  * Local Authentication Protocol
  *
@@ -22,42 +21,61 @@ var validator = require('validator');
  * @param {Object}   res
  * @param {Function} next
  */
+
 exports.register = function (req, res, next) {
   var email = req.param('email'),
     username = req.param('username'),
     password = req.param('password');
 
   if (!email) {
-    req.flash('error', 'Error.Passport.Email.Missing');
+    req.flash_alert('danger', 'Error.Passport.Email.Missing');
     return next(new Error('No email was entered.'));
   }
 
   if (!username) {
-    req.flash('error', 'Error.Passport.Username.Missing');
-    return next(new Error('No username was entered.'));
+    // req.flash_alert('danger', 'Error.Passport.Username.Missing');
+    // return next(new Error('No username was entered.'));
+    username = '';
   }
 
   if (!password) {
-    req.flash('error', 'Error.Passport.Password.Missing');
+    req.flash_alert('danger', 'Error.Passport.Password.Missing');
     return next(new Error('No password was entered.'));
   }
 
   User.create({
-    username: username,
-    email: email
-  }, function (err, user) {
-    if (err) {
-      req.flash('error', 'Error.Passport.User.Exists');
-      return next(err);
-    }
-
+    userName: username,
+    email: email.toLowerCase()
+  }).then(function createPassport(user) {
+    sails.log.info('Passport.local.register#service: create a local user', user.uid);
     Passport.create({
       protocol: 'local',
       password: password,
-      user: user.id
-    }, function (err, passport) {
-      next(err, user);
-    });
+      user: user.uid
+    })
+      .then(function done(passport) {
+        sails.log.info('Passport.local.register#service: create a local passport', passport.id);
+        req._registered = true;
+        next(null, user);
+      })
+      .fail(function (err) {
+        if (err.code === 'E_VALIDATION') {
+          req.flash_alert('danger', 'Error.Passport.Password.Invalid');
+        }
+        user.destroy().then(function () {
+          sails.log.warn('Passport.local.register#service: destroy a user, because a passport failed');
+          next(err);
+        }).fail(next);
+      });
+  }).fail(function (err) {
+    if (err.code === 'E_VALIDATION') {
+      if (err.invalidAttributes.email) {
+        req.flash_alert('danger', 'Error.Passport.Email.Exists');
+      } else {
+        req.flash_alert('danger', 'Error.Passport.User.Exists');
+      }
+    }
+    next(err);
   });
 };
 
@@ -76,26 +94,17 @@ exports.connect = function (req, res, next) {
   var user = req.user,
     password = req.param('password');
 
-  Passport.findOne({
+  Passport.findOrCreate({
     protocol: 'local',
-    user: user.id
-  }, function (err, passport) {
-    if (err) {
-      return next(err);
-    }
-
-    if (!passport) {
-      Passport.create({
-        protocol: 'local',
-        password: password,
-        user: user.id
-      }, function (err, passport) {
-        next(err, user);
-      });
-    } else {
-      next(null, user);
-    }
-  });
+    user: user.uid
+  }, {
+    protocol: 'local',
+    password: password,
+    user: user.uid
+  }).then(function (passport) {
+    sails.log.info('Passport.local.connect#service: find|create a passport for a connected user', passport.id);
+    next(null, user);
+  }).fail(next);
 };
 
 /**
@@ -110,52 +119,96 @@ exports.connect = function (req, res, next) {
  * @param {string}   password
  * @param {Function} next
  */
+
+var getHash = function (str) {
+  return require('crypto').createHash('sha512').update(str).digest('hex');
+};
+
 exports.login = function (req, identifier, password, next) {
   var isEmail = validator.isEmail(identifier),
     query = {};
 
   if (isEmail) {
-    query.email = identifier;
+    query.email = identifier.toLowerCase();
   } else {
-    query.username = identifier;
+    query.userName = identifier;
   }
 
-  User.findOne(query, function (err, user) {
-    if (err) {
-      return next(err);
-    }
-
-    if (!user) {
-      if (isEmail) {
-        req.flash('error', 'Error.Passport.Email.NotFound');
-      } else {
-        req.flash('error', 'Error.Passport.Username.NotFound');
+  User
+    .findOne(query)
+    .then(function checkUserExists(user) {
+      if (!user) {
+        if (isEmail) {
+          req.flash_alert('danger', 'Error.Passport.Email.NotFound');
+        } else {
+          req.flash_alert('danger', 'Error.Passport.Username.NotFound');
+        }
+        throw Error('abort');
       }
+      return user;
+    })
+    .then(function findPassport(user) {
+      return [user, Passport.findOne({
+        protocol: 'local',
+        user: user.uid
+      })];
+    })
+    .spread(function checkPassportExistsForLegacyUser(user, passport) {
+      // legacy user (secret hash property) with no passport yet
+      if (!passport && user.secret) {
 
-      return next(null, false);
-    }
+        var hash = getHash(password),
+          secret = getHash(user.creation_date + hash);
 
-    Passport.findOne({
-      protocol: 'local',
-      user: user.id
-    }, function (err, passport) {
-      if (passport) {
-        passport.validatePassword(password, function (err, res) {
-          if (err) {
-            return next(err);
-          }
-
-          if (!res) {
-            req.flash('error', 'Error.Passport.Password.Wrong');
-            return next(null, false);
-          } else {
-            return next(null, user);
-          }
-        });
-      } else {
-        req.flash('error', 'Error.Passport.Password.NotSet');
+        if (secret === user.secret) {
+          passport = Passport.create({
+            protocol: 'local',
+            password: password,
+            user: user.uid
+          }).then(function handleLegacyUser(passport) {
+            sails.log.info('Passport.local.login#service: create a passport for a legacy user');
+            return passport;
+          });
+        } else {
+          req.flash_alert('danger', 'Error.Passport.Password.Wrong');
+          throw Error('abort');
+        }
+      }
+      return [user, passport];
+    })
+    .spread(function checkPassportExists(user, passport) {
+      if (!passport) {
+        req.flash_alert('danger', 'Error.Passport.Password.NotSet');
+        throw Error('abort');
+      }
+      return [user, passport];
+    })
+    .spread(function validatePassword(user, passport) {
+      var valid = passport.validatePassword(password);
+      return [user, valid];
+    }).spread(function (user, valid) {
+      if (!valid) {
+        req.flash_alert('danger', 'Error.Passport.Password.Wrong');
+        throw Error('abort');
+      }
+      return user;
+    })
+    .then(function generateToken(user) {
+      user.auth_token = user.generateToken();
+      user = user.save().then(function (user) {
+        sails.log.info('Passport.local.login#service: generate token for user', user.uid);
+        return user;
+      });
+      return user;
+    })
+    .then(function loginUser(user) {
+      sails.log.info('Passport.local.login#service: success login for user', user.uid);
+      next(null, user);
+    })
+    .fail(function (err) {
+      if (err.message === 'abort') {
         return next(null, false);
       }
-    });
-  });
+      next(err);
+    }).done();
 };

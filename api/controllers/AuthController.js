@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 /**
  * Authentication Controller
  *
@@ -7,6 +9,13 @@
  */
 
 var AuthController = {
+
+  loggedinMobile: function (req, res) {
+    res.view({
+      layout: false
+    });
+  },
+
   /**
    * Render the login page
    *
@@ -32,32 +41,18 @@ var AuthController = {
    * @param {Object} res
    */
   login: function (req, res) {
-    var strategies = sails.config.passport,
-      providers = {};
+    var strategies = _.pick(sails.config.passport, 'facebook', 'twitter', 'google'),
+      providers = (new sails.services.auth()).getProviders(),
+      isMobile = req.param('mobile') === 'm';
 
-    // Get a list of available providers for use in your templates.
-    Object.keys(strategies).forEach(function (key) {
-      if (key === 'local' || key === 'github') {
-        return;
-      }
-
-      providers[key] = {
-        name: strategies[key].name,
-        slug: key,
-        isFacebook: key === 'facebook',
-        isGoogle: key === 'google',
-        isTwitter: key === 'twitter',
-        isGithub: key === 'github'
-      };
-    });
-
-    // Render the `auth/login.ext` view
     res.view({
+      providers_row: 12 / _.size(providers),
       providers: providers,
-      errors: req.flash('error'),
-      // layout: 'layout_light',
-      layout: 'layout_chris_snake', // --> pour dev en furtif..
-      bodyClass: 'auth'
+      form: req.flash('form')[0],
+      alert: req.flash_alert(),
+      layout: isMobile ? 'layout_mobile' : 'layout_light',
+      bodyClass: 'auth auth_login ' + (isMobile ? 'layout_light' : ''),
+      isMobile: isMobile
     });
   },
 
@@ -96,30 +91,18 @@ var AuthController = {
    * @param {Object} res
    */
   register: function (req, res) {
-    var strategies = sails.config.passport,
-      providers = {};
-
-    // Get a list of available providers for use in your templates.
-    Object.keys(strategies).forEach(function (key) {
-      if (key === 'local' || key === 'github') {
-        return;
-      }
-
-      providers[key] = {
-        name: strategies[key].name,
-        slug: key,
-        isFacebook: key === 'facebook',
-        isGoogle: key === 'google',
-        isTwitter: key === 'twitter',
-        isGithub: key === 'github'
-      };
-    });
+    var strategies = _.pick(sails.config.passport, 'facebook', 'twitter', 'google'),
+      providers = (new sails.services.auth()).getProviders(),
+      isMobile = req.param('mobile') === 'm';
 
     res.view({
+      providers_row: 12 / _.size(providers),
       providers: providers,
-      errors: req.flash('error'),
-      layout: 'layout_light',
-      bodyClass: 'auth'
+      form: req.flash('form')[0],
+      alert: req.flash_alert(),
+      layout: isMobile ? 'layout_mobile' : 'layout_light',
+      bodyClass: 'auth auth_register ' + (isMobile ? 'layout_light' : ''),
+      isMobile: isMobile
     });
   },
 
@@ -132,7 +115,10 @@ var AuthController = {
   provider: function (req, res) {
     sails.services.passport.endpoint(req, res);
   },
-
+  providerMobile: function (req, res) {
+    req._isMobile = true;
+    sails.services.passport.endpoint(req, res);
+  },
   /**
    * Create a authentication callback endpoint
    *
@@ -150,21 +136,90 @@ var AuthController = {
    * @param {Object} res
    */
   callback: function (req, res) {
+    var action = req.param('action'),
+      registerRoute = sails.config.route('auth.register', {
+        hash: {
+          'lang': res.getLocale()
+        }
+      }),
+      loginRoute = sails.config.route('auth.login', {
+        hash: {
+          'lang': res.getLocale()
+        }
+      }),
+      accountRoute = sails.config.route('userSettings.account', {
+        hash: {
+          'lang': res.getLocale()
+        }
+      });
+
     sails.services.passport.callback(req, res, function (err, user) {
+      if (err && err.code !== 'E_VALIDATION' && err.message !== 'abort') {
+        sails.log.error(err);
+      }
       req.login(user, function (err) {
         // If an error was thrown, redirect the user to the login which should
         // take care of rendering the error messages.
         if (err) {
-          res.redirect(req.param('action') === 'register' ? '/register' : '/login');
-        }
-        // Upon successful login, send the user to the homepage were req.user
-        // will available.
-        else {
-          res.redirect('/');
+          req.flash('alert', req.flash_alert() || req.flash_alert('danger', 'Error.Passport.Generic'));
+          req.flash('form', req.body);
+          if (action === 'register') {
+            res.redirect(registerRoute);
+          } else if (action === 'disconnect') {
+            res.redirect('back');
+          } else {
+            res.redirect(loginRoute);
+          }
+        } else {
+          if (req._registered === true) {
+            (new sails.services.mail(res)).registration(user.firstName, user.userName, user.email);
+          }
+          res.redirect(req.flash('back')[0] || accountRoute);
         }
       });
     });
+  },
+
+  callbackMobile: function (req, res) {
+    var action = req.param('action'),
+      registerRoute = sails.config.route('auth.register', {
+        hash: {
+          'lang': res.getLocale(),
+          'mobile': 'm'
+        }
+      }),
+      loginRoute = sails.config.route('auth.login', {
+        hash: {
+          'lang': res.getLocale(),
+          'mobile': 'm'
+        }
+      });
+    req._isMobile = true;
+
+    sails.services.passport.callback(req, res, function (err, user) {
+      if (err && err.code !== 'E_VALIDATION' && err.message !== 'abort') {
+        sails.log.error(err);
+      }
+
+      if (err || !user) {
+        req.flash('alert', req.flash_alert() || req.flash_alert('danger', 'Error.Passport.Generic'));
+        req.flash('form', req.body);
+        if (action === 'register') {
+          res.redirect(registerRoute);
+        } else if (action === 'disconnect') {
+          res.redirect('back');
+        } else {
+          res.redirect(loginRoute);
+        }
+      } else {
+        if (req._registered === true) {
+          (new sails.services.mail(res)).registration(user.firstName, user.userName, user.email);
+        }
+        res.redirect('/m/loggedin?auth_token=' + user.auth_token);
+      }
+    });
   }
+
 };
 
 module.exports = AuthController;

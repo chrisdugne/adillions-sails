@@ -13,7 +13,7 @@ var normalizeAttributes = function (lottery) {
   // rangs bugs beacause of useless comma at the end of array
   //lottery.rangs = _.isObject(lottery.rangs) ? lottery.rangs : JSON.parse(lottery.rangs);
   lottery.timestamp = _.isNumber(lottery.timestamp) ? lottery.timestamp : Number(lottery.timestamp);
-  lottery.nb_winners = lottery.nb_winners();
+  lottery.nbWinners = lottery.nbWinners();
   return lottery;
 };
 
@@ -192,7 +192,7 @@ Lottery.prototype.getNextDrawing = function (currentLanguage, next) {
           balls: theme.balls[currentLanguage]
         },
         timestamp: lottery.timestamp / 1000, // turn milliseconds to seconds
-        prize: lottery.min_price || lottery.final_price
+        prize: lottery.euros || lottery.finalPrice
       });
     })
     .fail(next);
@@ -245,15 +245,15 @@ Lottery.prototype.getWinners = function (total, offset, next) {
           charity_rang = 1;
 
         _.forEach(charity_status, function (charity) {
-          if (user.playedtickets >= charity.tickets) {
+          if (user.playedTickets >= charity.tickets) {
             charity.active = true;
             charity_rang = charity.rang;
           }
         });
 
         winners.push({
-          firstname: user.firstname,
-          lastname: user.lastname,
+          firstName: user.firstName,
+          lastName: user.lastName,
           country: user.country,
           prize: ticket.euros,
           charityStatus: charity_status,
@@ -318,20 +318,6 @@ Lottery.prototype.getLotteries = function (total, offset, next) {
     })
     .fail(function (err) {
       sails.log.error('Lottery#getLotteries Service: query fails', err);
-      next(err);
-    });
-};
-
-Lottery.prototype.getNextLottery = function (next) {
-  sails.models.lottery
-    .find()
-    .limit(2)
-    .sort('timestamp DESC')
-    .then(function (lotteries) {
-      next(null, lotteries);
-    })
-    .fail(function (err) {
-      sails.log.error('Lottery#getNextLottery Service: query fails', err);
       next(err);
     });
 };

@@ -1,4 +1,24 @@
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt'),
+  _ = require('lodash'),
+  Q = require('q');
+
+/**
+ * Hash a passport password.
+ *
+ * @param {Object}   password
+ * @param {Function} next
+ */
+
+function hashPassword(passport, next) {
+  if (passport.password) {
+    bcrypt.hash(passport.password, 10, function (err, hash) {
+      passport.password = hash;
+      next(err, passport);
+    });
+  } else {
+    next(null, passport);
+  }
+}
 
 /**
  * Passport Model
@@ -16,7 +36,33 @@ var bcrypt = require('bcrypt');
  */
 var Passport = {
 
+  tableName: 'passport',
+  autoPK: true,
+
+  // Set schema true/false to only allow fields defined in attributes to be saved. Only for schemaless adapters.
+  schema: true,
+
+  // migrate: 'alter', // adds and/or removes columns on changes to the schema
+  // migrate: 'drop', // drops all your tables and then re-creates them. All data is deleted.
+  // doesn't do anything on sails lift- for use in production.
+  migrate: 'safe',
+
   attributes: {
+
+    createdAt: {
+      type: 'datetime',
+      columnName: 'created_at',
+      defaultsTo: function () {
+        return new Date();
+      }
+    },
+    updatedAt: {
+      type: 'datetime',
+      columnName: 'updated_at',
+      defaultsTo: function () {
+        return new Date();
+      }
+    },
 
     // Required field: Protocol
     //
@@ -34,8 +80,7 @@ var Passport = {
     // When the local strategy is employed, a password will be used as the
     // means of authentication along with either a username or an email.
     password: {
-      type: 'string',
-      minLength: 6
+      type: 'string'
     },
 
     // Provider fields: Provider, identifer and tokens
@@ -58,7 +103,9 @@ var Passport = {
     tokens: {
       type: 'json'
     },
-
+    profile: {
+      type: 'json'
+    },
     // Associations
     //
     // Associate every passport with one, and only one, user. This requires an
@@ -67,7 +114,7 @@ var Passport = {
     // For more information on associations in Waterline, check out:
     // https://github.com/balderdashy/waterline
     user: {
-      model: 'User',
+      model: 'user',
       required: true
     },
 
@@ -77,8 +124,10 @@ var Passport = {
      * @param {string}   password The password to validate
      * @param {Function} next
      */
-    validatePassword: function (password, next) {
-      bcrypt.compare(password, this.password, next);
+    validatePassword: function (password) {
+      // Promisify: Adapting Node
+      return Q.nfapply(bcrypt.compare, [password, this.password]);
+      // bcrypt.compare(password, this.password, next);
     }
 
   },
@@ -89,16 +138,7 @@ var Passport = {
    * @param {Object}   passport The soon-to-be-created Passport
    * @param {Function} next
    */
-  beforeCreate: function (passport, next) {
-    if (passport.hasOwnProperty('password')) {
-      bcrypt.hash(passport.password, 10, function (err, hash) {
-        passport.password = hash;
-        next(err, passport);
-      });
-    } else {
-      next(null, passport);
-    }
-  },
+  beforeCreate: hashPassword
 
   /**
    * Callback to be run before updating a Passport.
@@ -106,16 +146,7 @@ var Passport = {
    * @param {Object}   passport Values to be updated
    * @param {Function} next
    */
-  beforeUpdate: function (passport, next) {
-    if (passport.hasOwnProperty('password')) {
-      bcrypt.hash(passport.password, 10, function (err, hash) {
-        passport.password = hash;
-        next(err, passport);
-      });
-    } else {
-      next(null, passport);
-    }
-  }
+  // beforeUpdate: hashPassword
 };
 
 module.exports = Passport;

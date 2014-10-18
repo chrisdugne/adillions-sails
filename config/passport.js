@@ -20,13 +20,21 @@ module.exports.passport = {
     strategy: require('passport-local').Strategy
   },
 
+  bearer: {
+    strategy: require('passport-http-bearer').Strategy,
+    protocol: 'bearer',
+    options: {
+      session: false
+    }
+  },
+
   twitter: {
     name: 'Twitter',
     protocol: 'oauth',
     strategy: require('passport-twitter').Strategy,
     options: {
-      consumerKey: 'your-consumer-key',
-      consumerSecret: 'your-consumer-secret'
+      consumerKey: 'mkJn1v9zVyKHnU7S6yLCg',
+      consumerSecret: 'wIj7zjxPTwc8Mt2uAyf8azKmSgPEDwYpvpxdtQwic'
     }
   },
 
@@ -44,16 +52,22 @@ module.exports.passport = {
     name: 'Facebook',
     protocol: 'oauth2',
     strategy: require('passport-facebook').Strategy,
+    scope: ['publish_stream', 'email', 'user_location', 'user_likes', 'user_birthday', 'publish_actions'],
     options: {
-      clientID: 'your-client-id',
-      clientSecret: 'your-client-secret'
+      clientID: '170148346520274',
+      clientSecret: '887e8f7abb9b1cb9238a097e06585ae2'
     }
   },
 
   google: {
     name: 'Google',
-    protocol: 'openid',
-    strategy: require('passport-google').Strategy
+    protocol: 'oauth2',
+    strategy: require('passport-google-oauth').OAuth2Strategy,
+    scope: ['openid', 'email', 'profile'],
+    options: {
+      clientID: 'your-client-id',
+      clientSecret: 'your-client-secret'
+    }
   }
 
 };

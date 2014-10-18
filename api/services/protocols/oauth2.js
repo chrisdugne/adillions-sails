@@ -18,20 +18,78 @@
  * @param {Object}   profile
  * @param {Function} next
  */
-var passport = require('../passport');
+var passport = require('passport'),
+  _ = require('lodash');
 
 module.exports = function (req, accessToken, refreshToken, profile, next) {
-  var query = {
-    identifier: profile.id,
-    protocol: 'oauth2',
-    tokens: {
-      accessToken: accessToken
+  var user = {},
+    query = {
+      identifier: profile.id,
+      protocol: 'oauth2',
+      tokens: {
+        accessToken: accessToken
+      },
+      profile: profile
+    };
+
+  // If the profile object contains a list of emails, grab the first one and
+  // add it to the user.
+  if (_.has(profile, 'emails') && _.isObject(profile.emails)) {
+    user.email = profile.emails[0].value;
+  }
+
+  // If the profile object contains a list of photos, grab the first one and
+  // add it to the user.
+
+  if (_.has(profile, 'photos') && _.isObject(profile.photos)) {
+    user.photo = profile.photos[0].value;
+  } else {
+    if (profile.provider === 'facebook' && profile.username) {
+      user.photo = 'http://graph.facebook.com/' + profile.username + '/picture?type=large';
+    } else if (profile.provider === 'google') {
+      user.photo = profile._json.picture;
     }
-  };
+  }
+
+  if (_.has(profile, '_json') && _.isObject(profile._json)) {
+    if (_.has(profile._json, 'birthday')) {
+      user.birthdate = profile._json.birthday;
+    }
+    if (_.has(profile._json, 'locale')) {
+      var locale = profile._json.locale.split('_'),
+        lang = _.isObject(locale) ? locale[0] : locale,
+        country = _.isObject(locale) ? locale[1] : locale;
+      if (lang) {
+        user.lang = lang;
+      }
+      if (country) {
+        user.country = country;
+      }
+    }
+  }
+
+  // If the profile object contains a username, add it to the user.
+  if (_.has(profile, 'name') && _.isObject(profile.name)) {
+    if (_.has(profile.name, 'familyName') && _.isString(profile.name.familyName)) {
+      user.lastName = profile.name.familyName;
+    }
+    if (_.has(profile.name, 'givenName') && _.isString(profile.name.givenName)) {
+      user.firstName = profile.name.givenName;
+    }
+  }
+
+  // If the profile object contains a username, add it to the user.
+  if (_.has(profile, 'username') && _.isString(profile.username)) {
+    user.userName = profile.username;
+  } else if (_.has(profile, 'displayName') && _.isString(profile.displayName)) {
+    user.userName = profile.displayName;
+  } else if (user.firstName && user.lastName) {
+    user.userName = user.firstName + ' ' + user.lastName;
+  }
 
   if (refreshToken !== undefined) {
     query.tokens.refreshToken = refreshToken;
   }
 
-  passport.connect(req, query, profile, next);
+  passport.connect(req, query, user, profile, next);
 };

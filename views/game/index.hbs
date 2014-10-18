@@ -17,6 +17,18 @@
 {{else}}
   <h1 class="text-center mtxl mbxl">{{i18n 'coming_soon'}}</h1>
 
+  {{#if user}}
+    <h3 class="tac">
+      {{i18n 'hello'}}
+      {{#if user.userName}}
+        {{user.userName}}
+      {{else}}
+       {{user.firstName}}
+      {{/if}}
+      !
+    </h3>
+  {{/if}}
+
   <p class="lead text-center">{{i18n 'coming_soon_game_desc'}}</p>
   <p class="lead text-center">{{i18n 'coming_soon_game_desc2'}}</p>
   <p class="lead text-center">{{i18n 'coming_soon_game_desc3'}}</p>
@@ -33,4 +45,15 @@
       </a>
     </li>
   </ul>
+
+  {{#if user}}
+    <ul class="list-unstyled row mtxl">
+      <li class="text-center">
+        <a href="{{route 'userSettings.account' lang=locale}}" class="btn btn-default">
+          {{i18n 'game_view_account'}}
+        </a>
+      </li>
+    </ul>
+  {{/if}}
+
 {{/if}}

@@ -23,6 +23,7 @@ module.exports = function (grunt) {
         src: [
           '**/*.!(coffee|less|scss|sass)',
           '!scripts/modules/**',
+          '!scripts/locales/**',
           '!bower_components/**',
           '!images/sprites/**',
           'images/sprites/*.{png,jpg}'
