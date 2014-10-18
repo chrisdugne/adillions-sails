@@ -103,7 +103,7 @@ module.exports.routes = {
   'get /api/user/:uid?': 'EndpointUserController.read',
   'put /api/user/fetch': 'EndpointUserController.fetch',
   'put /api/user/update': 'EndpointUserController.update',
-  'put /api/user/cashout': 'EndpointUserController.cashout',
+  'get /api/cashout': 'EndpointUserController.cashout',
 
   'post /api/facebook': 'EndpointSocialController.postOnWall',
   'get /api/facebook/fan': 'EndpointSocialController.isFan',
