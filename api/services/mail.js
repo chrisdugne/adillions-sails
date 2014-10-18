@@ -31,7 +31,7 @@ Mail.prototype._sendHtmlMail = function (viewPath, data, options) {
       layout: 'layout_mail'
     }, data),
     mailOptions = _.merge(defaultsMailOptions, options),
-    devRecipent = 'adillions@gmail.com';
+    devRecipent = 'support@adillions.com';
 
   if (sails.config.application !== 'prod') {
     mailOptions.to = devRecipent;
