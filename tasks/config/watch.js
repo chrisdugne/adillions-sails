@@ -94,7 +94,18 @@ module.exports = function (grunt) {
       tasks: [
         'newer:concat:dev'
       ]
+    },
+
+    // We can't use 'newer' here as the lang task doesn't use a src:files attribute
+    locales: {
+      files: [
+        'assets/scripts/locales/**/*.json'
+      ],
+      tasks: [
+        'i18next'
+      ]
     }
+
   });
 
 };

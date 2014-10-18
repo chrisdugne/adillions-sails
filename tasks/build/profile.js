@@ -6,22 +6,24 @@ var modules = {
     // main vendors
     'assets/bower_components/jquery/jquery.js',
     'assets/bower_components/handlebars/handlebars.js',
+    'assets/bower_components/i18next/i18next.js',
     'assets/bower_components/underscore/underscore.js',
     'assets/bower_components/amd-loadr/loadr.js',
     'assets/bower_components/backbone/backbone.js',
+    'assets/bower_components/backbone-validation/dist/backbone-validation.js',
 
     // boostrap vendors
-    'assets/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js',
-    'assets/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js',
-    'assets/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js',
-    'assets/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js',
-    'assets/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js',
+    'assets/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js',
+    'assets/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js',
+    'assets/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js',
+    'assets/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js',
+    'assets/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js',
 
     // main modules
     'assets/scripts/main.js',
 
     '.tmp/transpile/modules/app.js',
-    '.tmp/transpile/modules/main/*.js'
+    '.tmp/transpile/modules/main/**/*.js'
   ],
 
   // HTML 5 Shiv, JSON Polyfill, CSS3 Polyfill

@@ -9,6 +9,9 @@ module.exports = {
 
   tableName: 'lottery',
 
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
+
   // Set false to prevent creating id. By default id will be created as index with auto increment
   autoPK: false,
 
@@ -21,6 +24,22 @@ module.exports = {
   migrate: 'safe',
 
   attributes: {
+
+    createdAt: {
+      type: 'datetime',
+      columnName: 'created_at',
+      defaultsTo: function () {
+        return new Date();
+      }
+    },
+
+    updatedAt: {
+      type: 'datetime',
+      columnName: 'updated_at',
+      defaultsTo: function () {
+        return new Date();
+      }
+    },
 
     uid: {
       type: 'string',
@@ -43,7 +62,23 @@ module.exports = {
       columnName: 'max_numbers'
     },
 
-    nb_players: {
+    picks: {
+      type: 'integer',
+      columnName: 'max_picks'
+    },
+
+    nbPlayers: {
+      columnName: 'nb_players',
+      type: 'integer'
+    },
+
+    thresholdPlayers: {
+      columnName: 'tool_players',
+      type: 'integer'
+    },
+
+    startTickets: {
+      columnName: 'start_tickets',
       type: 'integer'
     },
 
@@ -51,7 +86,11 @@ module.exports = {
       type: 'json'
     },
 
-    final_price: {
+    rangs: {
+      type: 'json'
+    },
+
+    finalPrice: {
       type: 'float',
       columnName: 'final_price'
     },
@@ -61,14 +100,9 @@ module.exports = {
       columnName: 'prizes'
     },
 
-    min_price: {
+    euros: {
       type: 'integer',
       columnName: 'min_price'
-    },
-
-    max_price: {
-      type: 'integer',
-      columnName: 'max_price'
     },
 
     result: {
@@ -79,7 +113,17 @@ module.exports = {
       type: 'float'
     },
 
-    nb_winners: function () {
+    rateToUSD: {
+      type: 'float',
+      columnName: 'rate_usdto_eur'
+    },
+
+    ticketTimer: {
+      type: 'integer',
+      columnName: 'ticket_timer'
+    },
+
+    nbWinners: function () {
       var prizes = this.prizes,
         winners = 0;
       _.forEach(prizes, function (prize) {

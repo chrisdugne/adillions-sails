@@ -24,6 +24,12 @@ $icon-font-name: 'glyphicons-regular';
 //** Element ID within SVG icon file.
 $icon-font-svg-id: 'glyphiconsregular';
 
+$state-danger-text: #F75731;
+$state-warning-text: $orange-dark;
+$state-success-text: $green-lighter;
+
+$alert-warning-bg: lighten($orange-lighter, 25%);
+$alert-danger-bg: lighten($state-danger-text, 37%);
 
 $brand-lead: #F7B62F;
 $brand-primary: #13262E;
@@ -62,7 +68,7 @@ $blockquote-border-color: $green-light;
 $blockquote-background-color: #fff;
 
 // navbar
-$navbar-height: 80px;
+$navbar-height: 100px;
 $navbar-default-bg:  #fff;
 $navbar-border-radius: 0;
 

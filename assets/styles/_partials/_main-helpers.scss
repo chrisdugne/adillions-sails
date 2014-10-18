@@ -90,11 +90,11 @@
 
 // Text Alignment
 
-.tac, .center { text-align: center; }
-.tal { text-align: left; }
-.tar { text-align: right; }
-.taj { text-align: justify; }
-.tai { text-align: inherit; }
+.tac, .center { text-align: center !important; }
+.tal { text-align: left !important; }
+.tar { text-align: right !important; }
+.taj { text-align: justify !important; }
+.tai { text-align: inherit !important; }
 
 // Block Alignment
 
@@ -103,12 +103,12 @@
 
 // Vertical Alignment
 
-.vam { vertical-align: middle; }
-.vab { vertical-align: bottom; }
+.vam { vertical-align: middle !important; }
+.vab { vertical-align: bottom !important; }
 
-.dispb { display: block; }
-.dispib { display: inline-block; }
-.dispi { display: inline; }
+.dispb { display: block !important; }
+.dispib { display: inline-block !important; }
+.dispi { display: inline !important; }
 
 @media screen and (max-width: $container-desktop) {
   .hide-m { display: none; }

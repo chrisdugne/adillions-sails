@@ -1,3 +1,21 @@
+var uuid = require('node-uuid');
+
+var generate_sponsorCode = function () {
+  var code = '',
+    aplha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    num = '0123456789';
+
+  for (var i = 0; i < 5; i++) {
+    code += aplha.charAt(Math.floor(Math.random() * aplha.length));
+  }
+  code += num.charAt(Math.floor(Math.random() * num.length));
+  return code;
+};
+
+var generate_token = function () {
+  return uuid.v4();
+};
+
 /**
  * User.js
  *
@@ -22,63 +40,165 @@ module.exports = {
 
   attributes: {
 
+    createdAt: {
+      type: 'datetime',
+      columnName: 'created_at',
+      defaultsTo: function () {
+        return new Date();
+      }
+    },
+    updatedAt: {
+      type: 'datetime',
+      columnName: 'updated_at',
+      defaultsTo: function () {
+        return new Date();
+      }
+    },
+
     uid: {
       type: 'string',
       unique: true,
       primaryKey: true
     },
 
-    username: {
+    photo: {
       type: 'string',
-      columnName: 'user_name'
+      columnName: 'photo_url'
+    },
+
+    // legacy date way
+    creation_date: 'integer',
+    last_update: 'date',
+
+    secret: 'string',
+    auth_token: 'string',
+    facebook_id: 'integer',
+    twitter_id: 'string',
+    twitter_name: 'string',
+
+    accept_emails: {
+      type: 'boolean',
+      defaultsTo: true
+    },
+
+    tweet: {
+      columnName: 'has_tweet',
+      type: 'boolean',
+      defaultsTo: false
+    },
+
+    tweetTheme: {
+      columnName: 'has_tweet_theme',
+      type: 'boolean',
+      defaultsTo: false
+    },
+
+    postOnFacebook: {
+      columnName: 'has_post_on_facebook',
+      type: 'boolean',
+      defaultsTo: false
+    },
+
+    postThemeOnFacebook: {
+      columnName: 'has_post_theme_on_facebook',
+      type: 'boolean',
+      defaultsTo: false
+    },
+
+    tweetAnInvite: {
+      columnName: 'has_tweet_an_invite',
+      type: 'boolean',
+      defaultsTo: false
+    },
+
+    invitedOnFacebook: {
+      columnName: 'has_invited_on_facebook',
+      type: 'boolean',
+      defaultsTo: false
+    },
+
+    playedBonusTickets: {
+      columnName: 'played_bonus_tickets',
+      type: 'integer',
+      defaultsTo: 0
+    },
+
+    extraTickets: {
+      columnName: 'extra_tickets',
+      type: 'integer',
+      defaultsTo: 0
+    },
+
+    temporaryBonusTickets: {
+      columnName: 'temporary_bonus_tickets',
+      type: 'integer',
+      defaultsTo: 0
+    },
+
+    currentLottery: {
+      columnName: 'current_lottery_uid',
+      type: 'string',
+      defaultsTo: '-'
+    },
+
+    idlePoints: {
+      columnName: 'idle_points',
+      type: 'integer',
+      defaultsTo: 0
+    },
+
+    status: {
+      type: 'integer',
+      defaultsTo: 1
+    },
+
+    userName: {
+      type: 'string',
+      columnName: 'user_name',
+      unique: true
     },
 
     email: {
       type: 'email',
-      unique: true
+      unique: true,
+      required: false
     },
 
-    firstname: {
+    firstName: {
       type: 'string',
       columnName: 'first_name'
     },
 
-    lastname: {
+    lastName: {
       type: 'string',
       columnName: 'last_name'
     },
 
-    birthdate: {
+    birthDate: {
       type: 'string', //1984-08-22 (should be DATE)
       columnName: 'birth_date'
     },
 
     country: {
-      type: 'string'
+      type: 'string',
+      defaultsTo: 'US'
     },
 
     lang: {
-      type: 'string'
+      type: 'string',
+      defaultsTo: 'en'
     },
 
-    /*
-     * One-to-Many association
-     */
-    tickets: {
-      collection: 'ticket',
-      via: 'user'
-    },
-
-    playedtickets: {
+    playedTickets: {
       type: 'integer',
       columnName: 'total_played_tickets',
       defaultsTo: 0
     },
 
-    nbavailabletickets: {
+    availableTickets: {
       type: 'integer',
       columnName: 'available_tickets',
-      defaultsTo: 8
+      defaultsTo: 0
     },
 
     sponsorcode: {
@@ -86,13 +206,49 @@ module.exports = {
       columnName: 'sponsor_code'
     },
 
-    passports: {
-      collection: 'Passport',
+    referrerId: {
+      type: 'string',
+      columnName: 'referrer_id'
+    },
+
+    giftToReferrer: {
+      columnName: 'gift_to_referrer',
+      type: 'boolean',
+      defaultsTo: false
+    },
+
+    mobileVersion: {
+      type: 'float',
+      columnName: 'mobile_version',
+      defaultsTo: 0.9
+    },
+
+    /*
+     * One-to-Many association
+     */
+
+    tickets: {
+      collection: 'ticket',
       via: 'user'
     },
-    fullname: function () {
-      return this.firstname + ' ' + this.lastname;
+
+    passports: {
+      collection: 'passport',
+      via: 'user'
     },
+
+    /*
+     * Methods
+     */
+
+    fullname: function () {
+      return this.firstName + ' ' + this.lastName;
+    },
+
+    generateToken: function () {
+      return generate_token();
+    },
+
     charity_status: function () {
       var status = [{
         tickets: 1,
@@ -112,5 +268,25 @@ module.exports = {
       }];
       return status;
     }
+
+  },
+
+  beforeCreate: function (user, next) {
+    // Handle legacy date
+    user.creation_date = new Date().getTime();
+    user.last_update = new Date();
+    // generate sponsor code
+    user.sponsorcode = generate_sponsorCode();
+    // generate token
+    user.auth_token = generate_token();
+    // generare uid
+    user.uid = uuid.v4();
+    next(null, user);
+  },
+
+  beforeUpdate: function (user, next) {
+    // Handle legacy date
+    user.last_update = new Date();
+    next(null, user);
   }
 };

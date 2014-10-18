@@ -4,6 +4,7 @@ module.exports = function (grunt) {
     'sass:dev',
     'es6',
     'handlebars',
+    'i18next',
     'copy:dev',
     'concat:dev'
   ]);

@@ -12,7 +12,7 @@ var path = require('path'),
   hbs = require('hbs'),
   helpers = require(path.resolve(__dirname + '/helpers'));
 
-module.exports.bootstrap = function (cb) {
+module.exports.bootstrap = function (done) {
   // These convenience methods will register all partials (that have a *.html or *.hbs extension) in the given directory. registerPartials will perform a one-time registration.
   // Partials that are loaded from a directory are named based on their filename, where spaces and hyphens are replaced with an underscore character:
   // template.html      -> {{> template}}
@@ -35,6 +35,9 @@ module.exports.bootstrap = function (cb) {
   helpers.route.register(hbs, {
     routes: sails.config.routes
   });
+  sails.config.route = helpers.route.getRouteHelper({
+    routes: sails.config.routes
+  });
 
   helpers.extUrl.register(hbs, {
     aliases: __dirname + '/urlAliases.json'
@@ -43,7 +46,7 @@ module.exports.bootstrap = function (cb) {
     aliases: __dirname + '/urlAliases.json'
   });
 
-  // It's very important to trigger this callack method when you are finished
-  // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-  cb();
+  // sails.services.passport.loadStrategies();
+
+  done();
 };
