@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 module.exports = function (req, res, next) {
   var token;
 
@@ -13,11 +15,11 @@ module.exports = function (req, res, next) {
     }
   }
 
-  if (!token && req.body && req.body.access_token) {
+  if (!token && req.body && !_.isEmpty(req.body.access_token)) {
     token = req.body.access_token;
   }
 
-  if (!token && req.query && req.query.access_token) {
+  if (!token && req.query && !_.isEmpty(req.query.access_token)) {
     token = req.query.access_token;
   }
 
