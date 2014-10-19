@@ -40,6 +40,8 @@ module.exports.policies = {
 
   'authController': {
     '*': ['middl_helpers', 'passport'],
+    providerMobile: ['middl_helpers', 'passportToken', 'getAccessToken'],
+    callbackMobile: ['middl_helpers', 'passportToken', 'getAccessToken', 'connectedByToken'], // to populate req.user by a token (not a authentification)
     login: commonPolicies,
     register: commonPolicies
   },
