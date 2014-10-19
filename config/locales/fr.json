@@ -60,6 +60,8 @@
   "ui_connect": "Connecter",
   "ui_day": "jour",
   "ui_days": "jours",
+  "ui_month": "mois",
+  "ui_year": "année",
   "ui_languages": "Langues",
   "ui_linked_provider": "Compte %s lié",
 

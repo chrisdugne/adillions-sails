@@ -59,6 +59,8 @@
   "ui_connect": "Connect",
   "ui_day": "day",
   "ui_days": "days",
+  "ui_month": "month",
+  "ui_year": "year",
   "ui_languages": "Languages",
   "ui_linked_provider": "%s account linked",
 
