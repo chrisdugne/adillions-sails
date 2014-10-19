@@ -105,7 +105,7 @@ var TicketService = module.exports = function () {
             });
         })
         .then(function checkGiftToReferrer() {
-          return sails.services.user().read(userUID)
+          return sails.services.user().readSimple(userUID)
             .then(function (user) {
               if (!user.giftToReferrer &&
                 user.referrerId &&

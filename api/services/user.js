@@ -47,7 +47,7 @@ var UserService = module.exports = function () {
 
   return {
 
-    read: function (uid) {
+    readFull: function (uid) {
 
       if (!_.isString(uid)) {
         throw new Error('UserService #read : the uid param \
@@ -67,6 +67,25 @@ var UserService = module.exports = function () {
         })
         .fail(function (err) {
           sails.log.error('UserService #read : query fails', err);
+        });
+    },
+
+    readSimple: function (uid) {
+
+      if (!_.isString(uid)) {
+        throw new Error('UserService #read : the uid param \
+          is mandatory and should be a string');
+      }
+
+      return User
+        .findOne({
+          uid: uid
+        })
+        .then(function done(user) {
+          return user;
+        })
+        .fail(function (err) {
+          sails.log.error('UserService #readSimple : query fails', err);
         });
     },
 

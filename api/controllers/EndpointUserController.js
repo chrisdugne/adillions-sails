@@ -5,7 +5,7 @@ var User = module.exports = {
   read: function (req, res) {
     var uid = req.user ? req.user.uid : req.param('uid');
 
-    new sails.services.user().read(uid)
+    new sails.services.user().readFull(uid)
       .then(function (result) {
         res.json(result);
       })

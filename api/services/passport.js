@@ -330,7 +330,15 @@ passport.loadStrategies = function (req) {
       }
 
       if (!callback) {
-        callback = req && req._isMobile ? '/m/auth/' + key + '/callback' : 'auth/' + key + '/callback';
+        if (req && req._isMobile) {
+          if (req.access_token) {
+            callback = '/m/auth/' + key + '/callback' + '/?access_token=' + req.access_token;
+          } else {
+            callback = '/m/auth/' + key + '/callback';
+          }
+        } else {
+          callback = '/auth/' + key + '/callback';
+        }
       }
 
       switch (protocol) {

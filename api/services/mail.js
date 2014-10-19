@@ -136,12 +136,12 @@ Mail.prototype.cashoutRequest = function (data) {
     subject: '[Adillions - Cashout request]'
   }).then(function (response) {
     sails.log.info('\
-      mail.registration# service: \
+      mail.cashoutRequest# service: \
       Message sent to winners@adillions.com, ' + response);
     return response;
   }).fail(function (err) {
     sails.log.error('\
-      mail.registration# service: failed to write\
+      mail.cashoutRequest# service: failed to write\
       to winners@adillions.com', err);
     throw err;
   });
@@ -176,12 +176,12 @@ Mail.prototype.cashoutConfirmation = function (data) {
     subject: this.res.i18n('mail.cashout.confirmation.subject')
   }).then(function (response) {
     sails.log.info('\
-      mail.registration# service: \
+      mail.cashoutConfirmation# service: \
       Message sent to winners@adillions.com, ' + response);
     return response;
   }).fail(function (err) {
     sails.log.error('\
-      mail.registration# service: failed to write\
+      mail.cashoutConfirmation# service: failed to write\
       to winners@adillions.com', err);
     throw err;
   });
