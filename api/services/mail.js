@@ -88,7 +88,8 @@ Mail.prototype.registration = function (firstName, userName, email) {
 
   if (!_.isString(email) || _.isEmpty(email)) {
     // do not trow an error, just log it
-    sails.log.error('MailService #registration : the email param is mandatory and should not be empty', name);
+    sails.log.error('mail.registration#service : the email param is mandatory and should not be empty', name);
+    return;
   }
 
   return this._sendHtmlMail('mail/registration', {
