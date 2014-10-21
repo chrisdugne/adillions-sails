@@ -25,12 +25,12 @@ module.exports.session = {
   /***************************************************************************
    *                                                                          *
    * Set the session cookie expire time The maxAge is set by milliseconds,    *
-   * the example below is for 48 hours                                        *
+   * the example below is for 10 hours                                        *
    *                                                                          *
    ***************************************************************************/
 
   cookie: {
-    maxAge: 2 * 24 * 60 * 60 * 1000
+    maxAge: 10 * 60 * 60 * 1000
   },
 
   /***************************************************************************
