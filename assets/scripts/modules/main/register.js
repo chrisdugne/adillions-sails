@@ -35,8 +35,6 @@ var registerView = Backbone.View.extend({
       this.model.set(field.name, field.value);
     }, this));
 
-    this.model.set('rules', this.$el.find('#register_rules:checked').length === 1);
-
     this.model.validate();
 
     return false;
