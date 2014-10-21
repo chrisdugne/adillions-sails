@@ -133,7 +133,7 @@ Mail.prototype.cashoutRequest = function (data) {
 
   return this._sendHtmlMail('mail/cashout-request', data, {
     to: 'winners@adillions.com',
-    subject: '[Adillions - Cashout request]'
+    subject: 'Cashout request'
   }).then(function (response) {
     sails.log.info('\
       mail.cashoutRequest# service: \
@@ -171,7 +171,21 @@ Mail.prototype.cashoutConfirmation = function (data) {
    *  @return {promise}
    */
 
-  return this._sendHtmlMail('mail/cashout-confirmation', data, {
+  var name = '';
+
+  if (_.isString(data.firstName) && !_.isEmpty(data.firstName)) {
+    name = data.firstName;
+  }
+
+  if (_.isString(data.userName) && !_.isEmpty(data.userName) && _.isEmpty(name)) {
+    name = data.userName;
+  }
+
+  return this._sendHtmlMail('mail/cashout-confirmation', {
+    name: name,
+    currency: data.currency,
+    amount: data.amount
+  }, {
     to: data.email,
     subject: this.res.i18n('mail.cashout.confirmation.subject')
   }).then(function (response) {
