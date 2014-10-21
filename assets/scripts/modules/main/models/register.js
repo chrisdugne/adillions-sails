@@ -24,9 +24,9 @@ var registerModel = Backbone.Model.extend({
       required: true,
       msg: $.t('auth.empty_password')
     }, {
-      minLength: 6,
+      minLength: 4,
       msg: $.t('auth.min_password', {
-        count: 6
+        count: 4
       })
     }],
     passwordRepeat: [{
@@ -35,11 +35,7 @@ var registerModel = Backbone.Model.extend({
     }, {
       equalTo: 'password',
       msg: $.t('auth.same_password')
-    }],
-    rules: {
-      acceptance: true,
-      msg: $.t('auth.accepts_policy')
-    }
+    }]
   }
 });
 

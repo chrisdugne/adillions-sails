@@ -19,6 +19,19 @@ body{
   padding:0;
 }
 
+.header {
+  background: #0f262e;
+}
+
+.highligth {
+  color : #0d6161;
+}
+
+.text-link {
+  color: #2685c5;
+  text-decoration: none;
+}
+
   /* .ExternalClass applies to Outlook.com (the artist formerly known as Hotmail)  */
 
 .ExternalClass {
@@ -691,6 +704,30 @@ body.outlook p {
   table[class="body"] .show-for-small,
   table[class="body"] .hide-for-desktop {
     display: inherit !important;
+  }
+}
+
+table.columns .text-pad {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+table.columns .left-text-pad {
+  padding-left: 10px;
+}
+
+table.columns .right-text-pad {
+  padding-right: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+
+  table[class="body"] .right-text-pad {
+    padding-left: 10px !important;
+  }
+
+  table[class="body"] .left-text-pad {
+    padding-right: 10px !important;
   }
 }
 
