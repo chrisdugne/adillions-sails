@@ -213,16 +213,16 @@ Lottery.prototype.getNextDrawing = function (currentLanguage, next) {
 Lottery.prototype.getWinners = function (total, offset, next) {
 
   if (!_.isFunction(next)) {
-    throw new Error('Lottery#getLastWinners Service: the callback function is mandatory');
+    throw new Error('Lottery#getWinners Service: the callback function is mandatory');
   }
 
   if (!_.isNumber(total)) {
-    sails.log.warn('Lottery#getLastWinners Service: \'total\' property must be a number', total);
+    sails.log.warn('Lottery#getWinners Service: \'total\' property must be a number', total);
     total = 10;
   }
 
   if (!_.isNumber(offset)) {
-    sails.log.warn('Lottery#getLastWinners Service: \'offset\' property must be a number', offset);
+    sails.log.warn('Lottery#getWinners Service: \'offset\' property must be a number', offset);
     offset = 0;
   }
 
@@ -255,6 +255,7 @@ Lottery.prototype.getWinners = function (total, offset, next) {
           firstName: user.firstName,
           lastName: user.lastName,
           country: user.country,
+          photo: user.photo,
           prize: ticket.euros,
           charityStatus: charity_status,
           charityStatusRang: charity_rang
@@ -264,7 +265,7 @@ Lottery.prototype.getWinners = function (total, offset, next) {
       next(null, winners);
     })
     .fail(function (err) {
-      sails.log.error('Lottery#getLastWinners Service: query fails', err);
+      sails.log.error('Lottery#getWinners Service: query fails', err);
       next(err);
     });
 

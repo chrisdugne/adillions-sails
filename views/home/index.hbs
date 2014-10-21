@@ -223,7 +223,7 @@ window.onload = loadScript;
       <li class="global-player col-sm-4 col-xs-12" data-country="{{country}}" data-title="{{firstName}} {{truncate lastName 1}}">
         <div class="media">
           <span class="pull-left avatar" href="#">
-            <img class="media-object" src="/images/avatar/avatar-s-60x60.png" width="60">
+            <img class="media-object" src="{{#if photo}}{{photo}}{{else}}/images/avatar/avatar-s-60x60.png{{/if}}" width="60">
           </span>
           <div class="media-body text-left">
             <p class="mtxs mbxs">
