@@ -21,6 +21,12 @@ module.exports = {
     level: 'verbose'
   },
 
+  analytics: {
+    writeKey: 'KztK5EPZ2n',
+    readKey: 'SrAIuTB9A5w3MJo5QGNT1fXvNBqpWn',
+    projectId: 'nAPHaNlLqK'
+  },
+
   connections: {
     Postgresql: {
       adapter: 'sails-postgresql',
@@ -57,6 +63,9 @@ module.exports = {
     google: {
       key: '',
       version: '3'
+    },
+    analytics: {
+      writeKey: 'KztK5EPZ2n'
     },
     aws: {
       key: '',
