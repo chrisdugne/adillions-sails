@@ -17,9 +17,9 @@ module.exports = {
   },
 
   analytics: {
-    writeKey: 'eDRB4c1S9D',
-    readKey: 'HpIr1P1BkGE4LSXSazFElcaGFZpTzd',
-    projectId: '7hD3Z0cTnP'
+    writeKey: process.env.ANALYTICS_WRITE_KEY,
+    readKey: process.env.ANALYTICS_READ_KEY,
+    projectId: process.env.ANALYTICS_PROJECT_ID
   },
 
   connections: {
@@ -68,7 +68,7 @@ module.exports = {
       version: '3'
     },
     analytics: {
-      writeKey: 'eDRB4c1S9D'
+      writeKey: process.env.ANALYTICS_WRITE_KEY
     },
     aws: {
       key: '',
