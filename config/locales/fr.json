@@ -105,7 +105,7 @@
   "auth_signin": "Se connecter",
   "auth_signin_rememberme": "Se souvenir de moi",
   "auth_register": "S'enregistrer",
-  "auth_register_terms": "J'accepte <a href=\"%s\">les Conditions d'utilisation</a> et la <a href=\"%s\">Politique de confidentialité</a>",
+  "auth_register_terms": "En cliquant sur \"S'enregistrer\", J'accepte <a href=\"%s\">les Conditions d'utilisation</a> et la <a href=\"%s\">Politique de confidentialité</a>",
   "auth_field_username": "Pseudo",
   "auth_field_username_label": "Vous pouvez choisir un pseudo",
   "auth_field_email": "Adresse Email",
@@ -125,9 +125,9 @@
   "_comment": "##### MAIL/registration #####",
 
   "mail.registration.subject": "Bienvenue sur Adillions",
-  "mail.registration.hi": "Bonjour <b style='color:#0d6161;'>%s</b> !",
+  "mail.registration.hi": "Bonjour <b class='highligth'>%s</b> !",
   "mail.registration.title": "Bienvenue sur <b>Adillions</b>, <b>la loterie gratuite</b> avec des <b>gains d’argent réel</b> financés par la publicité !",
-  "mail.registration.desc": "Félicitations ! Vous venez de rejoindre notre communauté internationale de joueurs.<br> Vous pouvez dorénavant jouer à Adillions sur votre smartphone et votre tablette (<a href='%s' style='color: #2685c5;text-decoration: none;'>iOS</a> et <a href='%s' style='color: #2685c5;text-decoration: none;'>Android</a>) et sur internet <a href='http://www.adillions.com' style='color: #2685c5;text-decoration: none;'>http://www.adillions.com</a>.",
+  "mail.registration.desc": "Félicitations ! Vous venez de rejoindre notre communauté internationale de joueurs.<br> Vous pouvez dorénavant jouer à Adillions sur votre smartphone et votre tablette (<a href='%s' class='text-link'>iOS</a> et <a href='%s' class='text-link'>Android</a>) et sur internet <a href='http://www.adillions.com' class='text-link'>http://www.adillions.com</a>.",
   "mail.registration.step.desc": "A chaque tirage d'Adillions, ce sont :",
   "mail.registration.step.ticket": "Plusieurs tickets de loterie disponibles à remplir",
   "mail.registration.step.theme": "Un nouveau thème à découvrir",
@@ -140,9 +140,9 @@
 
   "_comment": "##### MAIL/cashout-request #####",
 
-  "mail.cashout.confirmation.subject": "[Adillions - Demande de paiement]",
-  "mail.cashout.confirmation.success": "Votre demande de paiement de %s a été reçue avec succès.",
-  "mail.cashout.confirmation.congratulations": "Félicitations !",
+  "mail.cashout.confirmation.subject": "Demande de paiement",
+  "mail.cashout.confirmation.success": "Votre demande de paiement de <b class='highligth'>%s %s</b> a été reçue avec succès.",
+  "mail.cashout.confirmation.congratulations": "Félicitations <b class='highligth'>%s</b> !",
 
   "_comment": "##### LANDING/index #####",
 

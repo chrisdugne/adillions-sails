@@ -50,7 +50,7 @@ blockquote {
 
 .btn-default {
   // bourbon mixin
-  @include button(simple, $btn-default-bg);
+  @include button(simple, #fff);
   &:hover {
     color: $btn-default-color;
   }

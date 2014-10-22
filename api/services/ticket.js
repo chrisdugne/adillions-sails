@@ -151,10 +151,6 @@ var TicketService = module.exports = function () {
             user.playedBonusTickets += 1;
           }
 
-          if (user.extraTickets > 0) {
-            user.extraTickets -= 1;
-          }
-
           user.playedTickets += 1;
           user.save();
           return user;
