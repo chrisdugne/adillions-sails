@@ -155,7 +155,8 @@ module.exports = {
     userName: {
       type: 'string',
       columnName: 'user_name',
-      unique: true
+      unique: true,
+      required: false
     },
 
     email: {
