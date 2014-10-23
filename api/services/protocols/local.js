@@ -38,13 +38,10 @@ exports.register = function (req, res, next) {
     return next(new Error('No password was entered.'));
   }
 
-  query.email = email.toLowerCase();
-
-  if (userName) {
-    query.userName = userName;
-  }
-
-  User.create(query).then(function createPassport(user) {
+  User.create({
+    userName: userName,
+    email: email.toLowerCase()
+  }).then(function createPassport(user) {
     sails.log.info('Passport.local.register#service: create a local user', user.uid);
     Passport.create({
       protocol: 'local',
@@ -54,6 +51,7 @@ exports.register = function (req, res, next) {
       .then(function done(passport) {
         sails.log.info('Passport.local.register#service: create a local passport', passport.id);
         req._registered = true;
+        user.trackSignedUp('local');
         next(null, user);
       })
       .fail(function (err) {
@@ -201,6 +199,7 @@ exports.login = function (req, identifier, password, next) {
     })
     .then(function loginUser(user) {
       sails.log.info('Passport.local.login#service: success login for user', user.uid);
+      user.trackLoggedIn('local');
       next(null, user);
     })
     .fail(function (err) {

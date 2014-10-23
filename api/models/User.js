@@ -1,4 +1,5 @@
-var uuid = require('node-uuid');
+var _ = require('lodash'),
+  uuid = require('node-uuid');
 
 var generate_sponsorCode = function () {
   var code = '',
@@ -268,11 +269,69 @@ module.exports = {
         rang: 5
       }];
       return status;
+    },
+
+    trackLoggedIn: function (provider) {
+      (new sails.services.analytics({
+        uid: this.uid
+      }))
+        .identify({
+          email: this.email,
+          userName: this.userName
+        })
+        .track('Logged In', {
+          provider: provider
+        });
+    },
+
+    trackSignedUp: function (provider) {
+      (new sails.services.analytics({
+        uid: this.uid
+      }))
+        .identify({
+          email: this.email,
+          userName: this.userName
+        })
+        .track('Signed Up', {
+          provider: provider
+        });
+    },
+
+    trackModifiedAccount: function (app) {
+      (new sails.services.analytics({
+        uid: this.uid
+      }))
+        .identify({
+          email: this.email,
+          userName: this.userName
+        })
+        .track('Modified Account', {
+          app: app
+        });
+    },
+
+    trackConnectedProvider: function (provider) {
+      (new sails.services.analytics({
+        uid: this.uid
+      }))
+        .identify({
+          email: this.email,
+          userName: this.userName
+        })
+        .track('Connected Provider', {
+          provider: provider
+        });
     }
 
   },
 
   beforeCreate: function (user, next) {
+    if (_.isString(user.userName) && _.isEmpty(user.userName)) {
+      user.userName = null;
+    }
+    if (_.isString(user.email) && _.isEmpty(user.email)) {
+      user.email = null;
+    }
     // Handle legacy date
     user.creation_date = new Date().getTime();
     user.last_update = new Date();
@@ -286,6 +345,12 @@ module.exports = {
   },
 
   beforeUpdate: function (user, next) {
+    if (_.isString(user.userName) && _.isEmpty(user.userName)) {
+      user.userName = null;
+    }
+    if (_.isString(user.email) && _.isEmpty(user.email)) {
+      user.email = null;
+    }
     // Handle legacy date
     user.last_update = new Date();
     next(null, user);
