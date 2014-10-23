@@ -107,7 +107,8 @@ module.exports = {
       delete userData.birthDate;
     }
 
-    UserService.update(uid, userData).then(function (result) {
+    UserService.update(uid, userData).then(function (user) {
+      user.trackModifiedAccount();
       req.flash_alert('success', 'account_updated');
       res.redirect(accountRoute);
     }).fail(function (err) {
@@ -154,7 +155,8 @@ module.exports = {
       delete userData.birthDate;
     }
 
-    UserService.update(uid, userData).then(function (result) {
+    UserService.update(uid, userData).then(function (user) {
+      user.trackModifiedAccount();
       req.flash_alert('success', 'account_updated');
       res.redirect(redirectRoute);
     }).fail(function (err) {
