@@ -24,18 +24,13 @@ var validator = require('validator');
 
 exports.register = function (req, res, next) {
   var email = req.param('email'),
-    username = req.param('username'),
-    password = req.param('password');
+    userName = req.param('username'),
+    password = req.param('password'),
+    query = {};
 
   if (!email) {
     req.flash_alert('danger', 'Error.Passport.Email.Missing');
     return next(new Error('No email was entered.'));
-  }
-
-  if (!username) {
-    // req.flash_alert('danger', 'Error.Passport.Username.Missing');
-    // return next(new Error('No username was entered.'));
-    username = '';
   }
 
   if (!password) {
@@ -43,10 +38,13 @@ exports.register = function (req, res, next) {
     return next(new Error('No password was entered.'));
   }
 
-  User.create({
-    userName: username,
-    email: email.toLowerCase()
-  }).then(function createPassport(user) {
+  query.email = email.toLowerCase();
+
+  if (userName) {
+    query.userName = userName;
+  }
+
+  User.create(query).then(function createPassport(user) {
     sails.log.info('Passport.local.register#service: create a local user', user.uid);
     Passport.create({
       protocol: 'local',
