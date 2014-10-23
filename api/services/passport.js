@@ -130,6 +130,7 @@ passport.connect = function (req, query, userObj, profile, next) {
       if (!user) {
         user = User.create(userObj).then(function (user) {
           sails.log.info('Passport.connect#service: create a user', user.uid);
+          user.trackSignedUp(provider);
           req._registered = true;
           return user;
         });
@@ -141,6 +142,9 @@ passport.connect = function (req, query, userObj, profile, next) {
         query.user = user.uid;
         passport = Passport.create(query).then(function (passport) {
           sails.log.info('Passport.connect#service: create a passport', passport.id);
+          if (req.user) {
+            user.trackConnectedProvider(provider);
+          }
           return passport;
         });
       }
@@ -170,6 +174,7 @@ passport.connect = function (req, query, userObj, profile, next) {
     })
     .spread(function loginUser(user, passport) {
       sails.log.info('Passport.connect#service: login user', user.uid);
+      user.trackLoggedIn(provider);
       next(null, user);
     })
     .fail(function handleValiationErrors(err) {
