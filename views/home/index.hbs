@@ -64,7 +64,7 @@ window.onload = loadScript;
       </div>
     </div>
     <p class="text-center">
-      <a href="{{route 'game.index' lang=locale}}" class="btn btn-lead btn-lg play">
+      <a href="{{route 'game.index' lang=locale}}" class="btn btn-lead btn-lg play" id="landing-hero-play">
         {{{i18n 'play_for_free'}}}
       </a>
     </p>
@@ -96,7 +96,7 @@ window.onload = loadScript;
         <h3><small class="hidden">1.</small> {{i18n 'landing_watchad'}}</h3>
         <p class="desc">{{{i18n 'landing_watchad_desc'}}}</p>
         <p>
-          <a href="{{route 'about.winwinwin' lang=locale}}" class="see-more">
+          <a href="{{route 'about.winwinwin' lang=locale}}" class="see-more" id="landing-howitworks-winwinwin">
             {{i18n 'landing_watchad_link'}}
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
@@ -109,7 +109,7 @@ window.onload = loadScript;
         <h3><small class="hidden">2.</small> {{i18n 'landing_getticket'}}</h3>
         <p class="desc">{{{i18n 'landing_getticket_desc'}}}</p>
         <p>
-          <a href="{{route 'about.rules' lang=locale}}" class="see-more">
+          <a href="{{route 'about.rules' lang=locale}}" class="see-more" id="landing-howitworks-rules">
             {{i18n 'landing_getticket_link'}}
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
@@ -122,7 +122,7 @@ window.onload = loadScript;
         <h3><small class="hidden">3.</small> {{i18n 'landing_winprize'}}</h3>
         <p class="desc">{{{i18n 'landing_winprize_desc'}}}</p>
         <p>
-          <a href="{{route 'game.results' lang=locale}}" class="see-more">
+          <a href="{{route 'game.results' lang=locale}}" class="see-more" id="landing-howitworks-results">
             {{i18n 'landing_winprize_link'}}
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
@@ -156,22 +156,22 @@ window.onload = loadScript;
     {{!-- Platforms links --}}
     <ul class="list-unstyled row">
       <li class="col-xs-12 col-sm-3 col-md-3 mbm">
-        <a href="{{extUrl 'app_ios'}}" class="btn btn-primary btn-lg btn-block">
+        <a href="{{extUrl 'app_ios'}}" class="btn btn-primary btn-lg btn-block landing-platforms-link" id="landing-platforms-appStore">
           app store
         </a>
       </li>
       <li class="col-xs-12 col-sm-3 col-md-3 mbm">
-        <a href="{{extUrl 'app_android'}}" class="btn btn-primary btn-lg btn-block">
+        <a href="{{extUrl 'app_android'}}" class="btn btn-primary btn-lg btn-block landing-platforms-link" id="landing-platforms-googlePlay">
           google play
         </a>
       </li>
       <li class="col-xs-12 col-sm-3 col-md-3 mbm">
-        <a href="{{extUrl 'app_facebook'}}" class="btn btn-primary btn-lg btn-block">
+        <a href="{{extUrl 'app_facebook'}}" class="btn btn-primary btn-lg btn-block landing-platforms-link" id="landing-platforms-facebook">
           facebook
         </a>
       </li>
       <li class="col-xs-12 col-sm-3 col-md-3 mbm">
-        <a href="{{route 'game.index' lang=locale}}" class="btn btn-lead btn-lg btn-block">
+        <a href="{{route 'game.index' lang=locale}}" class="btn btn-lead btn-lg btn-block" id="landing-platforms-play">
           {{{i18n 'play_for_free'}}}
         </a>
       </li>
@@ -250,7 +250,7 @@ window.onload = loadScript;
     <div id="js-global-map" class="global-map">
     </div>
      <p class="text-center">
-      <a href="{{route 'game.results' lang=locale}}" class="btn btn-primary btn-lg">
+      <a href="{{route 'game.results' lang=locale}}" class="btn btn-primary btn-lg" id="landing-global-results">
         {{i18n 'see_previous_results'}}
       </a>
     </p>
@@ -287,7 +287,7 @@ window.onload = loadScript;
     </div>
 
     <p class="text-center">
-      <a href="mailto:advertisers@adillions.com" class="btn btn-primary btn-lg">
+      <a href="mailto:advertisers@adillions.com" class="btn btn-primary btn-lg" id="landing-advertisers-contact">
         {{i18n 'contact_us'}}
       </a>
     </p>

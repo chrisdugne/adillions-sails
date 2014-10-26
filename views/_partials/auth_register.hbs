@@ -13,26 +13,26 @@
     </div>
 
     <div class="form-group form-group-lg has-feedback">
-      <label class="control-label" for="email">{{i18n 'auth_field_email'}} <span class="text-warning">*</span></label>
-      <input type="email" class="form-control email" name="email" placeholder="{{i18n 'auth_field_email'}}" value="{{form.email}}">
+      <label class="control-label" for="auth-register-email">{{i18n 'auth_field_email'}} <span class="text-warning">*</span></label>
+      <input type="email" class="form-control email" name="email" placeholder="{{i18n 'auth_field_email'}}" value="{{form.email}}" id="auth-register-email">
       <span class="help-block"></span>
     </div>
 
     <div class="form-group form-group-lg has-feedback">
-      <label class="control-label" for="password">{{i18n 'auth_field_password'}} <span class="text-warning">*</span></label>
-      <input type="password" class="form-control password" name="password" placeholder="{{i18n 'auth_field_password'}}" value="{{form.password}}">
+      <label class="control-label" for="auth-register-password">{{i18n 'auth_field_password'}} <span class="text-warning">*</span></label>
+      <input type="password" class="form-control password" name="password" placeholder="{{i18n 'auth_field_password'}}" value="{{form.password}}" id="auth-register-password">
       <span class="help-block"></span>
     </div>
 
     <div class="form-group form-group-lg has-feedback">
-      <label class="control-label" for="password">{{i18n 'auth_field_passwordRepeat'}} <span class="text-warning">*</span></label>
-      <input type="password" class="form-control password" name="passwordRepeat" placeholder="{{i18n 'auth_field_passwordRepeat'}}" value="{{form.passwordRepeat}}">
+      <label class="control-label" for="auth-register-password-repeat">{{i18n 'auth_field_passwordRepeat'}} <span class="text-warning">*</span></label>
+      <input type="password" class="form-control password" name="passwordRepeat" placeholder="{{i18n 'auth_field_passwordRepeat'}}" value="{{form.passwordRepeat}}" id="auth-register-password-repeat">
       <span class="help-block"></span>
     </div>
 
     <div class="form-group form-group-lg has-feedback from-group-username" data-toggle="tooltip" data-placement="top">
-      <label class="control-label" for="username">{{i18n 'auth_field_username_label'}}</label>
-      <input type="text" class="form-control username" name="username" placeholder="{{i18n 'auth_field_username'}}" value="{{form.username}}">
+      <label class="control-label" for="auth-register-username">{{i18n 'auth_field_username_label'}}</label>
+      <input type="text" class="form-control username" name="username" placeholder="{{i18n 'auth_field_username'}}" value="{{form.username}}" id="auth-register-username">
       <span class="help-block"></span>
     </div>
 
@@ -46,7 +46,7 @@
     </div>
 
     <div class="text-center mtl">
-      <button type="submit" class="btn btn-lead btn-lg btn-block" data-loading-text="{{i18n 'ui_loading'}}">{{i18n 'auth_register'}}</button>
+      <button type="submit" class="btn btn-lead btn-lg btn-block" data-loading-text="{{i18n 'ui_loading'}}" id="auth-register-submit">{{i18n 'auth_register'}}</button>
     </div>
 
     <p class="mts mbn text-center">
