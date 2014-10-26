@@ -1,6 +1,8 @@
 var _ = require('lodash'),
   AnalyticsNode = require('analytics-node'),
-  analytics = new AnalyticsNode(sails.config.analytics.writeKey);
+  analytics = new AnalyticsNode(sails.config.analytics.writeKey, {
+    flushAt: sails.config.analytics.flushAt
+  });
 
 function Analytics(params) {
 
@@ -49,7 +51,7 @@ Analytics.prototype.track = function (event, properties) {
     query.anonymousId = this.anonymousId;
   }
 
-  sails.log.info('track#' + event, this.uid);
+  sails.log.info('track#' + event);
   analytics.track(query);
   return this;
 };

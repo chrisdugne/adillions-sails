@@ -24,7 +24,8 @@ module.exports = {
   analytics: {
     writeKey: 'KztK5EPZ2n',
     readKey: 'SrAIuTB9A5w3MJo5QGNT1fXvNBqpWn',
-    projectId: 'nAPHaNlLqK'
+    projectId: 'nAPHaNlLqK',
+    flushAt: 1
   },
 
   connections: {

@@ -19,7 +19,8 @@ module.exports = {
   analytics: {
     writeKey: process.env.ANALYTICS_WRITE_KEY,
     readKey: process.env.ANALYTICS_READ_KEY,
-    projectId: process.env.ANALYTICS_PROJECT_ID
+    projectId: process.env.ANALYTICS_PROJECT_ID,
+    flushAt: 10
   },
 
   connections: {
