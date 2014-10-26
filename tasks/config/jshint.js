@@ -37,6 +37,7 @@ module.exports = function (grunt) {
     tooling: {
       src: [
         'Gruntfile.js',
+        'newrelic.js',
         'app.js',
         'tasks/**/*.js'
       ],

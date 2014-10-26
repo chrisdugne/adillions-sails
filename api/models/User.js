@@ -297,27 +297,17 @@ module.exports = {
         });
     },
 
-    trackModifiedAccount: function (app) {
+    trackModifiedAccount: function (properties) {
       (new sails.services.analytics({
         uid: this.uid
       }))
-        .identify({
-          email: this.email,
-          userName: this.userName
-        })
-        .track('Modified Account', {
-          app: app
-        });
+        .track('Modified Account', properties);
     },
 
     trackConnectedProvider: function (provider) {
       (new sails.services.analytics({
         uid: this.uid
       }))
-        .identify({
-          email: this.email,
-          userName: this.userName
-        })
         .track('Connected Provider', {
           provider: provider
         });

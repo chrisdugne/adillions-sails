@@ -12,6 +12,7 @@ module.exports = function (grunt) {
     modify: {
       src: [
         'Gruntfile.js',
+        'newrelic.js',
         'app.js',
         'tasks/**/*.js',
         'api/**/*.js',
@@ -30,6 +31,7 @@ module.exports = function (grunt) {
     verify: {
       src: [
         'Gruntfile.js',
+        'newrelic.js',
         'app.js',
         'tasks/**/*.js',
         'api/**/*.js',
