@@ -2,7 +2,7 @@
 
   <ul class="nav navbar-nav">
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle clearfix avatar-link" data-toggle="dropdown">
+      <a href="#" class="dropdown-toggle clearfix avatar-link" data-toggle="dropdown" id="header-private-dropdown">
         <div class="media">
           <span class="pull-left avatar" href="#">
             <img class="media-object" src="{{#if user.photo}}{{user.photo}}{{else}}/images/avatar/avatar-s-60x60.png{{/if}}" width="36" />
@@ -18,19 +18,14 @@
         </div>
       </a>
       <ul class="dropdown-menu" role="menu">
-{{!--         <li>
-          <a href="{{route 'userSettings.profile' lang=locale id=user.uid}}">
-          {{{i18n 'profile'}}}
-          </a>
-        </li> --}}
         <li>
-          <a href="{{route 'userSettings.account' lang=locale id=user.uid}}">
+          <a href="{{route 'userSettings.account' lang=locale id=user.uid}}" id="header-private-account">
           {{{i18n 'account'}}}
           </a>
         </li>
         <li class="divider"></li>
         <li>
-          <a href="{{route 'auth.logout' lang=locale}}">
+          <a href="{{route 'auth.logout' lang=locale}}" id="header-private-logout">
             <span class="glyphicon glyphicon-log-out"></span>
             {{i18n 'ui_logout'}}
           </a>
@@ -40,7 +35,7 @@
   </ul>
 
   <div class="navbar-btn navbar-right">
-    <a href="{{route 'game.index' lang=locale}}" class="btn btn-lead">
+    <a href="{{route 'game.index' lang=locale}}" class="btn btn-lead" id="header-private-play">
     {{{i18n 'play'}}}
     </a>
   </div>
