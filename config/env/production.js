@@ -13,7 +13,7 @@
 module.exports = {
 
   log: {
-    level: 'verbose'
+    level: 'info'
   },
 
   analytics: {
