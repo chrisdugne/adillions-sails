@@ -12,35 +12,40 @@ var PublicService = module.exports = function () {
         .where({
           id: 'current'
         })
-        .then(function (globals) {
-          return globals;
-        })
         .fail(function (err) {
           sails.log.error('PublicService#readGlobals : query fails', err);
+          throw err;
         });
     },
 
     //--------------------------------------------------------------------------
 
     readArchivedLotteries: function (limit) {
-      return sails.models.lottery
-        .find()
-        .where({
-          result: {
-            '!': null
-          }
-        })
-        .limit(limit || 1000)
-        .sort('timestamp DESC')
-        .then(function (lotteries) {
-          _.forEach(lotteries, function (lottery) {
-            lottery.nbWinners = lottery.nbWinners();
+      return Q.fcall(function () {
+        // wrapper the error into a promise, to bubble it
+        if (!_.isNumber(limit)) {
+          throw new Error('PublicService#readArchivedLotteries : the limit param is mandatory and should be a number');
+        }
+        return sails.models.lottery
+          .find()
+          .where({
+            result: {
+              '!': null
+            }
+          })
+          .limit(limit)
+          .sort('timestamp DESC')
+          .then(function (lotteries) {
+            _.forEach(lotteries, function (lottery) {
+              lottery.nbWinners = lottery.nbWinners();
+            });
+            return lotteries;
+          })
+          .fail(function (err) {
+            sails.log.error('PublicService#readArchivedLotteries : query fails', err);
+            throw err;
           });
-          return lotteries;
-        })
-        .fail(function (err) {
-          sails.log.error('PublicService#readArchivedLotteries : query fails', err);
-        });
+      });
     },
 
     //--------------------------------------------------------------------------
@@ -80,82 +85,51 @@ var PublicService = module.exports = function () {
         };
       }).fail(function (err) {
         sails.log.error('PublicService#readStatus : query fails', err);
+        throw err;
       });
-
     },
 
     //--------------------------------------------------------------------------
 
-    readMobileSettings: function (id, next) {
-
-      if (!_.isFunction(next)) {
-        throw new Error('PublicService#readMobileSettings Service: the callback function is mandatory');
-      }
-
-      if (!_.isString(id)) {
-        return next(new Error('PublicService#readMobileSettings Service: id is mandatory'));
-      }
-
-      sails.models.mobilesettings
-        .find()
-        .where({
-          id: id
-        })
-        .then(function (result) {
-          if (!result || !result.length) {
-            throw new Error('empty mobileSettings for id ' + id);
-          }
-          next(null, result[0]);
-        })
-        .fail(function (err) {
-          sails.log.error('PublicService#readMobileSettings : query fails', err);
-          next(err);
-        });
+    readMobileSettings: function (id) {
+      return Q.fcall(function () {
+        // wrapper the error into a promise, to bubble it
+        if (!_.isString(id)) {
+          throw new Error('PublicService#readMobileSettings : the id param is mandatory and should be a string');
+        }
+        return sails.models.mobilesettings
+          .findOne()
+          .where({
+            id: id
+          })
+          .fail(function (err) {
+            sails.log.error('PublicService#readMobileSettings : query fails', err);
+            throw err;
+          });
+      });
     },
 
     //--------------------------------------------------------------------------
 
-    readCharityLevels: function (next) {
-
-      if (!_.isFunction(next)) {
-        throw new Error('PublicService#readCharityLevels Service: the callback function is mandatory');
-      }
-
-      sails.models.charitylevels
+    readCharityLevels: function () {
+      return sails.models.charitylevels
         .find()
         .sort('level ASC')
-        .then(function (result) {
-          if (!result || !result.length) {
-            throw new Error('empty charitylevels');
-          }
-          next(null, result);
-        })
         .fail(function (err) {
           sails.log.error('PublicService#readCharityLevels : query fails', err);
-          next(err);
+          throw err;
         });
     },
 
     //--------------------------------------------------------------------------
 
-    readAmbassadorLevels: function (next) {
-
-      if (!_.isFunction(next)) {
-        throw new Error('PublicService#readAmbassadorLevels Service: the callback function is mandatory');
-      }
-
-      sails.models.ambassadorlevels
+    readAmbassadorLevels: function () {
+      return sails.models.ambassadorlevels
         .find()
         .sort('level ASC')
-        .then(function (result) {
-          if (!result || !result.length) {
-            throw new Error('empty ambassadorlevels');
-          }
-          next(null, result);
-        })
         .fail(function (err) {
           sails.log.error('PublicService#readAmbassadorLevels : query fails', err);
-          next(err);
+          throw err;
         });
     },
 
