@@ -1,4 +1,5 @@
-var _ = require('lodash');
+var _ = require('lodash'),
+  Q = require('q');
 
 var PublicService = module.exports = function () {
   return {
@@ -51,47 +52,36 @@ var PublicService = module.exports = function () {
           timestamp: {
             '>': new Date().getTime()
           }
-        })
-        .then(function (nextDrawing) {
-          return nextDrawing;
+        });
+    },
+
+    readNextLottery: function () {
+      return sails.models.lottery
+        .findOne()
+        .where({
+          timestamp: {
+            '>': new Date().getTime() + 2 * 60 * 60 * 1000
+          }
         });
     },
 
     //--------------------------------------------------------------------------
 
     readStatus: function () {
-      return this.readGlobals()
-        .then(function initResult(globals) {
-          return {
-            globals: globals
-          };
-        })
-        .then(function getNextDrawing(result) {
-          return this.readNextDrawing()
-            .then(function (nextDrawing) {
-              result.nextDrawing = nextDrawing;
-              return result;
-            });
-        }.bind(this))
-        .then(function getNextPlayableDrawing(result) {
-          return sails.models.lottery
-            .findOne()
-            .where({
-              timestamp: {
-                '>': new Date().getTime() + 2 * 60 * 60 * 1000
-              }
-            })
-            .then(function (nextLottery) {
-              result.nextLottery = nextLottery;
-              return result;
-            });
-        })
-        .then(function done(result) {
-          return result;
-        })
-        .fail(function (err) {
-          sails.log.error('PublicService#readStatus : query fails', err);
-        });
+      return Q.all([
+        this.readGlobals(),
+        this.readNextDrawing(),
+        this.readNextLottery()
+      ]).spread(function (globals, nextDrawing, nextLottery) {
+        return {
+          globals: globals,
+          nextDrawing: nextDrawing,
+          nextLottery: nextLottery
+        };
+      }).fail(function (err) {
+        sails.log.error('PublicService#readStatus : query fails', err);
+      });
+
     },
 
     //--------------------------------------------------------------------------
