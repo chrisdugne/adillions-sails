@@ -18,6 +18,14 @@
  * `node app.js --silent --port=80 --prod`
  */
 
+try {
+  if (process.env.NODE_ENV === 'production' && process.env.APP_NAME === 'prod') {
+    require('newrelic');
+  }
+} catch (e) {
+  console.error('Could not find dependency: `newrelic`');
+}
+
 // Ensure a "sails" can be located:
 var sails;
 try {
