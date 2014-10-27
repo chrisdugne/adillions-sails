@@ -6,21 +6,23 @@ var PublicService = module.exports = function () {
 
     //--------------------------------------------------------------------------
 
-    readGlobals: function () {
-      return sails.models.globals
-        .findOne()
-        .where({
-          id: 'current'
-        })
-        .fail(function (err) {
-          sails.log.error('PublicService#readGlobals : query fails', err);
-          throw err;
-        });
+    readGlobals: function (next) {
+      return Q.fcall(function () {
+        return sails.models.globals
+          .findOne()
+          .where({
+            id: 'current'
+          })
+          .fail(function (err) {
+            sails.log.error('PublicService#readGlobals : query fails', err);
+            throw err;
+          });
+      }).nodeify(next);
     },
 
     //--------------------------------------------------------------------------
 
-    readArchivedLotteries: function (limit) {
+    readArchivedLotteries: function (limit, next) {
       return Q.fcall(function () {
         // wrapper the error into a promise, to bubble it
         if (!_.isNumber(limit)) {
@@ -45,34 +47,38 @@ var PublicService = module.exports = function () {
             sails.log.error('PublicService#readArchivedLotteries : query fails', err);
             throw err;
           });
-      });
+      }).nodeify(next);
     },
 
     //--------------------------------------------------------------------------
 
-    readNextDrawing: function () {
-      return sails.models.lottery
-        .findOne()
-        .where({
-          timestamp: {
-            '>': new Date().getTime()
-          }
-        });
+    readNextDrawing: function (next) {
+      return Q.fcall(function () {
+        return sails.models.lottery
+          .findOne()
+          .where({
+            timestamp: {
+              '>': new Date().getTime()
+            }
+          });
+      }).nodeify(next);
     },
 
-    readNextLottery: function () {
-      return sails.models.lottery
-        .findOne()
-        .where({
-          timestamp: {
-            '>': new Date().getTime() + 2 * 60 * 60 * 1000
-          }
-        });
+    readNextLottery: function (next) {
+      return Q.fcall(function () {
+        return sails.models.lottery
+          .findOne()
+          .where({
+            timestamp: {
+              '>': new Date().getTime() + 2 * 60 * 60 * 1000
+            }
+          });
+      }).nodeify(next);
     },
 
     //--------------------------------------------------------------------------
 
-    readStatus: function () {
+    readStatus: function (next) {
       return Q.all([
         this.readGlobals(),
         this.readNextDrawing(),
@@ -86,12 +92,12 @@ var PublicService = module.exports = function () {
       }).fail(function (err) {
         sails.log.error('PublicService#readStatus : query fails', err);
         throw err;
-      });
+      }).nodeify(next);
     },
 
     //--------------------------------------------------------------------------
 
-    readMobileSettings: function (id) {
+    readMobileSettings: function (id, next) {
       return Q.fcall(function () {
         // wrapper the error into a promise, to bubble it
         if (!_.isString(id)) {
@@ -106,31 +112,35 @@ var PublicService = module.exports = function () {
             sails.log.error('PublicService#readMobileSettings : query fails', err);
             throw err;
           });
-      });
+      }).nodeify(next);
     },
 
     //--------------------------------------------------------------------------
 
-    readCharityLevels: function () {
-      return sails.models.charitylevels
-        .find()
-        .sort('level ASC')
-        .fail(function (err) {
-          sails.log.error('PublicService#readCharityLevels : query fails', err);
-          throw err;
-        });
+    readCharityLevels: function (next) {
+      return Q.fcall(function () {
+        return sails.models.charitylevels
+          .find()
+          .sort('level ASC')
+          .fail(function (err) {
+            sails.log.error('PublicService#readCharityLevels : query fails', err);
+            throw err;
+          });
+      }).nodeify(next);
     },
 
     //--------------------------------------------------------------------------
 
-    readAmbassadorLevels: function () {
-      return sails.models.ambassadorlevels
-        .find()
-        .sort('level ASC')
-        .fail(function (err) {
-          sails.log.error('PublicService#readAmbassadorLevels : query fails', err);
-          throw err;
-        });
+    readAmbassadorLevels: function (next) {
+      return Q.fcall(function () {
+        return sails.models.ambassadorlevels
+          .find()
+          .sort('level ASC')
+          .fail(function (err) {
+            sails.log.error('PublicService#readAmbassadorLevels : query fails', err);
+            throw err;
+          });
+      }).nodeify(next);
     },
 
     //--------------------------------------------------------------------------
