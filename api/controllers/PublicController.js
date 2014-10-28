@@ -20,6 +20,9 @@ var PublicController = module.exports = {
   readStatus: function (req, res) {
     new sails.services.public().readStatus()
       .then(function (result) {
+        if (!result) {
+          return res.notFound();
+        }
         res.json(result);
       })
       .fail(function (err) {
@@ -32,6 +35,9 @@ var PublicController = module.exports = {
   readNextDrawing: function (req, res) {
     new sails.services.public().readNextDrawing()
       .then(function (result) {
+        if (!result) {
+          return res.notFound();
+        }
         res.json(result);
       })
       .fail(function (err) {
@@ -42,9 +48,13 @@ var PublicController = module.exports = {
   //----------------------------------------------------------------------------
 
   readArchivedLotteries: function (req, res) {
-    new sails.services.public().readArchivedLotteries(req.param('limit'))
-      .then(function (lotteries) {
-        res.json(lotteries);
+    var limit = +req.param('limit') || 1000;
+    new sails.services.public().readArchivedLotteries(limit)
+      .then(function (result) {
+        if (!result) {
+          return res.notFound();
+        }
+        res.json(result);
       })
       .fail(function (err) {
         return res.serverError(err);
@@ -53,44 +63,51 @@ var PublicController = module.exports = {
 
   //----------------------------------------------------------------------------
 
-  // TODO : promisify
   readCharityLevels: function (req, res) {
-    var PublicService = new sails.services.public();
-
-    PublicService.readCharityLevels(function (err, result) {
-      if (err) {
+    new sails.services.public().readCharityLevels()
+      .then(function (result) {
+        if (!result) {
+          // require static data
+          sails.log.error('public.controller#readCharityLevels : empty CharityLevels');
+          return res.notFound();
+        }
+        res.json(result);
+      })
+      .fail(function (err) {
         return res.serverError(err);
-      }
-      res.json(result);
-    });
+      });
   },
 
   //----------------------------------------------------------------------------
 
-  // TODO : promisify
   readAmbassadorLevels: function (req, res) {
-    var PublicService = new sails.services.public();
-
-    PublicService.readAmbassadorLevels(function (err, result) {
-      if (err) {
+    new sails.services.public().readAmbassadorLevels()
+      .then(function (result) {
+        if (!result) {
+          // require static data
+          sails.log.error('public.controller#readAmbassadorLevels : empty AmbassadorLevels');
+          return res.notFound();
+        }
+        res.json(result);
+      })
+      .fail(function (err) {
         return res.serverError(err);
-      }
-      res.json(result);
-    });
+      });
   },
 
   //----------------------------------------------------------------------------
 
-  // TODO : promisify
   readMobileSettings: function (req, res) {
-    var PublicService = new sails.services.public(),
-      id = req.param('id');
-
-    PublicService.readMobileSettings(id, function (err, result) {
-      if (err) {
+    var id = req.param('id');
+    new sails.services.public().readMobileSettings(id)
+      .then(function (result) {
+        if (!result) {
+          return res.notFound();
+        }
+        res.json(result);
+      })
+      .fail(function (err) {
         return res.serverError(err);
-      }
-      res.json(result);
-    });
+      });
   }
 };

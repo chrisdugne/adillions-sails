@@ -13,12 +13,6 @@ var path = require('path'),
   helpers = require(path.resolve(__dirname + '/helpers'));
 
 module.exports.bootstrap = function (done) {
-
-  //trigger newrelic
-  if (sails.config.environment === 'production' && sails.config.application === 'prod') {
-    require('newrelic');
-  }
-
   // These convenience methods will register all partials (that have a *.html or *.hbs extension) in the given directory. registerPartials will perform a one-time registration.
   // Partials that are loaded from a directory are named based on their filename, where spaces and hyphens are replaced with an underscore character:
   // template.html      -> {{> template}}
