@@ -140,7 +140,7 @@
   "_comment": "##### MAIL/cashout-request #####",
 
   "mail.cashout.confirmation.subject": "Cashout confirmation",
-  "mail.cashout.confirmation.success": "Your cash out request of <b class='highligth'>%s %s</b> has been successfully sent.",
+  "mail.cashout.confirmation.success": "Your cash out request of <b class='highligth'>%s</b> has been successfully sent.",
   "mail.cashout.confirmation.congratulations": "Congratulations <b class='highligth'>%s</b> !",
 
   "_comment": "##### LANDING/index #####",
