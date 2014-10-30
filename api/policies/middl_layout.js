@@ -4,7 +4,7 @@ module.exports = function (req, res, next) {
 
   var layout = {
     country: {
-      code: 'US'
+      code: process.env.COUNTRY_CODE || 'US'
     },
     api: config.api
   };
