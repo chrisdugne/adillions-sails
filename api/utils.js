@@ -27,7 +27,7 @@ module.exports = {
 
   countryPrice: function (price, country, rateUSDtoEUR) {
     price = _.isNumber(price) ? price : 0;
-    rateUSDtoEUR = _.isNumber(rateUSDtoEUR) ? rateUSDtoEUR : 1.273505;
+    rateUSDtoEUR = _.isNumber(rateUSDtoEUR) ? rateUSDtoEUR : 1.34;
 
     if (this.isEuroCountry(country)) {
       return price;
