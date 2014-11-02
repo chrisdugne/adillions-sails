@@ -108,7 +108,8 @@ module.exports = {
             // just log the error;
             sails.log.error(err);
           }
-          cb(null, splitCharityPrice(results));
+          var price = req.country_price(results, res.locals.country.code);
+          cb(null, splitCharityPrice(price));
         });
       },
       lastWinners: function (cb) {
