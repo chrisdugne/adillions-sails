@@ -1,4 +1,5 @@
-var moment = require('moment');
+var moment = require('moment'),
+  utils = require('../utils');
 
 module.exports = function (req, res, next) {
 
@@ -39,6 +40,32 @@ module.exports = function (req, res, next) {
       type: type,
       message: res.i18n(message)
     });
+  };
+
+  req.flash_alert = function (type, message) {
+    if (!arguments.length) {
+      return req.flash('alert')[0];
+    }
+
+    if (arguments.length === 1) {
+      return req.flash('alert', {
+        type: 'info',
+        message: res.i18n(type)
+      });
+    }
+
+    return req.flash('alert', {
+      type: type,
+      message: res.i18n(message)
+    });
+  };
+
+  req._display_price = function (price, country, rateUSDtoEUR) {
+    return utils.convertAndDisplayPrice(price, country, rateUSDtoEUR);
+  };
+
+  req.country_price = function (price, country, rateUSDtoEUR) {
+    return utils.countryPrice(price, country, rateUSDtoEUR);
   };
 
   return next();

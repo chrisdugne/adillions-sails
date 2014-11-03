@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 module.exports = {
 
   isEuroCountry: function (country) {
@@ -6,11 +8,16 @@ module.exports = {
     return isEuro;
   },
 
-  displayPrice: function (price, country) {
-    if (!price) {
-      price = 0;
+  displayCurrency: function (country) {
+    if (this.isEuroCountry(country)) {
+      return '€';
+    } else {
+      return 'US$';
     }
+  },
 
+  displayPrice: function (price, country) {
+    price = _.isNumber(price) ? price : 0;
     if (this.isEuroCountry(country)) {
       return price + ' €';
     } else {
@@ -18,15 +25,14 @@ module.exports = {
     }
   },
 
-  countryPrice: function (euros, country, rateUSDtoEUR) {
-    if (!euros) {
-      euros = 0;
-    }
+  countryPrice: function (price, country, rateUSDtoEUR) {
+    price = _.isNumber(price) ? price : 0;
+    rateUSDtoEUR = _.isNumber(rateUSDtoEUR) ? rateUSDtoEUR : 1.34;
 
     if (this.isEuroCountry(country)) {
-      return euros;
+      return price;
     } else {
-      return Math.round(euros * rateUSDtoEUR);
+      return Math.round(price * rateUSDtoEUR);
     }
   },
 

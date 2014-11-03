@@ -62,13 +62,13 @@
             <div class="icon glyphicon glyphicon-money mtn">
             </div>
             <h3>{{#mergeContexts parent=..}}{{i18n 'prizes'}}{{/mergeContexts}}</h3>
-            <p class="desc">{{finalPrice}} €</p>
+            <p class="desc">{{displayPrice finalPrice ../country.code}}</p>
           </div>
           <div class="dispib text-center">
             <div class="icon glyphicon glyphicon-heart mtn">
             </div>
             <h3>{{#mergeContexts parent=..}}{{i18n 'charities'}}{{/mergeContexts}}</h3>
-            <p class="desc">{{charity}} €</p>
+            <p class="desc">{{displayPrice charity ../country.code}}</p>
           </div>
         </div>
 

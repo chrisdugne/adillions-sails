@@ -184,7 +184,6 @@ Mail.prototype.cashoutConfirmation = function (data) {
 
   return this._sendHtmlMail('mail/cashout-confirmation', {
     name: name,
-    currency: data.currency,
     amount: data.amount
   }, {
     to: data.email,

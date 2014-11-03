@@ -141,7 +141,7 @@
   "_comment": "##### MAIL/cashout-request #####",
 
   "mail.cashout.confirmation.subject": "Demande de paiement",
-  "mail.cashout.confirmation.success": "Votre demande de paiement de <b class='highligth'>%s %s</b> a été reçue avec succès.",
+  "mail.cashout.confirmation.success": "Votre demande de paiement de <b class='highligth'>%s</b> a été reçue avec succès.",
   "mail.cashout.confirmation.congratulations": "Félicitations <b class='highligth'>%s</b> !",
 
   "_comment": "##### LANDING/index #####",

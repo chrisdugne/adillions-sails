@@ -3,8 +3,10 @@
  *
  */
 var _ = require('lodash'),
+  path = require('path'),
   numeral = require('numeral'),
-  hbs = require('hbs');
+  hbs = require('hbs'),
+  utils = require(path.resolve('api/utils'));
 
 /**
  * Helpers
@@ -204,6 +206,28 @@ var helpers = {
     }
 
     return numeral(ressource).format('0,0');
+  },
+
+  displayPrice: function (price, country, rateUSDtoEUR) {
+    if (!_.isNumber(price)) {
+      throw new Error('displayPrice#helper: The price agurment must be a number');
+    }
+
+    if (!_.isString(country)) {
+      throw new Error('displayPrice#helper: The country agurment must be a string');
+    }
+
+    if (!_.isNumber(rateUSDtoEUR)) {
+      rateUSDtoEUR = null;
+    }
+    return new hbs.SafeString(utils.convertAndDisplayPrice(price, country, rateUSDtoEUR));
+  },
+
+  displayCurrency: function (country) {
+    if (!_.isString(country)) {
+      throw new Error('displayCurrency#helper: The country agurment must be a string');
+    }
+    return new hbs.SafeString(utils.displayCurrency(country));
   }
 
 };

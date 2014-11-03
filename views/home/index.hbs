@@ -15,7 +15,6 @@
 {{/push}}
 
 {{#push "scripts"}}
-{{!-- <script src="https://maps.googleapis.com/maps/api/js?sensor=false&v={{api.google.version}}&key={{api.google.key}}&language={{locale}}"></script> --}}
 <script src="{{statics '/scripts/landing.js'}}"></script>
 <script>require('landing');</script>
 <script>
@@ -53,7 +52,7 @@ window.onload = loadScript;
       <div class="col-xs-12 col-sm-4">
         <p class="text-center highlight highlight-prize">
           <span class="title">{{i18n 'fund_prize'}}</span>
-          <strong class="text">{{nextDrawing.prize}} €</strong>
+          <strong class="text">{{displayPrice nextDrawing.prize country.code}}</strong>
         </p>
       </div>
       <div class="col-xs-12 col-sm-4">
@@ -193,6 +192,7 @@ window.onload = loadScript;
         <p class="desc">{{{i18n 'landing_responsible_desc'}}}</p>
         {{#if totalCharity}}
         <p class="prize mbn mtxl">
+          <span class="prize-currenry mrl">{{displayCurrency ../country.code}}</span>
           {{#each totalCharity}}
             {{#if comma}}
               <span class="prize-comma">{{value}}</span>
@@ -204,7 +204,6 @@ window.onload = loadScript;
                 <span class="prize-item">{{value}}</span>
             {{/if}}
           {{/each}}
-          <span class="prize-currenry">€</span>
         </p>
         {{/if}}
       </div>
@@ -234,7 +233,7 @@ window.onload = loadScript;
             {{#mergeContexts parent=..}}
               {{i18n 'won'}}
             {{/mergeContexts}}
-            {{prize}} €
+            <span class="prize">{{displayPrice prize ../country.code}}</span>
             </p>
             <div class="badge-wrap dispib" data-toggle="tooltip" data-placement="bottom" title="{{charityStatusName}}">
               {{#each charityStatus}}
