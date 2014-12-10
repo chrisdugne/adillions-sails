@@ -191,12 +191,12 @@ Mail.prototype.cashoutConfirmation = function (data) {
   }).then(function (response) {
     sails.log.info('\
       mail.cashoutConfirmation# service: \
-      Message sent to winners@adillions.com, ' + response);
+      Message sent to ' + data.email + ', ' + response);
     return response;
   }).fail(function (err) {
     sails.log.error('\
       mail.cashoutConfirmation# service: failed to write\
-      to winners@adillions.com', err);
+      to  ' + data.email + ', err);
     throw err;
   });
 
