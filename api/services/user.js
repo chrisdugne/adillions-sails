@@ -443,13 +443,15 @@ var UserService = module.exports = function () {
 
             });
         })
-        .then(function sendRequest(data) {
-          mailer.cashoutRequest(data);
-          return data;
-        })
-        .then(function sendConfirmation(data) {
-          mailer.cashoutConfirmation(data);
-          return data;
+        .then(function sendEmails(data) {
+          return mailer.cashoutRequest(data)
+          .then(function() {
+            mailer.cashoutConfirmation(data);
+            return;
+          })
+          .then(function emailsSent(){
+            return data;
+          });
         })
         .then(function done(data) {
           return true;
