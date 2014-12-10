@@ -38,7 +38,7 @@ Mail.prototype._sendHtmlMail = function (viewPath, data, options) {
     sails.log.info('MailService #_sendHtmlMail : redirect email recipient to ' + devRecipent, sails.config.application);
   }
 
-  sails.log.info('MailService #_sendHtmlMail : final mailOptions', mailOptions);
+  sails.log.info('MailService #_sendHtmlMail : final.to : ', mailOptions.to);
 
   // get the html of the template
   return Q.npost(this.res, 'render', [viewPath, templateData]).then(function (html) {
