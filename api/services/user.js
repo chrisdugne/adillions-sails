@@ -443,8 +443,11 @@ var UserService = module.exports = function () {
 
             });
         })
-        .then(function sendEmails(data) {
+        .then(function sendRequest(data) {
           mailer.cashoutRequest(data);
+          return data;
+        })
+        .then(function sendConfirmation(data) {
           mailer.cashoutConfirmation(data);
           return data;
         })
