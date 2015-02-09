@@ -108,7 +108,7 @@ var helpers = {
     }
 
     if (!_.isNumber(length)) {
-      return sails.log.error('truncate#helper: The length agurments must be a number,', typeof(length));
+      return sails.log.error('truncate#helper: The length agurments must be a number,', typeof (length));
     }
 
     if (!_.isString(dots)) {
