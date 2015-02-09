@@ -103,12 +103,12 @@ var helpers = {
    */
 
   truncate: function (ressource, length, dots) {
-    if (!_.isString(ressource) || _.isEmpty(ressource)) {
-      throw new Error('truncate#helper: The ressource agurments must be a string');
+    if (!_.isString(ressource)) {
+      return sails.log.error('truncate#helper: The ressource agurments must be a string,', ressource);
     }
 
     if (!_.isNumber(length)) {
-      throw new Error('truncate#helper: The length agurments must be a number');
+      return sails.log.error('truncate#helper: The length agurments must be a number,', typeof(length));
     }
 
     if (!_.isString(dots)) {
